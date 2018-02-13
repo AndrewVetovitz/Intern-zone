@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import Navbar from './components/navbar';
-import Home from './components/home';
+import Navbar from './components/Navbar/navbar';
+import Home from './components/Home/home';
 
 class App extends Component {
   render() {
     return (
       <div>
         <Navbar/>
-        <Home/>
+        {/*<Home/>*/}
       </div>
     );
   }

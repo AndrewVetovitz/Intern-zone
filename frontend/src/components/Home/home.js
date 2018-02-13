@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './home.css';
-import Tile from "./tile";
+import Tile from "../Tile/tile";
 
 class Home extends Component {
     render() {
