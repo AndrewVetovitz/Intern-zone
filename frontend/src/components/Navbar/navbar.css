@@ -1,0 +1,15 @@
+.Navbar {
+    height: 100vh;
+    color: white;
+    text-align: center;
+}
+
+.test {
+    padding-top: 50px;
+}
+
+.Navbar-grid {
+    background-color: #222;
+    position: fixed;
+    width: 250px;
+}

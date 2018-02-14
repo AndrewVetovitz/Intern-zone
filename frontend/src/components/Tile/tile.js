@@ -3,7 +3,6 @@ import './tile.css';
 
 class Tile extends Component {
 
-
     render() {
         return (
             <div className="Tile">

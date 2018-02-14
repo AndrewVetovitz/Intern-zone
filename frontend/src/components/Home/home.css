@@ -1,4 +1,5 @@
-.Home {
-  min-height: 100px;
-  background-color: blue;
+.Home-grid {
+  background-color: pink;
+  height: 100%;
+  width: 100%;
 }
