@@ -11,7 +11,6 @@ const styles = theme => ({
         maxWidth: 275,
         minWidth: 275,
         minHeight: 150,
-        margin: 50,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center'

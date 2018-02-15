@@ -2,11 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7b57c6e9-9a01-476f-8a63-cbc95c813cf4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/App.css" afterPath="$PROJECT_DIR$/frontend/src/App.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/App.js" afterPath="$PROJECT_DIR$/frontend/src/App.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/components/Home/home.js" afterPath="$PROJECT_DIR$/frontend/src/components/Home/home.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/components/Navbar/navbar.css" afterPath="$PROJECT_DIR$/frontend/src/components/Navbar/navbar.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/components/Navbar/navbar.js" afterPath="$PROJECT_DIR$/frontend/src/components/Navbar/navbar.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/components/Tile/tile.css" afterPath="$PROJECT_DIR$/frontend/src/components/Tile/tile.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/components/Tile/tile.js" afterPath="$PROJECT_DIR$/frontend/src/components/Tile/tile.js" />
     </list>
@@ -22,7 +17,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="App.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="108">
@@ -69,8 +64,8 @@
       <file leaf-file-name="tile.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/src/components/Tile/tile.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="35" column="24" lean-forward="false" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
+            <state relative-caret-position="216">
+              <caret line="12" column="23" lean-forward="false" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -78,11 +73,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tile.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="tile.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/frontend/src/components/Tile/tile.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="1" column="25" lean-forward="false" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="25" />
+            <state relative-caret-position="54">
+              <caret line="3" column="1" lean-forward="true" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -161,10 +156,10 @@
         <option value="$PROJECT_DIR$/frontend/src/App.css" />
         <option value="$PROJECT_DIR$/frontend/src/components/Navbar/navbar.css" />
         <option value="$PROJECT_DIR$/frontend/src/components/Navbar/navbar.js" />
-        <option value="$PROJECT_DIR$/frontend/src/components/Tile/tile.css" />
-        <option value="$PROJECT_DIR$/frontend/src/components/Tile/tile.js" />
         <option value="$PROJECT_DIR$/frontend/src/components/Home/home.js" />
         <option value="$PROJECT_DIR$/frontend/src/App.js" />
+        <option value="$PROJECT_DIR$/frontend/src/components/Tile/tile.js" />
+        <option value="$PROJECT_DIR$/frontend/src/components/Tile/tile.css" />
       </list>
     </option>
   </component>
@@ -326,12 +321,12 @@
       <workItem from="1515683517118" duration="12814000" />
       <workItem from="1516040003200" duration="25000" />
       <workItem from="1516994169841" duration="1329000" />
-      <workItem from="1518535593982" duration="26483000" />
+      <workItem from="1518535593982" duration="27256000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49992000" />
+    <option name="totallyTimeSpent" value="50765000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
@@ -519,24 +514,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/Tile/tile.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="25" lean-forward="false" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/Tile/tile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="35" column="24" lean-forward="false" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/components/Home/home.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
@@ -562,6 +539,24 @@
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/Tile/tile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="23" lean-forward="false" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/Tile/tile.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="1" lean-forward="true" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
