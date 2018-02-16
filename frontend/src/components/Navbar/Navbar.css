@@ -8,8 +8,9 @@
     padding-top: 50px;
 }
 
-.Navbar-grid {
-    background-color: #222;
-    position: fixed;
+.Navbar-layout {
     width: 300px;
+    background: #607D8B;
+    height: 100vh;
+    position: fixed;
 }

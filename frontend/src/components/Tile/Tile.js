@@ -5,13 +5,16 @@ import { withStyles } from 'material-ui/styles';
 import Card, { CardContent } from 'material-ui/Card';
 import Typography from 'material-ui/Typography';
 
-import './tile.css'
+import './Tile.css'
+
+const phi = (1 + Math.sqrt(5)) / 2;
+const width = 275;
+const height = 275 / phi;
 
 const styles = theme => ({
     card: {
-        maxWidth: 275,
-        minWidth: 275,
-        minHeight: 150,
+        width: width,
+        minHeight: height,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center'

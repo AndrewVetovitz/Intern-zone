@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import './home.css';
+import './Home.css';
 
-import Header from '../Header/header';
-import Tile from '../Tile/tile';
+import Header from '../Header/Header';
+import Tile from '../Tile/Tile';
 
 const t = <div className="Home">
     <Tile name={'Andrew'} />
