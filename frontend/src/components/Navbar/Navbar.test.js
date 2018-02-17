@@ -11,11 +11,6 @@ describe('<Navbar />', () => {
         ReactDOM.render(<Navbar />, div);
         ReactDOM.unmountComponentAtNode(div);
     });
-
-    it('renders', () => {
-        const wrapper = shallow(<Navbar />);
-        expect(wrapper.contains()).to.equal(true);
-    });
 });
 
 
