@@ -20,7 +20,11 @@ const styles = theme => ({
         color: 'white',
     },
     t: {
-        height: '100px;'
+        color: 'white',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: '100px'
     },
     sss: {
         paddingTop: '100px'
@@ -54,7 +58,10 @@ function Navbar(props) {
 
     return (
         <div className="Navbar-layout">
-            <List component="nav" className={ classes.sss }>
+            <div className={ classes.t }>
+                Hello
+            </div>
+            <List component="nav">
                 {divider}
                 {content}
             </List>
