@@ -14,7 +14,7 @@ describe('<Navbar />', () => {
 
     it('renders', () => {
         const wrapper = shallow(<Navbar />);
-        expect(wrapper.contains(<Navbar />)).to.equal(true);
+        expect(wrapper.contains()).to.equal(true);
     });
 });
 

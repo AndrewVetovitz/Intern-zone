@@ -7,6 +7,8 @@ import Typography from 'material-ui/Typography';
 
 import './Navbar.css';
 
+import { Link } from "react-router-dom";
+
 const styles = theme => ({
     root: {
         width: '300px',
@@ -15,21 +17,26 @@ const styles = theme => ({
         position: 'fixed',
     },
     test: {
-        color: 'white'
+        color: 'white',
     },
     t: {
         height: '100px;'
+    },
+    sss: {
+        paddingTop: '100px'
     }
 });
 
-function createListItem(key, text, style) {
+function createListItem(key, header, style) {
     return (
-       <ListItem key={key} button>
-           <ListItemText
-               disableTypography
-               primary={<Typography className={ style }>{text}</Typography>}
-           />
-       </ListItem>
+        <Link to={ header['link'] } key={ key }>
+            <ListItem>
+                <ListItemText
+                    disableTypography
+                    primary={<Typography className={ style }>{ header['text'] }</Typography>}
+                />
+            </ListItem>
+        </Link>
     )
 }
 
@@ -37,7 +44,7 @@ function Navbar(props) {
     const { classes } = props;
 
     const divider = <Divider style={{backgroundColor: '#BDBDBD'}}/>;
-    const headers = ['Home', 'About', 'Resources'];
+    const headers = [{text: 'Home', link: '/'}, {text: 'About', link: '/about'}, {text: 'Resources', link: '/resources'}];
 
     const content = [];
     for (let i = 0; i < headers.length; i++) {
@@ -47,7 +54,7 @@ function Navbar(props) {
 
     return (
         <div className="Navbar-layout">
-            <List component="nav">
+            <List component="nav" className={ classes.sss }>
                 {divider}
                 {content}
             </List>

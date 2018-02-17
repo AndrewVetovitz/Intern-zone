@@ -8,8 +8,8 @@ import Typography from 'material-ui/Typography';
 import './Tile.css'
 
 const phi = (1 + Math.sqrt(5)) / 2;
-const width = 275;
-const height = 275 / phi;
+const width = 300;
+const height = width / phi;
 
 const styles = theme => ({
     card: {
@@ -17,35 +17,28 @@ const styles = theme => ({
         minHeight: height,
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center'
-    },
-    title: {
-        marginBottom: 16,
-        fontSize: 14,
-        color: theme.palette.text.secondary,
-    },
-    pos: {
-        marginBottom: 12,
-        color: theme.palette.text.secondary,
-    },
+        justifyContent: 'center',
+        cursor: 'pointer',
+        margin: 'auto'
+    }
 });
+
+function handleSearch(name) {
+    window.location = '/company/'+ name;
+}
 
 function SimpleCard(props) {
     const { classes } = props;
 
-    const url = "/company/" + props.name;
-
     return (
         <div className="Tile">
-            <a href={url}>
-                <Card className={classes.card}>
-                    <CardContent>
-                        <Typography variant="headline" component="h2">
-                            { props.name }
-                        </Typography>
-                    </CardContent>
-                </Card>
-            </a>
+            <Card className={classes.card} onClick={ () => handleSearch(props.name) }>
+                <CardContent>
+                    <Typography variant="headline" component="h2">
+                        { props.name }
+                    </Typography>
+                </CardContent>
+            </Card>
         </div>
     );
 }

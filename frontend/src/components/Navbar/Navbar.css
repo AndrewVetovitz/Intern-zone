@@ -5,7 +5,7 @@
 }
 
 .test {
-    padding-top: 50px;
+    margin-top: 200px;
 }
 
 .Navbar-layout {
@@ -14,3 +14,4 @@
     height: 100vh;
     position: fixed;
 }
+
