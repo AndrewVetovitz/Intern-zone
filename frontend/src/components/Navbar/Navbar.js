@@ -7,17 +7,17 @@ import Typography from 'material-ui/Typography';
 
 import './Navbar.css';
 
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 const styles = theme => ({
     root: {
         width: '300px',
         backgroundColor: '#607D8B',
         height: '100vh',
-        position: 'fixed',
+        position: 'fixed'
     },
     test: {
-        color: 'white',
+        color: 'white'
     },
     t: {
         color: 'white',
@@ -41,7 +41,7 @@ function createListItem(key, header, style) {
                 />
             </ListItem>
         </Link>
-    )
+    );
 }
 
 function Navbar(props) {
@@ -53,7 +53,7 @@ function Navbar(props) {
     const content = [];
     for (let i = 0; i < headers.length; i++) {
         content.push(createListItem(i, headers[i], classes.test));
-        content.push(divider)
+        content.push(divider);
     }
 
     return (
@@ -70,7 +70,7 @@ function Navbar(props) {
 }
 
 Navbar.propTypes = {
-    classes: PropTypes.object.isRequired,
+    classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(Navbar);

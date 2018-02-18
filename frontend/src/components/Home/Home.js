@@ -4,7 +4,7 @@ import './Home.css';
 import Header from '../Header/Header';
 
 import data from '../../data.json';
-import Tile from "../Tile/Tile";
+import Tile from '../Tile/Tile';
 
 class Home extends Component {
     constructor(){
@@ -22,10 +22,10 @@ class Home extends Component {
         let tiles = data.map((value, index) => {
             return (
                 <Tile key={ index } name={ value['name'] } />
-            )
+            );
         });
 
-        this.setState({tiles: tiles})
+        this.setState({tiles: tiles});
     }
 
 

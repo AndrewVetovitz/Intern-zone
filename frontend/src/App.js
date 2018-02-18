@@ -3,11 +3,11 @@ import './App.css';
 
 import Navbar from './components/Navbar/Navbar';
 import Home from './components/Home/Home';
-import Company from "./components/Company/Company";
+import Company from './components/Company/Company';
 
 import Reboot from 'material-ui/Reboot';
 
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 class App extends Component {
     render() {

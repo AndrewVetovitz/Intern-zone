@@ -5,7 +5,7 @@ import { withStyles } from 'material-ui/styles';
 import Card, { CardContent } from 'material-ui/Card';
 import Typography from 'material-ui/Typography';
 
-import './Tile.css'
+import './Tile.css';
 
 const phi = (1 + Math.sqrt(5)) / 2;
 const width = 300;
@@ -44,7 +44,7 @@ function SimpleCard(props) {
 }
 
 SimpleCard.propTypes = {
-    classes: PropTypes.object.isRequired,
+    classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(SimpleCard);
