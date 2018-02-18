@@ -9,7 +9,7 @@ import './Navbar.css';
 
 import { Link } from 'react-router-dom';
 
-const styles = theme => ({
+const styles = () => ({
     root: {
         width: '300px',
         backgroundColor: '#607D8B',
@@ -48,7 +48,9 @@ function Navbar(props) {
     const { classes } = props;
 
     const divider = <Divider style={{backgroundColor: '#BDBDBD'}}/>;
-    const headers = [{text: 'Home', link: '/'}, {text: 'About', link: '/about'}, {text: 'Resources', link: '/resources'}];
+    const headers = [{text: 'Home', link: '/'},
+        {text: 'About', link: '/about'},
+        {text: 'Resources', link: '/resources'}];
 
     const content = [];
     for (let i = 0; i < headers.length; i++) {

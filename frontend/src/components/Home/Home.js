@@ -11,7 +11,7 @@ class Home extends Component {
         super();
         this.state = {
             tiles: []
-        }
+        };
     }
 
     componentDidMount() {

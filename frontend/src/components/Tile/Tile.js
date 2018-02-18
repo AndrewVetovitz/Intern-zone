@@ -7,11 +7,13 @@ import Typography from 'material-ui/Typography';
 
 import './Tile.css';
 
-const phi = (1 + Math.sqrt(5)) / 2;
+const one = 1, two = 2, five = 5;
+
+const phi = (one + Math.sqrt(five)) / two;
 const width = 300;
 const height = width / phi;
 
-const styles = theme => ({
+const styles = () => ({
     card: {
         width: width,
         minHeight: height,
@@ -44,7 +46,8 @@ function SimpleCard(props) {
 }
 
 SimpleCard.propTypes = {
-    classes: PropTypes.object.isRequired
+    classes: PropTypes.object.isRequired,
+    name: PropTypes.string.isRequired
 };
 
 export default withStyles(styles)(SimpleCard);

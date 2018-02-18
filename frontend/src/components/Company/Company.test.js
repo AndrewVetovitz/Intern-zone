@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Company from './Company';
 
-describe("Company", () => {
+describe('<Company />', () => {
     let props = null;
 
     beforeEach(() => {
