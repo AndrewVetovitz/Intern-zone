@@ -7,7 +7,7 @@ import Typography from 'material-ui/Typography';
 
 import './Navbar.css';
 
-import {Link, MemoryRouter} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const styles = theme => ({
     root: {
@@ -33,16 +33,14 @@ const styles = theme => ({
 
 function createListItem(key, header, style) {
     return (
-        <MemoryRouter key={ key }>
-            <Link to={ header['link'] }>
-                <ListItem>
-                    <ListItemText
-                        disableTypography
-                        primary={<Typography className={ style }>{ header['text'] }</Typography>}
-                    />
-                </ListItem>
-            </Link>
-        </MemoryRouter>
+        <Link to={ header['link'] } key={ key }>
+            <ListItem>
+                <ListItemText
+                    disableTypography
+                    primary={<Typography className={ style }>{ header['text'] }</Typography>}
+                />
+            </ListItem>
+        </Link>
     )
 }
 
