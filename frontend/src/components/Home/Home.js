@@ -2,147 +2,40 @@ import React, { Component } from 'react';
 import './Home.css';
 
 import Header from '../Header/Header';
-import Tile from '../Tile/Tile';
 
-const t = <div className="Home">
-    <Tile name={'Andrew'} />
-    <Tile name={'Beth'} />
-    <Tile name={'Sam'} />
-    <Tile name={'Andrew'} />
-    <Tile name={'Beth'} />
-    <Tile name={'Sam'} />
-    <Tile name={'Andrew'} />
-    <Tile name={'Beth'} />
-    <Tile name={'Sam'} />
-    <Tile name={'Andrew'} />
-    <Tile name={'Beth'} />
-    <Tile name={'Sam'} />
-    <Tile name={'Andrew'} />
-    <Tile name={'Beth'} />
-    <Tile name={'Sam'} />
-    <Tile name={'Andrew'} />
-    <Tile name={'Beth'} />
-    <Tile name={'Sam'} />
-    <Tile name={'Andrew'} />
-    <Tile name={'Beth'} />
-    <Tile name={'Sam'} />
-
-    <Tile name={'Andrew'} />
-    <Tile name={'Beth'} />
-    <Tile name={'Sam'} />
-    <Tile name={'Andrew'} />
-    <Tile name={'Beth'} />
-    <Tile name={'Sam'} />
-    <Tile name={'Andrew'} />
-    <Tile name={'Beth'} />
-    <Tile name={'Sam'} />
-    <Tile name={'Andrew'} />
-    <Tile name={'Beth'} />
-    <Tile name={'Sam'} />
-    <Tile name={'Andrew'} />
-    <Tile name={'Beth'} />
-    <Tile name={'Sam'} />
-    <Tile name={'Andrew'} />
-    <Tile name={'Beth'} />
-    <Tile name={'Sam'} />
-    <Tile name={'Andrew'} />
-    <Tile name={'Beth'} />
-    <Tile name={'Sam'} />
-
-    <Tile name={'Andrew'} />
-    <Tile name={'Beth'} />
-    <Tile name={'Sam'} />
-    <Tile name={'Andrew'} />
-    <Tile name={'Beth'} />
-    <Tile name={'Sam'} />
-    <Tile name={'Andrew'} />
-    <Tile name={'Beth'} />
-    <Tile name={'Sam'} />
-    <Tile name={'Andrew'} />
-    <Tile name={'Beth'} />
-    <Tile name={'Sam'} />
-    <Tile name={'Andrew'} />
-    <Tile name={'Beth'} />
-    <Tile name={'Sam'} />
-    <Tile name={'Andrew'} />
-    <Tile name={'Beth'} />
-    <Tile name={'Sam'} />
-    <Tile name={'Andrew'} />
-    <Tile name={'Beth'} />
-    <Tile name={'Sam'} />
-
-    <Tile name={'Andrew'} />
-    <Tile name={'Beth'} />
-    <Tile name={'Sam'} />
-    <Tile name={'Andrew'} />
-    <Tile name={'Beth'} />
-    <Tile name={'Sam'} />
-    <Tile name={'Andrew'} />
-    <Tile name={'Beth'} />
-    <Tile name={'Sam'} />
-    <Tile name={'Andrew'} />
-    <Tile name={'Beth'} />
-    <Tile name={'Sam'} />
-    <Tile name={'Andrew'} />
-    <Tile name={'Beth'} />
-    <Tile name={'Sam'} />
-    <Tile name={'Andrew'} />
-    <Tile name={'Beth'} />
-    <Tile name={'Sam'} />
-    <Tile name={'Andrew'} />
-    <Tile name={'Beth'} />
-    <Tile name={'Sam'} />
-
-    <Tile name={'Andrew'} />
-    <Tile name={'Beth'} />
-    <Tile name={'Sam'} />
-    <Tile name={'Andrew'} />
-    <Tile name={'Beth'} />
-    <Tile name={'Sam'} />
-    <Tile name={'Andrew'} />
-    <Tile name={'Beth'} />
-    <Tile name={'Sam'} />
-    <Tile name={'Andrew'} />
-    <Tile name={'Beth'} />
-    <Tile name={'Sam'} />
-    <Tile name={'Andrew'} />
-    <Tile name={'Beth'} />
-    <Tile name={'Sam'} />
-    <Tile name={'Andrew'} />
-    <Tile name={'Beth'} />
-    <Tile name={'Sam'} />
-    <Tile name={'Andrew'} />
-    <Tile name={'Beth'} />
-    <Tile name={'Sam'} />
-
-    <Tile name={'Andrew'} />
-    <Tile name={'Beth'} />
-    <Tile name={'Sam'} />
-    <Tile name={'Andrew'} />
-    <Tile name={'Beth'} />
-    <Tile name={'Sam'} />
-    <Tile name={'Andrew'} />
-    <Tile name={'Beth'} />
-    <Tile name={'Sam'} />
-    <Tile name={'Andrew'} />
-    <Tile name={'Beth'} />
-    <Tile name={'Sam'} />
-    <Tile name={'Andrew'} />
-    <Tile name={'Beth'} />
-    <Tile name={'Sam'} />
-    <Tile name={'Andrew'} />
-    <Tile name={'Beth'} />
-    <Tile name={'Sam'} />
-    <Tile name={'Andrew'} />
-    <Tile name={'Beth'} />
-</div>;
+import data from '../../data.json';
+import Tile from "../Tile/Tile";
 
 class Home extends Component {
+    constructor(){
+        super();
+        this.state = {
+            tiles: []
+        }
+    }
+
+    componentDidMount() {
+        this.getTiles();
+    }
+
+    getTiles() {
+        let tiles = data.map((value, index) => {
+            return (
+                <Tile key={ index } name={ value['name'] } />
+            )
+        });
+
+        this.setState({tiles: tiles})
+    }
+
+
     render() {
         return (
             <div className="Home-grid">
                 <Header/>
-                {t}
+                <div className="Home">
+                    { this.state.tiles }
+                </div>
             </div>
         );
     }
