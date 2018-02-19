@@ -1,72 +1,50 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
-import List, { ListItem, ListItemText } from 'material-ui/List';
-import Divider from 'material-ui/Divider';
-import Typography from 'material-ui/Typography';
+import List, { ListItem, ListItemText, ListItemIcon } from 'material-ui/List';
+import  Paper  from 'material-ui/Paper';
 
 import './Navbar.css';
-
 import { Link } from 'react-router-dom';
 
 const styles = () => ({
     root: {
         width: '300px',
-        backgroundColor: '#607D8B',
         height: '100vh',
         position: 'fixed'
-    },
-    test: {
-        color: 'white'
-    },
-    t: {
-        color: 'white',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        height: '100px'
-    },
-    sss: {
-        paddingTop: '100px'
     }
 });
 
-function createListItem(key, header, style) {
+function createListItem(key, header) {
     return (
-        <Link to={ header['link'] } key={ key }>
-            <ListItem>
-                <ListItemText
-                    disableTypography
-                    primary={<Typography className={ style }>{ header['text'] }</Typography>}
-                />
-            </ListItem>
-        </Link>
+        <ListItem button component={Link} to={header['link']} key={ key }>
+            <ListItemIcon>
+                <i className="material-icons">{header['icon']}</i>
+            </ListItemIcon>
+            <ListItemText primary={header['text']} />
+        </ListItem>
     );
 }
 
 function Navbar(props) {
     const { classes } = props;
 
-    const divider = <Divider style={{backgroundColor: '#BDBDBD'}}/>;
-    const headers = [{text: 'Home', link: '/'},
-        {text: 'About', link: '/about'},
-        {text: 'Resources', link: '/resources'}];
+    const headers = [{text: 'Home', link: '/', icon: 'home'},
+        {text: 'About', link: '/about', icon: 'description'},
+        {text: 'Resources', link: '/resources', icon: 'import_contacts'}];
 
     const content = [];
     for (let i = 0; i < headers.length; i++) {
-        content.push(createListItem(i, headers[i], classes.test));
-        content.push(divider);
+        content.push(createListItem(i, headers[i]));
     }
 
     return (
-        <div className="Navbar-layout">
-            <div className={ classes.t }>
-                Hello
-            </div>
-            <List component="nav">
-                {divider}
-                {content}
-            </List>
+        <div>
+            <Paper className={ classes.root } elevation={4}>
+                <List component="nav">
+                    {content}
+                </List>
+            </Paper>
         </div>
     );
 }

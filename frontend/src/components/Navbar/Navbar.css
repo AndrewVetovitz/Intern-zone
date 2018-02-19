@@ -1,6 +1,6 @@
 .Navbar {
     height: 100vh;
-    color: white;
+    color: green;
     text-align: center;
 }
 
@@ -10,7 +10,7 @@
 
 .Navbar-layout {
     width: 300px;
-    background: #607D8B;
+    background: white;
     height: 100vh;
     position: fixed;
 }

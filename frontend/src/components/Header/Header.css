@@ -1,6 +1,6 @@
 .Header {
     height: 500px;
-    background-color: white;
+    background-color: #f2f7f7;
     display: flex;
     justify-content: center;
     flex-direction: column;
