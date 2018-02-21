@@ -34,7 +34,7 @@ function SimpleCard(props) {
 
     return (
         <div className="Tile">
-            <Card className={classes.card} onClick={ () => handleSearch(props.name) } raised={true}>
+            <Card className={classes.card} onClick={ () => handleSearch(props.name) } raised>
                 <CardContent>
                     <Typography variant="headline" component="h2">
                         { props.name }
