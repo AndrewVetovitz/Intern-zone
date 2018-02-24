@@ -1,15 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Navbar from './Navbar';
+import Sidebar from './Sidebar';
 
 import { MemoryRouter } from 'react-router-dom';
 
-describe('<Navbar />', () => {
-    it('Navbar fully renders', () => {
+describe('<Sidebar />', () => {
+    it('Sidebar fully renders', () => {
         const div = document.createElement('div');
         ReactDOM.render(
             <MemoryRouter>
-                <Navbar />
+                <Sidebar />
             </MemoryRouter>, div);
         ReactDOM.unmountComponentAtNode(div);
     });

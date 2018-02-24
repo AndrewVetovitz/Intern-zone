@@ -4,7 +4,7 @@ import { withStyles } from 'material-ui/styles';
 import List, { ListItem, ListItemText, ListItemIcon } from 'material-ui/List';
 import  Paper  from 'material-ui/Paper';
 
-import './Navbar.css';
+import './Sidebar.css';
 import { Link } from 'react-router-dom';
 
 const styles = () => ({
@@ -26,7 +26,7 @@ function createListItem(key, header) {
     );
 }
 
-function Navbar(props) {
+function Sidebar(props) {
     const { classes } = props;
 
     const headers = [{text: 'Home', link: '/', icon: 'home'},
@@ -49,8 +49,8 @@ function Navbar(props) {
     );
 }
 
-Navbar.propTypes = {
+Sidebar.propTypes = {
     classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(Navbar);
+export default withStyles(styles)(Sidebar);

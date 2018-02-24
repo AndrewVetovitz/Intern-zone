@@ -33,9 +33,7 @@ class Home extends Component {
         return (
             <div className="Home-grid">
                 <Header/>
-                <div className="Home">
-                    { this.state.tiles }
-                </div>
+                { this.state.tiles }
             </div>
         );
     }
