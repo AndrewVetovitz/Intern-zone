@@ -2,7 +2,7 @@
     height: 500px;
     background-color: #f2f7f7;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     flex-direction: column;
     text-align: center;
 }

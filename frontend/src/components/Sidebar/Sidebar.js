@@ -17,7 +17,7 @@ const styles = () => ({
 
 function createListItem(key, header) {
     return (
-        <ListItem button component={Link} to={header['link']} key={ key }>
+        <ListItem button component={ Link } to={ header['link'] } key={ key }>
             <ListItemIcon>
                 <i className="material-icons">{header['icon']}</i>
             </ListItemIcon>
@@ -42,7 +42,7 @@ function Sidebar(props) {
         <div>
             <Paper className={ classes.root } elevation={4}>
                 <List component="nav">
-                    {content}
+                    { content }
                 </List>
             </Paper>
         </div>

@@ -28,7 +28,6 @@ class Home extends Component {
         this.setState({tiles: tiles});
     }
 
-
     render() {
         return (
             <div className="Home-grid">
