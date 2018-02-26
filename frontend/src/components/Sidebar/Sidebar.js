@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 const styles = () => ({
     root: {
         width: '300px',
-        height: '100vh',
+        height: '100%',
         position: 'fixed'
     }
 });

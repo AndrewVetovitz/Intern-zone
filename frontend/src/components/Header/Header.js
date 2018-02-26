@@ -3,6 +3,10 @@ import './Header.css';
 
 import SearchBar from 'material-ui-search-bar';
 
+function temp() {
+    return true;
+}
+
 class Header extends Component {
     constructor(){
         super();
@@ -21,7 +25,7 @@ class Header extends Component {
                             test: text
                         });
                     }}
-                    // onRequestSearch={}
+                    onRequestSearch={() => temp()}
                     style={{
                         margin: '120px auto',
                         width: '75%'

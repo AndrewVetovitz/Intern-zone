@@ -7,9 +7,9 @@ import Typography from 'material-ui/Typography';
 
 import './Tile.css';
 
-const one = 1, two = 2, five = 5;
+const ONE = 1, TWO = 2, FIVE = 5;
 
-const phi = (one + Math.sqrt(five)) / two;
+const phi = (ONE + Math.sqrt(FIVE)) / TWO;
 const width = 300;
 const height = width / phi;
 
@@ -22,6 +22,9 @@ const styles = () => ({
         justifyContent: 'center',
         cursor: 'pointer',
         margin: 'auto'
+    },
+    test: {
+        width: '100%'
     }
 });
 
@@ -33,7 +36,7 @@ function SimpleCard(props) {
     const { classes } = props;
 
     return (
-        <div className="Tile">
+        <div className={ classes.test }>
             <Card className={classes.card} onClick={ () => handleSearch(props.name) } raised>
                 <CardContent>
                     <Typography variant="headline" component="h2">
