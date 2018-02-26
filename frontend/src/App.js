@@ -4,8 +4,8 @@ import './App.css';
 import Sidebar from './components/Sidebar/Sidebar';
 import Home from './components/Home/Home';
 import Company from './components/Company/Company';
-import About from "./components/About/About";
-import Resources from "./components/Resources/Resources";
+import About from './components/About/About';
+import Resources from './components/Resources/Resources';
 
 import Reboot from 'material-ui/Reboot';
 

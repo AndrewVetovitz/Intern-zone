@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import './Header.css';
 
-import SearchBar from 'material-ui-search-bar'
+import SearchBar from 'material-ui-search-bar';
 
 class Header extends Component {
     constructor(){
         super();
         this.state = {
-            test: "HEADER"
+            test: 'HEADER'
         };
     }
 
@@ -19,12 +19,12 @@ class Header extends Component {
                     onChange={(text) => {
                         this.setState({
                             test: text
-                        })
+                        });
                     }}
-                    onRequestSearch={() => console.log('onRequestSearch')}
+                    // onRequestSearch={}
                     style={{
                         margin: '120px auto',
-                        width: '75%',
+                        width: '75%'
                     }}
                 />
             </div>
