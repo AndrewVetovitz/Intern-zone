@@ -1,0 +1,28 @@
+{
+  "name": "intern-zone",
+  "version": "1.0.0",
+  "description": "Intern Zone website",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server",
+    "server": "nodemon server.js",
+    "client": "cd frontend && yarn start",
+    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+  },
+  "dependencies": {
+    "express": "4.16.2"
+  },
+  "devDependencies": {
+    "concurrently": "3.5.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndrewVetovitz/intern-zone.git"
+  },
+  "author": "Andrew Vetovitz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndrewVetovitz/intern-zone/issues"
+  },
+  "homepage": "https://github.com/AndrewVetovitz/intern-zone#readme"
+}
