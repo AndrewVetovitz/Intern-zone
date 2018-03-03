@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-import data from '../../data.json';
 import Tile from '../Tile/Tile';
-
 import './Tile.css';
+
+const data = require('../../data.json');
 
 export interface State {
     tiles: object[];
