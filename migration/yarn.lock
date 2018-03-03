@@ -3992,7 +3992,7 @@ material-ui-search-bar@^1.0.0-beta.4:
     material-ui-icons "^1.0.0-beta.17"
     prop-types "^15.5.8"
 
-material-ui@^1.0.0-beta.34:
+material-ui@^1.0.0-beta.35:
   version "1.0.0-beta.35"
   resolved "https://registry.yarnpkg.com/material-ui/-/material-ui-1.0.0-beta.35.tgz#eeac6be307c0469943c7686e5c6bd4eaa6b1b563"
   dependencies:

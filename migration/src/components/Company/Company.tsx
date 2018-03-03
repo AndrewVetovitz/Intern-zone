@@ -2,12 +2,16 @@ import * as React from 'react';
 import './Company.css';
 
 export interface Props {
-    match: any;
+    match: {
+        params: {
+            name: string;
+        }
+    };
 }
 
 function Company({ match }: Props) {
     return (
-        <div>{ match.params.name }</div>
+        <div>{match.params.name}</div>
     );
 }
 

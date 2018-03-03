@@ -16,7 +16,7 @@ class Home extends React.Component<{}, {}> {
                             test: text
                         });
                     }}
-                    onRequestSearch={() => temp()}
+                    onRequestSearch={() => this.temp()}
                     style={{
                         margin: '120px auto',
                         width: '75%'
@@ -26,10 +26,10 @@ class Home extends React.Component<{}, {}> {
             </div>
         );
     }
+
+    temp(): boolean {
+        return true;
+    }
 }
 
 export default Home;
-
-function temp() {
-    return true;
-}

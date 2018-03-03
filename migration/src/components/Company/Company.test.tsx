@@ -5,8 +5,16 @@ import Company from './Company';
 import { expect }  from 'chai';
 import { shallow } from 'enzyme';
 
+export interface Props {
+    match: {
+        params: {
+            name: string;
+        }
+    };
+}
+
 describe('<Company />', () => {
-    let props: any = null;
+    let props: Props;
 
     beforeEach(() => {
         props = {
@@ -27,6 +35,6 @@ describe('<Company />', () => {
 
     it('renders props name correctly', () => {
         const wrapper = shallow(<Company {...props} />);
-        expect(wrapper.contains(<div>{ props.match.params.name }</div>)).to.equal(true);
+        expect(wrapper.contains(<div>{props.match.params.name}</div>)).to.equal(true);
     });
 });

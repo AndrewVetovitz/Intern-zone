@@ -20,10 +20,10 @@ class App extends React.Component {
               <div>
                   <Sidebar/>
                   <div className="offset">
-                      <Route exact path="/" component={ Home } />
-                      <Route path="/company/:name" component={ Company } />
-                      <Route path="/about" component={ About } />
-                      <Route path="/resources" component={ Resources } />
+                      <Route exact={true} path="/" component={Home}/>
+                      <Route path="/company/:name" component={Company} />
+                      <Route path="/about" component={About} />
+                      <Route path="/resources" component={Resources} />
                   </div>
               </div>
           </Router>

@@ -1,16 +1,16 @@
 import * as React from 'react';
 
-import * as data from '../../data.json';
+import data from '../../data.json';
 import Tile from '../Tile/Tile';
 
 import './Tile.css';
 
 export interface State {
-    tiles: Object[]
+    tiles: object[];
 }
 
 class TileGrid extends React.Component<{}, State> {
-    constructor(props: any){
+    constructor(props: object) {
         super(props);
         this.state = {
             tiles: []
@@ -22,10 +22,12 @@ class TileGrid extends React.Component<{}, State> {
     }
 
     getTiles() {
+        const name = 'name';
+
         let tiles = data.map((value: string[], index: number) => {
             return (
-                <div className="Tile" key={ index }>
-                    <Tile name={ value['name'] } />
+                <div className="Tile" key={index}>
+                    <Tile name={value[name]} />
                 </div>
             );
         });
@@ -36,7 +38,7 @@ class TileGrid extends React.Component<{}, State> {
     render() {
         return (
             <div className="Tile-Grid">
-                { this.state.tiles }
+                {this.state.tiles}
             </div>
         );
     }

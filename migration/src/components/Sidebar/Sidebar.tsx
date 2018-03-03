@@ -7,10 +7,12 @@ import './Sidebar.css';
 import { Link } from 'react-router-dom';
 
 export interface Props {
-    classes: any;
+    classes?: {
+        root: string;
+    };
 }
 
-const styles = () => ({
+const styles: object = () => ({
     root: {
         width: '300px',
         height: '100%',
@@ -18,13 +20,17 @@ const styles = () => ({
     }
 });
 
-function createListItem(key: number, header: any) {
+function createListItem(key: number, header: object) {
+    const link = 'link';
+    const icon = 'icon';
+    const text = 'text';
+
     return (
-        <ListItem button component={ Link } to={ header['link'] } key={ key }>
+        <ListItem button={true} component={props => <Link to={header[link]} {...props} />} key={key}>
             <ListItemIcon>
-                <i className="material-icons">{header['icon']}</i>
+                <i className="material-icons">{header[icon]}</i>
             </ListItemIcon>
-            <ListItemText primary={header['text']} />
+            <ListItemText primary={header[text]} />
         </ListItem>
     );
 }
@@ -41,11 +47,15 @@ function Sidebar(props: Props) {
         content.push(createListItem(i, headers[i]));
     }
 
+    if (classes === undefined) {
+        return (<div/>);
+    }
+
     return (
         <div>
-            <Paper className={ classes.root } elevation={4}>
+            <Paper className={classes.root} elevation={4}>
                 <List component="nav">
-                    { content }
+                    {content}
                 </List>
             </Paper>
         </div>

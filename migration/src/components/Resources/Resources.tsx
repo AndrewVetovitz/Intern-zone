@@ -2,7 +2,7 @@ import * as React from 'react';
 import './Resources.css';
 
 function Resources() {
-    return <div></div>;
+    return <div/>;
 }
 
 export default Resources;

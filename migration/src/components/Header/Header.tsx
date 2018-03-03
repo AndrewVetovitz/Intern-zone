@@ -6,15 +6,15 @@ interface State {
 }
 
 class Header extends React.Component<{}, State> {
-    constructor(props: any){
+    constructor(props: object) {
         super(props);
         this.state = { test: 'HEADER' };
     }
 
-    Headers() {
+    render() {
         return (
             <div className="Header">
-                { this.state.test }
+                {this.state.test}
             </div>
         );
     }

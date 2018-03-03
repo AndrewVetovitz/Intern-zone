@@ -2,8 +2,12 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import Tile from './Tile';
 
+export interface Props {
+    name: string;
+}
+
 describe('<Tile />', () => {
-    let props: any = null;
+    let props: Props;
 
     beforeEach(() => {
         props = {

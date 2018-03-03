@@ -10,10 +10,8 @@ describe('<Sidebar />', () => {
         ReactDOM.render(
             <MemoryRouter>
                 <Sidebar />
-            </MemoryRouter>, div);
+            </MemoryRouter>,
+            div);
         ReactDOM.unmountComponentAtNode(div);
     });
 });
-
-
-
