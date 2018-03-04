@@ -1,11 +1,11 @@
 import * as React from 'react';
 import './App.css';
 
-import Sidebar from './components/Sidebar/Sidebar';
-import Home from './components/Home/Home';
-import Company from './components/Company/Company';
-import About from './components/About/About';
-import Resources from './components/Resources/Resources';
+import Sidebar from '../Sidebar/Sidebar';
+import Home from '../Home/Home';
+import Company from '../Company/Company';
+import About from '../About/About';
+import Resources from '../Resources/Resources';
 
 import Reboot from 'material-ui/Reboot';
 
