@@ -9,6 +9,9 @@ import { Link } from 'react-router-dom';
 export interface Props {
     classes?: {
         root: string;
+        space: string;
+        titleContainer: string;
+        titleContent: string;
     };
 }
 
@@ -17,7 +20,20 @@ const styles: object = () => ({
         width: '300px',
         height: '100%',
         position: 'fixed'
+    },
+    space: {
+        height: '50px'
+    },
+    titleContainer: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '100px',
+    },
+    titleContent: {
+        alignSelf: 'center',
     }
+
 });
 
 function createListItem(key: number, header: object) {
@@ -54,6 +70,12 @@ function Sidebar(props: Props) {
     return (
         <div>
             <Paper className={classes.root} elevation={4}>
+                <div className={classes.space}/>
+                <div className={classes.titleContainer}>
+                    <div className={classes.titleContent}>
+                        Intern Zone
+                    </div>
+                </div>
                 <List component="nav">
                     {content}
                 </List>
