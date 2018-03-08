@@ -9,7 +9,8 @@ module.exports = function(app) {
     // company routes
     apiRoutes.use('/company', companyRoutes);
 
-    companyRoutes.use('/all', CompanyController.getall);
+    companyRoutes.get('/all', CompanyController.getall);
 
-    app.use('/', apiRoutes);
+    // all routes appended to app
+    app.use('', apiRoutes);
 }

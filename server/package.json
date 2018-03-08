@@ -2,12 +2,12 @@
   "name": "intern-zone",
   "version": "1.0.0",
   "description": "Intern Zone website",
-  "main": "server.js",
+  "main": "app.js",
   "scripts": {
-    "start": "node server",
-    "server": "nodemon server.js",
-    "client": "cd frontend && yarn start",
-    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+    "start": "node app",
+    "server": "nodemon app.js",
+    "client": "cd public && yarn start",
+    "dev": "concurrently --kill-others-on-fail \"yarn start\" \"yarn client\""
   },
   "dependencies": {
     "express": "4.16.2",
