@@ -11,7 +11,7 @@ const phi = (ONE + Math.sqrt(FIVE)) / TWO;
 const width = 300;
 const height = width / phi;
 
-export interface Props {
+interface Props {
     classes?: {
         cardwidth: string;
         card: string;

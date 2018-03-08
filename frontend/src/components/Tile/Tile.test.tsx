@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import Tile from './Tile';
 
-export interface Props {
+interface Props {
     name: string;
 }
 

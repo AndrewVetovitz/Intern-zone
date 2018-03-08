@@ -6,7 +6,7 @@ import  Paper  from 'material-ui/Paper';
 import './Sidebar.css';
 import { Link } from 'react-router-dom';
 
-export interface Props {
+interface Props {
     classes?: {
         root: string;
         space: string;

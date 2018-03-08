@@ -5,7 +5,7 @@ import './Tile.css';
 
 const data = require('../../data.json');
 
-export interface State {
+interface State {
     tiles: object[];
 }
 

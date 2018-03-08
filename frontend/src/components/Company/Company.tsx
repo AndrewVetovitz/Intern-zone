@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './Company.css';
 
-export interface Props {
+interface Props {
     match: {
         params: {
             name: string;
