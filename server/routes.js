@@ -2,7 +2,7 @@ const express = require('express');
 
 const CompanyController = require('./controllers/company');
 
-module.exports = function(app) {
+module.exports = function router(app) {
     const apiRoutes = express.Router();
     const companyRoutes = express.Router();
 
@@ -13,4 +13,4 @@ module.exports = function(app) {
 
     // all routes appended to app
     app.use('', apiRoutes);
-}
+};
