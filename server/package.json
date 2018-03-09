@@ -7,6 +7,8 @@
     "start": "node app",
     "server": "nodemon app.js",
     "client": "cd public && yarn start",
+    "lint": "esw; exit 0",
+    "lint:watch": "esw -w",
     "dev": "concurrently --kill-others-on-fail \"yarn start\" \"yarn client\""
   },
   "dependencies": {
@@ -15,7 +17,10 @@
   },
   "devDependencies": {
     "concurrently": "^3.5.1",
-    "eslint": "^4.18.2"
+    "eslint": "^4.18.2",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-watch": "^3.1.3"
   },
   "repository": {
     "type": "git",
