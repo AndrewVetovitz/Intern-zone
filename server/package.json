@@ -1,7 +1,8 @@
 {
   "name": "intern-zone",
   "version": "1.0.0",
-  "description": "Intern Zone website",
+  "description": "Intern Zone server",
+  "private": true,
   "main": "app.js",
   "scripts": {
     "start": "node app",
@@ -9,7 +10,7 @@
     "client": "cd public && yarn start",
     "lint": "esw; exit 0",
     "lint:watch": "esw -w",
-    "dev": "concurrently --kill-others-on-fail \"yarn start\" \"yarn client\""
+    "lint:fix": "esw --fix"
   },
   "dependencies": {
     "express": "4.16.2",
