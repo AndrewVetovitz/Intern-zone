@@ -1,9 +1,9 @@
 import * as React from 'react';
 
 import Tile from '../Tile/Tile';
-import './Tile.css';
+import './TileGrid.css';
 
-interface TileGridProps {
+export interface TileGridProps {
     companyNames?: string[];
     getAllCompanyNames?: () => any;
 }

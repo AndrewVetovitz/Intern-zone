@@ -3,7 +3,7 @@ import { connect, Dispatch } from 'react-redux';
 import * as actions from '../redux/company/actions';
 import { StoreState } from '../redux/types';
 
-import TileGrid from '../components/Tile/TileGrid';
+import TileGrid, { TileGridProps } from '../components/TileGrid/TileGrid';
 import CompanyApi from '../api/companyAPI';
 
 function mapStateToProps({ companyNames }: StoreState) {
@@ -27,6 +27,6 @@ function mapDispatchToProps(dispatch: Dispatch<actions.CompanyAction>) {
   };
 }
 
-const TileGridContainer = connect(mapStateToProps, mapDispatchToProps)(<any> TileGrid);
+const TileGridContainer = connect<TileGridProps>(mapStateToProps, mapDispatchToProps)(TileGrid);
 
 export default TileGridContainer;

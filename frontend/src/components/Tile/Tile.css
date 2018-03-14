@@ -1,22 +1,3 @@
-.Tile-Grid {
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   /* You can set flex-wrap and
-      flex-direction individually */
-   flex-direction: row;
-   flex-wrap: wrap;
-   /* Or do it all in one line
-     with flex flow */
-   flex-flow: row wrap;
-   /* tweak where items line
-      up on the row
-      valid values are: flex-start,
-      flex-end, space-between,
-      space-around, stretch */
-   align-content: space-between;
-}
-
 .Tile {
   margin: 25px;
 }
