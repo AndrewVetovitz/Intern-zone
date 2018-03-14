@@ -11,7 +11,7 @@ export default function companyReducer(state: StoreState, action: CompanyAction)
             return {...state, fetching: false, error: action.err};
         } 
         case COMPANY_ACTION.FETCH_COMPANIES_FULLFILLED : {
-            return {...state, companies: action.payload, fetching: false, fetched: true};
+            return {...state, companyNames: action.payload, fetching: false, fetched: true};
         }
         default : {
             return state;

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-// import Tile from '../Tile/Tile';
+import Tile from '../Tile/Tile';
 import './Tile.css';
 
 interface TileGridProps {
@@ -24,27 +24,24 @@ class TileGrid extends React.Component<TileGridProps, OwnState> {
       }
 
     getTiles() {
-        console.log(this.props.companyNames);
-        // const name: string = 'name';
+        const { companyNames } = this.props;
+        const name: string = 'name';
 
-        // if (companyNames) {
-        //     console.log(companyNames);
-        //     return companyNames.map((value: string, index: number) => {
-        //         return (
-        //             <div className="Tile" key={index}>
-        //                 <Tile name={value[name]} />
-        //             </div>
-        //         );
-        //     });
-        // }
+        if (companyNames) {
+            return companyNames.map((value: string, index: number) => {
+                return (
+                    <div className="Tile" key={index}>
+                        <Tile name={value[name]} />
+                    </div>
+                );
+            });
+        }
 
         return <div/>;
     }
 
     render(): JSX.Element {
         const tiles = this.getTiles();
-
-        console.log(tiles);
 
         return (
             <div className="Tile-Grid">

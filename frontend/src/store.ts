@@ -13,4 +13,3 @@ import companyReducer from './redux/company/reducer';
 const store = createStore<StoreState>(companyReducer, { companyNames: [] });
 
 export default store;
-
