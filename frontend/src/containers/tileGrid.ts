@@ -27,4 +27,6 @@ function mapDispatchToProps(dispatch: Dispatch<actions.CompanyAction>) {
   };
 }
 
-export const TileGridContainer = connect(mapStateToProps, mapDispatchToProps)(<any> TileGrid);
+const TileGridContainer = connect(mapStateToProps, mapDispatchToProps)(<any> TileGrid);
+
+export default TileGridContainer;
