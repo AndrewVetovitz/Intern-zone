@@ -1,44 +1,54 @@
 import * as React from 'react';
 
-import Tile from '../Tile/Tile';
+// import Tile from '../Tile/Tile';
 import './Tile.css';
 
-const data = require('../../data.json');
-
-interface State {
-    tiles: object[];
+interface TileGridProps {
+    companyNames?: string[];
+    getAllCompanyNames?: () => any;
 }
 
-class TileGrid extends React.Component<{}, State> {
-    constructor(props: object) {
+interface OwnState {
+
+}
+
+class TileGrid extends React.Component<TileGridProps, OwnState> {
+    constructor(props: TileGridProps) {
         super(props);
-        this.state = {
-            tiles: []
-        };
     }
 
-    componentDidMount() {
-        this.getTiles();
-    }
+    componentWillMount() {
+        if (this.props.companyNames && this.props.companyNames.length === 0) {
+            this.props.getAllCompanyNames && this.props.getAllCompanyNames();
+        }
+      }
 
     getTiles() {
-        const name = 'name';
+        console.log(this.props.companyNames);
+        // const name: string = 'name';
 
-        let tiles = data.map((value: string[], index: number) => {
-            return (
-                <div className="Tile" key={index}>
-                    <Tile name={value[name]} />
-                </div>
-            );
-        });
+        // if (companyNames) {
+        //     console.log(companyNames);
+        //     return companyNames.map((value: string, index: number) => {
+        //         return (
+        //             <div className="Tile" key={index}>
+        //                 <Tile name={value[name]} />
+        //             </div>
+        //         );
+        //     });
+        // }
 
-        this.setState({tiles: tiles});
+        return <div/>;
     }
 
-    render() {
+    render(): JSX.Element {
+        const tiles = this.getTiles();
+
+        console.log(tiles);
+
         return (
             <div className="Tile-Grid">
-                {this.state.tiles}
+                {tiles}
             </div>
         );
     }

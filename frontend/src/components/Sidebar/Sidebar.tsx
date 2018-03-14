@@ -15,7 +15,7 @@ interface Props {
     };
 }
 
-const styles: object = () => ({
+const styles: React.CSSProperties = () => ({
     root: {
         width: '300px',
         height: '100%',
@@ -37,9 +37,9 @@ const styles: object = () => ({
 });
 
 function createListItem(key: number, header: object) {
-    const link = 'link';
-    const icon = 'icon';
-    const text = 'text';
+    const link: string = 'link';
+    const icon: string = 'icon';
+    const text: string = 'text';
 
     return (
         <ListItem button={true} component={props => <Link to={header[link]} {...props} />} key={key}>

@@ -18,6 +18,7 @@
         "forin": true,
         "indent": [ true, "spaces" ],
         "interface-name": [true, "never-prefix"],
+        "interface-over-type-literal": true,
         "jsdoc-format": true,
         "jsx-no-lambda": false,
         "jsx-no-multiline-js": false,
@@ -29,20 +30,20 @@
             "static-before-instance",
             "variables-before-functions"
         ],
-        "no-any": true,
+        // "no-any": true,
         "no-arg": true,
         "no-bitwise": true,
-        "no-console": [
-            true,
-            "log",
-            "error",
-            "debug",
-            "info",
-            "time",
-            "timeEnd",
-            "trace"
-        ],
-        "no-consecutive-blank-lines": true,
+        // "no-console": [
+        //     true,
+        //     "log",
+        //     "error",
+        //     "debug",
+        //     "info",
+        //     "time",
+        //     "timeEnd",
+        //     "trace"
+        // ],
+        // "no-consecutive-blank-lines": true,
         "no-construct": true,
         "no-debugger": true,
         "no-duplicate-variable": true,
@@ -52,7 +53,10 @@
         "no-string-literal": true,
         "no-switch-case-fall-through": true,
         "no-trailing-whitespace": false,
-        "no-unused-expression": true,
+        "no-unused-expression": [
+            true,
+            "allow-fast-null-checks"
+        ],
         "no-use-before-declare": true,
         "one-line": [
             true,

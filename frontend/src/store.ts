@@ -1,10 +1,16 @@
-import  { applyMiddleware, createStore } from 'redux';
+import  { createStore } from 'redux';
+// import  { applyMiddleware, createStore } from 'redux';
 
-import promise from 'redux-promise-middleware';
-import logger from 'redux-logger';
+// import promise from 'redux-promise-middleware';
+// import logger from 'redux-logger';
 
-import reducer from './reducers';
+import { StoreState } from './redux/types';
 
-const middleWare = applyMiddleware(promise(), logger);
+import companyReducer from './redux/company/reducer';
 
-export default createStore(reducer, middleWare);
+// const middleWare = applyMiddleware(promise(), logger);
+
+const store = createStore<StoreState>(companyReducer, { companyNames: [] });
+
+export default store;
+
