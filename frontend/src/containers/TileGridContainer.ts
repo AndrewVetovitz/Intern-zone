@@ -8,7 +8,6 @@ import { Dispatch } from '../redux/types';
 
 import CompanyApi from '../api/companyAPI';
 
-
 function mapStateToProps({ companyNames }: CompanyState) {
   return {
     companyNames
