@@ -51,7 +51,7 @@ function createListItem(key: number, header: object) {
     );
 }
 
-function Sidebar(props: Props) {
+function Sidebar(props: Props): JSX.Element {
     const { classes } = props;
 
     const headers = [{text: 'Home', link: '/', icon: 'home'},

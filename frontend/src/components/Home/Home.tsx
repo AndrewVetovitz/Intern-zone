@@ -6,7 +6,7 @@ import SearchBar from 'material-ui-search-bar';
 import TileGridContainer from '../../containers/TileGridContainer';
 
 class Home extends React.Component<{}, {}> {
-    render() {
+    render(): JSX.Element {
         return (
             <div className="Home-grid">
                 <Header/>

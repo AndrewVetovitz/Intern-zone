@@ -1,16 +1,14 @@
-// // RootActions
-// import { RouterAction, LocationChangeAction } from 'react-router-redux';
-// import { $call } from 'utility-types';
+// RootActions
+import { RouterAction, LocationChangeAction } from 'react-router-redux';
+import { $call } from 'utility-types';
 
-// import { COMPANY_ACTIONS } from '../redux/company/actions';
+import { companyActions } from '../redux/company/actions';
 
-// const returnsOfActions = [
-//   ...(<any>Object).values(COMPANY_ACTIONS),
-// ].map($call);
+const returnsOfActions = [
+  ...(<any> Object).values(companyActions),
+].map($call);
 
-// type AppAction = typeof returnsOfActions[number];
-// type ReactRouterAction = RouterAction | LocationChangeAction;
+type AppAction = typeof returnsOfActions[number];
+type ReactRouterAction = RouterAction | LocationChangeAction;
 
-// export type RootAction =
-//   | AppAction
-//   | ReactRouterAction;
+export type RootAction = AppAction | ReactRouterAction;

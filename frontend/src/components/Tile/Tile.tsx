@@ -38,7 +38,7 @@ function handleSearch(name: string) {
     window.location.href = '/company/' + name;
 }
 
-function SimpleCard(props: Props) {
+function SimpleCard(props: Props): JSX.Element {
     const { classes } = props;
     
     if (classes === undefined) {

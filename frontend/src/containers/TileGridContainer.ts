@@ -1,32 +1,33 @@
-import { connect, Dispatch } from 'react-redux';
-
-import * as actions from '../redux/company/actions';
-import { StoreState } from '../redux/types';
+import { connect } from 'react-redux';
 
 import TileGrid, { TileGridProps } from '../components/TileGrid/TileGrid';
+
+import { companyActions } from '../redux/company/actions';
+import { CompanyState } from '../redux/company/types';
+import { Dispatch } from '../redux/types';
+
 import CompanyApi from '../api/companyAPI';
 
-function mapStateToProps({ companyNames }: StoreState) {
+
+function mapStateToProps({ companyNames }: CompanyState) {
   return {
     companyNames
   };
 }
 
-function mapDispatchToProps(dispatch: Dispatch<actions.CompanyAction>) {
+function mapDispatchToProps(dispatch: Dispatch) {
   return {
     getAllCompanyNames: () => {
-      dispatch(actions.fetchCompanies());
+      dispatch(companyActions.fetchCompanies());
       CompanyApi.getAllCompanyNames()
         .then((companyNames => {
-          dispatch(actions.fetchCompaniesFullfilled(companyNames.data.companies));
+          dispatch(companyActions.fetchCompaniesFullfilled(companyNames.data.companies));
         }))
         .catch((err => {
-          dispatch(actions.fetchCompaniesRejected(err));
+          dispatch(companyActions.fetchCompaniesRejected(err));
         }));
     }
   };
 }
 
-const TileGridContainer = connect<TileGridProps>(mapStateToProps, mapDispatchToProps)(TileGrid);
-
-export default TileGridContainer;
+export default connect<TileGridProps>(mapStateToProps, mapDispatchToProps)(TileGrid);

@@ -9,7 +9,7 @@ interface Props {
     };
 }
 
-function Company({ match }: Props) {
+function Company({ match }: Props): JSX.Element {
     return (
         <div>{match.params.name}</div>
     );

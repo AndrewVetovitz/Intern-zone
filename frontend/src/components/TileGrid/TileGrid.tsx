@@ -8,22 +8,18 @@ export interface TileGridProps {
     getAllCompanyNames?: () => any;
 }
 
-interface OwnState {
-
-}
-
-class TileGrid extends React.Component<TileGridProps, OwnState> {
+class TileGrid extends React.Component<TileGridProps, {}> {
     constructor(props: TileGridProps) {
         super(props);
     }
 
-    componentWillMount() {
+    componentWillMount(): void {
         if (this.props.companyNames && this.props.companyNames.length === 0) {
             this.props.getAllCompanyNames && this.props.getAllCompanyNames();
         }
       }
 
-    getTiles() {
+    getTiles(): JSX.Element | JSX.Element[] {
         const { companyNames } = this.props;
         const name: string = 'name';
 

@@ -11,7 +11,7 @@ class Header extends React.Component<{}, State> {
         this.state = { test: 'HEADER' };
     }
 
-    render() {
+    render(): JSX.Element {
         return (
             <div className="Header">
                 {this.state.test}

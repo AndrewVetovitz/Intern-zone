@@ -1,20 +1,26 @@
-import { CompanyAction } from './actions';
-import { StoreState } from '../types';
-import * as COMPANY_ACTION from './types';
+import { getType } from 'typesafe-actions';
+import { Action } from '../types';
 
-export default function companyReducer(state: StoreState, action: CompanyAction) {
+import { companyActions } from './actions';
+import { CompanyState } from './types';
+
+const initalState: CompanyState = {
+    companyNames: []
+};
+
+export const companyReducer = (state: CompanyState = initalState, action: Action) => {
     switch (action.type) {
-        case COMPANY_ACTION.FETCH_COMPANIES: {
+        case getType(companyActions.fetchCompanies) : {
             return {...state, fetching: true};
         }
-        case COMPANY_ACTION.FETCH_COMPANIES_REJECTED : {
-            return {...state, fetching: false, error: action.err};
+        case getType(companyActions.fetchCompaniesRejected) : {
+            return {...state, fetching: false, error: action.payload};
         } 
-        case COMPANY_ACTION.FETCH_COMPANIES_FULLFILLED : {
+        case getType(companyActions.fetchCompaniesFullfilled) : {
             return {...state, companyNames: action.payload, fetching: false, fetched: true};
         }
         default : {
             return state;
         }
     }
-}
+};
