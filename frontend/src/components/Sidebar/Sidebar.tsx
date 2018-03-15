@@ -9,9 +9,9 @@ import { Link } from 'react-router-dom';
 interface Props {
     classes?: {
         root: string;
-        space: string;
         titleContainer: string;
         titleContent: string;
+        test: string;
     };
 }
 
@@ -19,24 +19,29 @@ const styles: React.CSSProperties = () => ({
     root: {
         width: '300px',
         height: '100%',
-        position: 'fixed'
-    },
-    space: {
-        height: '50px'
+        position: 'fixed',
+        // backgroundColor: '#2bcbba'
+        // backgroundColor: '#33d9b2'
+        backgroundColor: '#0fb9b1'
     },
     titleContainer: {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        height: '100px',
+        height: '150px',
     },
     titleContent: {
         alignSelf: 'center',
+        fontSize: '20px'
+    },
+    test: {
+        fontSize: '20px'
     }
-
 });
 
-function createListItem(key: number, header: object) {
+// const style = {fontSize: '60px'};
+
+function createListItem(key: number, header: object, classes: any) {
     const link: string = 'link';
     const icon: string = 'icon';
     const text: string = 'text';
@@ -46,7 +51,7 @@ function createListItem(key: number, header: object) {
             <ListItemIcon>
                 <i className="material-icons">{header[icon]}</i>
             </ListItemIcon>
-            <ListItemText primary={header[text]} />
+            <ListItemText primary={<div className={classes.test}>{header[text]}</div>} />
         </ListItem>
     );
 }
@@ -60,7 +65,7 @@ function Sidebar(props: Props): JSX.Element {
 
     const content = [];
     for (let i = 0; i < headers.length; i++) {
-        content.push(createListItem(i, headers[i]));
+        content.push(createListItem(i, headers[i], classes));
     }
 
     if (classes === undefined) {
@@ -70,7 +75,6 @@ function Sidebar(props: Props): JSX.Element {
     return (
         <div>
             <Paper className={classes.root} elevation={4}>
-                <div className={classes.space}/>
                 <div className={classes.titleContainer}>
                     <div className={classes.titleContent}>
                         Intern Zone

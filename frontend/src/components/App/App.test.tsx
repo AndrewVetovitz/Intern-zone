@@ -10,8 +10,9 @@ describe('<App />', () => {
       const div = document.createElement('div');
       ReactDOM.render(
         <Provider store={store}>
-            <App />
-        </Provider>, div);
+          <App />
+        </Provider>,
+        div);
       ReactDOM.unmountComponentAtNode(div);
   });
 });

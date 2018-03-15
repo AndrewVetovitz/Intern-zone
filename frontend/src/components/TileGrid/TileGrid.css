@@ -1,3 +1,7 @@
+.Tile {
+  margin: 25px;
+}
+
 .Tile-Grid {
    display: flex;
    align-items: center;

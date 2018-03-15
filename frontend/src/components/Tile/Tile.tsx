@@ -1,7 +1,5 @@
 import * as React from 'react';
 
-import './Tile.css';
-
 import Card, { CardContent } from 'material-ui/Card';
 import Typography from 'material-ui/Typography';
 import { withStyles } from 'material-ui/styles';
