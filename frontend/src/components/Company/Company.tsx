@@ -9,10 +9,8 @@ interface Props {
     };
 }
 
-function Company({ match }: Props): JSX.Element {
+export default function Company({ match }: Props): JSX.Element {
     return (
         <div>{match.params.name}</div>
     );
 }
-
-export default Company;

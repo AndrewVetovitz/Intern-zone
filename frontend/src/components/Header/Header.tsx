@@ -1,23 +1,12 @@
 import * as React from 'react';
 import './Header.css';
 
-interface State {
-    test: string;
+const TEXT: string = 'HEADER';
+
+export default function Header(): JSX.Element {
+    return (
+        <div className="Header">
+            {TEXT}
+        </div>
+    );
 }
-
-class Header extends React.Component<{}, State> {
-    constructor(props: object) {
-        super(props);
-        this.state = { test: 'HEADER' };
-    }
-
-    render(): JSX.Element {
-        return (
-            <div className="Header">
-                {this.state.test}
-            </div>
-        );
-    }
-}
-
-export default Header;

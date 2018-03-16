@@ -6,7 +6,7 @@ import { withStyles } from 'material-ui/styles';
 
 const ONE = 1, TWO = 2, FIVE = 5;
 const phi = (ONE + Math.sqrt(FIVE)) / TWO;
-const width = 300;
+const width = 350;
 const height = width / phi;
 
 interface Props {

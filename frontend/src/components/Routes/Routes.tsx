@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import './Routes.css';
 
-import Sidebar from '../Sidebar/Sidebar';
+import NavBar from '../Navbar/Navbar';
 import Home from '../Home/Home';
 import Company from '../Company/Company';
 import About from '../About/About';
@@ -15,8 +15,8 @@ export default function Routes(): JSX.Element {
       <div>
           <Router>
               <div>
-                  <Sidebar/>
-                  <div className="offset">
+                  <NavBar/>
+                  <div>
                       <Route exact={true} path="/" component={Home}/>
                       <Route path="/company/:name" component={Company} />
                       <Route path="/about" component={About} />
