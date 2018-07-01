@@ -2,7 +2,7 @@ import * as React from 'react';
 import './Home.css';
 
 // import Header from '../Header/Header';
-import SearchBar from 'material-ui-search-bar';
+// import SearchBar from 'material-ui-search-bar'
 import TileGridContainer from '../../containers/TileGridContainer';
 
 class Home extends React.Component<{}, {}> {
@@ -11,7 +11,8 @@ class Home extends React.Component<{}, {}> {
             <div className="Home-grid">
                 {/* <Header/> */}
                 <div className="Search-bar">
-                    <SearchBar
+                    Test
+                    {/* <SearchBar
                         onChange={(text) => {
                             this.setState({
                                 test: text
@@ -22,7 +23,7 @@ class Home extends React.Component<{}, {}> {
                             margin: '250px auto 0px auto',
                             width: '75%'
                         }}
-                    />
+                    /> */}
                 </div>
                 <TileGridContainer/>
             </div>

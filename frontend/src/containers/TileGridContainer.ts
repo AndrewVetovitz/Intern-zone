@@ -1,14 +1,17 @@
 import { connect } from 'react-redux';
+import { Dispatch } from 'redux';
 
 import TileGrid, { TileGridProps } from '../components/TileGrid/TileGrid';
 
-import { companyActions } from '../redux/company/actions';
-import { CompanyState } from '../redux/company/types';
-import { Dispatch } from '../redux/types';
+import { companyActions, CompanyStateProps } from '../store/company';
 
 import CompanyApi from '../api/companyAPI';
 
-function mapStateToProps({ companyNames }: CompanyState) {
+export interface CompanyDispatchProps {
+  getAllCompanyNames?: () => any;
+}
+
+function mapStateToProps({ companyNames }: CompanyStateProps) {
   return {
     companyNames
   };
@@ -19,9 +22,9 @@ function mapDispatchToProps(dispatch: Dispatch) {
     getAllCompanyNames: () => {
       dispatch(companyActions.fetchCompanies());
       CompanyApi.getAllCompanyNames()
-        .then((companyNames => {
-          dispatch(companyActions.fetchCompaniesFullfilled(companyNames.data.companies));
-        }))
+        .then(companyNames => {
+          dispatch(companyActions.fetchCompaniesFullfilled(companyNames));
+        })
         .catch((err => {
           dispatch(companyActions.fetchCompaniesRejected(err));
         }));
@@ -29,4 +32,8 @@ function mapDispatchToProps(dispatch: Dispatch) {
   };
 }
 
-export default connect<TileGridProps>(mapStateToProps, mapDispatchToProps)(TileGrid);
+export default connect<TileGridProps>(
+  mapStateToProps, 
+  mapDispatchToProps
+)(TileGrid);
+

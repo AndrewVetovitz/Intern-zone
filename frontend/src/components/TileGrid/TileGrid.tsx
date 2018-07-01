@@ -3,31 +3,33 @@ import * as React from 'react';
 import Tile from '../Tile/Tile';
 import './TileGrid.css';
 
-export interface TileGridProps {
-    companyNames?: string[];
-    getAllCompanyNames?: () => any;
-}
+// import { Company } from '../../store/company';
+import { CompanyStateProps } from '../../store/company';
+import { CompanyDispatchProps } from '../../containers/TileGridContainer';
+
+export interface TileGridProps extends CompanyStateProps, CompanyDispatchProps {}
 
 class TileGrid extends React.Component<TileGridProps, {}> {
     constructor(props: TileGridProps) {
         super(props);
     }
 
-    componentWillMount(): void {
-        if (this.props.companyNames && this.props.companyNames.length === 0) {
+    UNSAFE_componentWillMount(): void {
+        console.log(this.props.companyNames);
+        if (this.props.companyNames && this.props.companyNames.companyNames.length === 0) {
             this.props.getAllCompanyNames && this.props.getAllCompanyNames();
+            console.log(this.props.companyNames);
         }
       }
 
     getTiles(): JSX.Element | JSX.Element[] {
         const { companyNames } = this.props;
-        const name: string = 'name';
 
         if (companyNames) {
-            return companyNames.map((value: string, index: number) => {
+            return companyNames.companyNames.map((value: string, index: number) => {
                 return (
                     <div className="Tile" key={index}>
-                        <Tile name={value[name]} />
+                        <Tile name={value} />
                     </div>
                 );
             });

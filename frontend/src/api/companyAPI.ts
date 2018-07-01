@@ -5,7 +5,7 @@ class CompanyApi {
         const URL = '/company/all';
 
         return axios.get(URL).then(response => {
-            return response;
+            return response.data.companies;
         }).catch(error => {
             return error;
         });

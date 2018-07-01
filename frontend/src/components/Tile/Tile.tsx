@@ -1,8 +1,9 @@
 import * as React from 'react';
 
-import Card, { CardContent } from 'material-ui/Card';
-import Typography from 'material-ui/Typography';
-import { withStyles } from 'material-ui/styles';
+import Card  from '@material-ui/core/Card';
+import CardContent  from '@material-ui/core/Card';
+import Typography from '@material-ui/core/Typography';
+import { withStyles } from '@material-ui/core/styles';
 
 const ONE = 1, TWO = 2, FIVE = 5;
 const phi = (ONE + Math.sqrt(FIVE)) / TWO;

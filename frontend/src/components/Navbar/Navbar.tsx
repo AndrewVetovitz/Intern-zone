@@ -3,8 +3,6 @@ import * as React from 'react';
 
 import './Navbar.css';
 
-import Overlay from '../Overlay/Overlay';
-
 interface NavbarProps {
 
 }
@@ -15,14 +13,9 @@ class Navbar extends React.Component<NavbarProps, {}> {
     }
 
     render() {
-        let toggleOverlay: Function;
-
         return (
             <div className="Navbar">
-                <button type="button" onClick={() => toggleOverlay()}>Do Stuff</button>
-                <Overlay
-                    openRef={(click: Function) => toggleOverlay = click}
-                />
+                Test
             </div>
         );
     }
