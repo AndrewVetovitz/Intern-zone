@@ -36,10 +36,10 @@ const app = express();
 db.connect((err) => {
     if (err) {
         console.log('MySql connection error. Make sure MySql is running. ' + err);
-        process.exit();
+        // process.exit();
     }
 
-    console.log('Connected to mysql!');
+    // console.log('Connected to mysql!');
 });
 
 // Connect to MongoDB

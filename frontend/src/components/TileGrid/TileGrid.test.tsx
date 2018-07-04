@@ -1,11 +1,11 @@
-// import * as React from 'react';
+import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-// import TileGrid from './TileGrid';
+import TileGrid from './TileGrid';
 
 describe('<TileGrid />', () => {
     it('renders without crashing', () => {
         const div = document.createElement('div');
-        // ReactDOM.render(<TileGrid/>, div);
+        ReactDOM.render(<TileGrid/>, div);
         ReactDOM.unmountComponentAtNode(div);
     });
 });

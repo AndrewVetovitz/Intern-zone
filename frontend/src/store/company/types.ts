@@ -1,5 +1,5 @@
 export interface CompanyStateProps {
-    companyNames: {
+    companyNames?: {
         companyNames: string[];
     };
 }

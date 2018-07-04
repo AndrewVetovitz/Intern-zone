@@ -10,12 +10,20 @@ import db from '../database';
 export let getAllCompanyNames = (req: Request, res: Response) => {
     const sql = 'SELECT name FROM company';
 
-    db.query(sql, (err, results: CompanyModel) => {
-        if (err) { throw err; }
-
-        res.status(200).json({
-            companies: results
-        });
+    res.status(200).json({
+        companies: [
+            'Amazon',
+            'Google',
+            'Facebook'
+        ]
     });
+
+    // db.query(sql, (err, results: CompanyModel) => {
+    //     if (err) { throw err; }
+
+    //     res.status(200).json({
+    //         companies: results
+    //     });
+    // });
 };
 
