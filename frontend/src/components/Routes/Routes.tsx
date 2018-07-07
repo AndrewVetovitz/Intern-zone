@@ -1,4 +1,5 @@
 import * as React from 'react';
+import MediaQuery from 'react-responsive';
 
 import './Routes.css';
 
@@ -14,15 +15,17 @@ export default function Routes(): JSX.Element {
     return (
       <div>
           <Router>
-              <div>
-                  <NavBar/>
-                  <div>
-                      <Route exact={true} path="/" component={Home}/>
-                      <Route path="/company/:name" component={Company} />
-                      <Route path="/about" component={About} />
-                      <Route path="/resources" component={Resources} />
-                  </div>
-              </div>
+            <div>
+                <MediaQuery maxWidth={1500}>
+                    <NavBar/>
+                </MediaQuery>
+                <div>
+                    <Route exact={true} path="/" component={Home}/>
+                    <Route path="/company/:name" component={Company} />
+                    <Route path="/about" component={About} />
+                    <Route path="/resources" component={Resources} />
+                </div>
+            </div>
           </Router>
       </div>
     );
