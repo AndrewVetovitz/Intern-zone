@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import Sidebar from './Sidebar';
+// import Sidebar from './Sidebar';
 
 import { MemoryRouter } from 'react-router-dom';
 
@@ -9,7 +9,7 @@ describe('<Sidebar />', () => {
         const div = document.createElement('div');
         ReactDOM.render(
             <MemoryRouter>
-                <Sidebar />
+                {/* <Sidebar /> */}
             </MemoryRouter>,
             div);
         ReactDOM.unmountComponentAtNode(div);

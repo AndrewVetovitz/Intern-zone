@@ -14,7 +14,18 @@ export let getAllCompanyNames = (req: Request, res: Response) => {
         companies: [
             'Amazon',
             'Google',
-            'Facebook'
+            'Facebook',
+            'Microsoft',
+            'Two Sigma',
+            'Goldman Sachs',
+            'Apple',
+            'Texas Instruments',
+            'De Shaw',
+            'MongoDB',
+            'AirBNB',
+            'Walmart',
+            'Visa',
+            'Stripe'
         ]
     });
 

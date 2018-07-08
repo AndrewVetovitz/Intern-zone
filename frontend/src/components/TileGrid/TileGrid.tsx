@@ -15,17 +15,15 @@ class TileGrid extends React.Component<TileGridProps, {}> {
     }
 
     UNSAFE_componentWillMount(): void {
-        console.log(this.props.companyNames);
         if (this.props.companyNames && this.props.companyNames.companyNames.length === 0) {
             this.props.getAllCompanyNames && this.props.getAllCompanyNames();
-            console.log(this.props.companyNames);
         }
       }
 
     getTiles(): JSX.Element | JSX.Element[] {
         const { companyNames } = this.props;
 
-        if (companyNames) {
+        if (companyNames && companyNames.companyNames && companyNames.companyNames.length > 0) {
             return companyNames.companyNames.map((value: string, index: number) => {
                 return (
                     <div className="Tile" key={index}>

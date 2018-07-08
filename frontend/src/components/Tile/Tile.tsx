@@ -3,22 +3,14 @@ import * as React from 'react';
 import Card  from '@material-ui/core/Card';
 import CardContent  from '@material-ui/core/Card';
 import Typography from '@material-ui/core/Typography';
-import { withStyles } from '@material-ui/core/styles';
+import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 
 const ONE = 1, TWO = 2, FIVE = 5;
 const phi = (ONE + Math.sqrt(FIVE)) / TWO;
 const width = 350;
 const height = width / phi;
 
-interface Props {
-    classes?: {
-        cardwidth: string;
-        card: string;
-    };
-    name: string;
-}
-
-const styles: object = () => ({
+const styles = createStyles({
     card: {
         width: width,
         minHeight: height,
@@ -33,11 +25,15 @@ const styles: object = () => ({
     }
 });
 
+interface CardProps extends WithStyles<typeof styles> {
+    name: string;
+}
+
 function handleSearch(name: string) {
     window.location.href = '/company/' + name;
 }
 
-function SimpleCard(props: Props): JSX.Element {
+function SimpleCard(props: CardProps): JSX.Element {
     const { classes } = props;
     
     if (classes === undefined) {

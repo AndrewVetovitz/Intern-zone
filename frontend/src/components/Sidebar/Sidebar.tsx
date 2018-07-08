@@ -1,10 +1,32 @@
 import * as React from 'react';
-// import { Link } from 'react-router-dom';
+import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
+import Drawer from '@material-ui/core/Drawer';
+// import AppBar from '@material-ui/core/AppBar';
+// import Toolbar from '@material-ui/core/Toolbar';
+import List from '@material-ui/core/List';
+// import Typography from '@material-ui/core/Typography';
+import Divider from '@material-ui/core/Divider';
 
-import './Sidebar.css';
+const drawerWidth = 280;
 
-interface SidebarProps {
+const styles = (theme: any) => createStyles({
+    root: {
+        flexGrow: 1,
+        height: '100%',
+        zIndex: 1,
+        overflow: 'hidden',
+        position: 'relative',
+        display: 'flex'
+    },
+    drawerPaper: {
+        position: 'relative',
+        width: drawerWidth
+    },
+    toolbar: theme.mixins.toolbar
+});
 
+interface SidebarProps extends WithStyles<typeof styles> {
+    content: React.ReactChild;
 }
 
 class Sidebar extends React.Component<SidebarProps, {}> {
@@ -13,12 +35,27 @@ class Sidebar extends React.Component<SidebarProps, {}> {
     }
 
     render() {
+        const { classes } = this.props;
+
         return (
-            <div className="Sidebar">
-                Test
+            <div className={classes.root}>
+                <Drawer
+                    variant="permanent"
+                    classes={{
+                        paper: classes.drawerPaper,
+                    }}
+                >
+                    <div className={classes.toolbar} />
+                    <List>{'Test 1'}</List>
+                    <Divider />
+                    <List>{'Test 2'}</List>
+                </Drawer>
+                <div style={{width: '100%'}}>
+                    {this.props.content}
+                </div>
             </div>
         );
     }
 }
-   
-export default Sidebar;
+
+export default withStyles(styles, {withTheme: true})(Sidebar);
