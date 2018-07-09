@@ -6,9 +6,9 @@ import Routes from '../Routes/Routes';
 
 export default function App(): JSX.Element {
     return (
-        <div>
+        <React.Fragment>
             <CssBaseline />
             <Routes/>
-        </div>
+        </React.Fragment>
     );
 }

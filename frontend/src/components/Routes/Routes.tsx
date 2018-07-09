@@ -10,7 +10,7 @@ import Resources from '../Resources/Resources';
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-const routes = (
+const routes: JSX.Element = (
     <div>
         <Route exact={true} path="/" component={Home}/>
         <Route path="/company/:name" component={Company} />
@@ -21,16 +21,18 @@ const routes = (
 
 export default function Routes(): JSX.Element {
     return (
-      <div>
+      <React.Fragment>
           <Router>
             <div>
                 <MediaQuery maxWidth={1500}>
                     <Navbar/>
                     <Toolbar />
                 </MediaQuery>
-                <Sidebar content={routes}/> 
+                <Sidebar>
+                    {routes}
+                </Sidebar>
             </div>
           </Router>
-      </div>
+      </React.Fragment>
     );
 }

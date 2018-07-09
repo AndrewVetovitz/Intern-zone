@@ -26,9 +26,7 @@ const styles = (theme: any) => createStyles({
     toolbar: theme.mixins.toolbar
 });
 
-interface SidebarProps extends WithStyles<typeof styles> {
-    content: React.ReactChild;
-}
+interface SidebarProps extends WithStyles<typeof styles> {}
 
 class Sidebar extends React.Component<SidebarProps, {}> {
     constructor(props: SidebarProps) {
@@ -52,7 +50,7 @@ class Sidebar extends React.Component<SidebarProps, {}> {
                     <List>{'Test 2'}</List>
                 </Drawer> */}
                 <div style={{width: '100%'}}>
-                    {this.props.content}
+                    {this.props.children}
                 </div>
             </div>
         );
