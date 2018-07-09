@@ -14,7 +14,6 @@ const styles = createStyles({
     root: {
         flexGrow: 1,
         position: 'fixed',
-        top: 0,
         width: '100%',
         zIndex: 2
     },
@@ -39,7 +38,7 @@ class Navbar extends React.Component<NavbarProps, {}> {
 
         return (
             <div className={classes.root}>
-                <AppBar position="absolute">
+                <AppBar>
                     <Toolbar>
                         <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
                             <MenuIcon />

@@ -1,9 +1,7 @@
 import * as React from 'react';
 import MediaQuery from 'react-responsive';
-
-import './Routes.css';
-
 import Navbar from '../Navbar/Navbar';
+import Toolbar from '@material-ui/core/Toolbar';
 import Sidebar from '../Sidebar/Sidebar';
 import Home from '../Home/Home';
 import Company from '../Company/Company';
@@ -28,6 +26,7 @@ export default function Routes(): JSX.Element {
             <div>
                 <MediaQuery maxWidth={1500}>
                     <Navbar/>
+                    <Toolbar />
                 </MediaQuery>
                 <Sidebar content={routes}/> 
             </div>

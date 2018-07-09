@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
+// import Drawer from '@material-ui/core/Drawer';
 // import AppBar from '@material-ui/core/AppBar';
 // import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
+// import List from '@material-ui/core/List';
 // import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
+// import Divider from '@material-ui/core/Divider';
 
 const drawerWidth = 280;
 
@@ -19,8 +19,9 @@ const styles = (theme: any) => createStyles({
         display: 'flex'
     },
     drawerPaper: {
-        position: 'relative',
-        width: drawerWidth
+        position: 'fixed',
+        width: drawerWidth,
+        top: 0
     },
     toolbar: theme.mixins.toolbar
 });
@@ -39,7 +40,7 @@ class Sidebar extends React.Component<SidebarProps, {}> {
 
         return (
             <div className={classes.root}>
-                <Drawer
+                {/* <Drawer
                     variant="permanent"
                     classes={{
                         paper: classes.drawerPaper,
@@ -49,7 +50,7 @@ class Sidebar extends React.Component<SidebarProps, {}> {
                     <List>{'Test 1'}</List>
                     <Divider />
                     <List>{'Test 2'}</List>
-                </Drawer>
+                </Drawer> */}
                 <div style={{width: '100%'}}>
                     {this.props.content}
                 </div>
