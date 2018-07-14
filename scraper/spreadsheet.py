@@ -1,14 +1,17 @@
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
-key_file = 'scraper_secret.json'
+key_file = 'secret_tokens.json'
 
-scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
-creds = ServiceAccountCredentials.from_json_keyfile_name(key_file, scope)
-client = gspread.authorize(creds)
+def get_company_data():
+    scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
+    creds = ServiceAccountCredentials.from_json_keyfile_name(key_file, scope)
+    client = gspread.authorize(creds)
 
-sheet = client.open('Company Data').sheet1
+    sheet = client.open('Company Data').sheet1
 
-result = sheet.get_all_records()
+    result = sheet.get_all_records()
 
-print(result)
+    num_rows = len(result)
+
+    return num_rows, result

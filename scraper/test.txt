@@ -1,0 +1,355 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" lang="en" class="fontawesome-i2svg-active fontawesome-i2svg-complete wf-roboto-n4-active wf-opensanscondensed-n3-active wf-allan-n4-active wf-bungee-n4-active wf-spacemono-n4-active wf-active"><head><!--Meta tags--><meta name="viewport" content="width=device-width,initial-scale=1" /><meta charset="utf-8" /><meta name="description" content="Professional and ambitious 20 something New York bound.&#10;    Future Goldman Sachs intern and aspiring entrepreneur" /><style type="text/css">svg:not(:root).svg-inline--fa{overflow:visible}.svg-inline--fa{display:inline-block;font-size:inherit;height:1em;overflow:visible;vertical-align:-.125em}.svg-inline--fa.fa-lg{vertical-align:-.225em}.svg-inline--fa.fa-w-1{width:.0625em}.svg-inline--fa.fa-w-2{width:.125em}.svg-inline--fa.fa-w-3{width:.1875em}.svg-inline--fa.fa-w-4{width:.25em}.svg-inline--fa.fa-w-5{width:.3125em}.svg-inline--fa.fa-w-6{width:.375em}.svg-inline--fa.fa-w-7{width:.4375em}.svg-inline--fa.fa-w-8{width:.5em}.svg-inline--fa.fa-w-9{width:.5625em}.svg-inline--fa.fa-w-10{width:.625em}.svg-inline--fa.fa-w-11{width:.6875em}.svg-inline--fa.fa-w-12{width:.75em}.svg-inline--fa.fa-w-13{width:.8125em}.svg-inline--fa.fa-w-14{width:.875em}.svg-inline--fa.fa-w-15{width:.9375em}.svg-inline--fa.fa-w-16{width:1em}.svg-inline--fa.fa-w-17{width:1.0625em}.svg-inline--fa.fa-w-18{width:1.125em}.svg-inline--fa.fa-w-19{width:1.1875em}.svg-inline--fa.fa-w-20{width:1.25em}.svg-inline--fa.fa-pull-left{margin-right:.3em;width:auto}.svg-inline--fa.fa-pull-right{margin-left:.3em;width:auto}.svg-inline--fa.fa-border{height:1.5em}.svg-inline--fa.fa-li{width:2em}.svg-inline--fa.fa-fw{width:1.25em}.fa-layers svg.svg-inline--fa{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0}.fa-layers{display:inline-block;height:1em;position:relative;text-align:center;vertical-align:-.125em;width:1em}.fa-layers svg.svg-inline--fa{-webkit-transform-origin:center center;transform-origin:center center}.fa-layers-counter,.fa-layers-text{display:inline-block;position:absolute;text-align:center}.fa-layers-text{left:50%;top:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);-webkit-transform-origin:center center;transform-origin:center center}.fa-layers-counter{background-color:#ff253a;border-radius:1em;color:#fff;height:1.5em;line-height:1;max-width:5em;min-width:1.5em;overflow:hidden;padding:.25em;right:0;text-overflow:ellipsis;top:0;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:top right;transform-origin:top right}.fa-layers-bottom-right{bottom:0;right:0;top:auto;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:bottom right;transform-origin:bottom right}.fa-layers-bottom-left{bottom:0;left:0;right:auto;top:auto;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:bottom left;transform-origin:bottom left}.fa-layers-top-right{right:0;top:0;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:top right;transform-origin:top right}.fa-layers-top-left{left:0;right:auto;top:0;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:top left;transform-origin:top left}.fa-lg{font-size:1.33333em;line-height:.75em;vertical-align:-.0667em}.fa-xs{font-size:.75em}.fa-sm{font-size:.875em}.fa-1x{font-size:1em}.fa-2x{font-size:2em}.fa-3x{font-size:3em}.fa-4x{font-size:4em}.fa-5x{font-size:5em}.fa-6x{font-size:6em}.fa-7x{font-size:7em}.fa-8x{font-size:8em}.fa-9x{font-size:9em}.fa-10x{font-size:10em}.fa-fw{text-align:center;width:1.25em}.fa-ul{list-style-type:none;margin-left:2.5em;padding-left:0}.fa-ul&gt;li{position:relative}.fa-li{left:-2em;position:absolute;text-align:center;width:2em;line-height:inherit}.fa-border{border:solid .08em #eee;border-radius:.1em;padding:.2em .25em .15em}.fa-pull-left{float:left}.fa-pull-right{float:right}.fa.fa-pull-left,.fab.fa-pull-left,.fal.fa-pull-left,.far.fa-pull-left,.fas.fa-pull-left{margin-right:.3em}.fa.fa-pull-right,.fab.fa-pull-right,.fal.fa-pull-right,.far.fa-pull-right,.fas.fa-pull-right{margin-left:.3em}.fa-spin{-webkit-animation:fa-spin 2s infinite linear;animation:fa-spin 2s infinite linear}.fa-pulse{-webkit-animation:fa-spin 1s infinite steps(8);animation:fa-spin 1s infinite steps(8)}@-webkit-keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}.fa-rotate-90{-webkit-transform:rotate(90deg);transform:rotate(90deg)}.fa-rotate-180{-webkit-transform:rotate(180deg);transform:rotate(180deg)}.fa-rotate-270{-webkit-transform:rotate(270deg);transform:rotate(270deg)}.fa-flip-horizontal{-webkit-transform:scale(-1,1);transform:scale(-1,1)}.fa-flip-vertical{-webkit-transform:scale(1,-1);transform:scale(1,-1)}.fa-flip-horizontal.fa-flip-vertical{-webkit-transform:scale(-1,-1);transform:scale(-1,-1)}:root .fa-flip-horizontal,:root .fa-flip-vertical,:root .fa-rotate-180,:root .fa-rotate-270,:root .fa-rotate-90{-webkit-filter:none;filter:none}.fa-stack{display:inline-block;height:2em;position:relative;width:2em}.fa-stack-1x,.fa-stack-2x{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0}.svg-inline--fa.fa-stack-1x{height:1em;width:1em}.svg-inline--fa.fa-stack-2x{height:2em;width:2em}.fa-inverse{color:#fff}.sr-only{border:0;clip:rect(0,0,0,0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.sr-only-focusable:active,.sr-only-focusable:focus{clip:auto;height:auto;margin:0;overflow:visible;position:static;width:auto}</style><link rel="preconnect" href="https://fonts.googleapis.com/" crossorigin="" /><link rel="preconnect" href="https://res.cloudinary.com/" crossorigin="" /><title>Andrew Vetovitz</title><!--Icon--><link rel="shortcut icon" type="image/x-icon" href="https://res.cloudinary.com/dg25vxfyl/image/upload/q_100/v1515015610/website-logo_ruxkwy.png" /><base href="" /><!--Google Fonts--><script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" async=""></script><script>WebFontConfig = {
+          google: {
+              families: ['Open+Sans+Condensed:300','Roboto:400','Bungee','Space Mono','Allan']
+          }
+      };
+
+      (function(d) {
+          var wf = d.createElement('script'), s = d.scripts[0];
+          wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
+          wf.async = true;
+          s.parentNode.insertBefore(wf, s);
+      })(document);</script><!--Font Awesome--><script async="" src="https://use.fontawesome.com/releases/v5.0.4/js/brands.js"></script><script async="" src="https://use.fontawesome.com/releases/v5.0.4/js/solid.js"></script><script async="" src="https://use.fontawesome.com/releases/v5.0.4/js/fontawesome.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-112164631-1"></script><script>window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-112164631-1');</script><link href="styles.881cb36987f8b627e3d4.bundle.css" rel="stylesheet" /><style>.container-fluid[_ngcontent-c0]{margin:0 115px 0 35px}@media (max-width:991px){.container-fluid[_ngcontent-c0]{margin:0 0 0 20px}}.navbar[_ngcontent-c0]{background-color:transparent;min-height:70px;padding:40px 10px 40px 10px;transition:background .5s ease-in-out,padding .5s ease-in-out}@media (max-width:991px){.navbar[_ngcontent-c0]{padding:0 20px 0 20px}}.custom-nav[_ngcontent-c0]{padding:0 20px 0 20px;background-color:#2d3047;min-height:70px}.custom-toggle[_ngcontent-c0]{background:#ddd;border-color:#ddd}button[_ngcontent-c0]:focus{outline:none!important;box-shadow:none}.navbar-brand[_ngcontent-c0]{color:#fff;font-size:calc(1.58vw + 30.934px);font-family:Allan,cursive;padding:0;height:70px;line-height:70px}.navbar-brand[_ngcontent-c0]:hover{color:#fff}.name-transition[_ngcontent-c0]{transition:opacity 1s;opacity:1}.navbar-toggle[_ngcontent-c0]{
+  margin-top:18px;padding:9px 10px!important}@media (min-width:768px){.navbar-nav[_ngcontent-c0] &gt; li[_ngcontent-c0] &gt; a[_ngcontent-c0]{
+    padding-top:21.5px;padding-bottom:21.5px;line-height:27px}}ul[_ngcontent-c0]   li[_ngcontent-c0]   a[_ngcontent-c0]{color:#fff;font-size:21px;font-family:Space Mono,monospace;text-transform:uppercase;padding:15px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center}ul[_ngcontent-c0]   li[_ngcontent-c0]   a.nav-link[_ngcontent-c0]{text-align:center}ul[_ngcontent-c0]   li[_ngcontent-c0]   a[_ngcontent-c0]:focus{color:#fff}ul[_ngcontent-c0]   li[_ngcontent-c0]   a.active[_ngcontent-c0], ul[_ngcontent-c0]   li[_ngcontent-c0]   a[_ngcontent-c0]:hover{color:red}</style><style>.about-container[_ngcontent-c1]{display:block}.image-container[_ngcontent-c1]{height:auto;float:right;overflow:visible}.image[_ngcontent-c1], .image-container[_ngcontent-c1]{width:100%;position:relative}.image[_ngcontent-c1]{background-image:url(https://res.cloudinary.com/dg25vxfyl/image/upload/q_100/v1515015167/mountain_fxeiu1.png);background-image:-webkit-image-set(url(https://res.cloudinary.com/dg25vxfyl/image/upload/q_100/v1516645040/mountain_r3xxna.webp) 1x);background-position:50%;background-repeat:no-repeat;background-size:cover;height:1848px}.title[_ngcontent-c1]{margin-top:-1500px;color:#fff;font-size:30px;line-height:31px;position:relative;width:100%}.name[_ngcontent-c1]{font-size:60px;line-height:20px;font-family:Allan,cursive}.content[_ngcontent-c1]{margin-top:1050px;position:relative;width:100%}</style><style>.background[_ngcontent-c2]{min-height:calc(100% - 70px);width:100%}.container[_ngcontent-c2]{padding-top:3em;padding-bottom:3em}@media (min-width:750px){.container[_ngcontent-c2]{max-width:925px}}.header[_ngcontent-c2]{font-family:Bungee,cursive;font-size:calc(1.51316vw + 41.673px);font-weight:500;margin-bottom:30px}.p-div[_ngcontent-c2]{margin-bottom:5px;min-height:23px}div[_ngcontent-c2]   img[_ngcontent-c2]{margin-left:auto;margin-right:auto;display:block}.work-images[_ngcontent-c2]{border-radius:30px;height:245.38px;width:302.0087964px}.work-name[_ngcontent-c2]   a[_ngcontent-c2]{text-decoration:none;font-family:Open Sans Condensed,sans-serif;color:#2274a5;font-size:24px;height:34px}.title[_ngcontent-c2]{color:#8f3985}.space[_ngcontent-c2]{height:23px}.location[_ngcontent-c2]{font-size:15px;font-family:Roboto,sans-serif;color:#555}.description[_ngcontent-c2]{color:#656d6d}p[_ngcontent-c2]{margin-bottom:0}.image-buffer[_ngcontent-c2]{margin-bottom:20px}.content-buffer[_ngcontent-c2]{margin-bottom:35px}@media (max-width:769px){.content-buffer[_ngcontent-c2]{width:302px;margin:auto}}</style><style>.background[_ngcontent-c3]{width:100%;background-color:#7cb}.container[_ngcontent-c3]{padding-top:3em;padding-bottom:3em}.project-container[_ngcontent-c3]{padding:30px;min-width:275px}.header[_ngcontent-c3]{font-family:Bungee,cursive;font-size:calc(1.039vw + 41.673px);font-weight:500;margin-bottom:30px}.project-image[_ngcontent-c3]{width:275px;height:275px;border-radius:30px;border:10px solid #000}a[_ngcontent-c3]{margin:0 auto 15px auto;display:table}.project-text[_ngcontent-c3]{font-size:2em;font-family:Helvetica Neue,Helvetica,Arial,sans-serif}.link-text[_ngcontent-c3]{text-align:center}.link-text[_ngcontent-c3]   a[_ngcontent-c3]{color:#000;text-decoration:none}</style><style>div[_ngcontent-c4]{min-height:100%;width:100%}form[_ngcontent-c4]{margin-bottom:30px}.container[_ngcontent-c4]{padding-top:3em;padding-bottom:3em}@media (min-width:750px){.container[_ngcontent-c4]{max-width:700px}}h1[_ngcontent-c4]{font-family:Roboto,sans-serif}label.asterisk[_ngcontent-c4]:after{content:" *";color:red}.nameSpace[_ngcontent-c4]{width:5%}.inputSpace[_ngcontent-c4]{width:47.5%}.width100[_ngcontent-c4]{width:100%}.parent[_ngcontent-c4]{text-align:center;position:relative}.custom-button[_ngcontent-c4]{display:block;border:none;border-radius:50%;outline:none;margin:auto}.circle[_ngcontent-c4], .custom-button[_ngcontent-c4]{width:175px;height:175px}.circle[_ngcontent-c4]{line-height:175px;font-size:20px;font-family:Exo,sans-serif;background-color:red;position:absolute;border-radius:50%;top:calc(50% - 87.5px);left:calc(50% - 87.5px);-webkit-animation:pulse 2s;animation:pulse 2s}@-webkit-keyframes pulse{0%{box-shadow:0 0 0 0 #ff2d65}70%{box-shadow:0 0 0 20px rgba(255,45,101,0)}to{box-shadow:0 0 0 0 rgba(255,45,101,0)}}@keyframes pulse{0%{box-shadow:0 0 0 0 #ff2d65}70%{box-shadow:0 0 0 20px rgba(255,45,101,0)}to{box-shadow:0 0 0 0 rgba(255,45,101,0)}}</style><style>.container[_ngcontent-c5]{padding-bottom:3em}@media (min-width:750px){.container[_ngcontent-c5]{max-width:925px}}.header[_ngcontent-c5]{font-family:Bungee,cursive;font-size:calc(1.2vw + 38.1428px);font-weight:500;margin-bottom:30px}.about-text[_ngcontent-c5]{font-size:26px}</style><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300%7CRoboto:400%7CBungee%7CSpace+Mono%7CAllan" media="all" /><style>.nav[_ngcontent-c6]{min-width:150px}.icon-container[_ngcontent-c6]{width:100px;height:100px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}ul[_ngcontent-c6]   li[_ngcontent-c6]{margin:0 10px 20px 10px}ul[_ngcontent-c6]   li[_ngcontent-c6]   i[_ngcontent-c6]{height:50px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center}.github-styling[_ngcontent-c6]{background-color:#fff;color:#111}.linkedin-styling[_ngcontent-c6]{background-color:#0077b5;color:#fff}.resume-styling[_ngcontent-c6]{background-color:#6aba77;color:#fff}.mail-styling[_ngcontent-c6]{background-color:#d33;color:#fff}</style></head><body><app-root ng-version="5.2.0"><app-nav _nghost-c0=""><nav _ngcontent-c0="" class="navbar navbar-expand-lg navbar-light fixed-top" id="main-nav">
+  <div _ngcontent-c0="" class="container-fluid">
+    <div _ngcontent-c0="" class="navbar-brand noselect name-transition"></div>
+    <button _ngcontent-c0="" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right custom-toggle" data-target="#navbarResponsive" data-toggle="collapse" type="button">
+      <span _ngcontent-c0="" class="navbar-toggler-icon"></span>
+    </button>
+    <div _ngcontent-c0="" class="collapse navbar-collapse" id="navbarResponsive">
+      <ul _ngcontent-c0="" class="navbar-nav ml-auto">
+        <li _ngcontent-c0="" class="nav-item" data-target=".navbar-collapse.show" data-toggle="collapse">
+          <a _ngcontent-c0="" class="nav-link active" href="#about" pagescroll="">About <span _ngcontent-c0="" class="sr-only">(current)</span></a>
+        </li>
+        <li _ngcontent-c0="" class="nav-item" data-target=".navbar-collapse.show" data-toggle="collapse">
+          <a _ngcontent-c0="" class="nav-link" href="#work" pagescroll="">Work <span _ngcontent-c0="" class="sr-only">(current)</span></a>
+        </li>
+        <li _ngcontent-c0="" class="nav-item" data-target=".navbar-collapse.show" data-toggle="collapse">
+          <a _ngcontent-c0="" class="nav-link" href="#projects" pagescroll="">Projects <span _ngcontent-c0="" class="sr-only">(current)</span></a>
+        </li>
+        <li _ngcontent-c0="" class="nav-item" data-target=".navbar-collapse.show" data-toggle="collapse">
+          <a _ngcontent-c0="" class="nav-link" href="#contact" pagescroll="">Contact <span _ngcontent-c0="" class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</app-nav>
+
+<app-about id="about" _nghost-c1=""><div _ngcontent-c1="" class="about-container">
+  <div _ngcontent-c1="" class="image">
+  </div>
+  <div _ngcontent-c1="" class="title text-center">
+    <p _ngcontent-c1="">Hi, I'm</p>
+    <p _ngcontent-c1="" class="name">Andrew Vetovitz</p>
+  </div>
+  <div _ngcontent-c1="" class="content">
+    <app-about-content _ngcontent-c1="" _nghost-c5=""><div _ngcontent-c5="" class="container header-container">
+  <h1 _ngcontent-c5="" class="text-center header">───my aspiration───</h1>
+  <div _ngcontent-c5="" class="about-text text-justify">
+    <p _ngcontent-c5="">
+      Always be positive, always be willing to take risks, always be willing to fail.
+      Growth cannot come from comfort and progress can only be made by challenging the status quo.
+    </p>
+    <p _ngcontent-c5="">
+      Cleveland born, aspiring entrepreneur and stock enthusiast. New York bound one step at a time.
+      Looking past failure constantly.
+    </p>
+    <p _ngcontent-c5="">
+      Tech enthusiast always chasing harder and steeper challenges.
+      Searching bit by bit through Stack Overflow.
+    </p>
+  </div>
+</div>
+
+
+
+</app-about-content>
+  </div>
+</div>
+
+</app-about>
+<app-work id="work" _nghost-c2=""><div _ngcontent-c2="" class="background">
+  <div _ngcontent-c2="" class="container">
+    <h1 _ngcontent-c2="" class="text-center header">───my life───</h1>
+    <!----><div _ngcontent-c2="">
+      <div _ngcontent-c2="" class="row content-buffer">
+        <div _ngcontent-c2="" class="col-xl-5 col-lg-5 col-md-5 image-buffer">
+          <picture _ngcontent-c2="">
+            <source _ngcontent-c2="" type="image/webp" srcset="https://res.cloudinary.com/dg25vxfyl/image/upload/q_100,w_272,h_245,c_scale/v1516602825/goldman-sachs_logo_ol0bii.webp" />
+            <img _ngcontent-c2="" class="img-fluid work-images" src="https://res.cloudinary.com/dg25vxfyl/image/upload/q_100,w_272,h_245,c_scale/v1515913509/goldman-sachs_logo_pz4fyo.png" alt="Goldman Sachs Logo" />
+          </picture>
+        </div>
+        <div _ngcontent-c2="" class="col-xl-7 col-lg-7 col-md-7 text">
+          <div _ngcontent-c2="" class="p-div">
+            <h3 _ngcontent-c2="" class="work-name">
+              <a _ngcontent-c2="" rel="noopener" target="_blank" href="http://www.goldmansachs.com">Goldman Sachs</a>
+            </h3>
+          </div>
+          <div _ngcontent-c2="" class="p-div">
+            <h6 _ngcontent-c2="" class="title"><strong _ngcontent-c2="">Summer Analyst Intern, Summer 2018</strong></h6>
+          </div>
+          <div _ngcontent-c2="" class="p-div">
+            <p _ngcontent-c2="" class="location"><strong _ngcontent-c2="">New York, NY</strong></p>
+          </div>
+          <div _ngcontent-c2="">
+            <p _ngcontent-c2="" class="space"> </p>
+          </div>
+          <div _ngcontent-c2="" class="p-div">
+            <p _ngcontent-c2="" class="description">Incoming 2018 Summer Analyst for Goldman Sachs</p>
+          </div>
+        </div>
+      </div>
+    </div><div _ngcontent-c2="">
+      <div _ngcontent-c2="" class="row content-buffer">
+        <div _ngcontent-c2="" class="col-xl-5 col-lg-5 col-md-5 image-buffer">
+          <picture _ngcontent-c2="">
+            <source _ngcontent-c2="" type="image/webp" srcset="https://res.cloudinary.com/dg25vxfyl/image/upload/q_100,w_272,h_245,c_scale/v1516631071/scotts_miracle_gro_o1suaj.webp" />
+            <img _ngcontent-c2="" class="img-fluid work-images" src="https://res.cloudinary.com/dg25vxfyl/image/upload/q_100,w_272,h_245,c_scale/v1515913509/scotts_miracle_gro_gjylbe.png" alt="The Scott's Miracle Gro Company" />
+          </picture>
+        </div>
+        <div _ngcontent-c2="" class="col-xl-7 col-lg-7 col-md-7 text">
+          <div _ngcontent-c2="" class="p-div">
+            <h3 _ngcontent-c2="" class="work-name">
+              <a _ngcontent-c2="" rel="noopener" target="_blank" href="https://scottsmiraclegro.com">The Scott's Miracle Gro Company</a>
+            </h3>
+          </div>
+          <div _ngcontent-c2="" class="p-div">
+            <h6 _ngcontent-c2="" class="title"><strong _ngcontent-c2="">Web Application Developer Intern, Summer 2017</strong></h6>
+          </div>
+          <div _ngcontent-c2="" class="p-div">
+            <p _ngcontent-c2="" class="location"><strong _ngcontent-c2="">Marysville, OH</strong></p>
+          </div>
+          <div _ngcontent-c2="">
+            <p _ngcontent-c2="" class="space"> </p>
+          </div>
+          <div _ngcontent-c2="" class="p-div">
+            <p _ngcontent-c2="" class="description">This was my first time work on web applications. Giving me new onsight into business teamwork and working on core application backend and API functionality. I also experienced my first business mistakes and trying to solve them, driving core business growth. </p>
+          </div>
+        </div>
+      </div>
+    </div><div _ngcontent-c2="">
+      <div _ngcontent-c2="" class="row content-buffer">
+        <div _ngcontent-c2="" class="col-xl-5 col-lg-5 col-md-5 image-buffer">
+          <picture _ngcontent-c2="">
+            <source _ngcontent-c2="" type="image/webp" srcset="https://res.cloudinary.com/dg25vxfyl/image/upload/q_100,w_272,h_245,c_scale/v1516631071/IFAADev_segpf5.webp" />
+            <img _ngcontent-c2="" class="img-fluid work-images" src="https://res.cloudinary.com/dg25vxfyl/image/upload/q_100,w_272,h_245,c_scale/v1515913509/IFAADev_bkduik.png" alt="IFAADev" />
+          </picture>
+        </div>
+        <div _ngcontent-c2="" class="col-xl-7 col-lg-7 col-md-7 text">
+          <div _ngcontent-c2="" class="p-div">
+            <h3 _ngcontent-c2="" class="work-name">
+              <a _ngcontent-c2="" rel="noopener" target="_blank" href="https://ifaadev.com">IFAAADev</a>
+            </h3>
+          </div>
+          <div _ngcontent-c2="" class="p-div">
+            <h6 _ngcontent-c2="" class="title"><strong _ngcontent-c2="">Independent Contractor, Since May 2017</strong></h6>
+          </div>
+          <div _ngcontent-c2="" class="p-div">
+            <p _ngcontent-c2="" class="location"><strong _ngcontent-c2="">Cleveland, OH</strong></p>
+          </div>
+          <div _ngcontent-c2="">
+            <p _ngcontent-c2="" class="space"> </p>
+          </div>
+          <div _ngcontent-c2="" class="p-div">
+            <p _ngcontent-c2="" class="description">I currently work as a contractor helping bring alive applications and websites. my largest project is working on ourparking.space which is a digitized parking website for businesses and events. This posed significant challengs using web API's as well as hosting services and frontend technologies. I had to work as a business analyst for this project as well to collect requirements and demo the project to the client. </p>
+          </div>
+        </div>
+      </div>
+    </div><div _ngcontent-c2="">
+      <div _ngcontent-c2="" class="row content-buffer">
+        <div _ngcontent-c2="" class="col-xl-5 col-lg-5 col-md-5 image-buffer">
+          <picture _ngcontent-c2="">
+            <source _ngcontent-c2="" type="image/webp" srcset="https://res.cloudinary.com/dg25vxfyl/image/upload/q_100,w_272,h_245,c_scale/v1516631071/mayfield_high_zhoced.webp" />
+            <img _ngcontent-c2="" class="img-fluid work-images" src="https://res.cloudinary.com/dg25vxfyl/image/upload/q_100,w_272,h_245,c_scale/v1515913509/mayfield_high_domzev.png" alt="Mayfield High School" />
+          </picture>
+        </div>
+        <div _ngcontent-c2="" class="col-xl-7 col-lg-7 col-md-7 text">
+          <div _ngcontent-c2="" class="p-div">
+            <h3 _ngcontent-c2="" class="work-name">
+              <a _ngcontent-c2="" rel="noopener" target="_blank" href="https://www.mayfieldschools.org/mayfieldhighschool_home.aspx">Mayfield High School</a>
+            </h3>
+          </div>
+          <div _ngcontent-c2="" class="p-div">
+            <h6 _ngcontent-c2="" class="title"><strong _ngcontent-c2="">Class of 2014</strong></h6>
+          </div>
+          <div _ngcontent-c2="" class="p-div">
+            <p _ngcontent-c2="" class="location"><strong _ngcontent-c2="">Mayfield Village, OH</strong></p>
+          </div>
+          <div _ngcontent-c2="">
+            <p _ngcontent-c2="" class="space"> </p>
+          </div>
+          <div _ngcontent-c2="" class="p-div">
+            <p _ngcontent-c2="" class="description">I am grateful to Mayfield for allowing me to be myself. This was the first time I truly had friends and being able to find myself as a person. My experiences here helped shape my career path into engineering and always looking to make the world a better place. </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</app-work>
+<app-projects id="projects" _nghost-c3=""><div _ngcontent-c3="" class="background">
+  <div _ngcontent-c3="" class="container">
+    <h1 _ngcontent-c3="" class="text-center header">───projects───</h1>
+    <div _ngcontent-c3="" class="row">
+      <!----><div _ngcontent-c3="" class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4 text-left">
+        <div _ngcontent-c3="" class="project-container">
+          <a _ngcontent-c3="" rel="noopener" target="_blank" href="https://github.com/AndrewVetovitz/mysteryandromancearegone">
+            <picture _ngcontent-c3="">
+              <source _ngcontent-c3="" type="image/webp" srcset="" />
+              <img _ngcontent-c3="" class="img-fluid img-thumbnail project-image" src="https://res.cloudinary.com/dg25vxfyl/image/upload/q_100/v1515088089/dancer_ffarbv.svg" alt="Mystery and Romance are Gone" />
+            </picture>
+          </a>
+          <div _ngcontent-c3="" class="link-text">
+            <a _ngcontent-c3="" rel="noopener" target="_blank" href="https://github.com/AndrewVetovitz/mysteryandromancearegone">
+              <span _ngcontent-c3="" class="project-text">Mystery and Romance are Gone</span>
+            </a>
+          </div>
+        </div>
+      </div><div _ngcontent-c3="" class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4 text-left">
+        <div _ngcontent-c3="" class="project-container">
+          <a _ngcontent-c3="" rel="noopener" target="_blank" href="https://github.com/AndrewVetovitz/QuadTreeImaging">
+            <picture _ngcontent-c3="">
+              <source _ngcontent-c3="" type="image/webp" srcset="https://res.cloudinary.com/dg25vxfyl/image/upload/q_100/v1516631833/apple_oc1cnd.webp" />
+              <img _ngcontent-c3="" class="img-fluid img-thumbnail project-image" src="https://res.cloudinary.com/dg25vxfyl/image/upload/q_100/v1515913509/apple_hvtk8y.png" alt="QuadTree Imaging" />
+            </picture>
+          </a>
+          <div _ngcontent-c3="" class="link-text">
+            <a _ngcontent-c3="" rel="noopener" target="_blank" href="https://github.com/AndrewVetovitz/QuadTreeImaging">
+              <span _ngcontent-c3="" class="project-text">QuadTree Imaging</span>
+            </a>
+          </div>
+        </div>
+      </div><div _ngcontent-c3="" class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4 text-left">
+        <div _ngcontent-c3="" class="project-container">
+          <a _ngcontent-c3="" rel="noopener" target="_blank" href="https://github.com/AndrewVetovitz/andrewvetovitz.github.io-personal-website">
+            <picture _ngcontent-c3="">
+              <source _ngcontent-c3="" type="image/webp" srcset="https://res.cloudinary.com/dg25vxfyl/image/upload/q_100/v1516631833/computerScreens_lkcwrt.webp" />
+              <img _ngcontent-c3="" class="img-fluid img-thumbnail project-image" src="https://res.cloudinary.com/dg25vxfyl/image/upload/q_100/v1515913509/computerScreens_svzhv3.png" alt="Personal Website" />
+            </picture>
+          </a>
+          <div _ngcontent-c3="" class="link-text">
+            <a _ngcontent-c3="" rel="noopener" target="_blank" href="https://github.com/AndrewVetovitz/andrewvetovitz.github.io-personal-website">
+              <span _ngcontent-c3="" class="project-text">Personal Website</span>
+            </a>
+          </div>
+        </div>
+      </div><div _ngcontent-c3="" class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4 text-left">
+        <div _ngcontent-c3="" class="project-container">
+          <a _ngcontent-c3="" rel="noopener" target="_blank" href="https://github.com/skylerreimer/Emoji-Hunter">
+            <picture _ngcontent-c3="">
+              <source _ngcontent-c3="" type="image/webp" srcset="" />
+              <img _ngcontent-c3="" class="img-fluid img-thumbnail project-image" src="https://res.cloudinary.com/dg25vxfyl/image/upload/q_100/v1515014547/emoji_o9kni8.svg" alt="Emoji Hunter" />
+            </picture>
+          </a>
+          <div _ngcontent-c3="" class="link-text">
+            <a _ngcontent-c3="" rel="noopener" target="_blank" href="https://github.com/skylerreimer/Emoji-Hunter">
+              <span _ngcontent-c3="" class="project-text">Emoji Hunter</span>
+            </a>
+          </div>
+        </div>
+      </div><div _ngcontent-c3="" class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-4 text-left">
+        <div _ngcontent-c3="" class="project-container">
+          <a _ngcontent-c3="" rel="noopener" target="_blank" href="https://github.com/AndrewVetovitz/projectKindness">
+            <picture _ngcontent-c3="">
+              <source _ngcontent-c3="" type="image/webp" srcset="https://res.cloudinary.com/dg25vxfyl/image/upload/q_100/v1516631833/heart_yxdnlh.webp" />
+              <img _ngcontent-c3="" class="img-fluid img-thumbnail project-image" src="https://res.cloudinary.com/dg25vxfyl/image/upload/q_100/v1515014546/heart_bbetjn.png" alt="Project Kindness" />
+            </picture>
+          </a>
+          <div _ngcontent-c3="" class="link-text">
+            <a _ngcontent-c3="" rel="noopener" target="_blank" href="https://github.com/AndrewVetovitz/projectKindness">
+              <span _ngcontent-c3="" class="project-text">Project Kindness</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</app-projects>
+<app-contact id="contact" _nghost-c4=""><div _ngcontent-c4="" class="container">
+  <h1 _ngcontent-c4="" class="text-center">Contact me today</h1>
+  <div _ngcontent-c4="" class="text-center">Do you have a project that you want brought to life or just need to chat? Feel free to reach out to me!</div>
+  <br _ngcontent-c4="" />
+  <br _ngcontent-c4="" />
+  <form _ngcontent-c4="" novalidate="" class="ng-untouched ng-pristine ng-invalid">
+    <div _ngcontent-c4="" class="form-group">
+      <label _ngcontent-c4="" class="asterisk"><strong _ngcontent-c4="">Full Name</strong></label>
+      <div _ngcontent-c4="" class="form-inline">
+        <div _ngcontent-c4="" class="inputSpace">
+          <input _ngcontent-c4="" class="form-control width100 ng-untouched ng-pristine ng-invalid" formcontrolname="firstname" id="firstname" />
+          <label _ngcontent-c4="" for="firstname"><strong _ngcontent-c4="">First Name</strong></label>
+        </div>
+        <div _ngcontent-c4="" class="nameSpace"></div>
+        <div _ngcontent-c4="" class="inputSpace">
+          <input _ngcontent-c4="" class="form-control width100 ng-untouched ng-pristine ng-invalid" formcontrolname="lastname" id="lastname" />
+          <label _ngcontent-c4="" for="lastname"><strong _ngcontent-c4="">Last Name</strong></label>
+        </div>
+      </div>
+    </div>
+    <div _ngcontent-c4="" class="form-group">
+      <strong _ngcontent-c4=""><label _ngcontent-c4="" class="asterisk" for="email">Email</label></strong>
+      <input _ngcontent-c4="" class="form-control ng-untouched ng-pristine ng-invalid" formcontrolname="email" id="email" type="email" />
+    </div>
+    <div _ngcontent-c4="" class="form-group">
+      <label _ngcontent-c4="" class="asterisk" for="message"><strong _ngcontent-c4="">Message</strong></label>
+      <textarea _ngcontent-c4="" class="form-control ng-untouched ng-pristine ng-invalid" formcontrolname="message" id="message"></textarea>
+    </div>
+
+    
+    <input _ngcontent-c4="" formcontrolname="_gotcha" name="_gotcha" style="display:none" type="text" class="ng-untouched ng-pristine ng-valid" />
+
+    
+    <div _ngcontent-c4="" class="parent">
+      <!---->
+      <button _ngcontent-c4="" class="custom-button noselect">
+        Message me
+      </button>
+    </div>
+    <!---->
+  </form>
+  <app-contact-links _ngcontent-c4="" _nghost-c6=""><div _ngcontent-c6="" class="container">
+  <ul _ngcontent-c6="" class="nav justify-content-center fa-5x">
+    <li _ngcontent-c6="">
+      <a _ngcontent-c6="" href="https://github.com/AndrewVetovitz" rel="noopener" target="_blank">
+        <div _ngcontent-c6="" class="icon-container github-styling" title="Githhub">
+          <svg _ngcontent-c6="" class="svg-inline--fa fa-github fa-w-16 icon-styling" aria-hidden="true" data-fa-processed="" data-prefix="fab" data-icon="github" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg><!-- <i _ngcontent-c6="" class="fab fa-github icon-styling"></i> -->
+        </div>
+      </a>
+    </li>
+    <li _ngcontent-c6="">
+      <a _ngcontent-c6="" href="https://www.linkedin.com/in/andrewvetovitz" rel="noopener" target="_blank">
+        <div _ngcontent-c6="" class="icon-container linkedin-styling" title="Linkedin">
+          <svg _ngcontent-c6="" class="svg-inline--fa fa-linkedin-in fa-w-14 icon-styling" aria-hidden="true" data-fa-processed="" data-prefix="fab" data-icon="linkedin-in" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M100.3 480H7.4V180.9h92.9V480zM53.8 140.1C24.1 140.1 0 115.5 0 85.8 0 56.1 24.1 32 53.8 32c29.7 0 53.8 24.1 53.8 53.8 0 29.7-24.1 54.3-53.8 54.3zM448 480h-92.7V334.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V480h-92.8V180.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V480z"/></svg><!-- <i _ngcontent-c6="" class="fab fa-linkedin-in icon-styling"></i> -->
+        </div>
+      </a>
+    </li>
+    <li _ngcontent-c6="">
+      <a _ngcontent-c6="" download="" href="https://res.cloudinary.com/dg25vxfyl/image/upload/q_100/v1515098329/vetovitz_andrew_resume.pdf" rel="noopener">
+        <div _ngcontent-c6="" class="icon-container resume-styling" title="Resume">
+          <svg _ngcontent-c6="" class="svg-inline--fa fa-file-alt fa-w-12 icon-styling" aria-hidden="true" data-fa-processed="" data-prefix="fas" data-icon="file-alt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm64 236c0 6.6-5.4 12-12 12H108c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12v8zm0-64c0 6.6-5.4 12-12 12H108c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12v8zm0-72v8c0 6.6-5.4 12-12 12H108c-6.6 0-12-5.4-12-12v-8c0-6.6 5.4-12 12-12h168c6.6 0 12 5.4 12 12zm96-114.1v6.1H256V0h6.1c6.4 0 12.5 2.5 17 7l97.9 98c4.5 4.5 7 10.6 7 16.9z"/></svg><!-- <i _ngcontent-c6="" class="fas fa-file-alt icon-styling"></i> -->
+        </div>
+      </a>
+    </li>
+    <li _ngcontent-c6="">
+      <a _ngcontent-c6="" href="mailto:andrewvetovitz@gmail.com?subject=Hello!&amp;body=Dear%20Andrew%2C%0D%0A%0D%0A" rel="noopener">
+        <div _ngcontent-c6="" class="icon-container mail-styling" title="Email">
+          <svg _ngcontent-c6="" class="svg-inline--fa fa-envelope fa-w-16 icon-styling" aria-hidden="true" data-fa-processed="" data-prefix="fas" data-icon="envelope" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"/></svg><!-- <i _ngcontent-c6="" class="fas fa-envelope icon-styling"></i> -->
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>
+</app-contact-links>
+</div>
+
+
+</app-contact>
+</app-root><noscript>&lt;p&gt;Please enable JavaScript to use my website :)&lt;/p&gt;</noscript><script type="text/javascript" src="inline.bd915fedbe2ac4d70e52.bundle.js"></script><script type="text/javascript" src="polyfills.74b809925dee18bd9f89.bundle.js"></script><script type="text/javascript" src="scripts.4cfedb5bbf9e992817be.bundle.js"></script><script type="text/javascript" src="main.e74b36408b41d867b25d.bundle.js"></script></body></html>
