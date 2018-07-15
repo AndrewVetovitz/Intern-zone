@@ -1,5 +1,5 @@
 import chrome_webdriver
-import spreadsheet
+from spreadsheet import CompanySpreadsheet
 
 url = 'https://andrewvetovitz.com'
 
@@ -8,19 +8,20 @@ def main():
 
     driver = chrome_webdriver.create_web_driver()
 
-    num_rows, companies = spreadsheet.get_company_data()
+    spreadsheet = CompanySpreadsheet() 
 
-    print(num_rows)
-    print(companies)
+    companies = spreadsheet.get_companies()
+
+    for i in range(len(companies)):
+        print(companies[i])
 
     driver.get(url)
-    # driver.implicit_wait(10)
 
-    content = driver.page_source
+    # content = driver.page_source
 
-    file = open('test.txt', 'w')
-    file.write(content)
-    file.close()
+    # file = open('test.txt', 'w')
+    # file.write(content)
+    # file.close()
 
 if __name__ == '__main__': 
     main()

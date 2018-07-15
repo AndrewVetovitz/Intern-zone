@@ -1,17 +1,27 @@
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
+from enums.status import Status
+from enums.columns import Columns
+
 key_file = 'secret_tokens.json'
+status_column = 4
 
-def get_company_data():
-    scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
-    creds = ServiceAccountCredentials.from_json_keyfile_name(key_file, scope)
-    client = gspread.authorize(creds)
+class CompanySpreadsheet:
+    def __init__(self):
+        scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
+        creds = ServiceAccountCredentials.from_json_keyfile_name(key_file, scope)
+        self.client = gspread.authorize(creds)
 
-    sheet = client.open('Company Data').sheet1
+    def get_companies(self):
+        sheet = self.client.open('Company Data').sheet1
 
-    result = sheet.get_all_records()
+        return sheet.get_all_records()
 
-    num_rows = len(result)
+    def set_row_status_bad(self, row):
+        sheet = self.client.open('Company Data').sheet1
+        sheet.update_cell(row, Columns.STATUS.value, Status.BAD.name)
 
-    return num_rows, result
+    def set_row_status_good(self, row):
+        sheet = self.client.open('Company Data').sheet1
+        sheet.update_cell(row, Columns.STATUS.value, Status.GOOD.name)
