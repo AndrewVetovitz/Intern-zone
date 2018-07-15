@@ -11,12 +11,12 @@ import Resources from '../Resources/Resources';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 const routes: JSX.Element = (
-    <div>
+    <React.Fragment>
         <Route exact={true} path="/" component={Home}/>
         <Route path="/company/:name" component={Company} />
         <Route path="/about" component={About} />
         <Route path="/resources" component={Resources} />
-    </div>
+    </React.Fragment>
 );
 
 export default function Routes(): JSX.Element {
