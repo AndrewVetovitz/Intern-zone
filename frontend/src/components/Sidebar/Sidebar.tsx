@@ -7,7 +7,10 @@ import List from '@material-ui/core/List';
 // import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 
-const drawerWidth = 280;
+import { SidebarState } from '../../store/sidebar';
+import { SidebarDispatchProps } from '../../containers/SidebarContainer';
+
+const drawerWidth = 300;
 
 const styles = (theme: any) => createStyles({
     root: {
@@ -26,9 +29,14 @@ const styles = (theme: any) => createStyles({
     toolbar: theme.mixins.toolbar
 });
 
-interface SidebarProps extends WithStyles<typeof styles> {}
+export interface SidebarProps extends SidebarDispatchProps, WithStyles<typeof styles>  {}
+// export interface SidebarProps extends WithStyles<typeof styles>  {}
 
 class Sidebar extends React.Component<SidebarProps, {}> {
+    readonly state: SidebarState = {
+      isOpen: false
+    };
+
     constructor(props: SidebarProps) {
         super(props);
     }

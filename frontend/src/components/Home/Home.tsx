@@ -3,7 +3,7 @@ import './Home.css';
 
 // import Header from '../Header/Header';
 // import SearchBar from 'material-ui-search-bar'
-import TileGridContainer from '../../containers/TileGridContainer';
+import TileGrid from '../../containers/TileGridContainer';
 
 class Home extends React.Component<{}, {}> {
     render(): JSX.Element {
@@ -25,7 +25,7 @@ class Home extends React.Component<{}, {}> {
                         }}
                     /> */}
                 </div>
-                <TileGridContainer/>
+                <TileGrid/>
             </div>
         );
     }

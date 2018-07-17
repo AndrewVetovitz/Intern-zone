@@ -3,11 +3,10 @@ import * as React from 'react';
 import Tile from '../Tile/Tile';
 import './TileGrid.css';
 
-// import { Company } from '../../store/company';
-import { CompanyStateProps } from '../../store/company';
+import { CompanyState } from '../../store/company';
 import { CompanyDispatchProps } from '../../containers/TileGridContainer';
 
-export interface TileGridProps extends CompanyStateProps, CompanyDispatchProps {}
+export interface TileGridProps extends CompanyState, CompanyDispatchProps {}
 
 class TileGrid extends React.Component<TileGridProps, {}> {
     constructor(props: TileGridProps) {
@@ -15,16 +14,16 @@ class TileGrid extends React.Component<TileGridProps, {}> {
     }
 
     UNSAFE_componentWillMount(): void {
-        if (this.props.companyNames && this.props.companyNames.companyNames.length === 0) {
+        if (this.props.company && this.props.company.companyNames && this.props.company.companyNames.length === 0) {
             this.props.getAllCompanyNames && this.props.getAllCompanyNames();
         }
-      }
+    }
 
     getTiles(): JSX.Element | JSX.Element[] {
-        const { companyNames } = this.props;
+        const { company } = this.props;
 
-        if (companyNames && companyNames.companyNames && companyNames.companyNames.length > 0) {
-            return companyNames.companyNames.map((value: string, index: number) => {
+        if (company.companyNames && company.companyNames.length > 0) {
+            return company.companyNames.map((value: string, index: number) => {
                 return (
                     <div className="Tile" key={index}>
                         <Tile name={value} />

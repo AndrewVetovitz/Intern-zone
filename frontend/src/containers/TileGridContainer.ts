@@ -3,7 +3,9 @@ import { Dispatch } from 'redux';
 
 import TileGrid, { TileGridProps } from '../components/TileGrid/TileGrid';
 
-import { companyActions, CompanyStateProps } from '../store/company';
+import { companyActions } from '../store/company';
+
+import { RootState } from '../store/root-reducer';
 
 import CompanyApi from '../api/companyAPI';
 
@@ -11,9 +13,9 @@ export interface CompanyDispatchProps {
   getAllCompanyNames?: () => any;
 }
 
-function mapStateToProps({ companyNames }: CompanyStateProps) {
+function mapStateToProps(state: RootState) {
   return {
-    companyNames
+    company: state.companyReducer.company
   };
 }
 

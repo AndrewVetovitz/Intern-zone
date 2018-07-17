@@ -3,13 +3,13 @@ import  { applyMiddleware, createStore, compose } from 'redux';
 // import promise from 'redux-promise-middleware';
 import logger from 'redux-logger';
 
-import { companyReducer } from './company';
+import rootReducer from './root-reducer';
 
-function configureStore(initialState?: {}) {
+function configureStore(initialState?: object) {
     const middleWare = applyMiddleware(logger);
     const enhancer = compose(middleWare);
 
-    return createStore(companyReducer, initialState!, enhancer);
+    return createStore(rootReducer, initialState!, enhancer);
 }
 
 const store = configureStore();

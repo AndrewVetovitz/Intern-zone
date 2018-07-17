@@ -40,8 +40,13 @@ class Navbar extends React.Component<NavbarProps, {}> {
             <div className={classes.root}>
                 <AppBar>
                     <Toolbar>
-                        <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
-                            <MenuIcon />
+                        <IconButton
+                          onClick={this.handleSidebarOpen}
+                          className={classes.menuButton} 
+                          color="inherit" 
+                          aria-label="Menu"
+                        >
+                          <MenuIcon />
                         </IconButton>
                         <Typography variant="title" color="inherit" className={classes.flex}>
                             {TITLE}
@@ -50,6 +55,10 @@ class Navbar extends React.Component<NavbarProps, {}> {
                 </AppBar>
             </div>
         );
+    }
+
+    private handleSidebarOpen(): void {
+      console.log('button clicked');
     }
 }
    

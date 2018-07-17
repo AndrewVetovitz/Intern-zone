@@ -4,12 +4,12 @@ import { ActionType, getType } from 'typesafe-actions';
 
 import { companyActions } from './actions';
 
-import { CompanyStateProps } from './index';
+import { CompanyState } from './index';
 
 export type CompanyAction = ActionType<typeof companyActions>;
 
-export default combineReducers<CompanyStateProps, CompanyAction>({
-    companyNames: (state = { companyNames: [] }, action: CompanyAction) => {
+export default combineReducers<CompanyState, CompanyAction>({
+    company: (state = { companyNames: [] }, action: CompanyAction) => {
         switch (action.type) {
             case getType(companyActions.fetchCompanies): {
                 return {...state, fetching: true};
