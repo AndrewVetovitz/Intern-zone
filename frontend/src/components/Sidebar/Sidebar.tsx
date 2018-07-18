@@ -29,14 +29,9 @@ const styles = (theme: any) => createStyles({
     toolbar: theme.mixins.toolbar
 });
 
-export interface SidebarProps extends SidebarDispatchProps, WithStyles<typeof styles>  {}
-// export interface SidebarProps extends WithStyles<typeof styles>  {}
+export interface SidebarProps extends SidebarDispatchProps, SidebarState, WithStyles<typeof styles>  {}
 
 class Sidebar extends React.Component<SidebarProps, {}> {
-    readonly state: SidebarState = {
-      isOpen: false
-    };
-
     constructor(props: SidebarProps) {
         super(props);
     }
@@ -47,7 +42,8 @@ class Sidebar extends React.Component<SidebarProps, {}> {
         return (
             <div className={classes.root}>
                 <Drawer
-                    variant="permanent"
+                    variant="persistent"
+                    open={this.props.isOpen}
                     classes={{
                         paper: classes.drawerPaper,
                     }}

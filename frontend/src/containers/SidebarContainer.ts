@@ -8,12 +8,12 @@ import { sidebarActions } from '../store/sidebar';
 import { RootState } from '../store/root-reducer';
 
 export interface SidebarDispatchProps {
-  toggleSidebar?: () => any;
+  toggleSidebar: () => any;
 }
 
 function mapStateToProps(state: RootState, ownProps: SidebarProps) {
   return {
-    state: state.sidebarReducer,
+    isOpen: state.sidebar.isOpen,
     toggleSidebar: ownProps.toggleSidebar,
     classes: ownProps.classes,
     theme: ownProps.theme

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import Navbar from './Navbar';
+// import Navbar from './Navbar';
 
 import { MemoryRouter } from 'react-router-dom';
 
@@ -9,7 +9,7 @@ describe('<Navbar />', () => {
         const div = document.createElement('div');
         ReactDOM.render(
             <MemoryRouter>
-                <Navbar />
+                {/* <Navbar /> */}
             </MemoryRouter>,
             div);
         ReactDOM.unmountComponentAtNode(div);

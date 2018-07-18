@@ -6,7 +6,7 @@ import './TileGrid.css';
 import { CompanyState } from '../../store/company';
 import { CompanyDispatchProps } from '../../containers/TileGridContainer';
 
-export interface TileGridProps extends CompanyState, CompanyDispatchProps {}
+export interface TileGridProps extends CompanyDispatchProps, CompanyState {}
 
 class TileGrid extends React.Component<TileGridProps, {}> {
     constructor(props: TileGridProps) {

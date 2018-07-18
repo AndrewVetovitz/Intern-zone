@@ -6,8 +6,8 @@ import { companyReducer } from './company';
 import { sidebarReducer } from './sidebar';
 
 const rootReducer = combineReducers({
-    companyReducer: companyReducer,
-    sidebarReducer: sidebarReducer
+    company: companyReducer,
+    sidebar: sidebarReducer
 });
 
 export type RootState = StateType<typeof rootReducer>;

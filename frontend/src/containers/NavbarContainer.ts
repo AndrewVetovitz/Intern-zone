@@ -1,33 +1,31 @@
-// import { connect } from 'react-redux';
-// import { Dispatch } from 'redux';
+import { connect } from 'react-redux';
+import { Dispatch } from 'redux';
 
-// import Sidebar, { SidebarProps } from '../components/Sidebar/Sidebar';
+import Navbar, { NavbarProps } from '../components/Navbar/Navbar';
 
-// import { sidebarActions, SidebarStateProps } from '../store/sidebar';
+import { sidebarActions } from '../store/sidebar';
 
-// export interface SidebarDispatchProps {
-//   toggleSidebar?: () => any;
-// }
+import { RootState } from '../store/root-reducer';
 
-// function mapStateToProps(state: SidebarStateProps, ownProps: SidebarProps) {
-//   return {
-//     state: state,
-//     toggleSidebar: ownProps.toggleSidebar,
-//     classes: ownProps.classes,
-//     theme: ownProps.theme
-//   };
-// }
+function mapStateToProps(state: RootState, ownProps: NavbarProps) {
+  return {
+    isOpen: state.sidebar.isOpen,
+    toggleSidebar: ownProps.toggleSidebar,
+    classes: ownProps.classes,
+    theme: ownProps.theme
+  };
+}
 
-// function mapDispatchToProps(dispatch: Dispatch) {
-//   return {
-//     toggleSidebar: () => {
-//       dispatch(sidebarActions.toggleSidebar());
-//     }
-//   };
-// }
+function mapDispatchToProps(dispatch: Dispatch) {
+  return {
+    toggleSidebar: () => {
+      dispatch(sidebarActions.toggleSidebar());
+    }
+  };
+}
 
-// export default connect<SidebarProps>(
-//   mapStateToProps, 
-//   mapDispatchToProps
-// )(Sidebar);
+export default connect<NavbarProps>(
+  mapStateToProps,
+  mapDispatchToProps
+)(Navbar);
 

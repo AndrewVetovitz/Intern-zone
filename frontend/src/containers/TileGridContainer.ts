@@ -15,7 +15,7 @@ export interface CompanyDispatchProps {
 
 function mapStateToProps(state: RootState) {
   return {
-    company: state.companyReducer.company
+    company: state.company.company
   };
 }
 

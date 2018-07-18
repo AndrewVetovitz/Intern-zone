@@ -6,6 +6,8 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 
+import { SidebarDispatchProps } from '../../containers/SidebarContainer';
+
 import './Navbar.css';
 
 const TITLE: string = 'Intern Zone';
@@ -26,7 +28,7 @@ const styles = createStyles({
     }
 });
 
-interface NavbarProps extends WithStyles<typeof styles> {}
+export interface NavbarProps extends SidebarDispatchProps, WithStyles<typeof styles>  {}
 
 class Navbar extends React.Component<NavbarProps, {}> {
     constructor(props: NavbarProps) {
@@ -41,7 +43,7 @@ class Navbar extends React.Component<NavbarProps, {}> {
                 <AppBar>
                     <Toolbar>
                         <IconButton
-                          onClick={this.handleSidebarOpen}
+                          onClick={this.handleClick}
                           className={classes.menuButton} 
                           color="inherit" 
                           aria-label="Menu"
@@ -57,8 +59,8 @@ class Navbar extends React.Component<NavbarProps, {}> {
         );
     }
 
-    private handleSidebarOpen(): void {
-      console.log('button clicked');
+    private handleClick = (): void => {
+      this.props.toggleSidebar();
     }
 }
    

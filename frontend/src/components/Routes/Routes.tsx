@@ -1,8 +1,8 @@
 import * as React from 'react';
 import MediaQuery from 'react-responsive';
-import Navbar from '../Navbar/Navbar';
+import Navbar from '../../containers/NavbarContainer';
 import Toolbar from '@material-ui/core/Toolbar';
-import Sidebar from '../Sidebar/Sidebar';
+import Sidebar from '../../containers/SidebarContainer';
 import Home from '../Home/Home';
 import Company from '../Company/Company';
 import About from '../About/About';
