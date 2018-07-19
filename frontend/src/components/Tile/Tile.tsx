@@ -14,14 +14,14 @@ const styles = createStyles({
     card: {
         width: width,
         minHeight: height,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
         cursor: 'pointer',
         margin: 'auto'
     },
-    cardwidth: {
-        width: '100%'
+    text: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: height
     }
 });
 
@@ -41,15 +41,17 @@ function SimpleCard(props: CardProps): JSX.Element {
     }
 
     return (
-        <div className={classes.cardwidth}>
+        <React.Fragment>
             <Card className={classes.card} onClick={() => handleSearch(props.name)} raised={true}>
                 <CardContent>
-                    <Typography variant="headline" component="h2">
-                        {props.name}
+                    <Typography style={{height: height, width: width}} variant="headline" component="h2">
+                        <div className={classes.text}>
+                            {props.name}
+                        </div>
                     </Typography>
                 </CardContent>
             </Card>
-        </div>
+        </React.Fragment>
     );
 }
 

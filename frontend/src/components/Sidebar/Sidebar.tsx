@@ -15,7 +15,6 @@ const drawerWidth = 300;
 const styles = (theme: any) => createStyles({
     root: {
         flexGrow: 1,
-        height: '100%',
         zIndex: 1,
         overflow: 'hidden',
         position: 'relative',
@@ -24,7 +23,8 @@ const styles = (theme: any) => createStyles({
     drawerPaper: {
         position: 'fixed',
         width: drawerWidth,
-        top: 0
+        height: 'calc(100% - 64px)',
+        top: 64
     },
     toolbar: theme.mixins.toolbar
 });
