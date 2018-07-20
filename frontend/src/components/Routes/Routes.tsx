@@ -1,8 +1,11 @@
 import * as React from 'react';
 import MediaQuery from 'react-responsive';
-import Navbar from '../../containers/NavbarContainer';
 import Toolbar from '@material-ui/core/Toolbar';
+
+import Navbar from '../../containers/NavbarContainer';
 import Sidebar from '../../containers/SidebarContainer';
+import ContentWrapper from '../../containers/ContentWrapperContainer';
+
 import Home from '../Home/Home';
 import Company from '../Company/Company';
 import About from '../About/About';
@@ -28,9 +31,10 @@ export default function Routes(): JSX.Element {
                     <Navbar/>
                     <Toolbar />
                 </MediaQuery>
-                <Sidebar>
+                <Sidebar/>
+                <ContentWrapper>
                     {routes}
-                </Sidebar>
+                </ContentWrapper>
             </div>
           </Router>
       </React.Fragment>

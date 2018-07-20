@@ -10,7 +10,7 @@ import Divider from '@material-ui/core/Divider';
 import { SidebarState } from '../../store/sidebar';
 import { SidebarDispatchProps } from '../../containers/SidebarContainer';
 
-const drawerWidth = 300;
+import constants from '../component.constants';
 
 const styles = (theme: any) => createStyles({
     root: {
@@ -22,7 +22,7 @@ const styles = (theme: any) => createStyles({
     },
     drawerPaper: {
         position: 'fixed',
-        width: drawerWidth,
+        width: constants.drawerWidth,
         height: 'calc(100% - 64px)',
         top: 64
     },
@@ -53,9 +53,9 @@ class Sidebar extends React.Component<SidebarProps, {}> {
                     <Divider />
                     <List>{'Test 2'}</List>
                 </Drawer>
-                <div style={{width: '100%'}}>
+                {/* <div style={{width: '100%'}}>
                     {this.props.children}
-                </div>
+                </div> */}
             </div>
         );
     }
