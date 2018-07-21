@@ -9,10 +9,20 @@ import { SidebarState } from './index';
 export type SidebarAction = ActionType<typeof sidebarActions>;
 
 export default combineReducers<SidebarState, SidebarAction>({
-    isOpen: (state = false, action: SidebarAction) => {
+    screenSizeIsOpen: (state = false, action: SidebarAction) => {
         switch (action.type) {
-            case getType(sidebarActions.toggleSidebar): {
-                return state = !state ;
+            case getType(sidebarActions.setScreenSizeSidebarState): {
+                return state = action.payload;
+            }
+            default: {
+                return state;
+            }
+        }
+    },
+    conditionalIsOpen: (state = false, action: SidebarAction) => {
+        switch (action.type) {
+            case getType(sidebarActions.setConditionalSidebarState): {
+                return state = action.payload;
             }
             default: {
                 return state;

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import './Company.css';
 
-interface Props {
+interface CompanyProps {
     match: {
         params: {
             name: string;
@@ -9,7 +9,7 @@ interface Props {
     };
 }
 
-export default function Company({ match }: Props): JSX.Element {
+export default function Company({ match }: CompanyProps): JSX.Element {
     return (
         <div>{match.params.name}</div>
     );

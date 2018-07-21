@@ -6,7 +6,8 @@ import { RootState } from '../store/root-reducer';
 
 function mapStateToProps(state: RootState, ownProps: ContentWrapperProps) {
   return {
-    isOpen: state.sidebar.isOpen,
+    conditionalIsOpen: state.sidebar.conditionalIsOpen,
+    screenSizeIsOpen: state.sidebar.screenSizeIsOpen,
     children: ownProps.children,
     classes: ownProps.classes,
     theme: ownProps.theme

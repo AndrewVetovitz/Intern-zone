@@ -17,23 +17,22 @@ class ContentWrapper extends React.Component<ContentWrapperProps, {}> {
     }
 
     render() {
-        const left = this.props.isOpen ? constants.drawerWidth : 0;
+        const left = this.props.screenSizeIsOpen ? constants.drawerWidth : 0;
 
-        const transitionOpen = '225ms cubic-bezier(0, 0, 0.2, 1) 0ms';
-        const transitionClose = '300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms';
+        // const transitionOpen = '225ms cubic-bezier(0, 0, 0.2, 1) 0ms';
+        // const transitionClose = '300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms';
 
-        const width = this.props.isOpen ? 'calc(100% - ' + constants.drawerWidth + 'px)' : '100%';
+        const width = this.props.screenSizeIsOpen ? 'calc(100% - ' + constants.drawerWidth + 'px)' : '100%';
         const translate = 'translate(' + left + 'px, 0)';
 
-        const transition = this.props.isOpen ?
-            'transform ' + transitionOpen + ', width ' + transitionOpen :
-            'transform ' + transitionClose + ', width ' + transitionClose;
+        // const transition = this.props.isOpen ?
+        //     'transform ' + transitionOpen + ', width ' + transitionOpen :
+        //     'transform ' + transitionClose + ', width ' + transitionClose;
 
         const contentStyle = {
             padding: 0,
             width: width,
             transform: translate,
-            transition: transition,
         };
 
         return (

@@ -1,34 +1,31 @@
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
-import Sidebar, { SidebarProps } from '../components/Sidebar/Sidebar';
+import Sidebar, { SidebarInputProps } from '../components/Sidebar/Sidebar';
 
-import { sidebarActions } from '../store/sidebar';
+import { sidebarActions, SidebarState, SidebarDispatchProps } from '../store/sidebar';
 
 import { RootState } from '../store/root-reducer';
 
-export interface SidebarDispatchProps {
-  toggleSidebar: () => any;
-}
-
-function mapStateToProps(state: RootState, ownProps: SidebarProps) {
+function mapStateToProps(state: RootState): SidebarState {
   return {
-    isOpen: state.sidebar.isOpen,
-    toggleSidebar: ownProps.toggleSidebar,
-    classes: ownProps.classes,
-    theme: ownProps.theme
+    screenSizeIsOpen: state.sidebar.screenSizeIsOpen,
+    conditionalIsOpen: state.sidebar.conditionalIsOpen
   };
 }
 
-function mapDispatchToProps(dispatch: Dispatch) {
-  return {
-    toggleSidebar: () => {
-      dispatch(sidebarActions.toggleSidebar());
-    }
-  };
+function mapDispatchToProps(dispatch: Dispatch): SidebarDispatchProps {
+    return {
+        setScreenSizeSidebarState: (state: boolean) => {
+            dispatch(sidebarActions.setScreenSizeSidebarState(state));
+        },
+        setConditionalSidebarState: (state: boolean) => {
+            dispatch(sidebarActions.setConditionalSidebarState(state));
+        }
+    };
 }
 
-export default connect<SidebarProps>(
+export default connect<SidebarState, SidebarDispatchProps, SidebarInputProps>(
   mapStateToProps,
   mapDispatchToProps
 )(Sidebar);

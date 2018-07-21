@@ -1,14 +1,8 @@
 import * as React from 'react';
 import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
-// import AppBar from '@material-ui/core/AppBar';
-// import Toolbar from '@material-ui/core/Toolbar';
 import List from '@material-ui/core/List';
-// import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
-
-import { SidebarState } from '../../store/sidebar';
-import { SidebarDispatchProps } from '../../containers/SidebarContainer';
 
 import constants from '../component.constants';
 
@@ -29,11 +23,25 @@ const styles = (theme: any) => createStyles({
     toolbar: theme.mixins.toolbar
 });
 
-export interface SidebarProps extends SidebarDispatchProps, SidebarState, WithStyles<typeof styles>  {}
+export interface SidebarInputProps {
+    windowSize: boolean;
+}
+
+export interface SidebarProps extends SidebarInputProps, WithStyles<typeof styles> {
+    setScreenSizeSidebarState: (state: boolean) => any;
+    conditionalIsOpen: boolean;
+    screenSizeIsOpen: boolean;
+    windowSize: boolean;
+}
+
 
 class Sidebar extends React.Component<SidebarProps, {}> {
     constructor(props: SidebarProps) {
         super(props);
+    }
+
+    componentWillReceiveProps(nextProps: any) {
+        this.checkWindowSize(nextProps);
     }
 
     render() {
@@ -43,7 +51,7 @@ class Sidebar extends React.Component<SidebarProps, {}> {
             <div className={classes.root}>
                 <Drawer
                     variant="persistent"
-                    open={this.props.isOpen}
+                    open={this.props.conditionalIsOpen || this.props.screenSizeIsOpen}
                     classes={{
                         paper: classes.drawerPaper,
                     }}
@@ -53,11 +61,16 @@ class Sidebar extends React.Component<SidebarProps, {}> {
                     <Divider />
                     <List>{'Test 2'}</List>
                 </Drawer>
-                {/* <div style={{width: '100%'}}>
-                    {this.props.children}
-                </div> */}
             </div>
         );
+    }
+
+    checkWindowSize(nextProps: any): void {
+        if (nextProps.windowSize && !this.props.screenSizeIsOpen) {
+            this.props.setScreenSizeSidebarState(true);
+        } else if (!nextProps.windowSize && this.props.screenSizeIsOpen) {
+            this.props.setScreenSizeSidebarState(false);
+        }
     }
 }
 

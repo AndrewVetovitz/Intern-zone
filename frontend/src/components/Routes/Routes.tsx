@@ -25,18 +25,24 @@ const routes: JSX.Element = (
 export default function Routes(): JSX.Element {
     return (
       <React.Fragment>
-          <Router>
-            <div>
-                <MediaQuery maxWidth={1500}>
-                    <Navbar/>
-                    <Toolbar />
-                </MediaQuery>
-                <Sidebar/>
-                <ContentWrapper>
-                    {routes}
-                </ContentWrapper>
-            </div>
-          </Router>
+            <Router>
+                <div>
+                    <MediaQuery maxWidth={1500}>
+                        <Navbar/>
+                        <Toolbar />
+                    </MediaQuery>
+                    <MediaQuery minWidth={1500}>
+                        {(matches) => {
+                            return (
+                                <Sidebar windowSize={matches} />
+                            );
+                        }}
+                    </MediaQuery>
+                    <ContentWrapper>
+                        {routes}
+                    </ContentWrapper>
+                </div>
+            </Router>
       </React.Fragment>
     );
 }
