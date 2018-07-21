@@ -9,7 +9,7 @@ import { CompanyState } from './index';
 export type CompanyAction = ActionType<typeof companyActions>;
 
 export default combineReducers<CompanyState, CompanyAction>({
-    company: (state = { companyNames: [] }, action: CompanyAction) => {
+    companyInfo: (state = { companyNames: [] }, action: CompanyAction) => {
         switch (action.type) {
             case getType(companyActions.fetchCompanies): {
                 return {...state, fetching: true};

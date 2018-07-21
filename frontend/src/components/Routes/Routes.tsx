@@ -13,6 +13,8 @@ import Resources from '../Resources/Resources';
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
+import constants from '../../constants';
+
 const routes: JSX.Element = (
     <React.Fragment>
         <Route exact={true} path="/" component={Home}/>
@@ -23,15 +25,17 @@ const routes: JSX.Element = (
 );
 
 export default function Routes(): JSX.Element {
+    const queryWidth = constants.NAVBAR_SIDEBAR_BREAK_WIDTH;
+
     return (
       <React.Fragment>
             <Router>
                 <div>
-                    <MediaQuery maxWidth={1500}>
+                    <MediaQuery maxWidth={queryWidth}>
                         <Navbar/>
                         <Toolbar />
                     </MediaQuery>
-                    <MediaQuery minWidth={1500}>
+                    <MediaQuery minWidth={queryWidth}>
                         {(matches) => {
                             return (
                                 <Sidebar windowSize={matches} />

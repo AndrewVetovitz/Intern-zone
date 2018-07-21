@@ -1,41 +1,37 @@
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
-import TileGrid, { TileGridProps } from '../components/TileGrid/TileGrid';
+import TileGrid from '../components/TileGrid/TileGrid';
 
-import { companyActions } from '../store/company';
+import { companyActions, CompanyState, CompanyDispatchProps } from '../store/company';
 
 import { RootState } from '../store/root-reducer';
 
 import CompanyApi from '../api/companyAPI';
 
-export interface CompanyDispatchProps {
-  getAllCompanyNames?: () => any;
+function mapStateToProps(state: RootState): CompanyState {
+    return {
+        companyInfo: state.company.companyInfo
+    };
 }
 
-function mapStateToProps(state: RootState) {
-  return {
-    company: state.company.company
-  };
-}
-
-function mapDispatchToProps(dispatch: Dispatch) {
+function mapDispatchToProps(dispatch: Dispatch): CompanyDispatchProps {
   return {
     getAllCompanyNames: () => {
-      dispatch(companyActions.fetchCompanies());
-      CompanyApi.getAllCompanyNames()
-        .then(companyNames => {
-          dispatch(companyActions.fetchCompaniesFullfilled(companyNames));
-        })
-        .catch((err => {
-          dispatch(companyActions.fetchCompaniesRejected(err));
-        }));
+        dispatch(companyActions.fetchCompanies());
+        CompanyApi.getAllCompanyNames()
+            .then(companyNames => {
+                dispatch(companyActions.fetchCompaniesFullfilled(companyNames));
+            })
+            .catch(err => {
+                dispatch(companyActions.fetchCompaniesRejected(err));
+            });
     }
   };
 }
 
-export default connect<TileGridProps>(
-  mapStateToProps, 
-  mapDispatchToProps
+export default connect<CompanyState, CompanyDispatchProps>(
+    mapStateToProps, 
+    mapDispatchToProps
 )(TileGrid);
 

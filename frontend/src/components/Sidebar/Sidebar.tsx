@@ -4,7 +4,7 @@ import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 
-import constants from '../component.constants';
+import constants from '../../constants';
 
 const styles = (theme: any) => createStyles({
     root: {
@@ -16,7 +16,7 @@ const styles = (theme: any) => createStyles({
     },
     drawerPaper: {
         position: 'fixed',
-        width: constants.drawerWidth,
+        width: constants.DRAWER_WIDTH,
         height: 'calc(100% - 64px)',
         top: 64
     },

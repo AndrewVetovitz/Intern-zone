@@ -6,10 +6,12 @@ import { sidebarActions } from './actions';
 
 import { SidebarState } from './index';
 
+import constants from '../../constants';
+
 export type SidebarAction = ActionType<typeof sidebarActions>;
 
 export default combineReducers<SidebarState, SidebarAction>({
-    screenSizeIsOpen: (state = false, action: SidebarAction) => {
+    screenSizeIsOpen: (state = (window.innerWidth > constants.NAVBAR_SIDEBAR_BREAK_WIDTH), action: SidebarAction) => {
         switch (action.type) {
             case getType(sidebarActions.setScreenSizeSidebarState): {
                 return state = action.payload;
