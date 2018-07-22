@@ -18,16 +18,8 @@ class ContentWrapper extends React.Component<ContentWrapperProps, {}> {
 
     render() {
         const left = this.props.screenSizeIsOpen ? constants.DRAWER_WIDTH : 0;
-
-        // const transitionOpen = '225ms cubic-bezier(0, 0, 0.2, 1) 0ms';
-        // const transitionClose = '300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms';
-
         const width = this.props.screenSizeIsOpen ? 'calc(100% - ' + constants.DRAWER_WIDTH + 'px)' : '100%';
         const translate = 'translate(' + left + 'px, 0)';
-
-        // const transition = this.props.isOpen ?
-        //     'transform ' + transitionOpen + ', width ' + transitionOpen :
-        //     'transform ' + transitionClose + ', width ' + transitionClose;
 
         const contentStyle = {
             padding: 0,

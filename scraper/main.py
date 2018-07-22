@@ -6,7 +6,7 @@ url = 'https://andrewvetovitz.com'
 def main():
     print('Main started')
 
-    driver = chrome_webdriver.create_web_driver()
+    # driver = chrome_webdriver.create_web_driver()
 
     spreadsheet = CompanySpreadsheet() 
 
@@ -15,7 +15,7 @@ def main():
     for i in range(len(companies)):
         print(companies[i])
 
-    driver.get(url)
+    # driver.get(url)
 
     # content = driver.page_source
 

@@ -1,9 +1,9 @@
 export interface CompanyState {
     readonly companyInfo: {
-        companyNames: string[];
-        fetching?: boolean;
-        fetched?: boolean;
-        error?: any;
+        readonly companyNames: string[];
+        readonly fetching?: boolean;
+        readonly fetched?: boolean;
+        readonly error?: any;
     };
 }
 
