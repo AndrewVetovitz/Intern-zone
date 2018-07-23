@@ -1,7 +1,10 @@
 import * as React from 'react';
 
+import { Link } from 'react-router-dom';
+
 import Card  from '@material-ui/core/Card';
 import CardContent  from '@material-ui/core/Card';
+import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
 import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 
@@ -14,7 +17,6 @@ const styles = createStyles({
     card: {
         width: width,
         minHeight: height,
-        cursor: 'pointer',
         margin: 'auto'
     },
     text: {
@@ -29,9 +31,9 @@ interface CardProps extends WithStyles<typeof styles> {
     name: string;
 }
 
-function handleSearch(name: string) {
-    window.location.href = '/company/' + name;
-}
+// function handleSearch(name: string) {
+//     window.location.href = '/company/' + name;
+// }
 
 function SimpleCard(props: CardProps): JSX.Element {
     const { classes } = props;
@@ -40,16 +42,21 @@ function SimpleCard(props: CardProps): JSX.Element {
         return (<div/>);
     }
 
+    const to = '/company/' + props.name;
+    const link: any = ({innerRef, ...propsSpread}: any) => <Link {...propsSpread} to={to} />;
+
     return (
         <React.Fragment>
-            <Card className={classes.card} onClick={() => handleSearch(props.name)} raised={true}>
-                <CardContent>
-                    <Typography style={{height: height, width: width}} variant="headline" component="h2">
-                        <div className={classes.text}>
-                            {props.name}
-                        </div>
-                    </Typography>
-                </CardContent>
+            <Card raised={true}>
+                <ButtonBase className={classes.card} component={link} >
+                    <CardContent>
+                        <Typography style={{height: height, width: width}} variant="headline" component="h2">
+                            <div className={classes.text}>
+                                {props.name}
+                            </div>
+                        </Typography>
+                    </CardContent>
+                </ButtonBase>
             </Card>
         </React.Fragment>
     );

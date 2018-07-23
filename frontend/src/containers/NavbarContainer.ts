@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
+import { withRouter } from 'react-router-dom';
+
 import Navbar from '../components/Navbar/Navbar';
 
 import { sidebarActions, SidebarDispatchProps, SidebarState } from '../store/sidebar';
@@ -25,8 +27,8 @@ function mapDispatchToProps(dispatch: Dispatch): SidebarDispatchProps {
     };
 }
 
-export default connect<SidebarState, SidebarDispatchProps>(
+export default withRouter(connect<SidebarState, SidebarDispatchProps>(
   mapStateToProps,
   mapDispatchToProps
-)(Navbar);
+)(Navbar));
 

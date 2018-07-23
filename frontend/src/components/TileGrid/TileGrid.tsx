@@ -1,9 +1,11 @@
 import * as React from 'react';
 
+import { RouteComponentProps } from 'react-router-dom';
+
 import Tile from '../Tile/Tile';
 import './TileGrid.css';
 
-export interface TileGridProps {
+export interface TileGridProps extends RouteComponentProps<void> {
     getAllCompanyNames: () => any;
     companyInfo: {
         companyNames: string[];

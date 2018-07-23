@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
+import { withRouter } from 'react-router-dom';
+
 import TileGrid from '../components/TileGrid/TileGrid';
 
 import { companyActions, CompanyState, CompanyDispatchProps } from '../store/company';
@@ -30,8 +32,8 @@ function mapDispatchToProps(dispatch: Dispatch): CompanyDispatchProps {
   };
 }
 
-export default connect<CompanyState, CompanyDispatchProps>(
+export default withRouter(connect<CompanyState, CompanyDispatchProps>(
     mapStateToProps, 
     mapDispatchToProps
-)(TileGrid);
+)(TileGrid));
 

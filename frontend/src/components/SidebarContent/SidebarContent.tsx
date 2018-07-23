@@ -1,39 +1,38 @@
 import * as React from 'react';
 
+import { Link } from 'react-router-dom';
+
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
+// import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 
-import HomeIcon from '@material-ui/icons/Home';
-import DraftsIcon from '@material-ui/icons/Drafts';
-import StarIcon from '@material-ui/icons/Star';
-import SendIcon from '@material-ui/icons/Send';
+// import HomeIcon from '@material-ui/icons/Home';
+// import InfoIcon from '@material-ui/icons/Info';
+// import SendIcon from '@material-ui/icons/Send';
+
+const toHome = '/';
+const toAbout = '/about';
+const toResources = '/resources';
 
 const sidebarContent: JSX.Element = (
     <React.Fragment>
-        <ListItem button={true} onClick={() => console.log('Home clicked')}>
-            <ListItemIcon>
+        <ListItem button={true} component={({innerRef, ...props}) => <Link {...props} to={toHome} />}> 
+            {/* <ListItemIcon>
                 <HomeIcon />
-            </ListItemIcon>
+            </ListItemIcon> */}
             <ListItemText primary="Home" />
         </ListItem>
-        <ListItem button={true} onClick={() => console.log('About clicked')}>
-            <ListItemIcon>
-                <StarIcon />
-            </ListItemIcon>
+        <ListItem button={true} component={({innerRef, ...props}) => <Link {...props} to={toAbout} />}> 
+            {/* <ListItemIcon>
+                <InfoIcon />
+            </ListItemIcon> */}
             <ListItemText primary="About" />
         </ListItem>
-        <ListItem button={true} onClick={() => console.log('Mail clicked')}>
-            <ListItemIcon>
+        <ListItem button={true} component={({innerRef, ...props}) => <Link {...props} to={toResources} />}>
+            {/* <ListItemIcon>
                 <SendIcon />
-            </ListItemIcon>
-            <ListItemText primary="Send mail" />
-        </ListItem>
-        <ListItem button={true} onClick={() => console.log('Drafts clicked')}>
-            <ListItemIcon>
-                <DraftsIcon />
-            </ListItemIcon>
-            <ListItemText primary="Drafts" />
+            </ListItemIcon> */}
+            <ListItemText primary="Resources" />
         </ListItem>
     </React.Fragment>
 );

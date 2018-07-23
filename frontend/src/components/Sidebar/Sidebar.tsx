@@ -3,6 +3,8 @@ import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 
+import { RouteComponentProps } from 'react-router-dom';
+
 import sidebarContent from '../SidebarContent/SidebarContent';
 
 import constants from '../../constants';
@@ -31,7 +33,7 @@ export interface SidebarInputProps {
     windowSize: boolean;
 }
 
-export interface SidebarProps extends SidebarInputProps, WithStyles<typeof styles> {
+export interface SidebarProps extends SidebarInputProps, RouteComponentProps<void>, WithStyles<typeof styles> {
     setScreenSizeSidebarState: (state: boolean) => any;
     setConditionalSidebarState: (state: boolean) => any;
     conditionalIsOpen: boolean;
@@ -75,7 +77,8 @@ class Sidebar extends React.Component<SidebarProps, {}> {
                     <div
                         tabIndex={0}
                         role="button"
-                        onKeyDown={() => () => this.props.setConditionalSidebarState(false)}
+                        onClick={() => this.props.setConditionalSidebarState(false)}
+                        onKeyDown={() => this.props.setConditionalSidebarState(false)}
                     >
                         {content}
                     </div>

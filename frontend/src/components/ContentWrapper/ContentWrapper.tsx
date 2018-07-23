@@ -1,14 +1,18 @@
 import * as React from 'react';
-import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
+import { RouteComponentProps } from 'react-router-dom';
 
-import { SidebarState } from '../../store/sidebar';
+import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 
 import constants from '../../constants';
 
 const styles = (theme: any) => createStyles({});
 
-export interface ContentWrapperProps extends SidebarState, WithStyles<typeof styles>  {
+export interface ContentWrapperInputProps {
     children: JSX.Element;
+}
+
+export interface ContentWrapperProps extends RouteComponentProps<void>, WithStyles<typeof styles>  {
+    screenSizeIsOpen: boolean;
 }
 
 class ContentWrapper extends React.Component<ContentWrapperProps, {}> {

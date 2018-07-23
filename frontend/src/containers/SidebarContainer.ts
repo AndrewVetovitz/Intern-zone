@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
+import { withRouter } from 'react-router-dom';
+
 import Sidebar, { SidebarInputProps } from '../components/Sidebar/Sidebar';
 
 import { sidebarActions, SidebarState, SidebarDispatchProps } from '../store/sidebar';
@@ -25,8 +27,8 @@ function mapDispatchToProps(dispatch: Dispatch): SidebarDispatchProps {
     };
 }
 
-export default connect<SidebarState, SidebarDispatchProps, SidebarInputProps>(
+export default withRouter(connect<SidebarState, SidebarDispatchProps, SidebarInputProps>(
   mapStateToProps,
   mapDispatchToProps
-)(Sidebar);
+)(Sidebar));
 
