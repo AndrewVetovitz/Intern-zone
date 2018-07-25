@@ -5,27 +5,34 @@ import './Home.css';
 import SearchBar from 'material-ui-search-bar';
 import TileGrid from '../../containers/TileGridContainer';
 
-class Home extends React.Component<{}, {}> {
+interface State {
+    filter: any;
+}
+
+class Home extends React.Component<{}, State> {
+    constructor() {
+        super({});
+        this.state = { filter: '' } ;
+    }
+
+    handleChange(event: any) {
+        this.setState({ filter: event });
+    }
+
     render(): JSX.Element {
         return (
             <div className="Home-grid">
                 {/* <Header/> */}
                 <div className="Search-bar">
-                    Test
                     <SearchBar
-                        onChange={(text) => {
-                            this.setState({
-                                test: text
-                            });
-                        }}
-                        onRequestSearch={() => this.temp()}
+                        onChange={(text) => this.handleChange(text)}
                         style={{
                             margin: '250px auto 0px auto',
                             width: '75%'
                         }}
                     />
                 </div>
-                <TileGrid/>
+                <TileGrid filter={this.state.filter} />
             </div>
         );
     }

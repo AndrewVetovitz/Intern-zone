@@ -5,7 +5,11 @@ import { RouteComponentProps } from 'react-router-dom';
 import Tile from '../Tile/Tile';
 import './TileGrid.css';
 
-export interface TileGridProps extends RouteComponentProps<void> {
+export interface TileGridInputProps {
+    filter: string;
+}
+
+export interface TileGridProps extends TileGridInputProps, RouteComponentProps<void> {
     getAllCompanyNames: () => any;
     companyInfo: {
         companyNames: string[];
@@ -30,12 +34,14 @@ class TileGrid extends React.Component<TileGridProps, {}> {
         const { companyInfo } = this.props;
 
         if (companyInfo.companyNames.length > 0) {
-            return companyInfo.companyNames.map((value: string, index: number) => {
-                return (
-                    <div className="Tile" key={index}>
-                        <Tile name={value} />
-                    </div>
-                );
+            return companyInfo.companyNames
+                .filter(name => name.toLowerCase().includes(this.props.filter.toLowerCase()))
+                .map((value: string, index: number) => {
+                    return (
+                        <div className="Tile" key={index}>
+                            <Tile name={value} />
+                        </div>
+                    );
             });
         }
 
