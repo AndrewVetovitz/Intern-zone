@@ -12,7 +12,7 @@ import logger from 'morgan';
 // import passport from 'passport';
 // import expressValidator from 'express-validator';
 // import bluebird from 'bluebird';
-import db from './database';
+import db, { initalize } from './database';
 
 // const MongoStore = mongo(session);
 
@@ -36,10 +36,19 @@ const app = express();
 db.connect((err) => {
     if (err) {
         console.log('MySql connection error. Make sure MySql is running. ' + err);
-        // process.exit();
+        process.exit();
     }
 
-    // console.log('Connected to mysql!');
+    console.log('Connected to mysql!');
+
+    initalize((err) => {
+        if (err) {
+            console.log('Failed to initalize. ' + err);
+            process.exit();
+        }
+    });
+
+    console.log('Database initalized!');
 });
 
 // Connect to MongoDB

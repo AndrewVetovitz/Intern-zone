@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import CompanyModel from '../models/Company';
 
+
 import db from '../database';
 
 /**
@@ -8,7 +9,7 @@ import db from '../database';
  * Retrieve all company names
  */
 export let getAllCompanyNames = (req: Request, res: Response) => {
-    const sql = 'SELECT name FROM company';
+    const sql = 'SELECT * FROM company';
 
     res.status(200).json({
         companies: [
