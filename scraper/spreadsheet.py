@@ -5,7 +5,6 @@ from enums.status import Status
 from enums.columns import Columns
 
 key_file = 'secret_tokens.json'
-status_column = 4
 
 class CompanySpreadsheet:
     def __init__(self):
@@ -25,3 +24,7 @@ class CompanySpreadsheet:
     def set_row_status_good(self, row):
         sheet = self.client.open('Company Data').sheet1
         sheet.update_cell(row, Columns.STATUS.value, Status.GOOD.name)
+
+    def set_row_updated_false(self, row):
+        sheet = self.client.open('Company Data').sheet1
+        sheet.update_cell(row, Columns.UPDATED.value, Status.FALSE.name)
