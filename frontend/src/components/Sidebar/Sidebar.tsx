@@ -2,17 +2,18 @@ import * as React from 'react';
 import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
+import Toolbar from '@material-ui/core/Toolbar';
 
 import { RouteComponentProps } from 'react-router-dom';
 
-import sidebarContent from '../SidebarContent/SidebarContent';
+import SidebarContent from '../SidebarContent/SidebarContent';
 
 import constants from '../../constants';
 
 const styles = (theme: any) => createStyles({
     root: {
         flexGrow: 1,
-        zIndex: 1,
+        zIndex: 5,
         overflow: 'hidden',
         position: 'relative',
         display: 'flex'
@@ -23,10 +24,9 @@ const styles = (theme: any) => createStyles({
     drawerPaper: {
         position: 'fixed',
         width: constants.DRAWER_WIDTH,
-        height: 'calc(100% - 64px)',
-        top: 64
-    },
-    toolbar: theme.mixins.toolbar
+        backgroundColor: constants.BACKGROUND_COLOR,
+        height: '100%'
+    }
 });
 
 export interface SidebarInputProps {
@@ -41,7 +41,6 @@ export interface SidebarProps extends SidebarInputProps, RouteComponentProps<voi
     windowSize: boolean;
 }
 
-
 class Sidebar extends React.Component<SidebarProps, {}> {
     constructor(props: SidebarProps) {
         super(props);
@@ -54,12 +53,12 @@ class Sidebar extends React.Component<SidebarProps, {}> {
     render() {
         const { classes } = this.props;
 
-        const variant = (this.props.screenSizeIsOpen) ? 'persistent' : 'temporary';
+        const variant = 'persistent';
 
         const content: JSX.Element = (
             <div className={classes.list}>
-                <List>
-                    {sidebarContent}
+                <List component="nav">
+                    <SidebarContent onClick={() => this.props.setConditionalSidebarState(false)}/>
                 </List>
             </div>
         );
@@ -67,17 +66,15 @@ class Sidebar extends React.Component<SidebarProps, {}> {
         return (
             <div className={classes.root}>
                 <Drawer
-                    ModalProps={{ onBackdropClick: () => this.props.setConditionalSidebarState(false) }}
                     variant={variant}
                     open={this.props.conditionalIsOpen || this.props.screenSizeIsOpen}
                     classes={{
                         paper: classes.drawerPaper,
                     }}
                 >
+                    <Toolbar/>
                     <div
-                        tabIndex={0}
                         role="button"
-                        onClick={() => this.props.setConditionalSidebarState(false)}
                         onKeyDown={() => this.props.setConditionalSidebarState(false)}
                     >
                         {content}
@@ -87,7 +84,7 @@ class Sidebar extends React.Component<SidebarProps, {}> {
         );
     }
 
-    checkWindowSize(nextProps: any): void {
+    private checkWindowSize(nextProps: any): void {
         if (nextProps.windowSize && !this.props.conditionalIsOpen && !this.props.screenSizeIsOpen) {
             this.props.setScreenSizeSidebarState(true);
         } else if (!nextProps.windowSize && !this.props.conditionalIsOpen && this.props.screenSizeIsOpen) {

@@ -6,4 +6,4 @@ class Columns(Enum):
     COMPANY_WEBSITE = 2
     POSTING_URL = 3
     STATUS = 4
-    UPDATED = 5
+    UPDATE_URL = 5

@@ -26,6 +26,7 @@ class ContentWrapper extends React.Component<ContentWrapperProps, {}> {
         const translate = 'translate(' + left + 'px, 0)';
 
         const contentStyle = {
+            zIndex: -1,
             padding: 0,
             width: width,
             transform: translate,

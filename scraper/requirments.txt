@@ -1,2 +1,5 @@
 gspread==3.0.1
 oauth2client==4.1.2
+selenium==3.13.0
+mysql-connector==2.1.6
+python-dotenv==0.8.2

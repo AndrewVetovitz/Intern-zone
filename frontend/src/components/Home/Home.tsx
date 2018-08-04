@@ -10,8 +10,8 @@ interface State {
 }
 
 class Home extends React.Component<{}, State> {
-    constructor() {
-        super({});
+    constructor(props: object = {}) {
+        super(props);
         this.state = { filter: '' } ;
     }
 
