@@ -12,21 +12,9 @@ def read_in():
 def main():
     print('Main started')
 
-    # lines = read_in()
-
-    # print(lines)
-
     db = DB()
 
     cursor = db.getCursor()
-
-    query = ("SELECT * FROM company WHERE name = 'google' LIMIT 1")
-
-    cursor.execute(query)
-    # entries = cursor.fetchall()
-
-    for entry in cursor:
-        print(entry)
 
     driver = chrome_webdriver.create_web_driver()
 
@@ -35,16 +23,57 @@ def main():
     companies = spreadsheet.get_companies()
 
     for i in range(len(companies)):
+        company_name = companies[i]['company_name']
+        company_website = companies[i]['company_website']
         url = companies[i]['posting_url']
-        driver.get(url)
+        status = companies[i]['status']
+        update = companies[i]['update_entry']
 
-        if str_to_bool(companies[i]['update_url']) == True:
-            # query = ("UPDATE company SET ") TODO
-            print('updating url')
+        query = ("SELECT * FROM company WHERE name = %s LIMIT 1")
+
+        cursor.execute(query, (company_name,))
+
+        result = cursor.fetchone()
+
+        # Insert new entry
+        if result == None:
+            query = ("INSERT INTO company (name, website_url, posting_url, posting_content, status) VALUES (%s, %s, %s, %s, %s)")
+            
+            if url == '':
+                args = (company_name, company_website, url, '', status)
+                cursor.execute(query, args)
+            else:
+                driver.get(url)
+                content = driver.page_source
+                print(content[0])
+                args = (company_name, company_website, url, content[0], status)
+                cursor.execute(query, args)
+
+            spreadsheet.set_row_updated_false(i + 2)
+        # Update entry
+        elif str_to_bool(update) == True:
+            query = ("UPDATE company SET website_url = %s, posting_url = %s, posting_content = %s, status = %s WHERE name = %s")
+            
+            if url == '':
+                args = (company_website, url, '', status, company_name)
+                cursor.execute(query, args)
+            else: 
+                driver.get(url)
+                content = driver.page_source
+                print(content[0])
+                args = (company_name, company_website, url, content[0], status)
+                cursor.execute(query, args)
+
+            spreadsheet.set_row_updated_false(i + 2)
+        # Check entry
         else:
-            print('checking url')
+            if url != '': 
+                driver.get(url)
+                content = driver.page_source
 
-        print(len(driver.page_source))
+                print(result)
+
+        db.commit()
 
     db.close()
     driver.quit()

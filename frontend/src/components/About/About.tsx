@@ -3,8 +3,8 @@ import './About.css';
 
 export default function About(): JSX.Element {
     return (
-        <React.Fragment>
+        <div className="About">
             About
-        </React.Fragment>
+        </div>
     );
 }

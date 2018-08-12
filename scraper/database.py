@@ -27,6 +27,12 @@ class DB:
             else:
                 print(err)
 
+    def getCnx(self):
+        return self.cnx
+
+    def commit(self):
+        self.cnx.commit()
+
     def getCursor(self):
         return self.cnx.cursor()
 

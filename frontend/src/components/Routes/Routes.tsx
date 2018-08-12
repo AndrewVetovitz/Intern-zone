@@ -32,11 +32,14 @@ const styles = (theme: any) => createStyles({
         cursor: 'pointer',
     },
     flex: {
-        flex: 1
+        flex: 1,
+        textDecoration: 'none',
+        color: 'white'
     },
     menuButton: {
         marginLeft: -12,
-        marginRight: 20
+        marginRight: 20,
+        color: 'white'
     }
 });
 
@@ -51,6 +54,7 @@ const routes: JSX.Element = (
         <Route exact={true} path="/company/:name" component={Company} />
         <Route exact={true} path="/about" component={About} />
         <Route exact={true} path="/resources" component={Resources} />
+        <Route path="/**" component={Home} />
     </Switch>
 );
 
@@ -65,8 +69,7 @@ class Routes extends React.Component<RouterProps, {}> {
         const queryWidth = constants.NAVBAR_SIDEBAR_BREAK_WIDTH;
 
         const customStyles: React.CSSProperties = {
-            'zIndex': this.props.conditionalIsOpen ? 3 : 0,
-            'transition': 'opacity 5ms cubic-bezier(0.4, 0, 0.2, 1) 0ms !important'
+            'zIndex': this.props.conditionalIsOpen ? 3 : 0
         };
 
         const toHome = '/';

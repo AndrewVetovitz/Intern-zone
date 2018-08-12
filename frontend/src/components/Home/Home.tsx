@@ -36,10 +36,6 @@ class Home extends React.Component<{}, State> {
             </div>
         );
     }
-
-    temp(): void {
-        console.log('search');
-    }
 }
 
 export default Home;

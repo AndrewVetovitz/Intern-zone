@@ -5,7 +5,7 @@ import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 
 import constants from '../../constants';
 
-const styles = (theme: any) => createStyles({});
+const styles = () => createStyles({});
 
 export interface ContentWrapperInputProps {
     children: JSX.Element;

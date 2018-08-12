@@ -1,5 +1,4 @@
 import * as React from 'react';
-import './Company.css';
 
 interface CompanyProps {
     match: {

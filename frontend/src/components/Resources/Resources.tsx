@@ -3,9 +3,9 @@ import './Resources.css';
 
 function Resources(): JSX.Element {
     return (
-        <React.Fragment>
+        <div className="Resources">
             Resources
-        </React.Fragment>
+        </div>
     );
 }
 

@@ -28,4 +28,4 @@ class CompanySpreadsheet:
 
     def set_row_updated_false(self, row):
         sheet = self.client.open(spread_sheet_name).sheet1
-        sheet.update_cell(row, Columns.URL_UPDATED.value, Status.FALSE.name)
+        sheet.update_cell(row, Columns.UPDATE_ENTRY.value, Status.FALSE.name)

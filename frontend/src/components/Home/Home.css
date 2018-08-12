@@ -1,9 +1,9 @@
 .Home-grid {
-  background-color: #006c98;
+  background-color: white; /*#006c98;*/
   min-height: 100vh;
 }
 
 .Search-bar {
-  background-color: #006c98;
+  background-color: white;/*#006c98;*/
   padding: 50px;
 }
