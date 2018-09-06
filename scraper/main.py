@@ -1,4 +1,4 @@
-import chrome_webdriver, sys, json
+import chrome_webdriver, sys, json, hashlib
 
 from spreadsheet import CompanySpreadsheet
 from database import DB
@@ -35,6 +35,8 @@ def main():
 
         result = cursor.fetchone()
 
+        print(result)
+
         # Insert new entry
         if result == None:
             query = ("INSERT INTO company (name, website_url, posting_url, posting_content, status) VALUES (%s, %s, %s, %s, %s)")
@@ -45,8 +47,11 @@ def main():
             else:
                 driver.get(url)
                 content = driver.page_source
-                print(content[0])
-                args = (company_name, company_website, url, content[0], status)
+
+                content = content.encode('utf-8')
+                hashed_content = hashlib.sha224(content).hexdigest()
+
+                args = (company_name, company_website, url, hashed_content, status)
                 cursor.execute(query, args)
 
             spreadsheet.set_row_updated_false(i + 2)
@@ -60,8 +65,11 @@ def main():
             else: 
                 driver.get(url)
                 content = driver.page_source
-                print(content[0])
-                args = (company_name, company_website, url, content[0], status)
+
+                content = content.encode('utf-8')
+                hashed_content = hashlib.sha224(content).hexdigest()
+
+                args = (company_name, company_website, url, hashed_content, status)
                 cursor.execute(query, args)
 
             spreadsheet.set_row_updated_false(i + 2)
@@ -70,8 +78,6 @@ def main():
             if url != '': 
                 driver.get(url)
                 content = driver.page_source
-
-                print(result)
 
         db.commit()
 

@@ -4,5 +4,5 @@ export let createCompanyTableQuery = 'CREATE TABLE IF NOT EXISTS company('
                     + 'name VARCHAR(50) NOT NULL,'
                     + 'website_url VARCHAR(250),'
                     + 'posting_url VARCHAR(250),'
-                    + 'posting_content TEXT,'
+                    + 'posting_content VARCHAR(1000),'
                     + 'status VARCHAR(30))';
