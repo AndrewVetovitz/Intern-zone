@@ -31,10 +31,6 @@ interface CardProps extends WithStyles<typeof styles> {
     name: string;
 }
 
-// function handleSearch(name: string) {
-//     window.location.href = '/company/' + name;
-// }
-
 function SimpleCard(props: CardProps): JSX.Element {
     const { classes } = props;
     

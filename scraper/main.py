@@ -1,10 +1,12 @@
-import chrome_webdriver, sys, json, hashlib
+import chrome_webdriver, sys, json, hashlib, geckodriver
 
 from spreadsheet import CompanySpreadsheet
 from database import DB
 
 from enums.columns import Columns
 from enums.status import Status
+
+import time
 
 def read_in():
     return sys.stdin.readlines()
@@ -16,7 +18,10 @@ def main():
 
     cursor = db.getCursor()
 
+    # driver = geckodriver.create_web_driver()
     driver = chrome_webdriver.create_web_driver()
+    timeout = 5
+    i = 0
 
     spreadsheet = CompanySpreadsheet() 
 
@@ -35,49 +40,75 @@ def main():
 
         result = cursor.fetchone()
 
-        print(result)
-
         # Insert new entry
         if result == None:
             query = ("INSERT INTO company (name, website_url, posting_url, posting_content, status) VALUES (%s, %s, %s, %s, %s)")
             
             if url == '':
-                args = (company_name, company_website, url, '', status)
-                cursor.execute(query, args)
+                args = (company_name, company_website, '', '', status)
             else:
                 driver.get(url)
+                time.sleep(timeout)
                 content = driver.page_source
 
                 content = content.encode('utf-8')
-                hashed_content = hashlib.sha224(content).hexdigest()
+                hashed_content = hashlib.sha512(content).hexdigest()
 
                 args = (company_name, company_website, url, hashed_content, status)
-                cursor.execute(query, args)
 
+            cursor.execute(query, args)
             spreadsheet.set_row_updated_false(i + 2)
         # Update entry
         elif str_to_bool(update) == True:
             query = ("UPDATE company SET website_url = %s, posting_url = %s, posting_content = %s, status = %s WHERE name = %s")
             
             if url == '':
-                args = (company_website, url, '', status, company_name)
-                cursor.execute(query, args)
-            else: 
+                args = (company_website, '', '', status, company_name)
+            else:
                 driver.get(url)
+                time.sleep(timeout)
                 content = driver.page_source
 
                 content = content.encode('utf-8')
-                hashed_content = hashlib.sha224(content).hexdigest()
+                hashed_content = hashlib.sha512(content).hexdigest()
 
-                args = (company_name, company_website, url, hashed_content, status)
-                cursor.execute(query, args)
-
+                args = (company_website, url, hashed_content, status, company_name)
+                
+            cursor.execute(query, args)
             spreadsheet.set_row_updated_false(i + 2)
         # Check entry
         else:
-            if url != '': 
+            if url == '': 
+                if result[3] != '':
+                    spreadsheet.set_row_status_bad(i + 2)
+                else:
+                    spreadsheet.set_row_status_good(i + 2) 
+            else:
                 driver.get(url)
+                time.sleep(timeout)
                 content = driver.page_source
+
+                content = content.encode('utf-8')
+
+                with open('{}.txt'.format(i),'wb') as w:
+                    w.write(content)
+                    w.close()
+
+                i += 1
+
+                hashed_content = hashlib.sha512(content).hexdigest()
+
+                print(hashed_content)
+                print(result[4])
+                # print('curr: ' + result[3] + ' next: ' + url)
+                print()
+
+                if hashed_content == result[4]:
+                    spreadsheet.set_row_status_good(i + 2)
+                else:
+                    spreadsheet.set_row_status_bad(i + 2)
+                
+                # print(result[4])    
 
         db.commit()
 

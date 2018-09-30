@@ -24,7 +24,7 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 
-const TITLE: string = 'Zinterns';
+const TITLE: string = 'Intern Zone';
 // TEST
 
 const styles = (theme: any) => createStyles({
@@ -78,7 +78,7 @@ class Routes extends React.Component<RouterProps, {}> {
         return (
             <Router>
                 <div>
-                    <div style={{position: 'absolute', zIndex: 6, top: 0, left: 0}}>
+                    <div style={{position: 'sticky', zIndex: 6, top: 0, left: 0}}>
                         <Toolbar>
                             <IconButton
                                 onClick={this.handleClick}
