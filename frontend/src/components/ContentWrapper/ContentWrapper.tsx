@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
+import MediaQuery from 'react-responsive';
 
 import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 
@@ -34,11 +35,37 @@ class ContentWrapper extends React.Component<ContentWrapperProps, {}> {
             minHeight: 'calc(100vh - 64px)',
             backgroundColor: 'white'
         };
+
+        const contentStyleSmall = {
+            zIndex: -1,
+            padding: '25px',
+            width: width,
+            transform: translate,
+            minHeight: 'calc(100vh - 64px)',
+            backgroundColor: 'white'
+        };
+
+        const mobile: JSX.Element = (
+            <MediaQuery maxWidth={600}>
+                <div style={contentStyleSmall}>
+                    {this.props.children}
+                </div>
+            </MediaQuery>
+        );
+
+        const other: JSX.Element = (
+            <MediaQuery minWidth={600}>
+                <div style={contentStyle}>
+                    {this.props.children}
+                </div>
+            </MediaQuery>
+        );
         
         return (
-            <div style={contentStyle}>
-                {this.props.children}
-            </div>
+            <React.Fragment>
+                {mobile}
+                {other}
+            </React.Fragment>
         );
     }
 }

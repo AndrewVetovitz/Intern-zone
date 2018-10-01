@@ -25,7 +25,8 @@ const styles = (theme: any) => createStyles({
         position: 'fixed',
         width: constants.DRAWER_WIDTH,
         backgroundColor: constants.BACKGROUND_COLOR,
-        height: '100%'
+        height: '100%',
+        overflow: 'hidden'
     }
 });
 

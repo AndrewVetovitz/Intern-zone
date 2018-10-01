@@ -5,7 +5,6 @@ import Grid from '@material-ui/core/Grid';
 import { RouteComponentProps } from 'react-router-dom';
 
 import Tile from '../Tile/Tile';
-import './TileGrid.css';
 
 export interface TileGridInputProps {
     filter: string;
@@ -40,7 +39,7 @@ class TileGrid extends React.Component<TileGridProps, {}> {
                 .filter(name => name.toLowerCase().includes(this.props.filter.toLowerCase()))
                 .map((value: string, index: number) => {
                     return (
-                        <Grid item={true} key={index} xs={12} sm={6} md={4} lg={3}>
+                        <Grid item={true} key={index} xs={12} sm={6} md={4} lg={3} style={{paddingBottom: 10, paddingTop: 10}}>
                             <Tile name={value} />
                         </Grid>
                     );
