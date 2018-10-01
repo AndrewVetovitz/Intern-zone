@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import Grid from '@material-ui/core/Grid';
+
 import { RouteComponentProps } from 'react-router-dom';
 
 import Tile from '../Tile/Tile';
@@ -38,9 +40,9 @@ class TileGrid extends React.Component<TileGridProps, {}> {
                 .filter(name => name.toLowerCase().includes(this.props.filter.toLowerCase()))
                 .map((value: string, index: number) => {
                     return (
-                        <div className="Tile" key={index}>
+                        <Grid item={true} key={index} xs={12} sm={6} md={4} lg={3}>
                             <Tile name={value} />
-                        </div>
+                        </Grid>
                     );
             });
         }
@@ -52,9 +54,9 @@ class TileGrid extends React.Component<TileGridProps, {}> {
         const tiles = this.getTiles();
 
         return (
-            <div className="Tile-Grid">
+            <Grid container={true} spacing={40}>
                 {tiles}
-            </div>
+            </Grid>
         );
     }
 }

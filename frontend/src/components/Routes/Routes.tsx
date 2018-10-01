@@ -19,13 +19,12 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import constants from '../../constants';
 
 // TEST
-// import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 
 const TITLE: string = 'Intern Zone';
-// TEST
+
 
 const styles = (theme: any) => createStyles({
     backdropStyle: {
@@ -46,6 +45,7 @@ const styles = (theme: any) => createStyles({
 export interface RouterProps extends WithStyles<typeof styles>  {
     setConditionalSidebarState: (state: boolean) => any;
     conditionalIsOpen: boolean;
+    screenSizeIsOpen: boolean;
 }
 
 const routes: JSX.Element = (
@@ -75,19 +75,27 @@ class Routes extends React.Component<RouterProps, {}> {
         const toHome = '/';
         const link: any = ({innerRef, ...propsSpread}: any) => <Link {...propsSpread} to={toHome} />;
 
+        let icon: JSX.Element = <React.Fragment/>;
+
+        if (!this.props.screenSizeIsOpen) {
+            icon = (
+                <IconButton
+                    onClick={this.handleClick}
+                    className={classes.menuButton} 
+                    color="inherit" 
+                    aria-label="Menu"
+                >
+                <MenuIcon />
+                </IconButton>
+            );
+        }
+
         return (
             <Router>
                 <div>
-                    <div style={{position: 'sticky', zIndex: 6, top: 0, left: 0}}>
+                    <div style={{position: 'fixed', zIndex: 6, top: 0, left: 0, width: 300}}>
                         <Toolbar>
-                            <IconButton
-                                onClick={this.handleClick}
-                                className={classes.menuButton} 
-                                color="inherit" 
-                                aria-label="Menu"
-                            >
-                            <MenuIcon />
-                            </IconButton>
+                            {icon}
                             <Typography variant="title" color="inherit" className={classes.flex} component={link}>
                                 {TITLE}
                             </Typography>
@@ -101,7 +109,6 @@ class Routes extends React.Component<RouterProps, {}> {
                     />
                     <MediaQuery maxWidth={queryWidth}>
                         <Navbar/>
-                        <Toolbar />
                     </MediaQuery>
                     <MediaQuery minWidth={queryWidth}>
                         {(matches) => {

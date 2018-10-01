@@ -22,16 +22,19 @@ class ContentWrapper extends React.Component<ContentWrapperProps, {}> {
 
     render() {
         const left = this.props.screenSizeIsOpen ? constants.DRAWER_WIDTH : 0;
+        const top = this.props.screenSizeIsOpen ? 0 : constants.NAVBAR_HEIGHT;
         const width = this.props.screenSizeIsOpen ? 'calc(100% - ' + constants.DRAWER_WIDTH + 'px)' : '100%';
-        const translate = 'translate(' + left + 'px, 0)';
+        const translate = 'translate(' + left + 'px, ' + top + 'px)';
 
         const contentStyle = {
             zIndex: -1,
-            padding: 0,
+            padding: '50px',
             width: width,
             transform: translate,
+            minHeight: 'calc(100vh - 64px)',
+            backgroundColor: 'white'
         };
-
+        
         return (
             <div style={contentStyle}>
                 {this.props.children}

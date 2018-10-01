@@ -25,6 +25,7 @@ const styles = createStyles({
 export interface NavbarProps extends RouteComponentProps<void>, WithStyles<typeof styles> {
     setConditionalSidebarState: (state: boolean) => any;
     conditionalIsOpen: boolean;
+    screenSizeIsOpen: boolean;
 }
 
 class Navbar extends React.Component<NavbarProps, {}> {
@@ -35,12 +36,18 @@ class Navbar extends React.Component<NavbarProps, {}> {
     render() {
         const { classes } = this.props;
 
-        return (
+        const bar = (!this.props.screenSizeIsOpen) ? (
             <div className={classes.root}>
                 <AppBar>
                     <Toolbar/> 
                 </AppBar>
             </div>
+        ) : <React.Fragment/>;
+
+        return (
+            <React.Fragment>
+                {bar}
+            </React.Fragment>
         );
     }
 }
