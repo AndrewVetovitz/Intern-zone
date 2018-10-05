@@ -1,8 +1,6 @@
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
-// import { withRouter } from 'react-router-dom';
-
 import Routes from '../components/Routes/Routes';
 
 import { sidebarActions, SidebarDispatchProps, SidebarState } from '../store/sidebar';

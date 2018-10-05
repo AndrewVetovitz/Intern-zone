@@ -1,0 +1,92 @@
+[
+    {
+        "category": "Programming Interview Books",
+        "data": [
+            {
+                "name": "Cracking the Coding Interview",
+                "img_url": "/images/cracking-the-coding-interview.jpg",
+                "url": ""
+            },
+            {
+                "name": "Elements of programming Interviews",
+                "img_url": "/images/elements-of-programming-interviews.jpg",
+                "url": ""
+            },
+            {
+                "name": "Introduction to Algorithms - CLRS",
+                "img_url": "/images/introduction-to-algorithms-clrs.jpg",
+                "url": ""
+            },
+            {
+                "name": "Java Programming Interviews",
+                "img_url": "/images/elements-of-programming-interviews-in-java.jpg",
+                "url": ""
+            },
+            {
+                "name": "Python Programming Interviews",
+                "img_url": "/images/elements-of-programming-interviews-in-python.png",
+                "url": ""
+            },
+            {
+                "name": "Algorithm Design Manuel",
+                "img_url": "/images/algorithm-design-manuel.jpg",
+                "url": ""
+            }
+        ]
+    },
+    {
+        "category": "Coding Websites",
+        "data": [
+            {
+                "name": "Leetcode",
+                "img_url": "/images/leetcode.png",
+                "url": ""
+            },
+            {
+                "name": "Geeks for Geeks",
+                "img_url": "/images/geeks-for-geeks.png",
+                "url": ""
+            },
+            {
+                "name": "HackerRank",
+                "img_url": "/images/hackerrank.png",
+                "url": ""
+            },
+            {
+                "name": "Codewars",
+                "img_url": "/images/codewars.png",
+                "url": ""
+            },
+            {
+                "name": "Firecode.io",
+                "img_url": "/images/firecode.png",
+                "url": ""
+            },
+            {
+                "name": "Codechef",
+                "img_url": "/images/codechef.jpg",
+                "url": ""
+            },
+            {
+                "name": "Topcoder",
+                "img_url": "/images/topcoder.png",
+                "url": ""
+            }
+        ]
+    },
+    {
+        "category": "CS Career Websites",
+        "data": [
+            {
+                "name": "Career Cup",
+                "img_url": "/images/career-cup.png",
+                "url": ""
+            },
+            {
+                "name": "CS Career Questions",
+                "img_url": "/images/reddit.jpg",
+                "url": ""
+            }
+        ]
+    }
+]
