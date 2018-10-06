@@ -18,13 +18,11 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import constants from '../../constants';
 
-// TEST
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 
 const TITLE: string = 'Intern Zone';
-
 
 const styles = (theme: any) => createStyles({
     backdropStyle: {

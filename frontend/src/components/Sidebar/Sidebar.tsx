@@ -73,7 +73,7 @@ class Sidebar extends React.Component<SidebarProps, {}> {
                         paper: classes.drawerPaper,
                     }}
                 >
-                    <Toolbar style={{width: 300}}/>
+                    <Toolbar style={{width: constants.DRAWER_WIDTH}} />
                     <div
                         role="button"
                         onKeyDown={() => this.props.setConditionalSidebarState(false)}

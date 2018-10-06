@@ -9,7 +9,7 @@ import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
 import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 
-// import constants from '../../constants';
+import constants from '../../constants';
 
 const ONE = 1, TWO = 2, FIVE = 5;
 const phi = (ONE + Math.sqrt(FIVE)) / TWO;
@@ -45,6 +45,8 @@ interface CardProps extends WithStyles<typeof styles> {
 
 function SimpleCard(props: CardProps): JSX.Element {
     const { classes } = props;
+
+    const mobileBreakWidth = constants.MOBILE_SCREEN_WIDTH;
     
     if (classes === undefined) {
         return (<div/>);
@@ -54,7 +56,7 @@ function SimpleCard(props: CardProps): JSX.Element {
     const link: any = ({innerRef, ...propsSpread}: any) => <Link {...propsSpread} to={to} />;
 
     const mobile = (
-        <MediaQuery maxWidth={600}>
+        <MediaQuery maxWidth={mobileBreakWidth}>
             <div className={classes.sm_text}>
                 {props.name}
             </div>
@@ -62,7 +64,7 @@ function SimpleCard(props: CardProps): JSX.Element {
     );
 
     const other = (
-        <MediaQuery minWidth={600}>
+        <MediaQuery minWidth={mobileBreakWidth}>
             <div className={classes.text}>
                 {props.name}
             </div>

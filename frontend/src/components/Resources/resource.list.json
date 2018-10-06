@@ -5,32 +5,32 @@
             {
                 "name": "Cracking the Coding Interview",
                 "img_url": "/images/cracking-the-coding-interview.jpg",
-                "url": ""
+                "website_url": "https://www.amazon.com/Cracking-Coding-Interview-Programming-Questions/dp/0984782850/ref=sr_1_1?ie=UTF8&qid=1538786859&sr=8-1&keywords=cracking+the+coding+interviews"
             },
             {
                 "name": "Elements of programming Interviews",
                 "img_url": "/images/elements-of-programming-interviews.jpg",
-                "url": ""
+                "website_url": "https://www.amazon.com/Elements-Programming-Interviews-Questions-Tsung-Hsien/dp/B00C7F0V3W/ref=sr_1_5?ie=UTF8&qid=1538786883&sr=8-5&keywords=elements+of+programming+interviews"
             },
             {
                 "name": "Introduction to Algorithms - CLRS",
                 "img_url": "/images/introduction-to-algorithms-clrs.jpg",
-                "url": ""
+                "website_url": "https://www.amazon.com/Introduction-Algorithms-3rd-MIT-Press/dp/0262033844/ref=sr_1_1?ie=UTF8&qid=1538786920&sr=8-1&keywords=clrs"
             },
             {
                 "name": "Java Programming Interviews",
                 "img_url": "/images/elements-of-programming-interviews-in-java.jpg",
-                "url": ""
+                "website_url": "https://www.amazon.com/Elements-Programming-Interviews-Java-Insiders/dp/1517671272/ref=sr_1_3?ie=UTF8&qid=1538786883&sr=8-3&keywords=elements+of+programming+interviews"
             },
             {
                 "name": "Python Programming Interviews",
                 "img_url": "/images/elements-of-programming-interviews-in-python.png",
-                "url": ""
+                "website_url": "https://www.amazon.com/Elements-Programming-Interviews-Python-Insiders/dp/1537713949/ref=sr_1_1?ie=UTF8&qid=1538786883&sr=8-1&keywords=elements+of+programming+interviews"
             },
             {
-                "name": "Algorithm Design Manuel",
-                "img_url": "/images/algorithm-design-manuel.jpg",
-                "url": ""
+                "name": "Algorithm Design Manual",
+                "img_url": "/images/algorithm-design-manual.jpg",
+                "website_url": "https://www.amazon.com/Algorithm-Design-Manual-Steven-Skiena/dp/1849967202/ref=sr_1_2?ie=UTF8&qid=1538786940&sr=8-2&keywords=algorithm+design+manual"
             }
         ]
     },
@@ -40,37 +40,32 @@
             {
                 "name": "Leetcode",
                 "img_url": "/images/leetcode.png",
-                "url": ""
+                "website_url": "https://leetcode.com/"
             },
             {
                 "name": "Geeks for Geeks",
                 "img_url": "/images/geeks-for-geeks.png",
-                "url": ""
+                "website_url": "https://www.geeksforgeeks.org/"
             },
             {
                 "name": "HackerRank",
                 "img_url": "/images/hackerrank.png",
-                "url": ""
+                "website_url": "https://www.hackerrank.com/"
             },
             {
                 "name": "Codewars",
                 "img_url": "/images/codewars.png",
-                "url": ""
+                "website_url": "https://www.codewars.com/"
             },
             {
                 "name": "Firecode.io",
                 "img_url": "/images/firecode.png",
-                "url": ""
+                "website_url": "https://www.firecode.io/"
             },
             {
                 "name": "Codechef",
                 "img_url": "/images/codechef.jpg",
-                "url": ""
-            },
-            {
-                "name": "Topcoder",
-                "img_url": "/images/topcoder.png",
-                "url": ""
+                "website_url": "https://www.codechef.com/"
             }
         ]
     },
@@ -80,12 +75,12 @@
             {
                 "name": "Career Cup",
                 "img_url": "/images/career-cup.png",
-                "url": ""
+                "website_url": "https://www.careercup.com/"
             },
             {
                 "name": "CS Career Questions",
                 "img_url": "/images/reddit.jpg",
-                "url": ""
+                "website_url": "https://www.reddit.com/r/cscareerquestions/"
             }
         ]
     }
