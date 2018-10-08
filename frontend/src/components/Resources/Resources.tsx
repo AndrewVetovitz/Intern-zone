@@ -63,7 +63,7 @@ function getImages(tiles: ResourceTiles[], props: ResourceProps): JSX.Element | 
 
             return (
                 <Grid component={link} item={true} key={index} xs={12} sm={6} md={4} lg={4} style={{padding: 20}}>
-                    <img className={classes.imgStyles} src={tile.img_url} alt={tile.name} />
+                    <img className={classes.imgStyles} src={tile.img_url} alt={tile.name} title={tile.name}/>
                 </Grid>
             );
         });

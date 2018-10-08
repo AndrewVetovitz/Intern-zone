@@ -20,6 +20,7 @@ const styles = (theme: any) => createStyles({
     },
     list: {
         width: '100%',
+        marginLeft: 45
     },
     drawerPaper: {
         position: 'fixed',

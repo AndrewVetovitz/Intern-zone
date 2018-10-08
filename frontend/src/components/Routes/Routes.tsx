@@ -35,7 +35,7 @@ const styles = (theme: any) => createStyles({
     },
     menuButton: {
         marginLeft: -12,
-        marginRight: 20,
+        marginRight: 10,
         color: 'white'
     }
 });
@@ -94,6 +94,9 @@ class Routes extends React.Component<RouterProps, {}> {
                     <div style={{position: 'fixed', zIndex: 6, top: 0, left: 0, width: 300}}>
                         <Toolbar>
                             {icon}
+                            <Typography variant="title" color="inherit" component={link}>
+                                <img height="35px" width="35px" style={{marginRight: 10}}src="/images/intern-zone-logo.png"/>
+                            </Typography>
                             <Typography variant="title" color="inherit" className={classes.flex} component={link}>
                                 {TITLE}
                             </Typography>

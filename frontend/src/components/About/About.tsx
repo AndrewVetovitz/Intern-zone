@@ -5,28 +5,38 @@ import Typography from '@material-ui/core/Typography';
 function About(): JSX.Element {
     const headerSize: string = 'h2';
 
+    // font-size: 16px;
+    // line-height: 1.6em;
+    // margin-bottom: 20px;
+
     return (
-        <div>
-            <Typography variant="headline" component={headerSize}>
-            Intern Zone
-            </Typography>
-            <Typography component="p">
-            Hi. Our mission is to provide the highest quality and to give all those looking for internships the tools they need to succeed. 
-            </Typography>
+        <div style={{fontSize: 16, lineHeight: '1.6em'}}>
+            <div style={{marginBottom: 20}}>
+                <Typography variant="headline" style={{color: '#888'}} component={headerSize}>
+                Intern Zone
+                </Typography>
+                <Typography component="p">
+                Hi. Our mission is to provide the highest quality and to give all those looking for internships the tools they need to succeed. 
+                </Typography>
+            </div>
 
-            <Typography variant="headline" component={headerSize}>
-            Contact
-            </Typography>
-            <Typography component="p">
-            Hi. Our mission is to provide the highest quality and to give all those looking for internships the tools they need to succeed. 
-            </Typography>
+            <div style={{marginBottom: 20}}>
+                <Typography variant="headline" style={{color: '#888'}} component={headerSize}>
+                Contact
+                </Typography>
+                <Typography component="p">
+                Hi. Our mission is to provide the highest quality and to give all those looking for internships the tools they need to succeed. 
+                </Typography>
+            </div>
 
-            <Typography variant="headline" component={headerSize}>
-            FAQ
-            </Typography>
-            <Typography component="p">
-            Hi. Our mission is to provide the highest quality and to give all those looking for internships the tools they need to succeed. 
-            </Typography>
+            <div style={{marginBottom: 20}}>
+                <Typography variant="headline" style={{color: '#888'}} component={headerSize}>
+                FAQ
+                </Typography>
+                <Typography component="p">
+                Hi. Our mission is to provide the highest quality and to give all those looking for internships the tools they need to succeed. 
+                </Typography>
+            </div>
         </div>
     );
 }
