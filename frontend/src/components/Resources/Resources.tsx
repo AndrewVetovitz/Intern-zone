@@ -7,7 +7,7 @@ import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 
 import resource from './resource.list.json';
 
-import constants from '../../constants';
+// import constants from '../../constants';
 
 const styles = createStyles({
     grid: {
@@ -42,8 +42,8 @@ function Resources(props: ResourceProps): JSX.Element {
                     return (
                         <React.Fragment key={index}>
                             <Grid container={true} spacing={40} className={classes.grid}>
-                                <Grid style={{backgroundColor: constants.BACKGROUND_COLOR}} item={true} key="Subheader" xs={12} sm={12} md={12} lg={12}>
-                                    <ListSubheader component="div" style={{color: 'white'}}>{res.category}</ListSubheader>
+                                <Grid style={{fontSize: 50}} item={true} key="Subheader" xs={12} sm={12} md={12} lg={12}>
+                                    <ListSubheader component="div" style={{color: '#888', fontSize: 30}}>{res.category}</ListSubheader>
                                 </Grid>
                                 {getImages(res.data, props)}
                             </Grid>
@@ -62,7 +62,7 @@ function getImages(tiles: ResourceTiles[], props: ResourceProps): JSX.Element | 
             const link: any = ({innerRef, ...propsSpread}: any) => <a {...propsSpread} target={'_blank'} href={tile.website_url} />;
 
             return (
-                <Grid component={link} item={true} key={index} xs={12} sm={6} md={4} lg={4} style={{padding: 10}}>
+                <Grid component={link} item={true} key={index} xs={12} sm={6} md={4} lg={4} style={{padding: 20}}>
                     <img className={classes.imgStyles} src={tile.img_url} alt={tile.name} />
                 </Grid>
             );

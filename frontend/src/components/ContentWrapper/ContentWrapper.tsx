@@ -29,7 +29,8 @@ class ContentWrapper extends React.Component<ContentWrapperProps, {}> {
 
         const contentStyle = {
             zIndex: -1,
-            padding: '50px',
+            padding: '75px',
+            margin: 0,
             width: width,
             transform: translate,
             minHeight: 'calc(100vh - 64px)',
@@ -39,6 +40,7 @@ class ContentWrapper extends React.Component<ContentWrapperProps, {}> {
         const contentStyleSmall = {
             zIndex: -1,
             padding: '25px',
+            margin: 0,
             width: width,
             transform: translate,
             minHeight: 'calc(100vh - 64px)',
