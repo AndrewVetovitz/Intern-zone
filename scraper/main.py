@@ -1,15 +1,12 @@
 import chrome_webdriver, sys, json, hashlib, geckodriver
 
+from selenium.webdriver.common.by import By
+
 from spreadsheet import CompanySpreadsheet
 from database import DB
 
 from enums.columns import Columns
 from enums.status import Status
-
-import time
-
-def read_in():
-    return sys.stdin.readlines()
 
 def main():
     print('Main started')
@@ -20,8 +17,6 @@ def main():
 
     # driver = geckodriver.create_web_driver()
     driver = chrome_webdriver.create_web_driver()
-    timeout = 5
-    i = 0
 
     spreadsheet = CompanySpreadsheet() 
 
@@ -47,13 +42,7 @@ def main():
             if url == '':
                 args = (company_name, company_website, '', '', status)
             else:
-                driver.get(url)
-                time.sleep(timeout)
-                content = driver.page_source
-
-                content = content.encode('utf-8')
-                hashed_content = hashlib.sha512(content).hexdigest()
-
+                hashed_content = hash_url_content(driver, url, i)
                 args = (company_name, company_website, url, hashed_content, status)
 
             cursor.execute(query, args)
@@ -65,13 +54,7 @@ def main():
             if url == '':
                 args = (company_website, '', '', status, company_name)
             else:
-                driver.get(url)
-                time.sleep(timeout)
-                content = driver.page_source
-
-                content = content.encode('utf-8')
-                hashed_content = hashlib.sha512(content).hexdigest()
-
+                hashed_content = hash_url_content(driver, url, i)
                 args = (company_website, url, hashed_content, status, company_name)
                 
             cursor.execute(query, args)
@@ -84,31 +67,12 @@ def main():
                 else:
                     spreadsheet.set_row_status_good(i + 2) 
             else:
-                driver.get(url)
-                time.sleep(timeout)
-                content = driver.page_source
-
-                content = content.encode('utf-8')
-
-                with open('{}.txt'.format(i),'wb') as w:
-                    w.write(content)
-                    w.close()
-
-                i += 1
-
-                hashed_content = hashlib.sha512(content).hexdigest()
-
-                print(hashed_content)
-                print(result[4])
-                # print('curr: ' + result[3] + ' next: ' + url)
-                print()
+                hashed_content = hash_url_content(driver, url, i)
 
                 if hashed_content == result[4]:
                     spreadsheet.set_row_status_good(i + 2)
                 else:
-                    spreadsheet.set_row_status_bad(i + 2)
-                
-                # print(result[4])    
+                    spreadsheet.set_row_status_bad(i + 2) 
 
         db.commit()
 
@@ -123,5 +87,18 @@ def str_to_bool(s):
     else:
          raise ValueError
 
+def hash_url_content(driver, url, i):
+    driver.get(url)
+
+    content = driver.find_element(By.TAG_NAME, 'body').text
+    content = content.encode('utf-8')
+
+    return hashlib.sha512(content).hexdigest()
+
 if __name__ == '__main__': 
     main()
+
+
+    # with open('{}.txt'.format(i),'wb') as w:
+    #     w.write(content)
+    #     w.close()
