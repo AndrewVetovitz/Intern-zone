@@ -19,8 +19,7 @@ const styles = (theme: any) => createStyles({
         display: 'flex'
     },
     list: {
-        width: '100%',
-        marginLeft: 45
+        width: '100%'
     },
     drawerPaper: {
         position: 'fixed',
