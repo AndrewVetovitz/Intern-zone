@@ -10,7 +10,11 @@ import { Button } from '@material-ui/core';
 
 import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 
-const styles = (theme: any) => createStyles({});
+const styles = (theme: any) => createStyles({
+    margin: {
+        margin: '0 25px'
+    }
+});
 
 interface LoginInputProps {
     open: boolean;
@@ -39,7 +43,7 @@ class Login extends React.Component<LoginProps, State> {
     }
 
     render() {
-        // const { classes } = this.props;
+        const { classes } = this.props;
 
         return (
             <React.Fragment>
@@ -48,8 +52,10 @@ class Login extends React.Component<LoginProps, State> {
                     onClose={this.handleClose}
                     scroll={'body'}
                     aria-labelledby="scroll-dialog-title"
+                    style={{display: 'flex', alignItems: 'center', justifyContent: 'center', paddingTop: 0}}
                 >
-                    <DialogTitle id="scroll-dialog-title">Subscribe</DialogTitle>
+                    <DialogTitle id="scroll-dialog-title">Sign In to your personalized profile</DialogTitle>
+                    <div className={classes.margin}>
                         <DialogContent>
                             <DialogContentText>
                             Login test
@@ -60,14 +66,15 @@ class Login extends React.Component<LoginProps, State> {
                             Login test
                             </DialogContentText>
                         </DialogContent>
-                        <DialogActions>
-                            <Button onClick={this.handleClose} color="primary">
-                                Cancel
-                            </Button>
-                            <Button onClick={this.handleClose} color="primary">
-                                Subscribe
-                            </Button>
-                        </DialogActions>
+                    </div>
+                    <DialogActions>
+                        <Button onClick={this.handleClose} color="primary">
+                            Cancel
+                        </Button>
+                        <Button onClick={this.handleClose} color="primary">
+                            Subscribe
+                        </Button>
+                    </DialogActions>
                 </Dialog>
             </React.Fragment>
         );

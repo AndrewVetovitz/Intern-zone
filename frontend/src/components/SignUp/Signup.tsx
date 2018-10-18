@@ -1,16 +1,22 @@
 import * as React from 'react';
 
 import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
+// import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
+// import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
 import { Button } from '@material-ui/core';
 
 import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 
-const styles = (theme: any) => createStyles({});
+import GoogleLogin from 'react-google-login';
+
+const styles = (theme: any) => createStyles({
+    margin: {
+        margin: '0 25px'
+    }
+});
 
 interface SignUpInputProps {
     open: boolean;
@@ -39,7 +45,7 @@ class SignUp extends React.Component<SignUpProps, State> {
     }
 
     render() {
-        // const { classes } = this.props;
+        const { classes } = this.props;
 
         return (
             <React.Fragment>
@@ -48,34 +54,37 @@ class SignUp extends React.Component<SignUpProps, State> {
                     onClose={this.handleClose}
                     scroll={'body'}
                     aria-labelledby="scroll-dialog-title"
+                    style={{display: 'flex', alignItems: 'center', justifyContent: 'center', paddingTop: 0}}
                 >
-                    <DialogTitle id="scroll-dialog-title">Subscribe</DialogTitle>
+                    <DialogTitle id="scroll-dialog-title">Create your own personalized Intern-Zone profile</DialogTitle>
+                    <div className={classes.margin}>
                         <DialogContent>
-                            <DialogContentText>
-                            Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac
-                            facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum
-                            at eros. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus
-                            sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Aenean lacinia bibendum
-                            nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur
-                            et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla. Cras
-                            mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in,
-                            egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-                            Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis
-                            lacus vel augue laoreet rutrum faucibus dolor auctor. Aenean lacinia bibendum nulla
-                            sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
-                            Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla. Cras mattis
-                            consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in,
-                            egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-                            </DialogContentText>
+                        <GoogleLogin
+                            clientId="" // TODO
+                            buttonText="Login"
+                            onSuccess={() => console.log('success')}
+                            onFailure={() => console.log('failure')}
+                        />
+                            <Button style={{width: '100%', backgroundColor: 'red'}} onClick={this.handleClose} color="primary">
+                                Sign Up with Google
+                            </Button>
                         </DialogContent>
-                        <DialogActions>
-                            <Button onClick={this.handleClose} color="primary">
-                                Cancel
+                        <DialogContent>
+                            <Button style={{width: '100%', backgroundColor: 'red'}} onClick={this.handleClose} color="primary">
+                                Sign Up with Facebook
                             </Button>
-                            <Button onClick={this.handleClose} color="primary">
-                                Subscribe
+                        </DialogContent>
+                        <DialogContent>
+                            <div style={{width: '100%', textAlign: 'center'}}>
+                                Or
+                            </div> 
+                        </DialogContent>
+                        <DialogContent>
+                            <Button style={{width: '100%', backgroundColor: 'red'}} onClick={this.handleClose} color="primary">
+                                Sign Up with email
                             </Button>
-                        </DialogActions>
+                        </DialogContent>
+                    </div>
                 </Dialog>
             </React.Fragment>
         );
