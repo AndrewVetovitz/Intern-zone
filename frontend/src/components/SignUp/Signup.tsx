@@ -12,6 +12,8 @@ import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 
 import GoogleLogin from 'react-google-login';
 
+import Login from '../Login/Login';
+
 const styles = (theme: any) => createStyles({
     margin: {
         margin: '0 25px'
@@ -20,13 +22,14 @@ const styles = (theme: any) => createStyles({
 
 interface SignUpInputProps {
     open: boolean;
-    signUpClosedCallback: () => void;
+    onClose?: () => void;
 }
 
 interface SignUpProps extends SignUpInputProps, WithStyles<typeof styles> {}
 
 interface State {
     open: boolean;
+    openLogin: boolean;
 }
 
 class SignUp extends React.Component<SignUpProps, State> {
@@ -34,7 +37,8 @@ class SignUp extends React.Component<SignUpProps, State> {
         super(props);
 
         this.state = {
-            open: this.props.open
+            open: this.props.open,
+            openLogin: false
         };
     }
 
@@ -84,14 +88,27 @@ class SignUp extends React.Component<SignUpProps, State> {
                                 Sign Up with email
                             </Button>
                         </DialogContent>
+                        <DialogContent>
+                            <Button onClick={this.openLogin} color="primary">
+                                Login
+                            </Button>
+                        </DialogContent>
+                        <Login open={this.state.openLogin} />
                     </div>
                 </Dialog>
             </React.Fragment>
         );
     }
 
+    private openLogin = (): void => { // TODO fix
+        this.setState({ openLogin: true });
+        this.handleClose();
+    }
+
     private handleClose = (): void => {
-        this.props.signUpClosedCallback();
+        if (this.props.onClose) {
+            this.props.onClose();
+        }
         this.setState({ open: false });
     }
 }

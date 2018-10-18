@@ -94,8 +94,8 @@ class SidebarContent extends React.Component<SidebarContentProps, State> {
                         primary={<Typography className={classes.text}>Resources</Typography>}
                     />
                 </ListItem>
-                <SignUp open={this.state.signUpOpen} signUpClosedCallback={this.closeSignUp} />
-                <Login open={this.state.loginOpen} LoginClosedCallback={this.closeLogin} />
+                <SignUp open={this.state.signUpOpen} onClose={this.closeSignUp} />
+                <Login open={this.state.loginOpen} onClose={this.closeLogin} />
             </React.Fragment>
         );
     }

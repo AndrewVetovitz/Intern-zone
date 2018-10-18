@@ -18,7 +18,7 @@ const styles = (theme: any) => createStyles({
 
 interface LoginInputProps {
     open: boolean;
-    LoginClosedCallback: () => void;
+    onClose?: () => void;
 }
 
 interface LoginProps extends LoginInputProps, WithStyles<typeof styles> {}
@@ -81,7 +81,10 @@ class Login extends React.Component<LoginProps, State> {
     }
 
     private handleClose = (): void => {
-        this.props.LoginClosedCallback();
+        if (this.props.onClose) {
+            this.props.onClose();
+        }
+
         this.setState({ open: false });
     }
 }
