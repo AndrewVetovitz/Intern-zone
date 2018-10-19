@@ -8,8 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 
-import SignUp from '../SignUp/Signup';
-import Login from '../Login/Login';
+import Modal from '../../containers/ModalContainer';
 
 const toHome = '/';
 const toAbout = '/about';
@@ -62,7 +61,11 @@ class SidebarContent extends React.Component<SidebarContentProps, State> {
                         disableTypography={true}
                         primary={
                             <div className={classes.textMargin}>
-                                <Typography className={classes.textColor} style={{display: 'inline-block', cursor: 'pointer'}} onClick={this.openSignUp}>
+                                <Typography 
+                                    className={classes.textColor} 
+                                    style={{display: 'inline-block', cursor: 'pointer'}} 
+                                    onClick={() => console.log('singup clicked')}
+                                >
                                     Sign up
                                 </Typography>
                                 {' '}
@@ -70,7 +73,11 @@ class SidebarContent extends React.Component<SidebarContentProps, State> {
                                     or
                                 </Typography>
                                 {' '}
-                                <Typography className={classes.textColor} style={{display: 'inline-block', cursor: 'pointer'}}  onClick={this.loginOpen}>
+                                <Typography 
+                                    className={classes.textColor} 
+                                    style={{display: 'inline-block', cursor: 'pointer'}} 
+                                    onClick={() => console.log('login clicked')}
+                                >
                                     Login
                                 </Typography>    
                             </div>}
@@ -94,26 +101,9 @@ class SidebarContent extends React.Component<SidebarContentProps, State> {
                         primary={<Typography className={classes.text}>Resources</Typography>}
                     />
                 </ListItem>
-                <SignUp open={this.state.signUpOpen} onClose={this.closeSignUp} />
-                <Login open={this.state.loginOpen} onClose={this.closeLogin} />
+                <Modal/>
             </React.Fragment>
         );
-    }
-
-    private openSignUp = (): void => {
-        this.setState({signUpOpen: true});
-    }
-
-    private closeSignUp = (): void => {
-        this.setState({signUpOpen: false});
-    }
-
-    private loginOpen = (): void => {
-        this.setState({loginOpen: true});
-    }
-
-    private closeLogin = (): void => {
-        this.setState({loginOpen: false});
     }
 }
 
