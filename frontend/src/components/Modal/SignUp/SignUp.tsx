@@ -9,6 +9,8 @@ import { Button } from '@material-ui/core';
 
 import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 
+import ModalEnum from '../Modal.enum';
+
 import GoogleLogin from 'react-google-login';
 
 const styles = (theme: any) => createStyles({
@@ -17,7 +19,9 @@ const styles = (theme: any) => createStyles({
     }
 });
 
-interface SignUpProps extends WithStyles<typeof styles> {}
+interface SignUpProps extends WithStyles<typeof styles> {
+    setModalContent: (state: ModalEnum) => any;
+}
 
 class SignUp extends React.Component<SignUpProps> {
     constructor(props: SignUpProps) {
@@ -32,19 +36,29 @@ class SignUp extends React.Component<SignUpProps> {
                 <DialogTitle id="scroll-dialog-title">Create your own personalized Intern-Zone profile</DialogTitle>
                 <div className={classes.margin}>
                     <DialogContent>
-                    <GoogleLogin
-                        clientId="" // TODO
-                        buttonText="Login"
-                        onSuccess={() => console.log('success')}
-                        onFailure={() => console.log('failure')}
-                    />
-                        <Button style={{width: '100%', backgroundColor: 'red'}} onClick={this.handleClose} color="primary">
-                            Sign Up with Google
+                        <GoogleLogin
+                            clientId="" // TODO
+                            onSuccess={() => console.log('success')}
+                            onFailure={() => console.log('failure')}
+                        >
+                            <Button style={{width: '100%', backgroundColor: 'white'}} onClick={this.handleClose} color="primary">
+                                Sign Up with Google
+                            </Button>
+                        </GoogleLogin>
+                    </DialogContent>
+                    <DialogContent>
+                        <Button style={{width: '100%', backgroundColor: 'blue'}} onClick={this.handleClose} color="primary">
+                            Sign Up with Facebook
                         </Button>
                     </DialogContent>
                     <DialogContent>
-                        <Button style={{width: '100%', backgroundColor: 'red'}} onClick={this.handleClose} color="primary">
-                            Sign Up with Facebook
+                        <Button style={{width: '100%', backgroundColor: 'blue'}} onClick={this.handleClose} color="primary">
+                            Sign Up with Linkedln
+                        </Button>
+                    </DialogContent>
+                    <DialogContent>
+                        <Button style={{width: '100%', backgroundColor: 'black'}} onClick={this.handleClose} color="primary">
+                            Sign Up with Github
                         </Button>
                     </DialogContent>
                     <DialogContent>
@@ -58,7 +72,7 @@ class SignUp extends React.Component<SignUpProps> {
                         </Button>
                     </DialogContent>
                     <DialogContent>
-                        <Button onClick={this.openLogin} color="primary">
+                        <Button onClick={() => this.props.setModalContent(ModalEnum.LOGIN)} color="primary">
                             Login
                         </Button>
                     </DialogContent>
@@ -66,11 +80,7 @@ class SignUp extends React.Component<SignUpProps> {
             </React.Fragment>
         ); 
     }
-
-    private openLogin = (): void => {
-        console.log('open login clicked');
-    }
-
+    
     private handleClose = (): void => {
         console.log('closed clicked');
     }

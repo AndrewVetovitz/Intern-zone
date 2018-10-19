@@ -6,18 +6,18 @@ import Dialog from '@material-ui/core/Dialog';
 
 import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 
-import Login from './Login/Login';
-import SignUp from './SignUp/SignUp';
+import ModalEnum from './Modal.enum';
+
+import Login from '../../containers/LoginContainer';
+import SignUp from '../../containers/SignUpContainer';
 
 const styles = () => createStyles({});
 
-export interface ModalInputProps {}
-
-interface ModalProps extends RouteComponentProps<void>, ModalInputProps, WithStyles<typeof styles> {
+interface ModalProps extends RouteComponentProps<void>, WithStyles<typeof styles> {
     modalState: boolean;
-    modalContent: string;
+    modalContent: ModalEnum;
     setModalState: (state: boolean) => any;
-    setModalContent: (state: string) => any;
+    setModalContent: (content: ModalEnum) => any;
 }
 
 class Modal extends React.Component<ModalProps, {}> {
@@ -42,15 +42,16 @@ class Modal extends React.Component<ModalProps, {}> {
     }
 
     private handleClose = (): void => {
+        this.props.setModalContent(ModalEnum.NONE);
         this.props.setModalState(false);
     }
 
-    private getContent = (content: string): JSX.Element => {
+    private getContent = (content: ModalEnum): JSX.Element => {
         switch (content) {
-            case 'login': {
+            case ModalEnum.LOGIN: {
                 return <Login/>;
             }
-            case 'singup': {
+            case ModalEnum.SIGN_UP: {
                 return <SignUp/>;
             }
             default: {

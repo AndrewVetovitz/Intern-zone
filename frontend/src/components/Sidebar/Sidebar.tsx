@@ -6,11 +6,11 @@ import Toolbar from '@material-ui/core/Toolbar';
 
 import { RouteComponentProps } from 'react-router-dom';
 
-import SidebarContent from '../SidebarContent/SidebarContent';
+import SidebarContent from '../../containers/SidebarContentContainer';
 
 import constants from '../../constants';
 
-const styles = (theme: any) => createStyles({
+const styles = () => createStyles({
     root: {
         flexGrow: 1,
         zIndex: 5,

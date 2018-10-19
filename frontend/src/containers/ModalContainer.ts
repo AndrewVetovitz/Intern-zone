@@ -3,7 +3,7 @@ import { Dispatch } from 'redux';
 
 import { withRouter } from 'react-router-dom';
 
-import Modal, { ModalInputProps } from '../components/Modal/Modal';
+import Modal, { ModalEnum } from '../components/Modal';
 
 import { modalActions, ModalState, ModalDispatchProps } from '../store/modal';
 
@@ -21,13 +21,13 @@ function mapDispatchToProps(dispatch: Dispatch): ModalDispatchProps {
         setModalState: (state: boolean) => {
             dispatch(modalActions.setModalState(state));
         },
-        setModalContent: (state: string) => {
+        setModalContent: (state: ModalEnum) => {
             dispatch(modalActions.setModalContent(state));
         }
     };
 }
 
-export default withRouter(connect<ModalState, ModalDispatchProps, ModalInputProps>(
+export default withRouter(connect<ModalState, ModalDispatchProps>(
   mapStateToProps,
   mapDispatchToProps
 )(Modal));

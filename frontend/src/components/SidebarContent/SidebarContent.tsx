@@ -9,12 +9,13 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 
 import Modal from '../../containers/ModalContainer';
+import { ModalEnum } from '../Modal';
 
 const toHome = '/';
 const toAbout = '/about';
 const toResources = '/resources';
 
-const styles = (theme: any) => createStyles({
+const styles = () => createStyles({
     iconColor: {
         color: 'white',
     },
@@ -30,25 +31,18 @@ const styles = (theme: any) => createStyles({
     }
 });
 
-interface SidebarInputProps {
-    onClick?: () => any;
+export interface SidebarContentInputProps {
+    onClick: () => any;
 }
 
-interface SidebarContentProps extends SidebarInputProps, WithStyles<typeof styles> {}
-
-interface State {
-    signUpOpen: boolean;
-    loginOpen: boolean;
+interface SidebarContentProps extends SidebarContentInputProps, WithStyles<typeof styles> {
+    setModalState: (state: boolean) => any;
+    setModalContent: (state: ModalEnum) => any;
 }
 
-class SidebarContent extends React.Component<SidebarContentProps, State> {
+class SidebarContent extends React.Component<SidebarContentProps> {
     constructor(props: SidebarContentProps) {
         super(props);
-
-        this.state = {
-            signUpOpen: false,
-            loginOpen: false
-        };
     }
 
     render() {
@@ -64,7 +58,7 @@ class SidebarContent extends React.Component<SidebarContentProps, State> {
                                 <Typography 
                                     className={classes.textColor} 
                                     style={{display: 'inline-block', cursor: 'pointer'}} 
-                                    onClick={() => console.log('singup clicked')}
+                                    onClick={() => this.modalClicked(ModalEnum.SIGN_UP)}
                                 >
                                     Sign up
                                 </Typography>
@@ -76,7 +70,7 @@ class SidebarContent extends React.Component<SidebarContentProps, State> {
                                 <Typography 
                                     className={classes.textColor} 
                                     style={{display: 'inline-block', cursor: 'pointer'}} 
-                                    onClick={() => console.log('login clicked')}
+                                    onClick={() => this.modalClicked(ModalEnum.LOGIN)}
                                 >
                                     Login
                                 </Typography>    
@@ -104,6 +98,12 @@ class SidebarContent extends React.Component<SidebarContentProps, State> {
                 <Modal/>
             </React.Fragment>
         );
+    }
+
+    private modalClicked = (content: ModalEnum) => {
+        this.props.onClick();
+        this.props.setModalContent(content);
+        this.props.setModalState(true);
     }
 }
 

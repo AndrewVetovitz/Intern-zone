@@ -9,15 +9,17 @@ import { Button } from '@material-ui/core';
 
 import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 
-const styles = (theme: any) => createStyles({
+import ModalEnum from '../Modal.enum';
+
+const styles = () => createStyles({
     margin: {
         margin: '0 25px'
     }
 });
 
-interface LoginInputProps {}
-
-interface LoginProps extends LoginInputProps, WithStyles<typeof styles> {}
+interface LoginProps extends WithStyles<typeof styles> {
+    setModalContent: (state: ModalEnum) => any;
+}
 
 class Login extends React.Component<LoginProps> {
     constructor(props: LoginProps) {
@@ -33,16 +35,21 @@ class Login extends React.Component<LoginProps> {
                 <div className={classes.margin}>
                     <DialogContent>
                         <DialogContentText>
-                        Login test
-                        Login test
-                        Login test
-                        Login test
-                        Login test
-                        Login test
+                            Login test
+                            Login test
+                            Login test
+                            Login test
+                            Login test
+                            Login test
                         </DialogContentText>
                     </DialogContent>
                 </div>
                 <DialogActions>
+                    <DialogContent>
+                        <Button onClick={() => this.props.setModalContent(ModalEnum.SIGN_UP)} color="primary">
+                            SignUp
+                        </Button>
+                    </DialogContent>
                     <Button onClick={this.handleClose} color="primary">
                         Cancel
                     </Button>
