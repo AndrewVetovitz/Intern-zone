@@ -1,17 +1,9 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import Company from './Company';
+import Company, { Props } from './Company';
 
 import { expect }  from 'chai';
 import { shallow } from 'enzyme';
-
-export interface Props {
-    match: {
-        params: {
-            name: string;
-        }
-    };
-}
 
 describe('<Company />', () => {
     let props: Props;
@@ -22,7 +14,14 @@ describe('<Company />', () => {
                 params: {
                     name: 'Amazon'
                 }
-            }
+            },
+            postings: [
+                {
+                    positionName: 'test',
+                    location: 'test',
+                    link: 'test'
+                }
+            ]
         };
     });
 
