@@ -21,7 +21,8 @@ describe('<Company />', () => {
                     location: 'test',
                     link: 'test'
                 }
-            ]
+            ],
+            description: 'test'
         };
     });
 

@@ -38,20 +38,24 @@ function ComapanyTable(props: TableProps) {
             <Table className={classes.table}>
                 <TableHead>
                     <TableRow>
-                        <TableCell>Position Name</TableCell>
+                        <TableCell>Position</TableCell>
                         <TableCell>Locations</TableCell>
                         <TableCell>Link</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
                     {data.map((value: Row, index: number) => {
+                        const link: any = ({innerRef, ...propsSpread}: any) => <a {...propsSpread} target={'_blank'} href={value.link} />;
+
                         return (
                             <TableRow key={index}>
                                 <TableCell component="th" scope="row">
                                     {value.positionName}
                                 </TableCell>
                                 <TableCell>{value.location}</TableCell>
-                                <TableCell>{value.link}</TableCell>
+                                <TableCell component={link}>
+                                    Link
+                                </TableCell>
                             </TableRow>
                         );
                     })}

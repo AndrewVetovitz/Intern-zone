@@ -22,7 +22,7 @@ export let getAllCompanyNames = (req: Request, res: Response) => {
             'Texas Instruments',
             'De Shaw',
             'MongoDB',
-            'AirBNB',
+            'Airbnb',
             'Walmart',
             'Visa',
             'Stripe'
