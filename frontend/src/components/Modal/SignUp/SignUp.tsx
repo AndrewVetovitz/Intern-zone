@@ -11,38 +11,14 @@ import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 
 import ModalEnum from '../Modal.enum';
 
-import GoogleLogin from 'react-google-login';
+import GoogleSignUp from '../../Google/GoogleSignUp';
+import FacebookSignUp from '../../Facebook/FacebookSignUp';
+import GithubSignUp from '../../Github/GithubSignUp';
+import LinkedlnSignUp from '../../Linkedln/LinkedlnSignUp';
 
 const styles = () => createStyles({
     margin: {
-        margin: '0 25px'
-    },
-    googleButton: {
-        display: 'inline-block',
-        background: 'white',
-        color: '#444',
-        height: 60,
-        borderRadius: 5,
-        border: 'thin solid #888',
-        boxShadow: '1px 1px 1px grey',
-        whiteSpace: 'nowrap'
-    },
-    googleIcon: {
-        background: 'url(\'/images/google_signin_buttons/web/vector/google_logo.svg\') transparent 5px 50% no-repeat',
-        display: 'inline-block',
-        verticalAlign: 'middle',
-        width: 42,
-        height: 42
-    },
-    googlebuttonText: {
-        display: 'inline-block',
-        verticalAlign: 'middle',
-        paddingLeft: 42,
-        paddingRight: 42,
-        fontSize: 14,
-        fontWeight: 'bold',
-        /* Use the Roboto font that is loaded in the <head> */
-        fontFamily: '\'Roboto\', sans-serif'
+        margin: '0 25px',
     }
 });
 
@@ -63,31 +39,16 @@ class SignUp extends React.Component<SignUpProps> {
                 <DialogTitle id="scroll-dialog-title">Create your own personalized Intern-Zone profile</DialogTitle>
                 <div className={classes.margin}>
                     <DialogContent>
-                        <GoogleLogin
-                            clientId="" // TODO
-                            className={classes.googleButton}
-                            style={{width: '100%', cursor: 'pointer'}}
-                            onSuccess={() => console.log('success')}
-                            onFailure={() => console.log('failure')}
-                        >
-                            <span className={classes.googleIcon}/>
-                            <span className={classes.googlebuttonText}>Sign Up with Google</span>
-                        </GoogleLogin>
+                       <GoogleSignUp/>
                     </DialogContent>
                     <DialogContent>
-                        <Button style={{width: '100%', backgroundColor: 'blue', height: 60}} onClick={this.handleClose} color="primary">
-                            Sign Up with Facebook
-                        </Button>
+                        <FacebookSignUp/>
                     </DialogContent>
                     <DialogContent>
-                        <Button style={{width: '100%', backgroundColor: 'blue', height: 60}} onClick={this.handleClose} color="primary">
-                            Sign Up with Linkedln
-                        </Button>
+                        <LinkedlnSignUp/>
                     </DialogContent>
                     <DialogContent>
-                        <Button style={{width: '100%', backgroundColor: 'black', height: 60}} onClick={this.handleClose} color="primary">
-                            Sign Up with Github
-                        </Button>
+                        <GithubSignUp/>
                     </DialogContent>
                     <DialogContent>
                         <div style={{width: '100%', textAlign: 'center'}}>

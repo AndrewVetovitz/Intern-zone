@@ -41,15 +41,13 @@ function companyHeader(name: string, classes: string): JSX.Element {
 
 function companyDescription(description: string, classes: any): JSX.Element {
     return (
-        <Typography className={classes} component="p">
+        <Typography component="p">
             {description}
         </Typography>
     );
 }
 
 function companyPosting(postings: Posting[], classes: any): JSX.Element | JSX.Element[] {
-    console.log(postings);
-
     if (postings.length > 0) {
         return <CompanyTable data={postings}/>;
     }

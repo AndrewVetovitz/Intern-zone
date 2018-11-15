@@ -8,6 +8,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import { Typography } from '@material-ui/core';
 
 const styles = (theme: any) => createStyles({
     root: {
@@ -46,15 +47,16 @@ function ComapanyTable(props: TableProps) {
                 <TableBody>
                     {data.map((value: Row, index: number) => {
                         const link: any = ({innerRef, ...propsSpread}: any) => <a {...propsSpread} target={'_blank'} href={value.link} />;
+                        const styledLink: JSX.Element = <Typography component={link}>Link</Typography>;
 
                         return (
                             <TableRow key={index}>
-                                <TableCell component="th" scope="row">
+                                <TableCell component="th">
                                     {value.positionName}
                                 </TableCell>
                                 <TableCell>{value.location}</TableCell>
-                                <TableCell component={link}>
-                                    Link
+                                <TableCell>
+                                    {styledLink}
                                 </TableCell>
                             </TableRow>
                         );
