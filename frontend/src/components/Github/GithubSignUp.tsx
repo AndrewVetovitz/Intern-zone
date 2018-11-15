@@ -56,7 +56,7 @@ class GithubSignUp extends React.Component<GithubSignUpProps> {
                 onSuccess={() => console.log('success')}
                 onFailure={() => console.log('failure')}
             >
-                <img src="/images/google_signin_buttons/google-button-24x24.png" className={classes.icon}/>
+                <img src="/images/github_signin_buttons/github-button-24x24.png" className={classes.icon}/>
                 <span className={classes.buttonText}>Sign Up with Github</span>
             </GoogleLogin>
         ); 

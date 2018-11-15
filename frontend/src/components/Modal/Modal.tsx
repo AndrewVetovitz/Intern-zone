@@ -35,7 +35,10 @@ class Modal extends React.Component<ModalProps, {}> {
                     aria-labelledby="scroll-dialog-title"
                     style={{display: 'flex', alignItems: 'center', justifyContent: 'center', paddingTop: 0}}
                 >
-                    {this.getContent(this.props.modalContent)}
+                    <div style={{width: 600}}>
+                        {this.getContent(this.props.modalContent)}
+                    </div>
+
                 </Dialog>
             </React.Fragment>
         );

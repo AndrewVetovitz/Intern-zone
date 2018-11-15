@@ -6,6 +6,8 @@ import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 
+import constants from '../../constants';
+
 const styles = createStyles({
     root: {
         flexGrow: 1,
@@ -19,6 +21,9 @@ const styles = createStyles({
     menuButton: {
         marginLeft: -12,
         marginRight: 20
+    },
+    navStyle: {
+        background: constants.BACKGROUND_COLOR
     }
 });
 
@@ -38,8 +43,8 @@ class Navbar extends React.Component<NavbarProps, {}> {
 
         const bar = (!this.props.screenSizeIsOpen) ? (
             <div className={classes.root}>
-                <AppBar>
-                    <Toolbar/> 
+                <AppBar className={classes.navStyle}>
+                    <Toolbar/>
                 </AppBar>
             </div>
         ) : <React.Fragment/>;

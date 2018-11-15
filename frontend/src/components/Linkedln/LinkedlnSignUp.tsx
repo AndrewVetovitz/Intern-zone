@@ -10,7 +10,7 @@ const styles = () => createStyles({
     },
     linkedlnButton: {
         display: 'inline-block',
-        background: '#3582b7',
+        background: '#0077b5',
         color: 'white',
         height: 60,
         borderRadius: 5,
@@ -56,7 +56,7 @@ class LinkedlnSignUp extends React.Component<LinkedlnSignUpProps> {
                 onSuccess={() => console.log('success')}
                 onFailure={() => console.log('failure')}
             >
-                <img src="/images/google_signin_buttons/google-button-24x24.png" className={classes.icon}/>
+                <img src="/images/linkdln_signin_buttons/linkedln-button-24x24.png" className={classes.icon}/>
                 <span className={classes.buttonText}>Sign Up with Linkedln</span>
             </GoogleLogin>
         ); 
