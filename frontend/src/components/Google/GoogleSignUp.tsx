@@ -4,6 +4,8 @@ import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 
 import GoogleLogin from 'react-google-login';
 
+const googleImageUrl: string = '/images/google_signin_buttons/google-button-24x24.png';
+
 const styles = () => createStyles({
     margin: {
         margin: '0 25px',
@@ -45,6 +47,10 @@ class GoogleSignUp extends React.Component<GoogleSignUpProps> {
         super(props);
     }
 
+    componentDidMount() {
+        (new Image()).src = googleImageUrl;
+    }
+
     render() {
         const { classes } = this.props;
 
@@ -56,7 +62,7 @@ class GoogleSignUp extends React.Component<GoogleSignUpProps> {
                 onSuccess={() => console.log('success')}
                 onFailure={() => console.log('failure')}
             >
-                <img src="/images/google_signin_buttons/google-button-24x24.png" className={classes.icon}/>
+                <img src={googleImageUrl} className={classes.icon}/>
                 <span className={classes.buttonText}>Sign Up with Google</span>
             </GoogleLogin>
         ); 

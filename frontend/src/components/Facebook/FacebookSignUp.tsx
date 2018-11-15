@@ -4,6 +4,8 @@ import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 
 import GoogleLogin from 'react-google-login';
 
+const facebookImageUrl: string = '/images/facebook_signin_buttons/facebook-button.png';
+
 const styles = () => createStyles({
     margin: {
         margin: '0 25px',
@@ -45,6 +47,10 @@ class FacebookSignUp extends React.Component<FacebookSignUpProps> {
         super(props);
     }
 
+    componentDidMount() {
+        (new Image()).src = facebookImageUrl;
+    }
+
     render() {
         const { classes } = this.props;
 
@@ -56,7 +62,7 @@ class FacebookSignUp extends React.Component<FacebookSignUpProps> {
                 onSuccess={() => console.log('success')}
                 onFailure={() => console.log('failure')}
             >
-                <img src="/images/facebook_signin_buttons/facebook-button.png" className={classes.icon}/>
+                <img src={facebookImageUrl} className={classes.icon}/>
                 <span className={classes.buttonText}>Sign Up with Facebook</span>
             </GoogleLogin>
         ); 

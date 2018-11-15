@@ -4,6 +4,8 @@ import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 
 import GoogleLogin from 'react-google-login';
 
+const linkedlnImageUrl: string = '/images/linkdln_signin_buttons/linkedln-button-24x24.png';
+
 const styles = () => createStyles({
     margin: {
         margin: '0 25px',
@@ -45,6 +47,10 @@ class LinkedlnSignUp extends React.Component<LinkedlnSignUpProps> {
         super(props);
     }
 
+    componentDidMount() {
+        (new Image()).src = linkedlnImageUrl;
+    }
+
     render() {
         const { classes } = this.props;
 
@@ -56,7 +62,7 @@ class LinkedlnSignUp extends React.Component<LinkedlnSignUpProps> {
                 onSuccess={() => console.log('success')}
                 onFailure={() => console.log('failure')}
             >
-                <img src="/images/linkdln_signin_buttons/linkedln-button-24x24.png" className={classes.icon}/>
+                <img src={linkedlnImageUrl} className={classes.icon}/>
                 <span className={classes.buttonText}>Sign Up with Linkedln</span>
             </GoogleLogin>
         ); 

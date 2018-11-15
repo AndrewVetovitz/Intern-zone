@@ -4,6 +4,8 @@ import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 
 import GoogleLogin from 'react-google-login';
 
+const githubImageUrl: string = '/images/github_signin_buttons/github-button-24x24.png';
+
 const styles = () => createStyles({
     margin: {
         margin: '0 25px',
@@ -45,6 +47,10 @@ class GithubSignUp extends React.Component<GithubSignUpProps> {
         super(props);
     }
 
+    componentDidMount() {
+        (new Image).src = githubImageUrl;
+    }
+
     render() {
         const { classes } = this.props;
 
@@ -56,7 +62,7 @@ class GithubSignUp extends React.Component<GithubSignUpProps> {
                 onSuccess={() => console.log('success')}
                 onFailure={() => console.log('failure')}
             >
-                <img src="/images/github_signin_buttons/github-button-24x24.png" className={classes.icon}/>
+                <img src={githubImageUrl} className={classes.icon}/>
                 <span className={classes.buttonText}>Sign Up with Github</span>
             </GoogleLogin>
         ); 
