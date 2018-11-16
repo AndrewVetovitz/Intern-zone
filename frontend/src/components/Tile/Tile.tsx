@@ -76,7 +76,7 @@ function SimpleCard(props: CardProps): JSX.Element {
             <Card className={classes.card}>
                 <ButtonBase component={link} >
                     <CardContent className={classes.cardContent}>
-                        <Typography align={'center'} gutterBottom={true} variant="headline" component="h2">
+                        <Typography align={'center'} gutterBottom={true} variant="h5" component="h2">
                             {mobile}
                             {other}
                         </Typography>

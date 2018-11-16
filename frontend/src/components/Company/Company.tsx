@@ -33,7 +33,7 @@ export interface CompanyProps extends Props, WithStyles<typeof styles> {}
 
 function companyHeader(name: string, classes: string): JSX.Element {
     return (
-        <Typography variant="headline" className={classes} component={headerSize}>
+        <Typography variant="h5" className={classes} component={headerSize}>
             {name}
         </Typography>
     );
