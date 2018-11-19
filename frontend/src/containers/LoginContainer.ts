@@ -3,7 +3,7 @@ import { Dispatch } from 'redux';
 
 import { modalActions, ModalState, ModalDispatchProps } from '../store/modal';
 
-import Login from '../components/Modal/Login/Login';
+import LoginModal from '../components/Modal/LoginModal/LoginModal';
 import { ModalEnum } from '../components/Modal';
 
 import { RootState } from '../store/root-reducer';
@@ -29,4 +29,4 @@ function mapDispatchToProps(dispatch: Dispatch): ModalDispatchProps {
 export default connect<ModalState, ModalDispatchProps>(
     mapStateToProps,
     mapDispatchToProps
-)(Login);
+)(LoginModal);

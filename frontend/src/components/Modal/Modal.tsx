@@ -8,10 +8,17 @@ import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 
 import ModalEnum from './Modal.enum';
 
-import Login from '../../containers/LoginContainer';
-import SignUp from '../../containers/SignUpContainer';
+import LoginModal from '../../containers/LoginContainer';
+import SignUpModal from '../../containers/SignUpContainer';
 
-const styles = () => createStyles({});
+const styles = () => createStyles({
+    margin: {
+        margin: '0 25px',
+    },
+    width: {
+        width: 600
+    }
+});
 
 interface ModalProps extends RouteComponentProps<void>, WithStyles<typeof styles> {
     modalState: boolean;
@@ -26,6 +33,8 @@ class Modal extends React.Component<ModalProps, {}> {
     }
 
     render() {  
+        const { classes } = this.props;
+
         return (
             <React.Fragment>
                 <Dialog
@@ -35,8 +44,10 @@ class Modal extends React.Component<ModalProps, {}> {
                     aria-labelledby="scroll-dialog-title"
                     style={{display: 'flex', alignItems: 'center', justifyContent: 'center', paddingTop: 0}}
                 >
-                    <div style={{width: 600}}>
-                        {this.getContent(this.props.modalContent)}
+                    <div className={classes.width}>
+                        <div className={classes.margin}>
+                            {this.getContent(this.props.modalContent)}
+                        </div>
                     </div>
 
                 </Dialog>
@@ -52,10 +63,10 @@ class Modal extends React.Component<ModalProps, {}> {
     private getContent = (content: ModalEnum): JSX.Element => {
         switch (content) {
             case ModalEnum.LOGIN: {
-                return <Login/>;
+                return <LoginModal/>;
             }
             case ModalEnum.SIGN_UP: {
-                return <SignUp/>;
+                return <SignUpModal/>;
             }
             default: {
                 return <React.Fragment/>;

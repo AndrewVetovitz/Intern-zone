@@ -27,12 +27,12 @@ class Login extends React.Component<LoginProps> {
     }
 
     render() {
-        const { classes } = this.props;
+        // const { classes } = this.props;
 
         return (
             <React.Fragment>
-                <DialogTitle id="scroll-dialog-title">Sign In to your personalized profile</DialogTitle>
-                <div className={classes.margin}>
+                <DialogTitle style={{textAlign: 'center'}} id="scroll-dialog-title">Sign In to your personalized profile</DialogTitle>
+                {/* <div className={classes.margin}> */}
                     <DialogContent>
                         <DialogContentText>
                             Login test
@@ -43,7 +43,7 @@ class Login extends React.Component<LoginProps> {
                             Login test
                         </DialogContentText>
                     </DialogContent>
-                </div>
+                {/* </div> */}
                 <DialogActions>
                     <DialogContent>
                         <Button onClick={() => this.props.setModalContent(ModalEnum.SIGN_UP)} color="primary">

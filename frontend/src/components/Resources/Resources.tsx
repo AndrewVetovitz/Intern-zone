@@ -7,8 +7,6 @@ import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 
 import resource from './resource.list.json';
 
-// import constants from '../../constants';
-
 const styles = createStyles({
     grid: {
         marginBottom: 50

@@ -32,12 +32,12 @@ class SignUp extends React.Component<SignUpProps> {
     }
 
     render() {
-        const { classes } = this.props;
+        // const { classes } = this.props;
 
         return (
             <React.Fragment>
-                <DialogTitle id="scroll-dialog-title">Create your own personalized Intern-Zone profile</DialogTitle>
-                <div className={classes.margin}>
+                <DialogTitle style={{textAlign: 'center'}} id="scroll-dialog-title">Create your own personalized Intern-Zone profile</DialogTitle>
+                {/* <div className={classes.margin}> */}
                     <DialogContent>
                        <GoogleSignUp/>
                     </DialogContent>
@@ -65,7 +65,7 @@ class SignUp extends React.Component<SignUpProps> {
                             Login
                         </Button>
                     </DialogContent>
-                </div>
+                {/* </div> */}
             </React.Fragment>
         ); 
     }
