@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
-import { modalActions, ModalState, ModalDispatchProps } from '../store/modal';
+import { modalActions, ModalState, ModalDispatchProps } from '../../store/modal';
 
-import SignUpModal from '../components/Modal/SignUpModal/SignUpModal';
-import { ModalEnum } from '../components/Modal';
+import SignUpModal from '../../components/Modal/SignUpModal/SignUpModal';
+import { ModalEnum } from '../../components/Modal';
 
-import { RootState } from '../store/root-reducer';
+import { RootState } from '../../store/root-reducer';
 
 function mapStateToProps(state: RootState): ModalState {
   return {

@@ -38,7 +38,9 @@ const styles = () => createStyles({
     }
 });
 
-interface SignUpProps extends WithStyles<typeof styles> { }
+interface SignUpProps extends WithStyles<typeof styles> {
+    onClick: () => any;
+}
 
 class SignUp extends React.Component<SignUpProps> {
     constructor(props: SignUpProps) {
@@ -53,7 +55,7 @@ class SignUp extends React.Component<SignUpProps> {
         const { classes } = this.props;
 
         return (
-            <button className={classes.button} style={{ width: '100%', cursor: 'pointer' }}>
+            <button onClick={this.props.onClick} className={classes.button} style={{ width: '100%', cursor: 'pointer' }}>
                 <img src={emailImageUrl} className={classes.icon} />
                 <span className={classes.buttonText}>Sign Up with Email</span>
             </button>

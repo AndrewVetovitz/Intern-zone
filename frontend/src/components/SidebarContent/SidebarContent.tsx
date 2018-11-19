@@ -58,7 +58,7 @@ class SidebarContent extends React.Component<SidebarContentProps> {
                                 <Typography 
                                     className={classes.textColor} 
                                     style={{display: 'inline-block', cursor: 'pointer'}} 
-                                    onClick={() => this.modalClicked(ModalEnum.SIGN_UP)}
+                                    onClick={() => this.modalClicked(ModalEnum.SIGN_UP_SELECTION)}
                                 >
                                     Sign up
                                 </Typography>

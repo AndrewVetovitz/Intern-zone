@@ -11,12 +11,6 @@ import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 
 import ModalEnum from '../Modal.enum';
 
-import GoogleSignUp from '../../Google/GoogleSignUp';
-import FacebookSignUp from '../../Facebook/FacebookSignUp';
-import GithubSignUp from '../../Github/GithubSignUp';
-import LinkedlnSignUp from '../../Linkedln/LinkedlnSignUp';
-import SignUp from '../../SignUp/SignUp';
-
 const styles = () => createStyles({
     margin: {
         margin: '0 25px',
@@ -38,36 +32,18 @@ class SignUpModal extends React.Component<SignUpProps> {
         return (
             <React.Fragment>
                 <div className={classes.margin}>
-                    <DialogTitle style={{textAlign: 'center'}} id="scroll-dialog-title">Create your own personalized Intern-Zone profile</DialogTitle>
-
-                    <DialogContent>
-                        <GoogleSignUp/>
-                    </DialogContent>
-                    <DialogContent>
-                        <FacebookSignUp/>
-                    </DialogContent>
-                    <DialogContent>
-                        <LinkedlnSignUp/>
-                    </DialogContent>
-                    <DialogContent>
-                        <GithubSignUp/>
-                    </DialogContent>
-                    <DialogContent>
-                        <div style={{width: '100%', textAlign: 'center'}}>
-                            Or
-                        </div> 
-                    </DialogContent>
-                    <DialogContent>
-                        <SignUp/>
-                    </DialogContent>
+                    <DialogTitle style={{textAlign: 'center'}} id="scroll-dialog-title">Sign Up for your Intern-Zone Account</DialogTitle>
                 </div>
                 <DialogContent>
-                        <Button onClick={() => this.props.setModalContent(ModalEnum.LOGIN)} color="primary">
-                            Login
-                        </Button>
-                    </DialogContent>
+                    <Button onClick={() => this.props.setModalContent(ModalEnum.LOGIN)} color="primary">
+                        Login
+                    </Button>
+
+                    <Button onClick={() => this.props.setModalContent(ModalEnum.SIGN_UP_SELECTION)} color="primary">
+                        SignUp
+                    </Button>
+                </DialogContent>
             </React.Fragment>
-            
         ); 
     }
 }

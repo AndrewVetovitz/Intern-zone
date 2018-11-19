@@ -1,4 +1,5 @@
 enum ModalContent {
+    SIGN_UP_SELECTION,
     SIGN_UP,
     LOGIN,
     NONE
