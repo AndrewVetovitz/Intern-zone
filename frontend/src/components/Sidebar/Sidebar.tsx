@@ -47,7 +47,7 @@ class Sidebar extends React.Component<SidebarProps, {}> {
         super(props);
     }
 
-    componentWillReceiveProps(nextProps: any) {
+    componentDidUpdate(nextProps: any) {
         this.checkWindowSize(nextProps);
     }
 

@@ -25,7 +25,7 @@ class TileGrid extends React.Component<TileGridProps, {}> {
         super(props);
     }
 
-    UNSAFE_componentWillMount(): void {
+    componentDidMount(): void {
         if (this.props.companyInfo.companyNames.length === 0) {
             this.props.getAllCompanyNames && this.props.getAllCompanyNames();
         }
