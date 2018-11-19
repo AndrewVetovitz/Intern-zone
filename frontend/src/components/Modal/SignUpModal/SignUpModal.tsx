@@ -15,6 +15,7 @@ import GoogleSignUp from '../../Google/GoogleSignUp';
 import FacebookSignUp from '../../Facebook/FacebookSignUp';
 import GithubSignUp from '../../Github/GithubSignUp';
 import LinkedlnSignUp from '../../Linkedln/LinkedlnSignUp';
+import SignUp from '../../SignUp/SignUp';
 
 const styles = () => createStyles({
     margin: {
@@ -26,20 +27,21 @@ interface SignUpProps extends WithStyles<typeof styles> {
     setModalContent: (state: ModalEnum) => any;
 }
 
-class SignUp extends React.Component<SignUpProps> {
+class SignUpModal extends React.Component<SignUpProps> {
     constructor(props: SignUpProps) {
         super(props);
     }
 
     render() {
-        // const { classes } = this.props;
+        const { classes } = this.props;
 
         return (
             <React.Fragment>
-                <DialogTitle style={{textAlign: 'center'}} id="scroll-dialog-title">Create your own personalized Intern-Zone profile</DialogTitle>
-                {/* <div className={classes.margin}> */}
+                <div className={classes.margin}>
+                    <DialogTitle style={{textAlign: 'center'}} id="scroll-dialog-title">Create your own personalized Intern-Zone profile</DialogTitle>
+
                     <DialogContent>
-                       <GoogleSignUp/>
+                        <GoogleSignUp/>
                     </DialogContent>
                     <DialogContent>
                         <FacebookSignUp/>
@@ -56,23 +58,18 @@ class SignUp extends React.Component<SignUpProps> {
                         </div> 
                     </DialogContent>
                     <DialogContent>
-                        <Button style={{width: '100%', backgroundColor: 'red', height: 60}} onClick={this.handleClose} color="primary">
-                            Sign Up with email
-                        </Button>
+                        <SignUp/>
                     </DialogContent>
-                    <DialogContent>
+                </div>
+                <DialogContent>
                         <Button onClick={() => this.props.setModalContent(ModalEnum.LOGIN)} color="primary">
                             Login
                         </Button>
                     </DialogContent>
-                {/* </div> */}
             </React.Fragment>
+            
         ); 
-    }
-    
-    private handleClose = (): void => {
-        console.log('closed clicked');
     }
 }
 
-export default withStyles(styles)(SignUp);
+export default withStyles(styles)(SignUpModal);

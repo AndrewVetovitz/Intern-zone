@@ -21,18 +21,18 @@ interface LoginProps extends WithStyles<typeof styles> {
     setModalContent: (state: ModalEnum) => any;
 }
 
-class Login extends React.Component<LoginProps> {
+class LoginModal extends React.Component<LoginProps> {
     constructor(props: LoginProps) {
         super(props);
     }
 
     render() {
-        // const { classes } = this.props;
+        const { classes } = this.props;
 
         return (
             <React.Fragment>
                 <DialogTitle style={{textAlign: 'center'}} id="scroll-dialog-title">Sign In to your personalized profile</DialogTitle>
-                {/* <div className={classes.margin}> */}
+                <div className={classes.margin}>
                     <DialogContent>
                         <DialogContentText>
                             Login test
@@ -43,7 +43,7 @@ class Login extends React.Component<LoginProps> {
                             Login test
                         </DialogContentText>
                     </DialogContent>
-                {/* </div> */}
+                </div>
                 <DialogActions>
                     <DialogContent>
                         <Button onClick={() => this.props.setModalContent(ModalEnum.SIGN_UP)} color="primary">
@@ -66,4 +66,4 @@ class Login extends React.Component<LoginProps> {
     }
 }
 
-export default withStyles(styles)(Login);
+export default withStyles(styles)(LoginModal);

@@ -7,6 +7,7 @@ import Backdrop from '@material-ui/core/Backdrop';
 
 import Navbar from '../../containers/NavbarContainer';
 import Sidebar from '../../containers/SidebarContainer';
+import Modal from '../../containers/ModalContainer';
 import ContentWrapper from '../../containers/ContentWrapperContainer';
 
 import Home from '../Home/Home';
@@ -24,7 +25,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 
 const TITLE: string = 'Intern Zone';
 
-const styles = (theme: any) => createStyles({
+const styles = createStyles({
     backdropStyle: {
         cursor: 'pointer',
     },
@@ -66,7 +67,7 @@ class Routes extends React.Component<RouterProps, {}> {
 
         const queryWidth = constants.NAVBAR_SIDEBAR_BREAK_WIDTH;
 
-        const customStyles: React.CSSProperties = {
+        const backdropStyles: React.CSSProperties = {
             'zIndex': this.props.conditionalIsOpen ? 3 : 0
         };
 
@@ -90,7 +91,7 @@ class Routes extends React.Component<RouterProps, {}> {
 
         return (
             <Router>
-                <div>
+                <React.Fragment>
                     <div style={{position: 'fixed', zIndex: 6, top: 0, left: 0, width: 300}}>
                         <Toolbar>
                             {icon}
@@ -103,11 +104,12 @@ class Routes extends React.Component<RouterProps, {}> {
                         </Toolbar>
                     </div>
                     <Backdrop
-                        style={customStyles}
+                        style={backdropStyles}
                         open={this.props.conditionalIsOpen} 
                         classes={{root: classes.backdropStyle}}
                         onClick={() => this.props.setConditionalSidebarState(false)} 
                     />
+                    <Modal/>
                     <MediaQuery maxWidth={queryWidth}>
                         <Navbar/>
                     </MediaQuery>
@@ -121,7 +123,7 @@ class Routes extends React.Component<RouterProps, {}> {
                     <ContentWrapper>
                         {routes}
                     </ContentWrapper>
-                </div>
+                </React.Fragment>
             </Router>
         );
     }

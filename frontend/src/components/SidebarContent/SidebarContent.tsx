@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 
-import Modal from '../../containers/ModalContainer';
+// import Modal from '../../containers/ModalContainer';
 import { ModalEnum } from '../Modal';
 
 const toHome = '/';
@@ -95,7 +95,7 @@ class SidebarContent extends React.Component<SidebarContentProps> {
                         primary={<Typography className={classes.text}>Resources</Typography>}
                     />
                 </ListItem>
-                <Modal/>
+                {/* <Modal/> */}
             </React.Fragment>
         );
     }

@@ -1,6 +1,9 @@
+import dotenv from 'dotenv';
 import errorHandler from 'errorhandler';
 
 import app from './app';
+
+dotenv.config({ path: '.env' });
 
 /**
  * Error Handler. Provides full stack - remove for production

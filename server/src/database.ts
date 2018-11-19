@@ -1,10 +1,5 @@
 import mysql from 'mysql';
-import dotenv from 'dotenv';
-
 import * as createQuery from './tables';
-
-// Load environment variables from .env file, where API keys and passwords are configured
-dotenv.config({ path: '.env' });
 
 const db = mysql.createConnection({
     host: process.env.DB_HOST,

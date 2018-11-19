@@ -2,17 +2,15 @@ import * as React from 'react';
 
 import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 
-import GoogleLogin from 'react-google-login';
-
-const linkedlnImageUrl: string = '/images/linkdln-signin-buttons/linkedln-button-24x24.png';
+const emailImageUrl: string = '/images/email-signin-buttons/email-button-38x24.png';
 
 const styles = () => createStyles({
     margin: {
         margin: '0 25px',
     },
-    linkedlnButton: {
+    button: {
         display: 'inline-block',
-        background: '#0077b5',
+        background: '#67dfcd',
         color: 'white',
         height: 60,
         borderRadius: 5,
@@ -26,7 +24,7 @@ const styles = () => createStyles({
     icon: {
         display: 'inline-block',
         verticalAlign: 'middle',
-        width: 24,
+        width: 38,
         height: 24,
         marginRight: 20
     },
@@ -40,33 +38,27 @@ const styles = () => createStyles({
     }
 });
 
-interface LinkedlnSignUpProps extends WithStyles<typeof styles> {}
+interface SignUpProps extends WithStyles<typeof styles> { }
 
-class LinkedlnSignUp extends React.Component<LinkedlnSignUpProps> {
-    constructor(props: LinkedlnSignUpProps) {
+class SignUp extends React.Component<SignUpProps> {
+    constructor(props: SignUpProps) {
         super(props);
     }
 
     componentDidMount() {
-        (new Image()).src = linkedlnImageUrl;
+        (new Image()).src = emailImageUrl;
     }
 
     render() {
         const { classes } = this.props;
 
         return (
-            <GoogleLogin
-                clientId="" // TODO
-                className={classes.linkedlnButton}
-                style={{width: '100%', cursor: 'pointer'}}
-                onSuccess={() => console.log('success')}
-                onFailure={() => console.log('failure')}
-            >
-                <img src={linkedlnImageUrl} className={classes.icon}/>
-                <span className={classes.buttonText}>Sign Up with Linkedln</span>
-            </GoogleLogin>
-        ); 
+            <button className={classes.button} style={{ width: '100%', cursor: 'pointer' }}>
+                <img src={emailImageUrl} className={classes.icon} />
+                <span className={classes.buttonText}>Sign Up with Email</span>
+            </button>
+        );
     }
 }
 
-export default withStyles(styles)(LinkedlnSignUp);
+export default withStyles(styles)(SignUp);

@@ -2,7 +2,8 @@ import * as React from 'react';
 
 import { RouteComponentProps } from 'react-router-dom';
 
-import Dialog from '@material-ui/core/Dialog';
+// import Dialog from '@material-ui/core/Dialog';
+import Modal from '@material-ui/core/Modal';
 
 import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 
@@ -12,11 +13,15 @@ import LoginModal from '../../containers/LoginContainer';
 import SignUpModal from '../../containers/SignUpContainer';
 
 const styles = () => createStyles({
-    margin: {
-        margin: '0 25px',
+    contentStyles: {
+        backgroundColor: 'white',
+        width: 600,
+        outline: 'none'
     },
-    width: {
-        width: 600
+    modalStyles: {
+        display: 'flex', 
+        alignItems: 'center', 
+        justifyContent: 'center'
     }
 });
 
@@ -27,7 +32,7 @@ interface ModalProps extends RouteComponentProps<void>, WithStyles<typeof styles
     setModalContent: (content: ModalEnum) => any;
 }
 
-class Modal extends React.Component<ModalProps, {}> {
+class CustomModal extends React.Component<ModalProps, {}> {
     constructor(props: ModalProps) {
         super(props);
     }
@@ -36,22 +41,16 @@ class Modal extends React.Component<ModalProps, {}> {
         const { classes } = this.props;
 
         return (
-            <React.Fragment>
-                <Dialog
-                    open={this.props.modalState}
-                    onClose={this.handleClose}
-                    scroll={'body'}
-                    aria-labelledby="scroll-dialog-title"
-                    style={{display: 'flex', alignItems: 'center', justifyContent: 'center', paddingTop: 0}}
-                >
-                    <div className={classes.width}>
-                        <div className={classes.margin}>
-                            {this.getContent(this.props.modalContent)}
-                        </div>
-                    </div>
-
-                </Dialog>
-            </React.Fragment>
+            <Modal
+                open={this.props.modalState}
+                onClose={this.handleClose}
+                aria-labelledby="scroll-dialog-title"
+                className={classes.modalStyles}
+            >
+                <div className={classes.contentStyles}>
+                    {this.getContent(this.props.modalContent)}
+                </div>
+            </Modal>
         );
     }
 
@@ -75,4 +74,4 @@ class Modal extends React.Component<ModalProps, {}> {
     }
 }
 
-export default withStyles(styles)(Modal);
+export default withStyles(styles)(CustomModal);
