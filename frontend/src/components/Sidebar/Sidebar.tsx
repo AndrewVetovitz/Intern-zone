@@ -47,8 +47,8 @@ class Sidebar extends React.Component<SidebarProps, {}> {
         super(props);
     }
 
-    componentDidUpdate(nextProps: any) {
-        this.checkWindowSize(nextProps);
+    componentDidUpdate(): void {
+        this.checkWindowSize();
     }
 
     render() {
@@ -85,10 +85,10 @@ class Sidebar extends React.Component<SidebarProps, {}> {
         );
     }
 
-    private checkWindowSize(nextProps: any): void {
-        if (nextProps.windowSize && !this.props.conditionalIsOpen && !this.props.screenSizeIsOpen) {
+    private checkWindowSize(): void {
+        if (this.props.windowSize && !this.props.screenSizeIsOpen) {
             this.props.setScreenSizeSidebarState(true);
-        } else if (!nextProps.windowSize && !this.props.conditionalIsOpen && this.props.screenSizeIsOpen) {
+        } else if (!this.props.windowSize && this.props.screenSizeIsOpen) {
             this.props.setScreenSizeSidebarState(false);
         }
     }

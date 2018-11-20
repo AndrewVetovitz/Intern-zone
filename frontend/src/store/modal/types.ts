@@ -1,11 +1,11 @@
 import { ModalEnum } from '../../components/Modal/index';
 
 export interface ModalState {
-    readonly modalState: boolean;
+    readonly modalOpen: boolean;
     readonly modalContent: ModalEnum;
 }
 
 export interface ModalDispatchProps {
-    setModalState: (state: boolean) => any;
+    setModalOpen: (state: boolean) => any;
     setModalContent: (state: ModalEnum) => any;
 }

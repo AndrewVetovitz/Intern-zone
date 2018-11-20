@@ -14,7 +14,7 @@ export default combineReducers<SidebarState, SidebarAction>({
     screenSizeIsOpen: (state = (window.innerWidth > constants.NAVBAR_SIDEBAR_BREAK_WIDTH), action: SidebarAction) => {
         switch (action.type) {
             case getType(sidebarActions.setScreenSizeSidebarState): {
-                return state = action.payload;
+                return action.payload;
             }
             default: {
                 return state;
@@ -24,7 +24,7 @@ export default combineReducers<SidebarState, SidebarAction>({
     conditionalIsOpen: (state = false, action: SidebarAction) => {
         switch (action.type) {
             case getType(sidebarActions.setConditionalSidebarState): {
-                return state = action.payload;
+                return action.payload;
             }
             default: {
                 return state;

@@ -13,9 +13,9 @@
   "dependencies": {
     "@material-ui/core": "~3.5.1",
     "@material-ui/icons": "~3.0.1",
-    "axios": "~0.18.0",
     "material-design-icons": "~3.0.1",
     "material-ui-search-bar": "1.0.0-beta.8",
+    "axios": "~0.18.0",
     "react": "~16.6.3",
     "react-dom": "~16.6.3",
     "react-facebook-login": "~4.1.1",
@@ -28,8 +28,7 @@
     "redux": "~4.0.1",
     "redux-logger": "~3.0.6",
     "redux-promise-middleware": "~5.1.1",
-    "typesafe-actions": "~2.0.4",
-    "utility-types": "~2.1.0"
+    "typesafe-actions": "~2.0.4"
   },
   "devDependencies": {
     "@types/chai": "~4.1.7",

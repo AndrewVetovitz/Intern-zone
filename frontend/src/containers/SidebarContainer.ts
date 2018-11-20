@@ -10,10 +10,10 @@ import { sidebarActions, SidebarState, SidebarDispatchProps } from '../store/sid
 import { RootState } from '../store/root-reducer';
 
 function mapStateToProps(state: RootState): SidebarState {
-  return {
-    screenSizeIsOpen: state.sidebar.screenSizeIsOpen,
-    conditionalIsOpen: state.sidebar.conditionalIsOpen
-  };
+    return {
+        screenSizeIsOpen: state.sidebar.screenSizeIsOpen,
+        conditionalIsOpen: state.sidebar.conditionalIsOpen
+    };
 }
 
 function mapDispatchToProps(dispatch: Dispatch): SidebarDispatchProps {
@@ -28,7 +28,7 @@ function mapDispatchToProps(dispatch: Dispatch): SidebarDispatchProps {
 }
 
 export default withRouter(connect<SidebarState, SidebarDispatchProps, SidebarInputProps>(
-  mapStateToProps,
-  mapDispatchToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(Sidebar));
 

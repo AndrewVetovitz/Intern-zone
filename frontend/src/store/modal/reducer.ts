@@ -11,10 +11,10 @@ import { ModalEnum } from '../../components/Modal/index';
 export type ModalAction = ActionType<typeof modalActions>;
 
 export default combineReducers<ModalState, ModalAction>({
-    modalState: (state = false, action: ModalAction) => {
+    modalOpen: (state = false, action: ModalAction) => {
         switch (action.type) {
-            case getType(modalActions.setModalState): {
-                return state = action.payload;
+            case getType(modalActions.setModalOpen): {
+                return action.payload;
             }
             default: {
                 return state;
@@ -24,7 +24,7 @@ export default combineReducers<ModalState, ModalAction>({
     modalContent: (state = ModalEnum.NONE, action: ModalAction) => {
         switch (action.type) {
             case getType(modalActions.setModalContent): {
-                return state = action.payload;
+                return action.payload;
             }
             default: {
                 return state;

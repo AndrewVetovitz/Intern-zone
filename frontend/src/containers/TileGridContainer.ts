@@ -18,7 +18,7 @@ function mapStateToProps(state: RootState): CompanyState {
 }
 
 function mapDispatchToProps(dispatch: Dispatch): CompanyDispatchProps {
-  return {
+    return {
         getAllCompanyNames: () => {
             dispatch(companyActions.fetchCompanies());
             CompanyApi.getAllCompanyNames()
@@ -33,7 +33,7 @@ function mapDispatchToProps(dispatch: Dispatch): CompanyDispatchProps {
 }
 
 export default withRouter(connect<CompanyState, CompanyDispatchProps, TileGridInputProps>(
-    mapStateToProps, 
+    mapStateToProps,
     mapDispatchToProps
 )(TileGrid));
 

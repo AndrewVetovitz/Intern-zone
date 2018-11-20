@@ -15,7 +15,7 @@
             ]
         }
     },
-    "include": [
-        "src/**/*", "../frontend/src/components/SignUpButton/SignUpButton.tsx", "../frontend/src/components/SignUpButton/SignUpButton.test.tsx", "../frontend/src/containers/Modal/SignUpModalContainer.ts", "../frontend/src/containers/Modal/SignUpSelectionModalContainer.ts", "../frontend/src/containers/Modal/LoginModalContainer.ts", "../frontend/src/containers/SignUpSelectionModalContainer.ts", "../frontend/src/containers/SignUpModalContainer.ts", "../frontend/src/containers/LoginModalContainer.ts", "../frontend/src/containers/SignUpContainer.ts", "../frontend/src/components/Modal/SignUpModal/SignUpModal.test.tsx", "../frontend/src/components/Modal/SignUpModal/SignUpModal.tsx", "../frontend/src/containers/SignUpSelectionContainer.ts", "../frontend/src/components/Modal/SignUpSelectionModal/SignUpSelectionModal.tsx", "../frontend/src/components/Modal/SignUpSelectionModal/SignUpSelectionModal.test.tsx"
+    "exclude": [
+        "REFERENCE"
     ]
 }

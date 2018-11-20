@@ -96,7 +96,7 @@ class Routes extends React.Component<RouterProps, {}> {
                         <Toolbar>
                             {icon}
                             <Typography variant="h6" color="inherit" component={link}>
-                                <img height="35px" width="35px" style={{marginRight: 10}}src="/images/intern-zone-logo.png"/>
+                                <img height="35px" width="35px" alt={'Intern Zone Logo'} style={{marginRight: 10}} src="/images/intern-zone-logo.png"/>
                             </Typography>
                             <Typography variant="h6" color="inherit" className={classes.flex} component={link}>
                                 {TITLE}
@@ -110,15 +110,9 @@ class Routes extends React.Component<RouterProps, {}> {
                         onClick={() => this.props.setConditionalSidebarState(false)} 
                     />
                     <Modal/>
-                    <MediaQuery maxWidth={queryWidth}>
-                        <Navbar/>
-                    </MediaQuery>
+                    <Navbar/>
                     <MediaQuery minWidth={queryWidth}>
-                        {(matches) => {
-                            return (
-                                <Sidebar windowSize={matches} />
-                            );
-                        }}
+                        {matches => <Sidebar windowSize={matches} />}
                     </MediaQuery>
                     <ContentWrapper>
                         {routes}

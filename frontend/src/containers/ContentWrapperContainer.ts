@@ -8,14 +8,14 @@ import { SidebarState } from '../store/sidebar';
 import { RootState } from '../store/root-reducer';
 
 function mapStateToProps(state: RootState): SidebarState {
-  return {
-    conditionalIsOpen: state.sidebar.conditionalIsOpen,
-    screenSizeIsOpen: state.sidebar.screenSizeIsOpen,
-  };
+    return {
+        conditionalIsOpen: state.sidebar.conditionalIsOpen,
+        screenSizeIsOpen: state.sidebar.screenSizeIsOpen,
+    };
 }
 
 export default withRouter(connect<SidebarState, {}, ContentWrapperInputProps>(
-  mapStateToProps,
-  {}
+    mapStateToProps,
+    {}
 )(ContentWrapper));
 

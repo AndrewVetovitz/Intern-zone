@@ -1,1 +1,1 @@
-Intern-zone webpage
+Intern-zone frontend

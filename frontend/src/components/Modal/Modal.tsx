@@ -21,16 +21,16 @@ const styles = () => createStyles({
         padding: 15
     },
     modalStyles: {
-        display: 'flex', 
-        alignItems: 'center', 
+        display: 'flex',
+        alignItems: 'center',
         justifyContent: 'center'
     },
     buttonStyle: {
         color: '#6d6d6d',
-        float: 'right', 
-        padding: 0, 
-        minWidth: 12.866, 
-        minHeight: 24, 
+        float: 'right',
+        padding: 0,
+        minWidth: 12.866,
+        minHeight: 24,
         fontSize: 21,
         '&:hover': {
             color: 'black',
@@ -40,9 +40,9 @@ const styles = () => createStyles({
 });
 
 interface ModalProps extends RouteComponentProps<void>, WithStyles<typeof styles> {
-    modalState: boolean;
+    modalOpen: boolean;
     modalContent: ModalEnum;
-    setModalState: (state: boolean) => any;
+    setModalOpen: (state: boolean) => any;
     setModalContent: (content: ModalEnum) => any;
 }
 
@@ -51,12 +51,12 @@ class CustomModal extends React.Component<ModalProps, {}> {
         super(props);
     }
 
-    render() {  
+    render() {
         const { classes } = this.props;
 
         return (
             <Modal
-                open={this.props.modalState}
+                open={this.props.modalOpen}
                 onClose={this.handleClose}
                 aria-labelledby="scroll-dialog-title"
                 className={classes.modalStyles}
@@ -71,22 +71,22 @@ class CustomModal extends React.Component<ModalProps, {}> {
 
     private handleClose = (): void => {
         this.props.setModalContent(ModalEnum.NONE);
-        this.props.setModalState(false);
+        this.props.setModalOpen(false);
     }
 
     private getContent = (content: ModalEnum): JSX.Element => {
         switch (content) {
             case ModalEnum.LOGIN: {
-                return <LoginModal/>;
+                return <LoginModal />;
             }
             case ModalEnum.SIGN_UP_SELECTION: {
-                return <SignUpSelectionModal/>;
+                return <SignUpSelectionModal />;
             }
             case ModalEnum.SIGN_UP: {
-                return <SignUpModal/>;
+                return <SignUpModal />;
             }
             default: {
-                return <React.Fragment/>;
+                return <React.Fragment />;
             }
         }
     }

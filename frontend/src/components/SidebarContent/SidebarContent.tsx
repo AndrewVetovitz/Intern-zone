@@ -8,7 +8,6 @@ import Typography from '@material-ui/core/Typography';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 
-// import Modal from '../../containers/ModalContainer';
 import { ModalEnum } from '../Modal';
 
 const toHome = '/';
@@ -36,7 +35,7 @@ export interface SidebarContentInputProps {
 }
 
 interface SidebarContentProps extends SidebarContentInputProps, WithStyles<typeof styles> {
-    setModalState: (state: boolean) => any;
+    setModalOpen: (state: boolean) => any;
     setModalContent: (state: ModalEnum) => any;
 }
 
@@ -95,7 +94,6 @@ class SidebarContent extends React.Component<SidebarContentProps> {
                         primary={<Typography className={classes.text}>Resources</Typography>}
                     />
                 </ListItem>
-                {/* <Modal/> */}
             </React.Fragment>
         );
     }
@@ -103,7 +101,7 @@ class SidebarContent extends React.Component<SidebarContentProps> {
     private modalClicked = (content: ModalEnum) => {
         this.props.onClick();
         this.props.setModalContent(content);
-        this.props.setModalState(true);
+        this.props.setModalOpen(true);
     }
 }
 

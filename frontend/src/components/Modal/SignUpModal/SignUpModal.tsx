@@ -18,7 +18,7 @@ const styles = () => createStyles({
 });
 
 interface SignUpProps extends WithStyles<typeof styles> {
-    setModalContent: (state: ModalEnum) => any;
+    setModalContent: (content: ModalEnum) => any;
 }
 
 class SignUpModal extends React.Component<SignUpProps> {
