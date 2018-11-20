@@ -4,7 +4,7 @@ import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 
 import GoogleLogin from 'react-google-login';
 
-const githubImageUrl: string = '/images/github-signin-buttons/github-button-24x24.png';
+const githubImageUrl: string = '/images/github/github-button-24x24.png';
 
 const styles = () => createStyles({
     margin: {

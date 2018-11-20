@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 
-const emailImageUrl: string = '/images/email-signin-buttons/email-button-38x24.png';
+const emailImageUrl: string = '/images/email/email-button-38x24.png';
 
 const styles = () => createStyles({
     margin: {

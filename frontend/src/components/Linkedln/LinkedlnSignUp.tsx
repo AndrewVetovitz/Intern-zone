@@ -4,7 +4,7 @@ import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 
 import GoogleLogin from 'react-google-login';
 
-const linkedlnImageUrl: string = '/images/linkdln-signin-buttons/linkedln-button-24x24.png';
+const linkedlnImageUrl: string = '/images/linkdln/linkedln-button-24x24.png';
 
 const styles = () => createStyles({
     margin: {
