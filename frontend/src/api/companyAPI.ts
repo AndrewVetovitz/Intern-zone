@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 class CompanyApi {
-    static getAllCompanyNames() {
+    public static getAllCompanyNames() {
         const URL = '/company/all';
 
         return axios.get(URL).then(response => {

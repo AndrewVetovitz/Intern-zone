@@ -107,7 +107,7 @@ class Routes extends React.Component<RouterProps, {}> {
                         style={backdropStyles}
                         open={this.props.conditionalIsOpen} 
                         classes={{root: classes.backdropStyle}}
-                        onClick={() => this.props.setConditionalSidebarState(false)} 
+                        onClick={this.setSidebarStateFalse} 
                     />
                     <Modal/>
                     <Navbar/>
@@ -120,6 +120,10 @@ class Routes extends React.Component<RouterProps, {}> {
                 </React.Fragment>
             </Router>
         );
+    }
+
+    private setSidebarStateFalse = (): void => {
+        this.props.setConditionalSidebarState(false);
     }
 
     private handleClick = (): void => {

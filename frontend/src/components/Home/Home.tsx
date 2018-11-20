@@ -15,17 +15,13 @@ class Home extends React.Component<{}, State> {
         this.state = { filter: '' } ;
     }
 
-    handleChange(event: any) {
-        this.setState({ filter: event });
-    }
-
     render(): JSX.Element {
         return (
             <div className="Home-grid">
                 {/* <Header/> */}
                 <div className="Search-bar">
                     <SearchBar
-                        onChange={(text) => this.handleChange(text)}
+                        onChange={this.handleChange}
                         style={{
                             margin: '250px auto 0px auto',
                             width: '75%'
@@ -35,6 +31,10 @@ class Home extends React.Component<{}, State> {
                 <TileGrid filter={this.state.filter} />
             </div>
         );
+    }
+
+    private handleChange = (event: any) => {
+        this.setState({ filter: event });
     }
 }
 

@@ -59,7 +59,7 @@ class Sidebar extends React.Component<SidebarProps, {}> {
         const content: JSX.Element = (
             <div className={classes.list}>
                 <List component="nav">
-                    <SidebarContent onClick={() => this.props.setConditionalSidebarState(false)}/>
+                    <SidebarContent onClick={this.setSidebarStateFalse}/>
                 </List>
             </div>
         );
@@ -76,13 +76,17 @@ class Sidebar extends React.Component<SidebarProps, {}> {
                     <Toolbar style={{width: constants.DRAWER_WIDTH}} />
                     <div
                         role="button"
-                        onKeyDown={() => this.props.setConditionalSidebarState(false)}
+                        onKeyDown={this.setSidebarStateFalse}
                     >
                         {content}
                     </div>
                 </Drawer>
             </div>
         );
+    }
+
+    private setSidebarStateFalse = (): void => {
+        this.props.setConditionalSidebarState(false);
     }
 
     private checkWindowSize(): void {

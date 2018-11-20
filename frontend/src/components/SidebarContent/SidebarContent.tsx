@@ -14,6 +14,10 @@ const toHome = '/';
 const toAbout = '/about';
 const toResources = '/resources';
 
+const homeLink: any = ({innerRef, ...props}: any) => <Link {...props} to={toHome} />;
+const aboutLink: any = ({innerRef, ...props}: any) => <Link {...props} to={toAbout} />;
+const resourcesLink: any = ({innerRef, ...props}: any) => <Link {...props} to={toResources} />;
+
 const styles = () => createStyles({
     iconColor: {
         color: 'white',
@@ -57,7 +61,7 @@ class SidebarContent extends React.Component<SidebarContentProps> {
                                 <Typography 
                                     className={classes.textColor} 
                                     style={{display: 'inline-block', cursor: 'pointer'}} 
-                                    onClick={() => this.modalClicked(ModalEnum.SIGN_UP_SELECTION)}
+                                    onClick={this.setModalContentSignUpSelection}
                                 >
                                     Sign up
                                 </Typography>
@@ -69,26 +73,26 @@ class SidebarContent extends React.Component<SidebarContentProps> {
                                 <Typography 
                                     className={classes.textColor} 
                                     style={{display: 'inline-block', cursor: 'pointer'}} 
-                                    onClick={() => this.modalClicked(ModalEnum.LOGIN)}
+                                    onClick={this.setModalContentLogin}
                                 >
                                     Login
                                 </Typography>    
                             </div>}
                     />
                 </ListItem>
-                <ListItem onClick={this.props.onClick} button={true} component={({innerRef, ...props}) => <Link {...props} to={toHome} />}> 
+                <ListItem onClick={this.props.onClick} button={true} component={homeLink}> 
                     <ListItemText
                         disableTypography={true}
                         primary={<Typography className={classes.text}>Home</Typography>}
                     />
                 </ListItem>
-                <ListItem onClick={this.props.onClick} button={true} component={({innerRef, ...props}) => <Link {...props} to={toAbout} />}> 
+                <ListItem onClick={this.props.onClick} button={true} component={aboutLink}> 
                     <ListItemText
                         disableTypography={true}
                         primary={<Typography className={classes.text}>About</Typography>}
                     />
                 </ListItem>
-                <ListItem onClick={this.props.onClick} button={true} component={({innerRef, ...props}) => <Link {...props} to={toResources} />}>
+                <ListItem onClick={this.props.onClick} button={true} component={resourcesLink}>
                     <ListItemText
                         disableTypography={true}
                         primary={<Typography className={classes.text}>Resources</Typography>}
@@ -98,7 +102,15 @@ class SidebarContent extends React.Component<SidebarContentProps> {
         );
     }
 
-    private modalClicked = (content: ModalEnum) => {
+    private setModalContentSignUpSelection = (): void => {
+        this.modalClicked(ModalEnum.SIGN_UP_SELECTION);
+    }
+
+    private setModalContentLogin = (): void => {
+        this.modalClicked(ModalEnum.LOGIN);
+    }
+
+    private modalClicked = (content: ModalEnum): void => {
         this.props.onClick();
         this.props.setModalContent(content);
         this.props.setModalOpen(true);
