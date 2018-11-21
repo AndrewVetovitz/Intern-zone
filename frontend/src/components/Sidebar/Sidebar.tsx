@@ -58,7 +58,7 @@ class Sidebar extends React.Component<SidebarProps, {}> {
 
         const content: JSX.Element = (
             <div className={classes.list}>
-                <List component="nav">
+                <List>
                     <SidebarContent onClick={this.setSidebarStateFalse}/>
                 </List>
             </div>

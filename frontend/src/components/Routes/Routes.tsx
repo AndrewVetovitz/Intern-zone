@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import Backdrop from '@material-ui/core/Backdrop';
+import Typography from '@material-ui/core/Typography';
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
 
 import Navbar from '../../containers/NavbarContainer';
 import Sidebar from '../../containers/SidebarContainer';
@@ -19,11 +22,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import constants from '../../constants';
 
-import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-
-const TITLE: string = 'Intern Zone';
+const TITLE: string = constants.TITLE;
 
 const styles = createStyles({
     backdropStyle: {
@@ -41,7 +40,7 @@ const styles = createStyles({
     }
 });
 
-export interface RouterProps extends WithStyles<typeof styles>  {
+export interface RouterProps extends WithStyles<typeof styles> {
     setConditionalSidebarState: (state: boolean) => any;
     conditionalIsOpen: boolean;
     screenSizeIsOpen: boolean;
@@ -49,7 +48,7 @@ export interface RouterProps extends WithStyles<typeof styles>  {
 
 const routes: JSX.Element = (
     <Switch>
-        <Route exact={true} path="/" component={Home}/>
+        <Route exact={true} path="/" component={Home} />
         <Route exact={true} path="/company/:name" component={Company} />
         <Route exact={true} path="/about" component={About} />
         <Route exact={true} path="/resources" component={Resources} />
@@ -72,31 +71,43 @@ class Routes extends React.Component<RouterProps, {}> {
         };
 
         const toHome = '/';
-        const link: any = ({innerRef, ...propsSpread}: any) => <Link {...propsSpread} to={toHome} />;
+        const link: any = ({ innerRef, ...propsSpread }: any) => <Link {...propsSpread} to={toHome} />;
 
-        let icon: JSX.Element = <React.Fragment/>;
+        let icon: JSX.Element = <React.Fragment />;
 
         if (!this.props.screenSizeIsOpen) {
             icon = (
                 <IconButton
                     onClick={this.handleClick}
-                    className={classes.menuButton} 
-                    color="inherit" 
+                    className={classes.menuButton}
+                    color="inherit"
                     aria-label="Menu"
                 >
-                <MenuIcon />
+                    <MenuIcon />
                 </IconButton>
             );
         }
 
+        const logoStyle: React.CSSProperties = { marginRight: 10 };
+        const LOGO: JSX.Element = (
+            <img
+                onClick={this.setSidebarStateFalse}
+                height="35px"
+                width="35px"
+                alt={'Intern Zone Logo'}
+                style={logoStyle}
+                src={constants.LOGO_URL}
+            />
+        );
+
         return (
             <Router>
                 <React.Fragment>
-                    <div style={{position: 'fixed', zIndex: 6, top: 0, left: 0, width: 300}}>
+                    <div style={{ position: 'fixed', zIndex: 6, top: 0, left: 0, width: 300 }}>
                         <Toolbar>
                             {icon}
                             <Typography variant="h6" color="inherit" component={link}>
-                                <img height="35px" width="35px" alt={'Intern Zone Logo'} style={{marginRight: 10}} src="/images/intern-zone-logo.png"/>
+                                {LOGO}
                             </Typography>
                             <Typography variant="h6" color="inherit" className={classes.flex} component={link}>
                                 {TITLE}
@@ -105,12 +116,12 @@ class Routes extends React.Component<RouterProps, {}> {
                     </div>
                     <Backdrop
                         style={backdropStyles}
-                        open={this.props.conditionalIsOpen} 
-                        classes={{root: classes.backdropStyle}}
-                        onClick={this.setSidebarStateFalse} 
+                        open={this.props.conditionalIsOpen}
+                        classes={{ root: classes.backdropStyle }}
+                        onClick={this.setSidebarStateFalse}
                     />
-                    <Modal/>
-                    <Navbar/>
+                    <Modal />
+                    <Navbar />
                     <MediaQuery minWidth={queryWidth}>
                         {matches => <Sidebar windowSize={matches} />}
                     </MediaQuery>

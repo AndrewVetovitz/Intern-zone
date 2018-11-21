@@ -61,7 +61,7 @@ class SidebarContent extends React.Component<SidebarContentProps> {
                                 <Typography 
                                     className={classes.textColor} 
                                     style={{display: 'inline-block', cursor: 'pointer'}} 
-                                    onClick={this.setModalContentSignUpSelection}
+                                    onClick={this.setModalContent(ModalEnum.SIGN_UP_SELECTION)}
                                 >
                                     Sign up
                                 </Typography>
@@ -73,7 +73,7 @@ class SidebarContent extends React.Component<SidebarContentProps> {
                                 <Typography 
                                     className={classes.textColor} 
                                     style={{display: 'inline-block', cursor: 'pointer'}} 
-                                    onClick={this.setModalContentLogin}
+                                    onClick={this.setModalContent(ModalEnum.LOGIN)}
                                 >
                                     Login
                                 </Typography>    
@@ -102,14 +102,10 @@ class SidebarContent extends React.Component<SidebarContentProps> {
         );
     }
 
-    private setModalContentSignUpSelection = (): void => {
-        this.modalClicked(ModalEnum.SIGN_UP_SELECTION);
+    private setModalContent = (content: ModalEnum): () => void => {
+        return () => this.modalClicked(content);
     }
-
-    private setModalContentLogin = (): void => {
-        this.modalClicked(ModalEnum.LOGIN);
-    }
-
+    
     private modalClicked = (content: ModalEnum): void => {
         this.props.onClick();
         this.props.setModalContent(content);

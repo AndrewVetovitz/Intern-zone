@@ -10,22 +10,22 @@ interface State {
 }
 
 class Home extends React.Component<{}, State> {
-    constructor(props: object = {}) {
+    constructor(props: object) {
         super(props);
-        this.state = { filter: '' } ;
+        this.state = { filter: '' };
     }
 
     render(): JSX.Element {
+        const searchBarStyles: React.CSSProperties = {margin: '250px auto 0px auto', width: '75%'};
+    
         return (
             <div className="Home-grid">
                 {/* <Header/> */}
                 <div className="Search-bar">
                     <SearchBar
+                        aria-label="Search Bar"
                         onChange={this.handleChange}
-                        style={{
-                            margin: '250px auto 0px auto',
-                            width: '75%'
-                        }}
+                        style={searchBarStyles}
                     />
                 </div>
                 <TileGrid filter={this.state.filter} />
