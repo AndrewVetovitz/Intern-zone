@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import CompanyModel from '../models/Company';
+// import CompanyModel from '../models/Company';
 
 import db from '../database';
 
