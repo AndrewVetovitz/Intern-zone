@@ -46,7 +46,7 @@ function ComapanyTable(props: TableProps) {
                 </TableHead>
                 <TableBody>
                     {data.map((value: Row, index: number) => {
-                        const link: any = ({innerRef, ...propsSpread}: any) => <a {...propsSpread} target={'_blank'} href={value.link} />;
+                        const link: any = ({innerRef, ...propsSpread}: any) => <a {...propsSpread} target={'_blank'} rel={'noopener noreferrer nofollow'} href={value.link} />;
                         const styledLink: JSX.Element = <Typography component={link}>Link</Typography>;
 
                         return (

@@ -4,8 +4,8 @@ import { JobPosition } from './JobPosition';
 
 @Entity()
 export class Company {
-    @PrimaryGeneratedColumn()
-    id: number;
+    @PrimaryGeneratedColumn('uuid')
+    id: string;
 
     @Column({ length: 64 })
     name: string;

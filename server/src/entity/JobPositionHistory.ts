@@ -4,8 +4,8 @@ import { JobPosition } from './JobPosition';
 
 @Entity()
 export class JobPositionHistory {
-    @PrimaryGeneratedColumn()
-    id: number;
+    @PrimaryGeneratedColumn('uuid')
+    id: string;
 
     @Column('integer')
     year: number;

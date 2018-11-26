@@ -5,8 +5,8 @@ import { JobPositionHistory } from './JobPositionHistory';
 
 @Entity()
 export class JobPosition {
-    @PrimaryGeneratedColumn()
-    id: number;
+    @PrimaryGeneratedColumn('uuid')
+    id: string;
 
     @Column({ length: 256 })
     name: string;

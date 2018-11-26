@@ -57,7 +57,7 @@ function getImages(tiles: ResourceTiles[], props: ResourceProps): JSX.Element | 
         const { classes } = props;    
     
         return tiles.map((tile: ResourceTiles, index: number) => {
-            const link: any = ({innerRef, ...propsSpread}: any) => <a {...propsSpread} target={'_blank'} href={tile.website_url} />;
+            const link: any = ({innerRef, ...propsSpread}: any) => <a {...propsSpread} target={'_blank'} rel={'noopener noreferrer nofollow'} href={tile.website_url} />;
 
             return (
                 <Grid component={link} item={true} key={index} xs={12} sm={6} md={4} lg={4} style={{padding: 20}}>
