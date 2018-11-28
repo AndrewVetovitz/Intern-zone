@@ -97,7 +97,7 @@ app.use(cors());
 // /**
 //  * Primary app routes.
 //  */
-app.get('/company/all', companyController.getAllCompanyNames);
+app.get('/api/company/all', companyController.getAllCompanyNames);
 
 // /**
 //  * API examples routes.

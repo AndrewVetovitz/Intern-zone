@@ -10,7 +10,12 @@
         "test": "react-scripts-ts test --env=jsdom",
         "eject": "react-scripts-ts eject"
     },
-    "proxy": "https://localhost:5000",
+    "proxy": {
+        "/api/*": {
+            "target": "https://localhost:5000",
+            "secure": false
+        }
+    },
     "protocol": "https",
     "webpackProtocol": "--https",
     "dependencies": {
