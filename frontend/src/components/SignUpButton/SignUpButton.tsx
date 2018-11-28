@@ -8,7 +8,7 @@ const styles = () => createStyles({
     margin: {
         margin: '0 25px',
     },
-    button: {
+    emailButton: {
         display: 'inline-block',
         background: '#67dfcd',
         color: 'white',
@@ -55,7 +55,7 @@ class SignUp extends React.Component<SignUpProps> {
         const { classes } = this.props;
 
         return (
-            <button onClick={this.props.onClick} className={classes.button} style={{ width: '100%', cursor: 'pointer' }}>
+            <button onClick={this.props.onClick} className={classes.emailButton} style={{ width: '100%', cursor: 'pointer' }}>
                 <img src={emailImageUrl} className={classes.icon} />
                 <span className={classes.buttonText}>Sign Up with Email</span>
             </button>

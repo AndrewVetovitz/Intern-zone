@@ -2,6 +2,7 @@ import 'reflect-metadata';
 
 import express from 'express';
 import dotenv from 'dotenv';
+import cors from 'cors';
 // import compression from 'compression';  // compresses requests
 // import session from 'express-session';
 // import bodyParser from 'body-parser';
@@ -52,6 +53,7 @@ app.set('port', process.env.PORT || 5000);
 // app.set('view engine', 'pug');
 // app.use(compression());
 app.use(logger('dev'));
+app.use(cors());
 // app.use(bodyParser.json());
 // app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(expressValidator());

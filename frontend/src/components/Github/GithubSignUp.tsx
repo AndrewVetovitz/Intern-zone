@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 
-import GoogleLogin from 'react-google-login';
+// import GithubApi from '../../api/githubAPI';
 
 const githubImageUrl: string = '/images/github/github-button-24x24.png';
 
@@ -40,7 +40,7 @@ const styles = () => createStyles({
     }
 });
 
-interface GithubSignUpProps extends WithStyles<typeof styles> {}
+interface GithubSignUpProps extends WithStyles<typeof styles> { }
 
 class GithubSignUp extends React.Component<GithubSignUpProps> {
     constructor(props: GithubSignUpProps) {
@@ -48,24 +48,32 @@ class GithubSignUp extends React.Component<GithubSignUpProps> {
     }
 
     componentDidMount() {
-        (new Image).src = githubImageUrl;
+        (new Image()).src = githubImageUrl;
     }
 
     render() {
         const { classes } = this.props;
 
         return (
-            <GoogleLogin
-                clientId="" // TODO
-                className={classes.githubButton}
-                style={{width: '100%', cursor: 'pointer'}}
-                onSuccess={() => console.log('success')}
-                onFailure={() => console.log('failure')}
-            >
-                <img src={githubImageUrl} className={classes.icon}/>
+            <button onClick={this.githubLogin} className={classes.githubButton} style={{ width: '100%', cursor: 'pointer' }}>
+                <img src={githubImageUrl} className={classes.icon} />
                 <span className={classes.buttonText}>Sign Up with Github</span>
-            </GoogleLogin>
-        ); 
+            </button>
+        );
+    }
+
+    private githubLogin = () => {
+        const width: number = 700;
+        const height: number = 700;
+        // Need window.screenX for dual monitors. Will add first screen to left if on second screen
+        const left: number = (screen.width / 2) - (width / 2) + window.screenX;
+        const top: number = (screen.height / 2) - (height / 2);
+        const url: string = 'https://github.com/login/oauth/authorize?client_id=9c5ade6df05ee7847376';
+        const title: string = 'Github Login';
+        
+        const specs: string = 'width=700,height=700,top=' + top + ',left=' + left;
+
+        window.open(url, title, specs);
     }
 }
 
