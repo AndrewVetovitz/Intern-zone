@@ -15,5 +15,11 @@ export class User {
     username: string;
 
     @Column({ length: 256 })
-    password: string;
+    password_hashed: string;
+
+    @Column({ length: 256 })
+    password_salt: string;
+
+    @Column({ length: 256 })
+    password_hash_algorithm: string;
 }

@@ -51,16 +51,20 @@ class GoogleSignUp extends React.Component<GoogleSignUpProps> {
         (new Image()).src = googleImageUrl;
     }
 
+    googleResponse = (response: object) => {
+        console.log(response);
+    }
+
     render() {
         const { classes } = this.props;
 
         return (
             <GoogleLogin
-                clientId="" // TODO
+                clientId="484016341665-rrclrgt80qbaelleo98i5h1j4n9f2st6.apps.googleusercontent.com"
                 className={classes.googleButton}
                 style={{width: '100%', cursor: 'pointer'}}
-                onSuccess={() => console.log('success')}
-                onFailure={() => console.log('failure')}
+                onSuccess={this.googleResponse}
+                onFailure={this.googleResponse}
             >
                 <img src={googleImageUrl} className={classes.icon}/>
                 <span className={classes.buttonText}>Sign Up with Google</span>

@@ -1,31 +1,19 @@
-import errorHandler from 'errorhandler';
-import app from './app';
-import spdy from 'spdy';
-import fs from 'fs';
 
-const options = {
-    key: fs.readFileSync(__dirname + '/../certificate/server.key'),
-    cert: fs.readFileSync(__dirname + '/../certificate/server.crt')
-};
-
-/**
- * Error Handler. Provides full stack - remove for production
- */
-app.use(errorHandler());
+import server, { app } from './app';
 
 const port: number = app.get('port');
 const env: string = app.get('env');
+const http: string = app.get('http');
 
 /**
- * Start Spdy Express server.
+ * Start sockerIO, Express server.
  */
-
-const server = spdy.createServer(options, app).listen(port, (err: any) => {
+server.listen(port, (err: any) => {
     if (err) {
         throw new Error(err);
     }
 
-    console.log('  App is running at https://localhost:%d in %s mode', port, env);
+    console.log('  App is running at %s://localhost:%d in %s mode', http, port, env);
     console.log('  Press CTRL-C to stop\n');
 });
 

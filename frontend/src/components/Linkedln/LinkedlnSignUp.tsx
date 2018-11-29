@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 
-import GoogleLogin from 'react-google-login';
+// import GoogleLogin from 'react-google-login';
 
 const linkedlnImageUrl: string = '/images/linkdln/linkedln-button-24x24.png';
 
@@ -52,19 +52,20 @@ class LinkedlnSignUp extends React.Component<LinkedlnSignUpProps> {
     }
 
     render() {
-        const { classes } = this.props;
+        // const { classes } = this.props;
 
         return (
-            <GoogleLogin
-                clientId="" // TODO
-                className={classes.linkedlnButton}
-                style={{width: '100%', cursor: 'pointer'}}
-                onSuccess={() => console.log('success')}
-                onFailure={() => console.log('failure')}
-            >
-                <img src={linkedlnImageUrl} className={classes.icon}/>
-                <span className={classes.buttonText}>Sign Up with Linkedln</span>
-            </GoogleLogin>
+            // <GoogleLogin
+            //     clientId="" // TODO
+            //     className={classes.linkedlnButton}
+            //     style={{width: '100%', cursor: 'pointer'}}
+            //     onSuccess={() => console.log('success')}
+            //     onFailure={() => console.log('failure')}
+            // >
+            //     <img src={linkedlnImageUrl} className={classes.icon}/>
+            //     <span className={classes.buttonText}>Sign Up with Linkedln</span>
+            // </GoogleLogin>
+            <></>
         ); 
     }
 }

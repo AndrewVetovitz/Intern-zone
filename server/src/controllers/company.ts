@@ -7,7 +7,7 @@ import db from '../database';
  * GET /company/all
  * Retrieve all company names
  */
-export let getAllCompanyNames = (req: Request, res: Response) => {
+const getAllCompanyNames = (req: Request, res: Response) => {
     const sql = 'SELECT * FROM company';
 
     res.status(200).json({
@@ -38,3 +38,4 @@ export let getAllCompanyNames = (req: Request, res: Response) => {
     // });
 };
 
+export { getAllCompanyNames };
