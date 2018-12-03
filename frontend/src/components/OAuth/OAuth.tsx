@@ -38,7 +38,7 @@ const styles = () => createStyles({
     }
 });
 
-interface Props extends WithStyles<typeof styles> {
+interface OAuthProps extends WithStyles<typeof styles> {
     socket: SocketIOClient.Socket;
     provider: any;
 }
@@ -51,13 +51,17 @@ interface State {
     disabled: any;
 }
 
-class OAuth extends React.Component<Props, State> {
+class OAuth extends React.Component<OAuthProps, State> {
     state: State = {
         user: {},
         disabled: ''
     };
 
     popup: any;
+
+    constructor(props: OAuthProps) {
+        super(props);
+    }
 
     componentDidMount() {
         const { socket, provider } = this.props;

@@ -3,7 +3,7 @@ import * as React from 'react';
 import Typography from '@material-ui/core/Typography';
 
 function About(): JSX.Element {
-    const headerSize: string = 'h2';
+    const headerSize: 'h2' = 'h2';
 
     return (
         <div style={{fontSize: 16, lineHeight: '1.6em'}}>
