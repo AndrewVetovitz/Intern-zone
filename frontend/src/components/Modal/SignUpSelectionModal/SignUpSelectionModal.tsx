@@ -14,7 +14,7 @@ import ModalEnum from '../Modal.enum';
 import GoogleSignUp from '../../Google/GoogleSignUp';
 import FacebookSignUp from '../../Facebook/FacebookSignUp';
 import GithubSignUp from '../../Github/GithubSignUp';
-import LinkedlnSignUp from '../../Linkedln/LinkedlnSignUp';
+import LinkedinSignUp from '../../Linkedin/LinkedinSignUp';
 import SignUpButton from '../../SignUpButton/SignUpButton';
 
 const styles = () => createStyles({
@@ -47,7 +47,7 @@ class SignUpSelectionModal extends React.Component<SignUpSelectionProps> {
                         <FacebookSignUp/>
                     </DialogContent>
                     <DialogContent>
-                        <LinkedlnSignUp/>
+                        <LinkedinSignUp/>
                     </DialogContent>
                     <DialogContent>
                         <GithubSignUp/>

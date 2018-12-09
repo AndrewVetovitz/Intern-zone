@@ -60,8 +60,8 @@ class LinkedlnSignUp extends React.Component<LinkedlnSignUpProps> {
         return (
             <OAuth
                 socket={socket}
-                provider={'linkedln'}
-                name={'Linkedln'}
+                provider={'linkedin'}
+                name={'Linkedin'}
                 classes={classes}
                 imgUrl={linkedlnImageUrl}
             />

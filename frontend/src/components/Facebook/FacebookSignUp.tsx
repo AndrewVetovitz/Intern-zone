@@ -2,13 +2,18 @@ import * as React from 'react';
 
 import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 
+import OAuth from '../OAuth/OAuth';
+
+import io from 'socket.io-client';
+const socket = io('http://localhost:5000', { transports: ['websocket'] });
+
 const facebookImageUrl: string = '/images/facebook/facebook-button-24x24.png';
 
 const styles = () => createStyles({
     margin: {
         margin: '0 25px',
     },
-    facebookButton: {
+    button: {
         display: 'inline-block',
         background: '#3e5b94',
         color: 'white',
@@ -50,10 +55,16 @@ class FacebookSignUp extends React.Component<FacebookSignUpProps> {
     }
 
     render() {
-        // const { classes } = this.props;
+        const { classes } = this.props;
 
         return (
-            <></>
+            <OAuth
+                socket={socket}
+                provider={'facebook'}
+                name={'Facebook'}
+                classes={classes}
+                imgUrl={facebookImageUrl}
+            />
         ); 
     }
 }
