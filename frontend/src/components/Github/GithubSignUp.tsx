@@ -1,11 +1,11 @@
 import * as React from 'react';
 
 import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
+
 import OAuth from '../OAuth/OAuth';
 
-import openSocket from 'socket.io-client';
-
-const socket = openSocket('http://localhost:5000', { transports: ['websocket'] });
+import io from 'socket.io-client';
+const socket = io('http://localhost:5000', { transports: ['websocket'] });
 
 const githubImageUrl: string = '/images/github/github-button-24x24.png';
 
@@ -13,7 +13,7 @@ const styles = () => createStyles({
     margin: {
         margin: '0 25px',
     },
-    githubButton: {
+    button: {
         display: 'inline-block',
         background: 'black',
         color: 'white',
@@ -55,19 +55,17 @@ class GithubSignUp extends React.Component<GithubSignUpProps> {
     }
 
     render() {
-        // const { classes } = this.props;
+        const { classes } = this.props;
 
         return (
             <OAuth
                 socket={socket}
                 provider={'github'}
+                name={'Github'}
+                classes={classes}
+                imgUrl={githubImageUrl}
             />
         );
-            // <button onClick={this.githubLogin} className={classes.githubButton} style={{ width: '100%', cursor: 'pointer' }}>
-            //     <img src={githubImageUrl} className={classes.icon} />
-            //     <span className={classes.buttonText}>Sign Up with Github</span>
-            // </button>
-        // );
     }
 }
 

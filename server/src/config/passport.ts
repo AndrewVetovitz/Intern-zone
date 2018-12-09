@@ -5,9 +5,11 @@ import _ from 'lodash';
 import { Profile, PassportStatic } from 'passport';
 // import passportLocal from 'passport-local';
 import passportGitub from 'passport-github';
+import passportGoogle from 'passport-google-oauth';
 
 // const LocalStrategy = passportLocal.Strategy;
 const GitHubStrategy = passportGitub.Strategy;
+const GoogleStrategy = passportGoogle.OAuth2Strategy;
 
 interface GithubProfile {
     id: string;
@@ -53,6 +55,25 @@ module.exports = (passport: PassportStatic) => {
         };
 
         done(undefined, user);
+    }
+    ));
+
+    passport.use(new GoogleStrategy({
+        clientID: process.env.GOOGLE_CLIENT_ID,
+        clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+        callbackURL: 'http://localhost:5000/api/authenticate/google/callback'
+    }, (accessToken: string, refreshToken: string, profile: any, done: (error: any, user?: any) => void) => {
+        // const prof: any = profile;
+
+        console.log(profile);
+
+        // const user: object = {
+        //     'name': prof.displayName,
+        //     'username': prof.username,
+        //     'email': prof.emails[0].value,
+        // };
+
+        done(undefined, profile);
     }
     ));
 };

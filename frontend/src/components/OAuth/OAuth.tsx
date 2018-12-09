@@ -1,46 +1,16 @@
 import * as React from 'react';
 
-import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
-
-const githubImageUrl: string = '/images/github/github-button-24x24.png';
-
-const styles = () => createStyles({
-    margin: {
-        margin: '0 25px',
-    },
-    githubButton: {
-        display: 'inline-block',
-        background: 'black',
-        color: 'white',
-        height: 60,
-        borderRadius: 5,
-        border: 'thin solid #888',
-        boxShadow: '1px 1px 1px grey',
-        whiteSpace: 'nowrap',
-        '&:focus': {
-            outline: 'none'
-        }
-    },
-    icon: {
-        display: 'inline-block',
-        verticalAlign: 'middle',
-        width: 24,
-        height: 24,
-        marginRight: 20
-    },
-    buttonText: {
-        display: 'inline-block',
-        verticalAlign: 'middle',
-        fontSize: 14,
-        fontWeight: 'bold',
-        /* Use the Roboto font that is loaded in the <head> */
-        fontFamily: '\'Roboto\', sans-serif'
-    }
-});
-
-interface OAuthProps extends WithStyles<typeof styles> {
+interface OAuthProps {
     socket: SocketIOClient.Socket;
-    provider: any;
+    provider: string;
+    name: string;
+    classes: {
+        margin: any;
+        button: any;
+        icon: any;
+        buttonText: any;
+    };
+    imgUrl: string;
 }
 
 interface State {
@@ -57,7 +27,7 @@ class OAuth extends React.Component<OAuthProps, State> {
         disabled: ''
     };
 
-    popup: any;
+    private popup: any;
 
     constructor(props: OAuthProps) {
         super(props);
@@ -83,11 +53,11 @@ class OAuth extends React.Component<OAuthProps, State> {
     }
 
     openPopup() {
-        const { socket } = this.props;
+        const { provider, socket } = this.props;
         const width = 600, height = 600;
         const left = (window.innerWidth / 2) - (width / 2);
         const top = (window.innerHeight / 2) - (height / 2);
-        const url = `/api/authenticate/github?socketId=${socket.id}`;
+        const url = `/api/authenticate/${provider}?socketId=${socket.id}`;
 
         return window.open(url, '',
             `toolbar=no, location=no, directories=no, status=no, menubar=no, 
@@ -109,16 +79,16 @@ class OAuth extends React.Component<OAuthProps, State> {
     }
 
     render() {
-        const { classes } = this.props;
+        const { classes, name, imgUrl } = this.props;
 
         return (
-            <button onClick={this.startAuth} className={classes.githubButton} style={{ width: '100%', cursor: 'pointer' }}>
-                <img src={githubImageUrl} className={classes.icon} />
-                <span className={classes.buttonText}>Sign Up with Github</span>
+            <button onClick={this.startAuth} className={classes.button} style={{ width: '100%', cursor: 'pointer' }}>
+                <img src={imgUrl} className={classes.icon} />
+                <span className={classes.buttonText}>Sign Up with {name}</span>
             </button>
         );
     }
 }
 
 
-export default withStyles(styles)(OAuth);
+export default OAuth;

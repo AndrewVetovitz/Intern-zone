@@ -2,7 +2,10 @@ import * as React from 'react';
 
 import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 
-import GoogleLogin from 'react-google-login';
+import OAuth from '../OAuth/OAuth';
+
+import io from 'socket.io-client';
+const socket = io('http://localhost:5000', { transports: ['websocket'] });
 
 const googleImageUrl: string = '/images/google/google-button-24x24.png';
 
@@ -10,7 +13,7 @@ const styles = () => createStyles({
     margin: {
         margin: '0 25px',
     },
-    googleButton: {
+    button: {
         display: 'inline-block',
         background: 'white',
         color: '#444',
@@ -40,7 +43,7 @@ const styles = () => createStyles({
     }
 });
 
-interface GoogleSignUpProps extends WithStyles<typeof styles> {}
+interface GoogleSignUpProps extends WithStyles<typeof styles> { }
 
 class GoogleSignUp extends React.Component<GoogleSignUpProps> {
     constructor(props: GoogleSignUpProps) {
@@ -59,17 +62,14 @@ class GoogleSignUp extends React.Component<GoogleSignUpProps> {
         const { classes } = this.props;
 
         return (
-            <GoogleLogin
-                clientId="484016341665-rrclrgt80qbaelleo98i5h1j4n9f2st6.apps.googleusercontent.com"
-                className={classes.googleButton}
-                style={{width: '100%', cursor: 'pointer'}}
-                onSuccess={this.googleResponse}
-                onFailure={this.googleResponse}
-            >
-                <img src={googleImageUrl} className={classes.icon}/>
-                <span className={classes.buttonText}>Sign Up with Google</span>
-            </GoogleLogin>
-        ); 
+            <OAuth
+                socket={socket}
+                provider={'google'}
+                name={'Google'}
+                classes={classes}
+                imgUrl={googleImageUrl}
+            />
+        );
     }
 }
 

@@ -43,14 +43,6 @@ require('./config/passport')(passport);
 // Create Express server
 const app = express();
 
-// app.use(function(req, res, next) {
-//     res.header('Access-Control-Allow-Origin', '*');
-//     res.header('Access-Control-Allow-Headers', 'X-Requested-With');
-//     res.header('Access-Control-Allow-Headers', 'Content-Type');
-//     res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
-//     next();
-// });
-
 // const server = https.createServer(options, app);
 const server =  http.createServer(app);
 const io = socket.listen(server);
@@ -106,15 +98,30 @@ app.use(passport.session());
 app.set('io', io);
 
 const githubAuth = passport.authenticate('github');
+const googleAuth = passport.authenticate('google', { scope: ['profile'] });
+const linkedinAuth = passport.authenticate('linkedin');
 
-// /**
-//  * Primary app routes.
-//  */
+
+/**
+ * Primary app routes.
+ */
 app.get('/api/company/all', companyController.getAllCompanyNames);
 
 app.get('/api/authenticate/github', addSocketIdToSession, githubAuth);
 app.get('/api/authenticate/github/callback', githubAuth, (req: Request, res: Response, next: NextFunction) => {
     io.in(req.session.socketId).emit('github', req.user);
+    res.end();
+});
+
+app.get('/api/authenticate/google', addSocketIdToSession, googleAuth);
+app.get('/api/authenticate/google/callback', googleAuth, (req: Request, res: Response, next: NextFunction) => {
+    io.in(req.session.socketId).emit('google', req.user);
+    res.end();
+});
+
+app.get('/api/authenticate/linkedin', addSocketIdToSession, linkedinAuth);
+app.get('/api/authenticate/linkedin/callback', linkedinAuth, (req: Request, res: Response, next: NextFunction) => {
+    io.in(req.session.socketId).emit('google', req.user);
     res.end();
 });
 

@@ -2,7 +2,10 @@ import * as React from 'react';
 
 import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 
-// import GoogleLogin from 'react-google-login';
+import OAuth from '../OAuth/OAuth';
+
+import io from 'socket.io-client';
+const socket = io('http://localhost:5000', { transports: ['websocket'] });
 
 const linkedlnImageUrl: string = '/images/linkdln/linkedln-button-24x24.png';
 
@@ -10,7 +13,7 @@ const styles = () => createStyles({
     margin: {
         margin: '0 25px',
     },
-    linkedlnButton: {
+    button: {
         display: 'inline-block',
         background: '#0077b5',
         color: 'white',
@@ -52,20 +55,16 @@ class LinkedlnSignUp extends React.Component<LinkedlnSignUpProps> {
     }
 
     render() {
-        // const { classes } = this.props;
+        const { classes } = this.props;
 
         return (
-            // <GoogleLogin
-            //     clientId="" // TODO
-            //     className={classes.linkedlnButton}
-            //     style={{width: '100%', cursor: 'pointer'}}
-            //     onSuccess={() => console.log('success')}
-            //     onFailure={() => console.log('failure')}
-            // >
-            //     <img src={linkedlnImageUrl} className={classes.icon}/>
-            //     <span className={classes.buttonText}>Sign Up with Linkedln</span>
-            // </GoogleLogin>
-            <></>
+            <OAuth
+                socket={socket}
+                provider={'linkedln'}
+                name={'Linkedln'}
+                classes={classes}
+                imgUrl={linkedlnImageUrl}
+            />
         ); 
     }
 }

@@ -2,8 +2,6 @@ import * as React from 'react';
 
 import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 
-// import GoogleLogin from 'react-google-login';
-
 const facebookImageUrl: string = '/images/facebook/facebook-button-24x24.png';
 
 const styles = () => createStyles({
@@ -55,16 +53,6 @@ class FacebookSignUp extends React.Component<FacebookSignUpProps> {
         // const { classes } = this.props;
 
         return (
-            // <GoogleLogin
-            //     clientId="" // TODO
-            //     className={classes.facebookButton}
-            //     style={{width: '100%', cursor: 'pointer'}}
-            //     onSuccess={() => console.log('success')}
-            //     onFailure={() => console.log('failure')}
-            // >
-            //     <img src={facebookImageUrl} className={classes.icon}/>
-            //     <span className={classes.buttonText}>Sign Up with Facebook</span>
-            // </GoogleLogin>
             <></>
         ); 
     }
