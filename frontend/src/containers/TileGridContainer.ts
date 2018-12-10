@@ -3,9 +3,10 @@ import { Dispatch } from 'redux';
 
 import { withRouter } from 'react-router-dom';
 
-import TileGrid, { TileGridInputProps } from '../components/TileGrid/TileGrid';
+import TileGrid from '../components/TileGrid/TileGrid';
 
-import { companyActions, CompanyState, CompanyDispatchProps } from '../store/company';
+import { companyActions } from '../store/company';
+import { CompanyState, CompanyDispatchProps } from '../store/company/types';
 
 import { RootState } from '../store/root-reducer';
 
@@ -32,7 +33,7 @@ function mapDispatchToProps(dispatch: Dispatch): CompanyDispatchProps {
     };
 }
 
-export default withRouter(connect<CompanyState, CompanyDispatchProps, TileGridInputProps>(
+export default withRouter(connect(
     mapStateToProps,
     mapDispatchToProps
 )(TileGrid));

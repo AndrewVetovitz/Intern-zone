@@ -4,7 +4,7 @@ import { ActionType, getType } from 'typesafe-actions';
 
 import { sidebarActions } from './actions';
 
-import { SidebarState } from './index';
+import { SidebarState } from './types';
 
 import constants from '../../constants';
 

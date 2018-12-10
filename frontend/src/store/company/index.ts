@@ -1,11 +1,7 @@
 import { companyActions } from './actions';
-import companyReducer, { CompanyAction } from './reducer';
-import { CompanyState, CompanyDispatchProps } from './types';
+import companyReducer from './reducer';
 
 export {
     companyActions,
-    companyReducer,
-    CompanyAction,
-    CompanyState,
-    CompanyDispatchProps
+    companyReducer
 };

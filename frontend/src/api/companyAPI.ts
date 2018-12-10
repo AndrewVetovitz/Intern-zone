@@ -2,7 +2,7 @@ import axios from 'axios';
 
 class CompanyApi {
     public static getAllCompanyNames() {
-        const URL = '/api/company/all';
+        const URL = 'http://localhost:3000/api/company/all';
 
         return axios.get(URL).then(response => {
             return response.data.companies;

@@ -5,7 +5,8 @@ import { withRouter } from 'react-router-dom';
 
 import Navbar from '../components/Navbar/Navbar';
 
-import { sidebarActions, SidebarDispatchProps, SidebarState } from '../store/sidebar';
+import { sidebarActions } from '../store/sidebar';
+import { SidebarDispatchProps, SidebarState } from '../store/sidebar/types';
 
 import { RootState } from '../store/root-reducer';
 
@@ -27,7 +28,7 @@ function mapDispatchToProps(dispatch: Dispatch): SidebarDispatchProps {
     };
 }
 
-export default withRouter(connect<SidebarState, SidebarDispatchProps>(
+export default withRouter(connect(
     mapStateToProps,
     mapDispatchToProps
 )(Navbar));

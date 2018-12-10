@@ -2,8 +2,8 @@ import { connect } from 'react-redux';
 
 import { withRouter } from 'react-router-dom';
 
-import ContentWrapper, { ContentWrapperInputProps } from '../components/ContentWrapper/ContentWrapper';
-import { SidebarState } from '../store/sidebar';
+import ContentWrapper from '../components/ContentWrapper/ContentWrapper';
+import { SidebarState } from '../store/sidebar/types';
 
 import { RootState } from '../store/root-reducer';
 
@@ -14,7 +14,7 @@ function mapStateToProps(state: RootState): SidebarState {
     };
 }
 
-export default withRouter(connect<SidebarState, {}, ContentWrapperInputProps>(
+export default withRouter(connect(
     mapStateToProps,
     {}
 )(ContentWrapper));

@@ -1,11 +1,7 @@
 import { modalActions } from './actions';
-import modalReducer, { ModalAction } from './reducer';
-import { ModalState, ModalDispatchProps } from './types';
+import modalReducer from './reducer';
 
 export {
     modalActions,
-    modalReducer,
-    ModalAction,
-    ModalState,
-    ModalDispatchProps
+    modalReducer
 };

@@ -1,9 +1,10 @@
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
-import { modalActions, ModalState, ModalDispatchProps } from '../store/modal';
+import { modalActions } from '../store/modal';
+import { ModalState, ModalDispatchProps } from '../store/modal/types';
 
-import SidebarContent, { SidebarContentInputProps } from '../components/SidebarContent/SidebarContent';
+import SidebarContent from '../components/SidebarContent/SidebarContent';
 import { ModalEnum } from '../components/Modal';
 
 import { RootState } from '../store/root-reducer';
@@ -26,7 +27,7 @@ function mapDispatchToProps(dispatch: Dispatch): ModalDispatchProps {
     };
 }
 
-export default connect<ModalState, ModalDispatchProps, SidebarContentInputProps>(
+export default connect(
     mapStateToProps,
     mapDispatchToProps
 )(SidebarContent);

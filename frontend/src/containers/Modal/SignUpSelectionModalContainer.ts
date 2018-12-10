@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
-import { modalActions, ModalState, ModalDispatchProps } from '../../store/modal';
+import { modalActions } from '../../store/modal';
+import { ModalState, ModalDispatchProps } from '../../store/modal/types';
 
 import SignUpSelectionModal from '../../components/Modal/SignUpSelectionModal/SignUpSelectionModal';
 import { ModalEnum } from '../../components/Modal';
@@ -26,7 +27,7 @@ function mapDispatchToProps(dispatch: Dispatch): ModalDispatchProps {
     };
 }
 
-export default connect<ModalState, ModalDispatchProps>(
+export default connect(
     mapStateToProps,
     mapDispatchToProps
 )(SignUpSelectionModal);

@@ -38,6 +38,7 @@ class OAuth extends React.Component<OAuthProps, State> {
 
         socket.on(provider, (user: any) => {
             this.popup.close();
+            console.log(user);
             this.setState({ user });
         });
     }
@@ -57,12 +58,12 @@ class OAuth extends React.Component<OAuthProps, State> {
         const width = 600, height = 600;
         const left = (window.innerWidth / 2) - (width / 2);
         const top = (window.innerHeight / 2) - (height / 2);
-        const url = `/api/authenticate/${provider}?socketId=${socket.id}`;
+        const url = `http://localhost:5000/api/authenticate/${provider}?socketId=${socket.id}`;
 
         return window.open(url, '',
             `toolbar=no, location=no, directories=no, status=no, menubar=no, 
-      scrollbars=no, resizable=no, copyhistory=no, width=${width}, 
-      height=${height}, top=${top}, left=${left}`
+            scrollbars=no, resizable=no, copyhistory=no, width=${width}, 
+            height=${height}, top=${top}, left=${left}`
         );
     }
 

@@ -3,9 +3,10 @@ import { Dispatch } from 'redux';
 
 import { withRouter } from 'react-router-dom';
 
-import Sidebar, { SidebarInputProps } from '../components/Sidebar/Sidebar';
+import Sidebar from '../components/Sidebar/Sidebar';
 
-import { sidebarActions, SidebarState, SidebarDispatchProps } from '../store/sidebar';
+import { sidebarActions } from '../store/sidebar';
+import { SidebarState, SidebarDispatchProps } from '../store/sidebar/types';
 
 import { RootState } from '../store/root-reducer';
 
@@ -27,7 +28,7 @@ function mapDispatchToProps(dispatch: Dispatch): SidebarDispatchProps {
     };
 }
 
-export default withRouter(connect<SidebarState, SidebarDispatchProps, SidebarInputProps>(
+export default withRouter(connect(
     mapStateToProps,
     mapDispatchToProps
 )(Sidebar));

@@ -33,7 +33,7 @@ class TileGrid extends React.Component<TileGridProps, {}> {
 
     getTiles(): JSX.Element | JSX.Element[] {
         const { companyInfo } = this.props;
-
+ 
         if (companyInfo.companyNames.length > 0) {
             return companyInfo.companyNames
                 .filter(name => name.toLowerCase().includes(this.props.filter.toLowerCase()))

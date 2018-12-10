@@ -3,7 +3,8 @@ import { Dispatch } from 'redux';
 
 import Routes from '../components/Routes/Routes';
 
-import { sidebarActions, SidebarDispatchProps, SidebarState } from '../store/sidebar';
+import { sidebarActions } from '../store/sidebar';
+import { SidebarDispatchProps, SidebarState } from '../store/sidebar/types';
 
 import { RootState } from '../store/root-reducer';
 
@@ -25,7 +26,7 @@ function mapDispatchToProps(dispatch: Dispatch): SidebarDispatchProps {
     };
 }
 
-export default connect<SidebarState, SidebarDispatchProps>(
+export default connect(
     mapStateToProps,
     mapDispatchToProps
 )(Routes);

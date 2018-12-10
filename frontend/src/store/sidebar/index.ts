@@ -1,11 +1,7 @@
 import { sidebarActions } from './actions';
-import sidebarReducer, { SidebarAction } from './reducer';
-import { SidebarState, SidebarDispatchProps } from './types';
+import sidebarReducer from './reducer';
 
 export {
     sidebarActions,
-    sidebarReducer,
-    SidebarAction,
-    SidebarState,
-    SidebarDispatchProps
+    sidebarReducer
 };

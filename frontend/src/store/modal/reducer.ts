@@ -4,7 +4,7 @@ import { ActionType, getType } from 'typesafe-actions';
 
 import { modalActions } from './actions';
 
-import { ModalState } from './index';
+import { ModalState } from './types';
 
 import { ModalEnum } from '../../components/Modal/index';
 
