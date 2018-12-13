@@ -1,13 +1,14 @@
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
-import { modalActions } from '../../store/modal';
-import { ModalState, ModalDispatchProps } from '../../store/modal/types';
+import { withRouter } from 'react-router-dom';
 
-import SignUpSelectionModal from '../../components/Modal/SignUpSelectionModal/SignUpSelectionModal';
-import { ModalEnum } from '../../components/Modal';
+import Modal, { ModalEnum } from '../components/Modal';
 
-import { RootState } from '../../store/root-reducer';
+import { modalActions } from '../store/modal';
+import { ModalState, ModalDispatchProps } from '../store/modal/types';
+
+import { RootState } from '../store/root-reducer';
 
 function mapStateToProps(state: RootState): ModalState {
     return {
@@ -27,7 +28,7 @@ function mapDispatchToProps(dispatch: Dispatch): ModalDispatchProps {
     };
 }
 
-export default connect(
+export default withRouter(connect(
     mapStateToProps,
     mapDispatchToProps
-)(SignUpSelectionModal);
+)(Modal));

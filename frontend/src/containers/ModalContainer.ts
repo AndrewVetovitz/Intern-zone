@@ -1,9 +1,11 @@
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
-import { withRouter } from 'react-router-dom';
-
-import Modal, { ModalEnum } from '../components/Modal';
+import { ModalEnum } from '../components/Modal';
+import SignUpSelectionModalComponent from '../components/Modal/SignUpSelectionModal/SignUpSelectionModal';
+import SignUpModalComponent from '../components/Modal/SignUpModal/SignUpModal';
+import LoginModalComponent from '../components/Modal/LoginModal/LoginModal';
+import LoginSelectionModalComponent from '../components/Modal/LoginSelectionModal/LoginSelectionModal';
 
 import { modalActions } from '../store/modal';
 import { ModalState, ModalDispatchProps } from '../store/modal/types';
@@ -28,8 +30,19 @@ function mapDispatchToProps(dispatch: Dispatch): ModalDispatchProps {
     };
 }
 
-export default withRouter(connect(
+const connector = connect(
     mapStateToProps,
     mapDispatchToProps
-)(Modal));
+);
 
+const SignUpSelectionModal = connector(SignUpSelectionModalComponent);
+const SignUpModal = connector(SignUpModalComponent);
+const LoginSelectionModal = connector(LoginSelectionModalComponent);
+const LoginModal = connector(LoginModalComponent);
+
+export {
+    SignUpSelectionModal,
+    SignUpModal,
+    LoginSelectionModal,
+    LoginModal
+}

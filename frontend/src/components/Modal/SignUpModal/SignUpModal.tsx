@@ -32,10 +32,11 @@ class SignUpModal extends React.Component<SignUpProps> {
         return (
             <React.Fragment>
                 <div className={classes.margin}>
-                    <DialogTitle style={{textAlign: 'center'}} id="scroll-dialog-title">Sign Up for your Intern-Zone Account</DialogTitle>
+                    <DialogTitle style={{ textAlign: 'center' }} id="scroll-dialog-title">Sign Up for your Intern-Zone Account</DialogTitle>
                 </div>
+
                 <DialogContent>
-                    <Button onClick={() => this.props.setModalContent(ModalEnum.LOGIN)} color="primary">
+                    <Button onClick={() => this.props.setModalContent(ModalEnum.LOGIN_SELECTION)} color="primary">
                         Login
                     </Button>
 
@@ -44,7 +45,7 @@ class SignUpModal extends React.Component<SignUpProps> {
                     </Button>
                 </DialogContent>
             </React.Fragment>
-        ); 
+        );
     }
 }
 

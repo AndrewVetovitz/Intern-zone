@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import DialogActions from '@material-ui/core/DialogActions';
+// import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
+// import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
 import { Button } from '@material-ui/core';
@@ -13,15 +13,15 @@ import ModalEnum from '../Modal.enum';
 
 const styles = () => createStyles({
     margin: {
-        margin: '0 25px'
+        margin: '0 25px',
     }
 });
 
 interface LoginProps extends WithStyles<typeof styles> {
-    setModalContent: (state: ModalEnum) => any;
+    setModalContent: (content: ModalEnum) => any;
 }
 
-class LoginModal extends React.Component<LoginProps> {
+class LoginpModal extends React.Component<LoginProps> {
     constructor(props: LoginProps) {
         super(props);
     }
@@ -31,39 +31,22 @@ class LoginModal extends React.Component<LoginProps> {
 
         return (
             <React.Fragment>
-                <DialogTitle style={{textAlign: 'center'}} id="scroll-dialog-title">Sign In to your personalized profile</DialogTitle>
                 <div className={classes.margin}>
-                    <DialogContent>
-                        <DialogContentText>
-                            Login test
-                            Login test
-                            Login test
-                            Login test
-                            Login test
-                            Login test
-                        </DialogContentText>
-                    </DialogContent>
+                    <DialogTitle style={{ textAlign: 'center' }} id="scroll-dialog-title">Login to your Intern-Zone Account</DialogTitle>
                 </div>
-                <DialogActions>
-                    <DialogContent>
-                        <Button onClick={() => this.props.setModalContent(ModalEnum.SIGN_UP_SELECTION)} color="primary">
-                            SignUp
-                        </Button>
-                    </DialogContent>
-                    <Button onClick={this.handleClose} color="primary">
-                        Cancel
+
+                <DialogContent>
+                    <Button onClick={() => this.props.setModalContent(ModalEnum.LOGIN_SELECTION)} color="primary">
+                        Login
                     </Button>
-                    <Button onClick={this.handleClose} color="primary">
-                        Subscribe
+
+                    <Button onClick={() => this.props.setModalContent(ModalEnum.SIGN_UP_SELECTION)} color="primary">
+                        SignUp
                     </Button>
-                </DialogActions>
+                </DialogContent>
             </React.Fragment>
         );
     }
-
-    private handleClose = (): void => {
-        console.log('closed clicked');
-    }
 }
 
-export default withStyles(styles)(LoginModal);
+export default withStyles(styles)(LoginpModal);

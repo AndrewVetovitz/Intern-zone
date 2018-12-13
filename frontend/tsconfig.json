@@ -36,7 +36,8 @@
     "webpack",
     "jest",
     "src/setupTests.ts",
-    "src/setupProxy.js"
+    "src/setupProxy.js",
+    "ecosystem.config.js"
   ],
   "include": [
     "src"

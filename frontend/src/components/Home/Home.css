@@ -1,9 +1,21 @@
 .Home-grid {
-  background-color: white; /*#006c98;*/
-  min-height: 100vh;
+    background-color: white; /*#006c98;*/
+    min-height: 100vh;
 }
 
 .Search-bar {
-  background-color: white;/*#006c98;*/
-  padding: 50px;
+    background-color: white;/*#006c98;*/
+    padding: 50px 0;
+}
+
+.Search-bar-content {
+    width: 75%;
+    margin: auto;
+}
+
+@media only screen and (max-width: 600px) {
+    .Search-bar-content {
+        width: 100%;
+        margin: auto;
+    }
 }

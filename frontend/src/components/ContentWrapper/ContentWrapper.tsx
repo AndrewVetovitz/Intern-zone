@@ -2,17 +2,13 @@ import * as React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import MediaQuery from 'react-responsive';
 
-import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
-
 import constants from '../../constants';
-
-const styles = () => createStyles({});
 
 export interface ContentWrapperInputProps {
     children: JSX.Element;
 }
 
-export interface ContentWrapperProps extends RouteComponentProps<void>, WithStyles<typeof styles>  {
+export interface ContentWrapperProps extends RouteComponentProps<void> {
     screenSizeIsOpen: boolean;
 }
 
@@ -72,4 +68,4 @@ class ContentWrapper extends React.Component<ContentWrapperProps, {}> {
     }
 }
 
-export default withStyles(styles)(ContentWrapper);
+export default ContentWrapper;

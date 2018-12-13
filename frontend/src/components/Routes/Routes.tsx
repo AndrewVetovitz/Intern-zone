@@ -10,7 +10,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 
 import Navbar from '../../containers/NavbarContainer';
 import Sidebar from '../../containers/SidebarContainer';
-import Modal from '../../containers/ModalContainer';
+import Modal from '../../containers/ModalContainerBase';
 import ContentWrapper from '../../containers/ContentWrapperContainer';
 
 import Home from '../Home/Home';
