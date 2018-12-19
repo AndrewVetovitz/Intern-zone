@@ -31,10 +31,11 @@ import { Request, Response, NextFunction } from 'express';
 dotenv.config({ path: '.env' });
 
 // Database import
-import db, { initalize } from './database';
+import { createConnection } from 'typeorm';
 
 // Controllers
 import * as companyController from './controllers/company';
+import * as authController from './controllers/auth';
 
 import errorHandler from 'errorhandler'; // REMOVE FOR PRODUCTION
 
@@ -58,28 +59,18 @@ const addSocketIdToSession = (req: Request, res: Response, next: NextFunction) =
 app.use(errorHandler());
 
 // Connect to MySql
-db.connect((err) => {
-    if (err) {
-        console.log('MySql connection error. Make sure MySql is running. ' + err);
-        process.exit();
-    }
-
-    console.log('Connected to mysql!');
-
-    initalize((err) => {
-        if (err) {
-            console.log('Failed to initialize. ' + err);
-            process.exit();
-        }
-    });
-
-    console.log('Database initialized!');
+createConnection().then(() => {
+    console.log('connected to db');
+}).catch(err => {
+    console.log('error creating db');
+    console.log(err);
 });
-
 
 // // Express configuration
 app.set('http', 'http');
 app.set('port', process.env.PORT || 5000);
+app.set('io', io);
+
 // app.use(compression());
 app.use(logger('dev'));
 
@@ -95,8 +86,6 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.set('io', io);
-
 const githubAuth = passport.authenticate('github');
 const googleAuth = passport.authenticate('google', { scope: ['profile'] });
 const linkedinAuth = passport.authenticate('linkedin');
@@ -108,29 +97,20 @@ const facebookAuth = passport.authenticate('facebook');
 app.get('/api/company/all', companyController.getAllCompanyNames);
 app.get('/api/company/:name', companyController.getCompanyByName);
 
+/**
+ * Authentication routes
+ */
 app.get('/api/authenticate/github', addSocketIdToSession, githubAuth);
-app.get('/api/authenticate/github/callback', githubAuth, (req: Request, res: Response, next: NextFunction) => {
-    io.in(req.session.socketId).emit('github', req.user);
-    res.end();
-});
+app.get('/api/authenticate/github/callback', githubAuth, authController.github);
 
 app.get('/api/authenticate/google', addSocketIdToSession, googleAuth);
-app.get('/api/authenticate/google/callback', googleAuth, (req: Request, res: Response, next: NextFunction) => {
-    io.in(req.session.socketId).emit('google', req.user);
-    res.end();
-});
+app.get('/api/authenticate/google/callback', googleAuth, authController.google);
 
 app.get('/api/authenticate/linkedin', addSocketIdToSession, linkedinAuth);
-app.get('/api/authenticate/linkedin/callback', linkedinAuth, (req: Request, res: Response, next: NextFunction) => {
-    io.in(req.session.socketId).emit('google', req.user);
-    res.end();
-});
+app.get('/api/authenticate/linkedin/callback', linkedinAuth, authController.linkedin);
 
 app.get('/api/authenticate/facebook', addSocketIdToSession, facebookAuth);
-app.get('/api/authenticate/facebook/callback', facebookAuth, (req: Request, res: Response, next: NextFunction) => {
-    io.in(req.session.socketId).emit('facebook', req.user);
-    res.end();
-});
+app.get('/api/authenticate/facebook/callback', facebookAuth, authController.facebook);
 
 // /**
 //  * API examples routes.

@@ -1,17 +1,12 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToOne, BaseEntity } from 'typeorm';
 
 import { UserAccountStatus } from './UserAccountStatus';
+import { UserProfile } from './UserProfile';
 
 @Entity()
-export class UserAccount {
+export class UserAccount extends BaseEntity {
     @PrimaryGeneratedColumn('uuid')
     id: string;
-
-    @Column({ length: 128 })
-    name: string;
-
-    @Column({ length: 256 })
-    email: string;
 
     @Column({ length: 128 })
     username: string;
@@ -31,9 +26,10 @@ export class UserAccount {
     @Column({ length: 100, nullable: true })
     email_conformation_token: string;
 
-    @Column()
     @ManyToOne(type => UserAccountStatus, userAccountStatus => userAccountStatus.id)
     user_account_status_id: UserAccountStatus;
+
+    @OneToOne(type => UserProfile, userProfile => userProfile.id)
 
     @Column({ length: 100, nullable: true })
     password_reminder_token: string;

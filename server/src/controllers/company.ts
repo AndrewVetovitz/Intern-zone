@@ -1,14 +1,17 @@
 import { Request, Response } from 'express';
-// import CompanyModel from '../models/Company';
 
-import db from '../database';
+import { Company } from '../entity/Company';
 
 /**
  * GET /company/all
  * Retrieve all company names
  */
 const getAllCompanyNames = (req: Request, res: Response) => {
-    const sql = 'SELECT * FROM company';
+    Company.createQueryBuilder().select('name').execute().then(res => {
+        console.log(res);
+    }).catch((err: Error) => {
+        console.log(err);
+    });
 
     res.status(200).json({
         companies: [
@@ -28,20 +31,16 @@ const getAllCompanyNames = (req: Request, res: Response) => {
             'Stripe'
         ]
     });
-
-    // db.query(sql, (err, results: CompanyModel) => {
-    //     if (err) { throw err; }
-
-    //     res.status(200).json({
-    //         companies: results
-    //     });
-    // });
 };
 
 const getCompanyByName = (req: Request, res: Response) => {
     const name = req.params.name;
 
-    // const sql = 'SELECT * FROM company WHERE name=\'' + name + '\'';
+    Company.createQueryBuilder().where('company.name = :name', { name }).execute().then(res => {
+        console.log(res);
+    }).catch((err: Error) => {
+        console.log(err);
+    });
 
     res.status(200).json({
         company: {

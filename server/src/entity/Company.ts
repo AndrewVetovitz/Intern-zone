@@ -1,9 +1,9 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany, BaseEntity } from 'typeorm';
 
 import { JobPosition } from './JobPosition';
 
 @Entity()
-export class Company {
+export class Company extends BaseEntity {
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
@@ -22,7 +22,6 @@ export class Company {
     @Column({ default: 0 })
     viewCount: number;
 
-    @Column()
     @OneToMany(type => JobPosition, jobPosition => jobPosition.company)
     jobPositions: JobPosition[];
 }

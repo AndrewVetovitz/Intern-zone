@@ -1,9 +1,9 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, BaseEntity } from 'typeorm';
 
 import { UserAccount } from './UserAccount';
 
 @Entity()
-export class UserAccountStatus {
+export class UserAccountStatus extends BaseEntity {
     @PrimaryGeneratedColumn('uuid')
     @ManyToOne(type => UserAccount, user => user.user_account_status_id)
     id: string;

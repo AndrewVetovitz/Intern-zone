@@ -1,9 +1,9 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, BaseEntity } from 'typeorm';
 
 import { JobPosition } from './JobPosition';
 
 @Entity()
-export class JobPositionHistory {
+export class JobPositionHistory extends BaseEntity {
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
@@ -16,7 +16,6 @@ export class JobPositionHistory {
     @Column()
     closeDate: Date;
 
-    @Column()
     @ManyToOne(type => JobPosition, jobPosition => jobPosition.jobPositionsHistory)
     jobPosition: JobPosition;
 }

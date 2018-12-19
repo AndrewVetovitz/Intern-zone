@@ -5,7 +5,7 @@ const env: string = app.get('env');
 const http: string = app.get('http');
 
 /**
- * Start sockerIO, Express server.
+ * Start socketIO, Express server.
  */
 server.listen(port, (err: any) => {
     if (err) {

@@ -4,16 +4,21 @@
     "port": 3306,
     "username": "root",
     "password": "14anvetovitz",
-    "database": "zintern",
+    "database": "internzone",
     "synchronize": true,
-    "logging": false,
+    "logging": true,
     "entities": [
-       "src/entity/**/*.ts"
-    ],
-    "migrations": [
-       "src/migration/**/*.ts"
+      "dist/entity/*.js"
     ],
     "subscribers": [
-       "src/subscriber/**/*.ts"
-    ]
+      "dist/subscriber/*.js"
+    ],
+    "migrations": [
+      "dist/migration/*.js"
+    ],
+    "cli": {
+      "entitiesDir": "dist/entity",
+      "migrationsDir": "dist/migration",
+      "subscribersDir": "dist/subscriber"
+    }
  }

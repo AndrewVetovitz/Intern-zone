@@ -85,24 +85,24 @@ module.exports = (passport: PassportStatic) => {
     /*
      *  Sign in with Facebook
      */
-    passport.use(new FacebookStrategy({
-        clientID: process.env.FACEBOK_CLIENT_ID,
-        clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
-        callbackURL: 'http://localhost:5000/api/authenticate/facebook/callback'
-    }, (accessToken: string, refreshToken: string, profile: any, done: (error: any, user?: any) => void) => {
-        // const prof: any = profile;
+    // passport.use(new FacebookStrategy({
+    //     clientID: process.env.FACEBOOK_CLIENT_ID,
+    //     clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+    //     callbackURL: 'http://localhost:5000/api/authenticate/facebook/callback'
+    // }, (accessToken: string, refreshToken: string, profile: any, done: (error: any, user?: any) => void) => {
+    //     // const prof: any = profile;
 
-        console.log(profile);
+    //     console.log(profile);
 
-        // const user: object = {
-        //     'name': prof.displayName,
-        //     'username': prof.username,
-        //     'email': prof.emails[0].value,
-        // };
+    //     // const user: object = {
+    //     //     'name': prof.displayName,
+    //     //     'username': prof.username,
+    //     //     'email': prof.emails[0].value,
+    //     // };
 
-        done(undefined, profile);
-    }
-    ));
+    //     done(undefined, profile);
+    // }
+    // ));
 };
 
 /**
