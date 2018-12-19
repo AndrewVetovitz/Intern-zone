@@ -1,6 +1,11 @@
 import * as React from 'react';
+import { Helmet } from 'react-helmet';
 
 import Typography from '@material-ui/core/Typography';
+
+import constants from '../../constants';
+
+const title: string = constants.TITLE + ' | About';
 
 function About(): JSX.Element {
     const componentStyle: React.CSSProperties = { fontSize: 16, lineHeight: '1.6em' }
@@ -11,6 +16,13 @@ function About(): JSX.Element {
 
     return (
         <div style={componentStyle}>
+
+            <Helmet defer={false}>
+                <title>{title}</title>
+                <meta charSet="utf-8" />
+                <meta name="Description" content="Intern-Zone About page"></meta>
+            </Helmet>
+
             <div style={blockStyle}>
                 <Typography variant={headerSize} style={blockHeaderStyle}>
                     Intern Zone
@@ -36,32 +48,32 @@ function About(): JSX.Element {
             </div>
 
             <div style={blockStyle}>
-                <Typography variant={headerSize} style={{...customText, ...blockHeaderStyle}}>
+                <Typography variant={headerSize} style={{ ...customText, ...blockHeaderStyle }}>
                     FAQ
                 </Typography>
 
-                <Typography variant="h6" style={{...customText, ...blockHeaderStyle}}>
+                <Typography variant="h6" style={{ ...customText, ...blockHeaderStyle }}>
                     Question here?
                 </Typography>
                 <Typography component="p" style={customText}>
                     Response to question here.
                 </Typography>
 
-                <Typography variant="h6" style={{...customText, ...blockHeaderStyle}}>
+                <Typography variant="h6" style={{ ...customText, ...blockHeaderStyle }}>
                     Question here?
                 </Typography>
                 <Typography component="p" style={customText}>
                     Response to question here.
                 </Typography>
 
-                <Typography variant="h6" style={{...customText, ...blockHeaderStyle}}>
+                <Typography variant="h6" style={{ ...customText, ...blockHeaderStyle }}>
                     Question here?
                 </Typography>
                 <Typography component="p" style={customText}>
                     Response to question here.
                 </Typography>
 
-                <Typography variant="h6" style={{...customText, ...blockHeaderStyle}}>
+                <Typography variant="h6" style={{ ...customText, ...blockHeaderStyle }}>
                     Question here?
                 </Typography>
                 <Typography component="p" style={customText}>

@@ -1,9 +1,14 @@
 import * as React from 'react';
+import { Helmet } from 'react-helmet';
 import './Home.css';
 
 // import Header from '../Header/Header';
 import SearchBar from 'material-ui-search-bar';
 import TileGrid from '../../containers/TileGridContainer';
+
+import constants from '../../constants';
+
+const title: string = constants.TITLE + ' | Home';
 
 interface State {
     filter: any;
@@ -18,6 +23,12 @@ class Home extends React.Component<{}, State> {
     render(): JSX.Element {
         return (
             <div className="Home-grid">
+                <Helmet defer={false}>
+                    <title>{title}</title>
+                    <meta charSet="utf-8" />
+                    <meta name="Description" content="Intern-Zone Home page"></meta>
+                </Helmet>
+
                 {/* <Header/> */}
                 <div className="Search-bar">
                     <SearchBar
