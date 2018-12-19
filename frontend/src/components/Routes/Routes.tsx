@@ -11,10 +11,10 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Navbar from '../../containers/NavbarContainer';
 import Sidebar from '../../containers/SidebarContainer';
 import Modal from '../../containers/ModalContainerBase';
+import Company from '../../containers/CompanyContainer';
 import ContentWrapper from '../../containers/ContentWrapperContainer';
 
 import Home from '../Home/Home';
-import Company from '../Company/Company';
 import About from '../About/About';
 import Resources from '../Resources/Resources';
 

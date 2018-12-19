@@ -1,0 +1,18 @@
+sheet1:
+    row:
+        column:
+            company_name
+            company_website
+            company_description
+            company_wikipedia_link
+
+sheet2:
+    row:
+        column:
+            company
+    rows:
+        column
+            name
+            link
+            location
+            status

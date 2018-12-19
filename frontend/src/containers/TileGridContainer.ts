@@ -5,29 +5,29 @@ import { withRouter } from 'react-router-dom';
 
 import TileGrid from '../components/TileGrid/TileGrid';
 
-import { companyActions } from '../store/company';
-import { CompanyState, CompanyDispatchProps } from '../store/company/types';
+import { companiesActions } from '../store/companies';
+import { CompaniesState, CompanyDispatchProps } from '../store/companies/types';
 
 import { RootState } from '../store/root-reducer';
 
 import CompanyApi from '../api/companyAPI';
 
-function mapStateToProps(state: RootState): CompanyState {
+function mapStateToProps(state: RootState): CompaniesState {
     return {
-        companyInfo: state.company.companyInfo
+        companies: state.companies.companies
     };
 }
 
 function mapDispatchToProps(dispatch: Dispatch): CompanyDispatchProps {
     return {
         getAllCompanyNames: () => {
-            dispatch(companyActions.fetchCompanies());
+            dispatch(companiesActions.fetchCompanies());
             CompanyApi.getAllCompanyNames()
                 .then(companyNames => {
-                    dispatch(companyActions.fetchCompaniesFullfilled(companyNames));
+                    dispatch(companiesActions.fetchCompaniesFullfilled(companyNames));
                 })
                 .catch(err => {
-                    dispatch(companyActions.fetchCompaniesRejected(err));
+                    dispatch(companiesActions.fetchCompaniesRejected(err));
                 });
         }
     };

@@ -1,6 +1,14 @@
+export interface Posting {
+    readonly positionName: string;
+    readonly location: string;
+    readonly link: string;
+}
+
 export interface CompanyState {
-    readonly companyInfo: {
-        readonly companyNames: string[];
+    readonly company: {
+        readonly name: string;
+        readonly description: string;
+        readonly postings: Posting[];
         readonly fetching?: boolean;
         readonly fetched?: boolean;
         readonly error?: any;
@@ -8,5 +16,5 @@ export interface CompanyState {
 }
 
 export interface CompanyDispatchProps {
-    getAllCompanyNames: () => any;
+    getCompanyByName: (name: string) => any;
 }

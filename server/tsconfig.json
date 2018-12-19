@@ -18,6 +18,7 @@
         }
     },
     "exclude": [
-        "REFERENCE"
+        "REFERENCE",
+        "src/scraper-subprocess.ts"
     ]
 }

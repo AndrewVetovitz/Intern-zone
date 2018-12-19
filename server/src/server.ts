@@ -1,4 +1,3 @@
-
 import server, { app } from './app';
 
 const port: number = app.get('port');

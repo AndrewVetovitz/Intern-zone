@@ -1,11 +1,11 @@
 import { Entity, OneToOne, Column } from 'typeorm';
 
-import { User } from './User';
+import { UserAccount } from './UserAccount';
 
 @Entity()
 export class LinkdlnAccount {
-    @OneToOne(type => User, user => user.id)
-    userId: User;
+    @OneToOne(type => UserAccount, user => user.id)
+    userId: UserAccount;
 
     @Column({ length: 30 })
     linkdlnId: string;

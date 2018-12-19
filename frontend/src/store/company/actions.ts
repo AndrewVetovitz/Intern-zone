@@ -1,11 +1,13 @@
 import { createAction } from 'typesafe-actions';
 
+import { CompanyState } from './types';
+
 export const companyActions = {
-    fetchCompanies: createAction('FETCH_COMPANIES'),
-    fetchCompaniesFullfilled: createAction('FETCH_COMPANIES_FULLFILLED', resolve => {
-        return (payload: string[]) => resolve(payload);
+    fetchCompany: createAction('FETCH_COMPANY'),
+    fetchCompanyFullfilled: createAction('FETCH_COMPANY_FULLFILLED', resolve => {
+        return (payload: CompanyState) => resolve(payload);
     }),
-    fetchCompaniesRejected: createAction('FETCH_COMPANIES_REJECTED', resolve => {
+    fetchCompanyRejected: createAction('FETCH_COMPANY_REJECTED', resolve => {
         return (err: any) => resolve(err);
     })
 };

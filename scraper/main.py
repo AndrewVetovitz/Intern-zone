@@ -8,6 +8,8 @@ from database import DB
 from enums.columns import Columns
 from enums.status import Status
 
+import company_info
+
 def main():
     print('Main started')
 
@@ -20,61 +22,63 @@ def main():
 
     spreadsheet = CompanySpreadsheet() 
 
-    companies = spreadsheet.get_companies()
+    company_info.update_company_info()
 
-    for i in range(len(companies)):
-        company_name = companies[i]['company_name']
-        company_website = companies[i]['company_website']
-        url = companies[i]['posting_url']
-        status = companies[i]['status']
-        update = companies[i]['update_entry']
+    # company_positions = spreadsheet.get_companies_positions()
 
-        query = ("SELECT * FROM company WHERE name = %s LIMIT 1")
+    # for i in range(len(company_positions)):
+    #     company_name = company_positions[i]['company_name']
+    #     company_website = company_positions[i]['company_website']
+    #     url = company_positions[i]['posting_url']
+    #     status = company_positions[i]['status']
+    #     update = company_positions[i]['update_entry']
 
-        cursor.execute(query, (company_name,))
+    #     query = ("SELECT * FROM company WHERE name = %s LIMIT 1")
 
-        result = cursor.fetchone()
+    #     cursor.execute(query, (company_name,))
 
-        # Insert new entry
-        if result == None:
-            query = ("INSERT INTO company (name, website_url, posting_url, posting_content, status) VALUES (%s, %s, %s, %s, %s)")
+    #     result = cursor.fetchone()
+
+    #     # Insert new entry
+    #     if result == None:
+    #         query = ("INSERT INTO company (name, website_url, posting_url, posting_content, status) VALUES (%s, %s, %s, %s, %s)")
             
-            if url == '':
-                args = (company_name, company_website, '', '', status)
-            else:
-                hashed_content = hash_url_content(driver, url, i)
-                args = (company_name, company_website, url, hashed_content, status)
+    #         if url == '':
+    #             args = (company_name, company_website, '', '', status)
+    #         else:
+    #             hashed_content = hash_url_content(driver, url, i)
+    #             args = (company_name, company_website, url, hashed_content, status)
 
-            cursor.execute(query, args)
-            spreadsheet.set_row_updated_false(i + 2)
-        # Update entry
-        elif str_to_bool(update) == True:
-            query = ("UPDATE company SET website_url = %s, posting_url = %s, posting_content = %s, status = %s WHERE name = %s")
+    #         cursor.execute(query, args)
+    #         spreadsheet.set_row_updated_false(i + 2)
+    #     # Update entry
+    #     elif str_to_bool(update) == True:
+    #         query = ("UPDATE company SET website_url = %s, posting_url = %s, posting_content = %s, status = %s WHERE name = %s")
             
-            if url == '':
-                args = (company_website, '', '', status, company_name)
-            else:
-                hashed_content = hash_url_content(driver, url, i)
-                args = (company_website, url, hashed_content, status, company_name)
+    #         if url == '':
+    #             args = (company_website, '', '', status, company_name)
+    #         else:
+    #             hashed_content = hash_url_content(driver, url, i)
+    #             args = (company_website, url, hashed_content, status, company_name)
                 
-            cursor.execute(query, args)
-            spreadsheet.set_row_updated_false(i + 2)
-        # Check entry
-        else:
-            if url == '': 
-                if result[3] != '':
-                    spreadsheet.set_row_status_bad(i + 2)
-                else:
-                    spreadsheet.set_row_status_good(i + 2) 
-            else:
-                hashed_content = hash_url_content(driver, url, i)
+    #         cursor.execute(query, args)
+    #         spreadsheet.set_row_updated_false(i + 2)
+    #     # Check entry
+    #     else:
+    #         if url == '': 
+    #             if result[3] != '':
+    #                 spreadsheet.set_row_status_bad(i + 2)
+    #             else:
+    #                 spreadsheet.set_row_status_good(i + 2) 
+    #         else:
+    #             hashed_content = hash_url_content(driver, url, i)
 
-                if hashed_content == result[4]:
-                    spreadsheet.set_row_status_good(i + 2)
-                else:
-                    spreadsheet.set_row_status_bad(i + 2) 
+    #             if hashed_content == result[4]:
+    #                 spreadsheet.set_row_status_good(i + 2)
+    #             else:
+    #                 spreadsheet.set_row_status_bad(i + 2) 
 
-        db.commit()
+    db.commit()
 
     db.close()
     driver.quit()

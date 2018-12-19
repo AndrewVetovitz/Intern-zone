@@ -38,4 +38,34 @@ const getAllCompanyNames = (req: Request, res: Response) => {
     // });
 };
 
-export { getAllCompanyNames };
+const getCompanyByName = (req: Request, res: Response) => {
+    const name = req.params.name;
+
+    // const sql = 'SELECT * FROM company WHERE name=\'' + name + '\'';
+
+    res.status(200).json({
+        company: {
+            name: name,
+            description: name + ' full desciption',
+            postings: [
+                {
+                    positionName: 'software',
+                    location: 'california',
+                    link: 'https://google.com'
+                },
+                {
+                    positionName: 'software',
+                    location: 'california',
+                    link: 'https://google.com'
+                },
+                {
+                    positionName: 'software',
+                    location: 'california',
+                    link: 'https://google.com'
+                }
+            ]
+        }
+    });
+};
+
+export { getAllCompanyNames, getCompanyByName };

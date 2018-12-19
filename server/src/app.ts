@@ -100,12 +100,13 @@ app.set('io', io);
 const githubAuth = passport.authenticate('github');
 const googleAuth = passport.authenticate('google', { scope: ['profile'] });
 const linkedinAuth = passport.authenticate('linkedin');
-
+const facebookAuth = passport.authenticate('facebook');
 
 /**
  * Primary app routes.
  */
 app.get('/api/company/all', companyController.getAllCompanyNames);
+app.get('/api/company/:name', companyController.getCompanyByName);
 
 app.get('/api/authenticate/github', addSocketIdToSession, githubAuth);
 app.get('/api/authenticate/github/callback', githubAuth, (req: Request, res: Response, next: NextFunction) => {
@@ -122,6 +123,12 @@ app.get('/api/authenticate/google/callback', googleAuth, (req: Request, res: Res
 app.get('/api/authenticate/linkedin', addSocketIdToSession, linkedinAuth);
 app.get('/api/authenticate/linkedin/callback', linkedinAuth, (req: Request, res: Response, next: NextFunction) => {
     io.in(req.session.socketId).emit('google', req.user);
+    res.end();
+});
+
+app.get('/api/authenticate/facebook', addSocketIdToSession, facebookAuth);
+app.get('/api/authenticate/facebook/callback', facebookAuth, (req: Request, res: Response, next: NextFunction) => {
+    io.in(req.session.socketId).emit('facebook', req.user);
     res.end();
 });
 

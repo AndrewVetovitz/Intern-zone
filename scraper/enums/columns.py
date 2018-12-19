@@ -4,6 +4,5 @@ from enum import Enum, unique
 class Columns(Enum):
     COMPANY_NAME = 1	
     COMPANY_WEBSITE = 2
-    POSTING_URL = 3
-    STATUS = 4
-    UPDATE_ENTRY = 5
+    COMPANY_DESCRIPTION = 3
+    COMPANY_WIKIPEDIA_LINK = 4

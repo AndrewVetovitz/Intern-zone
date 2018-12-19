@@ -12,7 +12,7 @@ export interface TileGridInputProps {
 
 export interface TileGridProps extends TileGridInputProps, RouteComponentProps<void> {
     getAllCompanyNames: () => any;
-    companyInfo: {
+    companies: {
         companyNames: string[];
         fetching?: boolean;
         fetched?: boolean;
@@ -26,16 +26,16 @@ class TileGrid extends React.Component<TileGridProps, {}> {
     }
 
     componentDidMount(): void {
-        if (this.props.companyInfo.companyNames.length === 0) {
+        if (this.props.companies.companyNames.length === 0) {
             this.props.getAllCompanyNames && this.props.getAllCompanyNames();
         }
     }
 
     getTiles(): JSX.Element | JSX.Element[] {
-        const { companyInfo } = this.props;
+        const { companies } = this.props;
  
-        if (companyInfo.companyNames.length > 0) {
-            return companyInfo.companyNames
+        if (companies.companyNames.length > 0) {
+            return companies.companyNames
                 .filter(name => name.toLowerCase().includes(this.props.filter.toLowerCase()))
                 .map((value: string, index: number) => {
                     return (

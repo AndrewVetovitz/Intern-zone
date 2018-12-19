@@ -9,8 +9,10 @@ import { CompanyState } from './types';
 export type CompanyAction = ActionType<typeof companyActions>;
 
 const initalCompanyState: CompanyState = {
-    companyInfo: {
-        companyNames: [],
+    company: {
+        name: '',
+        description: '',
+        postings: [],
         fetching: false,
         fetched: false,
         error: null
@@ -18,16 +20,16 @@ const initalCompanyState: CompanyState = {
 }
 
 export default combineReducers<CompanyState, CompanyAction>({
-    companyInfo: (state = initalCompanyState.companyInfo, action: CompanyAction) => {
+    company: (state = initalCompanyState.company, action: CompanyAction) => {
         switch (action.type) {
-            case getType(companyActions.fetchCompanies): {
+            case getType(companyActions.fetchCompany): {
                 return {...state, fetching: true};
             }
-            case getType(companyActions.fetchCompaniesRejected): {
+            case getType(companyActions.fetchCompanyRejected): {
                 return {...state, fetching: false, error: action};
             } 
-            case getType(companyActions.fetchCompaniesFullfilled): {
-                return {...state, companyNames: action.payload, fetching: false, fetched: true};
+            case getType(companyActions.fetchCompanyFullfilled): {
+                return {...state, ...action.payload, fetching: false, fetched: true};
             }
             default: {
                 return state;
