@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet';
 
 import Typography from '@material-ui/core/Typography';
@@ -7,7 +7,7 @@ import CompanyTable from '../CompanyTable/CompanyTable';
 
 import { Posting } from '../../store/company/types';
 
-import constants from '../../constants';
+import { TITLE } from '../../constants';
 
 let title: string;
 let content: string;
@@ -33,12 +33,13 @@ export interface CompanyProps extends CompanyInputProps {
     };
 }
 
-class Company extends React.Component<CompanyProps, {}> {
+class Company extends React.Component<CompanyProps> {
     constructor(props: CompanyProps) {
         super(props);
 
-        title = constants.TITLE + ' | ' + this.props.match.params.name;
-        content = constants.TITLE + ' ' + this.props.match.params.name + ' company page';
+        title = TITLE + ' | ' + this.props.match.params.name;
+        content = this.props.match.params.name + ' internship page. Find all info about ' +
+            this.props.match.params.name + ' internships and info here.';
     }
 
     componentDidMount(): void {
@@ -68,7 +69,7 @@ class Company extends React.Component<CompanyProps, {}> {
             return <CompanyTable data={postings} />;
         }
 
-        return <React.Fragment />;
+        return <></>;
     }
 
     render(): JSX.Element {
@@ -82,11 +83,11 @@ class Company extends React.Component<CompanyProps, {}> {
             const table: JSX.Element | JSX.Element[] = this.companyPosting(postings);
 
             return (
-                <React.Fragment>
+                <>
                     <Helmet defer={false}>
                         <title>{title}</title>
                         <meta charSet="utf-8" />
-                        <meta name="Description" content={content}></meta>
+                        <meta name="Description" content={content} />
                     </Helmet>
 
                     {header}
@@ -94,7 +95,7 @@ class Company extends React.Component<CompanyProps, {}> {
                     {body}
                     <br />
                     {table}
-                </React.Fragment>
+                </>
             );
         }
 

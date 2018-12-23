@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 
@@ -45,7 +45,7 @@ const styles = () => createStyles({
 
 interface FacebookSignUpProps extends WithStyles<typeof styles> {}
 
-class FacebookSignUp extends React.Component<FacebookSignUpProps> {
+class FacebookSignUp extends React.Component<FacebookSignUpProps, {}> {
     constructor(props: FacebookSignUpProps) {
         super(props);
     }

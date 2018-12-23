@@ -14,6 +14,7 @@ export class UserProfile extends BaseEntity {
     email: string;
 
     @OneToOne(type => UserAccount, userAccount => userAccount.id)
+    userAccount: UserAccount;
 
     @Column({ default: false })
     accept_terms_and_service: boolean;

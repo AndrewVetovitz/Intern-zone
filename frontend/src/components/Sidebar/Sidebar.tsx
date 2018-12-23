@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
@@ -8,7 +8,7 @@ import { RouteComponentProps } from 'react-router-dom';
 
 import SidebarContent from '../../containers/SidebarContentContainer';
 
-import constants from '../../constants';
+import { DRAWER_WIDTH, BACKGROUND_COLOR } from '../../constants';
 
 const styles = () => createStyles({
     root: {
@@ -23,8 +23,8 @@ const styles = () => createStyles({
     },
     drawerPaper: {
         position: 'fixed',
-        width: constants.DRAWER_WIDTH,
-        backgroundColor: constants.BACKGROUND_COLOR,
+        width: DRAWER_WIDTH,
+        backgroundColor: BACKGROUND_COLOR,
         height: '100%',
         overflow: 'hidden'
     }
@@ -42,7 +42,7 @@ export interface SidebarProps extends SidebarInputProps, RouteComponentProps<voi
     windowSize: boolean;
 }
 
-class Sidebar extends React.Component<SidebarProps, {}> {
+class Sidebar extends React.Component<SidebarProps> {
     constructor(props: SidebarProps) {
         super(props);
     }
@@ -59,7 +59,7 @@ class Sidebar extends React.Component<SidebarProps, {}> {
         const content: JSX.Element = (
             <div className={classes.list}>
                 <List>
-                    <SidebarContent onClick={this.setSidebarStateFalse}/>
+                    <SidebarContent onClick={this.setSidebarStateFalse} />
                 </List>
             </div>
         );
@@ -73,7 +73,7 @@ class Sidebar extends React.Component<SidebarProps, {}> {
                         paper: classes.drawerPaper,
                     }}
                 >
-                    <Toolbar style={{width: constants.DRAWER_WIDTH}} />
+                    <Toolbar style={{ width: DRAWER_WIDTH }} />
                     <div
                         role="button"
                         onKeyDown={this.setSidebarStateFalse}

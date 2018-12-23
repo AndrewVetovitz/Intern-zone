@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToOne, BaseEntity } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToOne, BaseEntity, OneToMany } from 'typeorm';
 
 import { UserAccountStatus } from './UserAccountStatus';
 import { UserProfile } from './UserProfile';
@@ -14,7 +14,7 @@ export class UserAccount extends BaseEntity {
     @Column({ length: 128 })
     password_hashed: string;
 
-    @Column({ length: 50, nullable: true})
+    @Column({ length: 50, nullable: true })
     password_salt: string;
 
     @Column({ length: 50 })
@@ -26,10 +26,11 @@ export class UserAccount extends BaseEntity {
     @Column({ length: 100, nullable: true })
     email_conformation_token: string;
 
-    @ManyToOne(type => UserAccountStatus, userAccountStatus => userAccountStatus.id)
-    user_account_status_id: UserAccountStatus;
+    @OneToMany(type => UserAccountStatus, userAccountStatus => userAccountStatus.id)
+    userAccountStatus: UserAccountStatus;
 
     @OneToOne(type => UserProfile, userProfile => userProfile.id)
+    userProfile: UserProfile;
 
     @Column({ length: 100, nullable: true })
     password_reminder_token: string;

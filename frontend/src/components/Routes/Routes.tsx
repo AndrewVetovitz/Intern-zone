@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { lazy, Suspense } from 'react';
 import MediaQuery from 'react-responsive';
 import { Link } from 'react-router-dom';
 import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
@@ -10,19 +10,17 @@ import MenuIcon from '@material-ui/icons/Menu';
 
 import Navbar from '../../containers/NavbarContainer';
 import Sidebar from '../../containers/SidebarContainer';
-import Modal from '../../containers/ModalContainerBase';
-import Company from '../../containers/CompanyContainer';
+const Modal = lazy(() => import('../../containers/ModalContainerBase'));
 import ContentWrapper from '../../containers/ContentWrapperContainer';
 
 import Home from '../Home/Home';
-import About from '../About/About';
-import Resources from '../Resources/Resources';
+const Company = lazy(() => import('../../containers/CompanyContainer'));
+const About = lazy(() => import('../About/About'));
+const Resources = lazy(() => import('../Resources/Resources'));
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import constants from '../../constants';
-
-const TITLE: string = constants.TITLE;
+import { TITLE, LOGO_URL, NAVBAR_SIDEBAR_BREAK_WIDTH } from '../../constants';
 
 const styles = createStyles({
     backdropStyle: {
@@ -49,14 +47,29 @@ export interface RouterProps extends WithStyles<typeof styles> {
 const routes: JSX.Element = (
     <Switch>
         <Route exact={true} path="/" component={Home} />
-        <Route exact={true} path="/company/:name" component={Company} />
-        <Route exact={true} path="/about" component={About} />
-        <Route exact={true} path="/resources" component={Resources} />
+        <Route exact={true} path="/company/:name" render={(props) => (
+            <Suspense fallback={<></>}>
+                <Company {...props} />
+            </Suspense>
+        )}
+        />
+        <Route exact={true} path="/about" render={() => (
+            <Suspense fallback={<></>}>
+                <About />
+            </Suspense>
+        )}
+        />
+        <Route exact={true} path="/resources" render={() => (
+            <Suspense fallback={<></>}>
+                <Resources />
+            </Suspense>
+        )}
+        />
         <Route path="/**" component={Home} />
     </Switch>
 );
 
-class Routes extends React.Component<RouterProps, {}> {
+class Routes extends React.Component<RouterProps> {
     constructor(props: RouterProps) {
         super(props);
     }
@@ -64,7 +77,7 @@ class Routes extends React.Component<RouterProps, {}> {
     render(): JSX.Element {
         const { classes } = this.props;
 
-        const queryWidth = constants.NAVBAR_SIDEBAR_BREAK_WIDTH;
+        const queryWidth = NAVBAR_SIDEBAR_BREAK_WIDTH;
 
         const backdropStyles: React.CSSProperties = {
             'zIndex': this.props.conditionalIsOpen ? 3 : 0
@@ -73,7 +86,7 @@ class Routes extends React.Component<RouterProps, {}> {
         const toHome = '/';
         const link: any = ({ innerRef, ...propsSpread }: any) => <Link {...propsSpread} to={toHome} />;
 
-        let icon: JSX.Element = <React.Fragment />;
+        let icon: JSX.Element = <></>;
 
         if (!this.props.screenSizeIsOpen) {
             icon = (
@@ -96,13 +109,13 @@ class Routes extends React.Component<RouterProps, {}> {
                 width="35px"
                 alt={'Intern Zone Logo'}
                 style={logoStyle}
-                src={constants.LOGO_URL}
+                src={LOGO_URL}
             />
         );
 
         return (
             <Router>
-                <React.Fragment>
+                <>
                     <div style={{ position: 'fixed', zIndex: 6, top: 0, left: 0, width: 300 }}>
                         <Toolbar>
                             {icon}
@@ -120,7 +133,11 @@ class Routes extends React.Component<RouterProps, {}> {
                         classes={{ root: classes.backdropStyle }}
                         onClick={this.setSidebarStateFalse}
                     />
-                    <Modal />
+
+                    <Suspense fallback={<></>}>
+                        <Modal />
+                    </Suspense>
+
                     <Navbar />
                     <MediaQuery minWidth={queryWidth}>
                         {matches => <Sidebar windowSize={matches} />}
@@ -128,7 +145,7 @@ class Routes extends React.Component<RouterProps, {}> {
                     <ContentWrapper>
                         {routes}
                     </ContentWrapper>
-                </React.Fragment>
+                </>
             </Router>
         );
     }

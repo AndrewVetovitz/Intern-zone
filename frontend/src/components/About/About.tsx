@@ -1,11 +1,13 @@
-import * as React from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet';
 
 import Typography from '@material-ui/core/Typography';
 
-import constants from '../../constants';
+import { TITLE } from '../../constants';
 
-const title: string = constants.TITLE + ' | About';
+const title: string = TITLE + ' | About';
+const content: string = TITLE + ' FAQ. Learn more about ' + TITLE +
+    ' and features coming in the future!';
 
 function About(): JSX.Element {
     const componentStyle: React.CSSProperties = { fontSize: 16, lineHeight: '1.6em' }
@@ -20,7 +22,7 @@ function About(): JSX.Element {
             <Helmet defer={false}>
                 <title>{title}</title>
                 <meta charSet="utf-8" />
-                <meta name="Description" content="Intern-Zone About page"></meta>
+                <meta name="Description" content={content} />
             </Helmet>
 
             <div style={blockStyle}>

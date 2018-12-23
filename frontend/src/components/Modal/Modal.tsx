@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 import { RouteComponentProps } from 'react-router-dom';
 
@@ -87,7 +87,7 @@ class CustomModal extends React.Component<ModalProps, {}> {
                 return <SignUpModal />;
             }
             default: {
-                return <React.Fragment />;
+                return <></>;
             }
         }
     }

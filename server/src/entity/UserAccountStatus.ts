@@ -5,8 +5,8 @@ import { UserAccount } from './UserAccount';
 @Entity()
 export class UserAccountStatus extends BaseEntity {
     @PrimaryGeneratedColumn('uuid')
-    @ManyToOne(type => UserAccount, user => user.user_account_status_id)
-    id: string;
+    @ManyToOne(type => UserAccount, userAccount => userAccount.userAccountStatus)
+    id: string[];
 
     @Column({ length: 20 })
     code: string;

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 import { RouteComponentProps } from 'react-router-dom';
 
@@ -6,7 +6,7 @@ import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 
-import constants from '../../constants';
+import { BACKGROUND_COLOR } from '../../constants';
 
 const styles = createStyles({
     root: {
@@ -23,7 +23,7 @@ const styles = createStyles({
         marginRight: 20
     },
     navStyle: {
-        background: constants.BACKGROUND_COLOR
+        background: BACKGROUND_COLOR
     }
 });
 
@@ -32,7 +32,7 @@ export interface NavbarProps extends RouteComponentProps<void>, WithStyles<typeo
     screenSizeIsOpen: boolean;
 }
 
-class Navbar extends React.Component<NavbarProps, {}> {
+class Navbar extends React.Component<NavbarProps> {
     constructor(props: NavbarProps) {
         super(props);
     }
@@ -43,11 +43,11 @@ class Navbar extends React.Component<NavbarProps, {}> {
         return (!this.props.screenSizeIsOpen) ? (
             <div className={classes.root}>
                 <AppBar className={classes.navStyle}>
-                    <Toolbar/>
+                    <Toolbar />
                 </AppBar>
             </div>
-        ) : <React.Fragment/>;
+        ) : <></>;
     }
 }
-   
+
 export default withStyles(styles)(Navbar);

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 import Grid from '@material-ui/core/Grid';
 
@@ -20,7 +20,7 @@ export interface TileGridProps extends TileGridInputProps, RouteComponentProps<v
     };
 }
 
-class TileGrid extends React.Component<TileGridProps, {}> {
+class TileGrid extends React.Component<TileGridProps> {
     constructor(props: TileGridProps) {
         super(props);
     }
@@ -33,20 +33,25 @@ class TileGrid extends React.Component<TileGridProps, {}> {
 
     getTiles(): JSX.Element | JSX.Element[] {
         const { companies } = this.props;
- 
+
         if (companies.companyNames.length > 0) {
             return companies.companyNames
                 .filter(name => name.toLowerCase().includes(this.props.filter.toLowerCase()))
                 .map((value: string, index: number) => {
                     return (
-                        <Grid item={true} key={index} xs={12} sm={6} md={4} lg={3} style={{paddingBottom: 10, paddingTop: 10}}>
+                        <Grid item={true} key={index} xs={12} sm={6} md={4} lg={3} style={{ paddingBottom: 10, paddingTop: 10 }}>
                             <Tile name={value} />
                         </Grid>
                     );
-            });
+                });
         }
 
-        return <React.Fragment/>;
+        return <></>;
+    }
+
+    loadFunc = (page: number) => (page: number) => {
+        console.log('loading more');
+        console.log(page);
     }
 
     render(): JSX.Element {

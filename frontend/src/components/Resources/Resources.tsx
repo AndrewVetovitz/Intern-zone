@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet';
 
 import Grid from '@material-ui/core/Grid';
@@ -8,9 +8,10 @@ import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 
 import resource from './resource.list.json';
 
-import constants from '../../constants';
+import { TITLE } from '../../constants';
 
-const title: string = constants.TITLE + ' | Resources';
+const title: string = TITLE + ' | Resources';
+const content: string = TITLE + ' additional resources to find internships.';
 
 const styles = createStyles({
     grid: {
@@ -39,11 +40,11 @@ function Resources(props: ResourceProps): JSX.Element {
     const { classes } = props;
 
     return (
-        <React.Fragment>
+        <>
             <Helmet defer={false}>
                 <title>{title}</title>
                 <meta charSet="utf-8" />
-                <meta name="Description" content="Intern-Zone Resource page"></meta>
+                <meta name="Description" content={content} />
             </Helmet>
 
             {
@@ -60,7 +61,7 @@ function Resources(props: ResourceProps): JSX.Element {
                     );
                 })
             }
-        </React.Fragment>
+        </>
     );
 }
 

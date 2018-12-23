@@ -17,5 +17,5 @@ export class JobPositionHistory extends BaseEntity {
     closeDate: Date;
 
     @ManyToOne(type => JobPosition, jobPosition => jobPosition.jobPositionsHistory)
-    jobPosition: JobPosition;
+    jobPosition: JobPosition[];
 }

@@ -1,8 +1,8 @@
-import * as React from 'react';
+import React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import MediaQuery from 'react-responsive';
 
-import constants from '../../constants';
+import { DRAWER_WIDTH, NAVBAR_HEIGHT } from '../../constants';
 
 export interface ContentWrapperInputProps {
     children: JSX.Element;
@@ -12,15 +12,15 @@ export interface ContentWrapperProps extends RouteComponentProps<void> {
     screenSizeIsOpen: boolean;
 }
 
-class ContentWrapper extends React.Component<ContentWrapperProps, {}> {
+class ContentWrapper extends React.Component<ContentWrapperProps> {
     constructor(props: ContentWrapperProps) {
         super(props);
     }
 
     render() {
-        const left = this.props.screenSizeIsOpen ? constants.DRAWER_WIDTH : 0;
-        const top = this.props.screenSizeIsOpen ? 0 : constants.NAVBAR_HEIGHT;
-        const width = this.props.screenSizeIsOpen ? 'calc(100% - ' + constants.DRAWER_WIDTH + 'px)' : '100%';
+        const left = this.props.screenSizeIsOpen ? DRAWER_WIDTH : 0;
+        const top = this.props.screenSizeIsOpen ? 0 : NAVBAR_HEIGHT;
+        const width = this.props.screenSizeIsOpen ? 'calc(100% - ' + DRAWER_WIDTH + 'px)' : '100%';
         const translate = 'translate(' + left + 'px, ' + top + 'px)';
 
         const contentStyle = {
@@ -60,10 +60,10 @@ class ContentWrapper extends React.Component<ContentWrapperProps, {}> {
         );
         
         return (
-            <React.Fragment>
+            <>
                 {mobile}
                 {other}
-            </React.Fragment>
+            </>
         );
     }
 }

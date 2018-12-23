@@ -1,6 +1,6 @@
-import * as React from 'react';
+import React from 'react';
 
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 
@@ -14,9 +14,16 @@ const toHome = '/';
 const toAbout = '/about';
 const toResources = '/resources';
 
-const homeLink: any = ({innerRef, ...props}: any) => <Link {...props} to={toHome} />;
-const aboutLink: any = ({innerRef, ...props}: any) => <Link {...props} to={toAbout} />;
-const resourcesLink: any = ({innerRef, ...props}: any) => <Link {...props} to={toResources} />;
+const homeLink: any = ({ innerRef, ...props }: any) => <NavLink {...props} to={toHome} activeStyle={{
+    fontWeight: 'bold',
+    color: 'red'
+}} />;
+const aboutLink: any = ({ innerRef, ...props }: any) => <NavLink {...props} to={toAbout} activeStyle={{
+    fontWeight: 'bold',
+    color: 'red'
+}} />;
+
+const resourcesLink: any = ({ innerRef, ...props }: any) => <NavLink {...props} to={toResources} />;
 
 const styles = () => createStyles({
     iconColor: {
@@ -31,6 +38,9 @@ const styles = () => createStyles({
     text: {
         color: 'white',
         marginLeft: 45
+    },
+    active: {
+        color: 'red'
     }
 });
 
@@ -52,41 +62,42 @@ class SidebarContent extends React.Component<SidebarContentProps> {
         const { classes } = this.props;
 
         return (
-            <React.Fragment>
-                <ListItem> 
+            <>
+                <ListItem>
                     <ListItemText
                         disableTypography={true}
                         primary={
                             <div className={classes.textMargin}>
-                                <Typography 
-                                    className={classes.textColor} 
-                                    style={{display: 'inline-block', cursor: 'pointer'}} 
+                                <Typography
+                                    className={classes.textColor}
+                                    style={{ display: 'inline-block', cursor: 'pointer' }}
                                     onClick={this.setModalContent(ModalEnum.SIGN_UP_SELECTION)}
                                 >
                                     Sign up
                                 </Typography>
                                 {' '}
-                                <Typography className={classes.textColor} style={{display: 'inline-block'}}>
+                                <Typography className={classes.textColor} style={{ display: 'inline-block' }}>
                                     or
                                 </Typography>
                                 {' '}
-                                <Typography 
-                                    className={classes.textColor} 
-                                    style={{display: 'inline-block', cursor: 'pointer'}} 
+                                <Typography
+                                    className={classes.textColor}
+                                    style={{ display: 'inline-block', cursor: 'pointer' }}
                                     onClick={this.setModalContent(ModalEnum.LOGIN)}
                                 >
                                     Login
-                                </Typography>    
+                                </Typography>
                             </div>}
                     />
                 </ListItem>
-                <ListItem onClick={this.props.onClick} button={true} component={homeLink}> 
+                <ListItem onClick={this.props.onClick} button={true} component={homeLink}>
                     <ListItemText
                         disableTypography={true}
                         primary={<Typography className={classes.text}>Home</Typography>}
                     />
                 </ListItem>
-                <ListItem onClick={this.props.onClick} button={true} component={aboutLink}> 
+
+                <ListItem onClick={this.props.onClick} button={true} component={aboutLink}>
                     <ListItemText
                         disableTypography={true}
                         primary={<Typography className={classes.text}>About</Typography>}
@@ -98,14 +109,14 @@ class SidebarContent extends React.Component<SidebarContentProps> {
                         primary={<Typography className={classes.text}>Resources</Typography>}
                     />
                 </ListItem>
-            </React.Fragment>
+            </>
         );
     }
 
     private setModalContent = (content: ModalEnum): () => void => {
         return () => this.modalClicked(content);
     }
-    
+
     private modalClicked = (content: ModalEnum): void => {
         this.props.onClick();
         this.props.setModalContent(content);

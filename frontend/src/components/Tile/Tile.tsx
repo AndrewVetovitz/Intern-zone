@@ -1,5 +1,4 @@
-import * as React from 'react';
-
+import React from 'react';
 import { Link } from 'react-router-dom';
 import MediaQuery from 'react-responsive';
 
@@ -9,7 +8,7 @@ import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
 import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 
-import constants from '../../constants';
+import { MOBILE_SCREEN_WIDTH } from '../../constants';
 
 const ONE = 1, TWO = 2, FIVE = 5;
 const phi = (ONE + Math.sqrt(FIVE)) / TWO;
@@ -46,7 +45,7 @@ interface CardProps extends WithStyles<typeof styles> {
 function SimpleCard(props: CardProps): JSX.Element {
     const { classes } = props;
 
-    const mobileBreakWidth = constants.MOBILE_SCREEN_WIDTH;
+    const mobileBreakWidth = MOBILE_SCREEN_WIDTH;
     
     if (classes === undefined) {
         return (<div/>);
@@ -72,7 +71,7 @@ function SimpleCard(props: CardProps): JSX.Element {
     );
 
     return (
-        <React.Fragment>
+        <>
             <Card className={classes.card}>
                 <ButtonBase component={link} >
                     <CardContent className={classes.cardContent}>
@@ -83,7 +82,7 @@ function SimpleCard(props: CardProps): JSX.Element {
                     </CardContent>
                 </ButtonBase>
             </Card>
-        </React.Fragment>
+        </>
     );
 }
 

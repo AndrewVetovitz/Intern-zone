@@ -7,11 +7,13 @@ import { Profile, PassportStatic } from 'passport';
 import passportGitub from 'passport-github';
 import passportGoogle from 'passport-google-oauth';
 import passportFacebook from 'passport-facebook';
+// import passportLinkedin from 'passport-linkedin-oauth2';
 
 // const LocalStrategy = passportLocal.Strategy;
 const GitHubStrategy = passportGitub.Strategy;
 const GoogleStrategy = passportGoogle.OAuth2Strategy;
 const FacebookStrategy = passportFacebook.Strategy;
+// const LinkedinStrategy = passportLinkedin.Strategy;
 
 interface GithubProfile {
     id: string;
@@ -29,7 +31,7 @@ interface GithubProfile {
 
 module.exports = (passport: PassportStatic) => {
     // serialize user object
-    passport.serializeUser<any, any>((user, done) => {
+    passport.serializeUser((user, done) => {
         done(undefined, user);
     });
 
@@ -67,7 +69,7 @@ module.exports = (passport: PassportStatic) => {
         clientID: process.env.GOOGLE_CLIENT_ID,
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
         callbackURL: 'http://localhost:5000/api/authenticate/google/callback'
-    }, (accessToken: string, refreshToken: string, profile: any, done: (error: any, user?: any) => void) => {
+    }, (accessToken: string, refreshToken: string, profile: passportGoogle.Profile, done: (error: any, user?: any) => void) => {
         // const prof: any = profile;
 
         console.log(profile);
@@ -83,7 +85,7 @@ module.exports = (passport: PassportStatic) => {
     ));
 
     /*
-     *  Sign in with Facebook
+     * Sign in with Facebook
      */
     // passport.use(new FacebookStrategy({
     //     clientID: process.env.FACEBOOK_CLIENT_ID,
@@ -99,6 +101,20 @@ module.exports = (passport: PassportStatic) => {
     //     //     'username': prof.username,
     //     //     'email': prof.emails[0].value,
     //     // };
+
+    //     done(undefined, profile);
+    // }
+    // ));
+
+    /*
+     * Sign in with Linkedin
+     */
+    // passport.use(new LinkedinStrategy({
+    //     clientID: process.env.LINKEDIN_CLIENT_ID,
+    //     clientSecret: process.env.LINKEDIN_CLIENT_SECRET,
+    //     callbackURL: 'http://localhost:5000/api/authenticate/linkedin/callback'
+    // }, (accessToken: string, refreshToken: string, profile: any, done: (error: any, user?: any) => void) => {
+    //     console.log(profile);
 
     //     done(undefined, profile);
     // }

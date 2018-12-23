@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet';
 import './Home.css';
 
@@ -6,15 +6,16 @@ import './Home.css';
 import SearchBar from 'material-ui-search-bar';
 import TileGrid from '../../containers/TileGridContainer';
 
-import constants from '../../constants';
+import { TITLE } from '../../constants';
 
-const title: string = constants.TITLE + ' | Home';
+const title: string = TITLE + ' | Home';
+const content: string = TITLE + ' Home page. Find your internship today!'
 
-interface State {
+interface HomeState {
     filter: any;
 }
 
-class Home extends React.Component<{}, State> {
+class Home extends React.Component<{}, HomeState> {
     constructor(props: object) {
         super(props);
         this.state = { filter: '' };
@@ -26,7 +27,7 @@ class Home extends React.Component<{}, State> {
                 <Helmet defer={false}>
                     <title>{title}</title>
                     <meta charSet="utf-8" />
-                    <meta name="Description" content="Intern-Zone Home page"></meta>
+                    <meta name="Description" content={content} />
                 </Helmet>
 
                 {/* <Header/> */}

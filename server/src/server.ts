@@ -12,8 +12,8 @@ server.listen(port, (err: any) => {
         throw new Error(err);
     }
 
-    console.log('  App is running at %s://localhost:%d in %s mode', http, port, env);
-    console.log('  Press CTRL-C to stop\n');
+    console.log(`  App is running at ${http}://localhost:${port} in ${env} mode`);
+    console.log(`  Press CTRL-C to stop\n`);
 });
 
 export default server;

@@ -1,13 +1,19 @@
-import  { applyMiddleware, createStore, compose } from 'redux';
+import  { applyMiddleware, createStore, compose, Middleware } from 'redux';
 
 // import promise from 'redux-promise-middleware';
-import logger from 'redux-logger';
 
 import rootReducer from './root-reducer';
 
 function configureStore(initialState?: object) {
-    const middleWare = applyMiddleware(logger);
-    const enhancer = compose(middleWare);
+    let middleware: Middleware[] = [];
+
+    if (process.env.NODE_ENV !== 'production') {
+        const logger = require('redux-logger').default;
+        
+        middleware = [...middleware, logger];
+    }
+
+    const enhancer = compose(applyMiddleware(...middleware));
 
     return createStore(rootReducer, initialState!, enhancer);
 }

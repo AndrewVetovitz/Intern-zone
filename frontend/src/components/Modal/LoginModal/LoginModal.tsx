@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 // import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -30,7 +30,7 @@ class LoginpModal extends React.Component<LoginProps> {
         const { classes } = this.props;
 
         return (
-            <React.Fragment>
+            <>
                 <div className={classes.margin}>
                     <DialogTitle style={{ textAlign: 'center' }} id="scroll-dialog-title">Login to your Intern-Zone Account</DialogTitle>
                 </div>
@@ -44,7 +44,7 @@ class LoginpModal extends React.Component<LoginProps> {
                         SignUp
                     </Button>
                 </DialogContent>
-            </React.Fragment>
+            </>
         );
     }
 }
