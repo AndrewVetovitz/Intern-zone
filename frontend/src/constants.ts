@@ -6,3 +6,4 @@ export const MOBILE_SCREEN_WIDTH: number = 600;
 export const LOGO_URL: string = '/images/icons/intern-zone-logo.png';
 export const TITLE: string = 'Intern Zone';
 export const GOOGLE_ACCOUNT_ID: string = 'UA-131273000-1';
+export const SERVER_URL: string = 'http://localhost:5000';

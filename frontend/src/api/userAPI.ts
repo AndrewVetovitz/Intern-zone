@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+import { SERVER_URL } from './../constants';
+
 export interface UserSignUp {
     name: string,
     email: string,
@@ -9,7 +11,7 @@ export interface UserSignUp {
 
 class UserApi {
     public static signUpUser(userData: UserSignUp) {
-        const URL = 'http://localhost:5000/api/user/signup';
+        const URL = SERVER_URL + '/api/user/signup';
 
         return axios.post(URL, userData).then(response => {
             return response;
