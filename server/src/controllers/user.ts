@@ -2,24 +2,16 @@ import { Request, Response } from 'express';
 
 import MailerService from '../helpers/mailer';
 
-// import { UserAccount } from '../entity/UserAccount';
+import { UserAccount } from '../entity/UserAccount';
 import { UserProfile } from '../entity/UserProfile';
+
+import bcrypt from 'bcrypt-nodejs';
 
 /**
  * POST /api/user/signup
  * Signup user
  */
 const postSignUpUser = (req: Request, res: Response) => {
-    req.checkBody('name', 'Name must exist').exists();
-    req.checkBody('email', 'Email must exist').exists();
-    req.checkBody('password', 'Password must exist').exists();
-    req.checkBody('confirmPassword', 'confirmPassword must exist').exists();
-
-    req.checkBody('email', 'Invalid email address').isEmail();
-    req.checkBody('name', 'Valid name inputed').isAlpha();
-    req.checkBody('confirmPassword', 'confirmPassword field must have the same value as the password field')
-        .equals(req.body.password);
-
     const errors = req.validationErrors();
 
     if (errors) {
@@ -29,42 +21,32 @@ const postSignUpUser = (req: Request, res: Response) => {
 
         console.log({ name, email, password, passwordAgain });
 
-        UserProfile.createQueryBuilder().where('email = :email', { email }).execute().then((response: any) => {
-            if (response.length === 0) {
-                const mailer: MailerService = req.app.get('mailService');
+        // bcrypt.genSalt(10, ((err: Error, salt: string) => {
+        //     bcrypt.hash(password, salt, ((err: Error, hash: string) => {
+        //         // Store hash in your password DB.
+        //     }));
+        // }));
 
-                mailer.sendEmail('hello new user', name);
-                // const userAccount = UserAccount.create({
-                //     password_hashed: '',
-                //     password_salt: '',
-                //     password_hash_algorithm: '',
-                //     registration_time: '',
-                //     email_conformation_token: '',
-                // });
+        // const mailer: MailerService = req.app.get('mailService');
 
-                // const userProfile = UserProfile.create({
-                //     name: name,
-                //     email: email,
-                //     userAccount: userAccount
-                // });
+        // mailer.sendEmail('hello new user', name);
+        // const userAccount = UserAccount.create({
+        //     password_hashed: '',
+        //     password_salt: '',
+        //     password_hash_algorithm: '',
+        //     registration_time: '',
+        //     email_conformation_token: '',
+        // });
 
-                // userAccount.userProfile = userProfile;
+        // const userProfile = UserProfile.create({
+        //     name: name,
+        //     email: email,
+        //     userAccount: userAccount
+        // });
 
-                res.status(200).json({ response: 'new user' });
-            } else {
-                res.status(422).json({
-                    errors: [
-                        {
-                            'location': 'body',
-                            'param': 'email',
-                            'msg': 'Email already in use'
-                        }
-                    ]
-                });
-            }
-        }).catch((err: Error) => {
-            console.log(err);
-        });
+        // userAccount.userProfile = userProfile;
+
+        res.status(200).json({ response: 'new user' });
     }
 };
 

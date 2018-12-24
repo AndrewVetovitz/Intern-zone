@@ -1,5 +1,5 @@
-const spawn = require('child_process').spawn;
-const pythonProcess = spawn('python3', ['../scraper/main.py']);
+import * as child from 'child_process';
+const pythonProcess = child.spawn('python3', ['../scraper/main.py']);
 
 console.log('scraper node started');
 

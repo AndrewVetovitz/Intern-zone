@@ -1,17 +1,12 @@
 import 'reflect-metadata';
 
 import http from 'http';
+import express, { Request, Response, NextFunction } from 'express';
 // import fs from 'fs';
 
 import socket from 'socket.io';
 
-// const options = {
-//     key: fs.readFileSync(__dirname + '/../certificate/server.key'),
-//     cert: fs.readFileSync(__dirname + '/../certificate/server.crt')
-// };
-
-import express, { Request, Response, NextFunction } from 'express';
-
+// Middleware
 import passport from 'passport';
 import dotenv from 'dotenv';
 import cors from 'cors';
@@ -20,8 +15,7 @@ import session from 'express-session';
 import bodyParser from 'body-parser';
 import logger from 'morgan';
 import expressValidator from 'express-validator';
-import helmet from 'helmet';
-// import bluebird from 'bluebird';
+import helmet from 'helmet'; // Basic security
 
 // Database import
 import { createConnection } from 'typeorm';
@@ -31,6 +25,9 @@ import MailerService from './helpers/mailer';
 
 // Load environment variables from .env file, where API keys and passwords are configured
 dotenv.config({ path: '.env' });
+
+// Validator
+import validate from './helpers/validator';
 
 // Controllers
 import * as companyController from './controllers/company';
@@ -42,6 +39,11 @@ require('./config/passport')(passport);
 
 // Create Express server
 const app = express();
+
+// const options = {
+//     key: fs.readFileSync(__dirname + '/../certificate/server.key'),
+//     cert: fs.readFileSync(__dirname + '/../certificate/server.crt')
+// };
 
 // const server = https.createServer(options, app);
 const server = http.createServer(app);
@@ -91,6 +93,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+const localAuth = passport.authenticate('local');
 const githubAuth = passport.authenticate('github');
 const googleAuth = passport.authenticate('google', { scope: ['profile'] });
 const linkedinAuth = passport.authenticate('linkedin');
@@ -105,6 +108,9 @@ app.get('/api/company/:name', companyController.getCompanyByName);
 /**
  * Authentication routes
  */
+app.get('/api/authenticate/local', localAuth);
+app.get('/api/authenticate/local/callback', localAuth);
+
 app.get('/api/authenticate/github', addSocketIdToSession, githubAuth);
 app.get('/api/authenticate/github/callback', githubAuth, authController.github);
 
@@ -120,7 +126,7 @@ app.get('/api/authenticate/facebook/callback', facebookAuth, authController.face
 /**
  * User routes
  */
-app.post('/api/user/signup', userController.postSignUpUser);
+app.post('/api/user/signup', validate('signup'), userController.postSignUpUser);
 
 export { app };
 export default server;

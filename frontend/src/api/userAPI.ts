@@ -14,7 +14,7 @@ class UserApi {
         return axios.post(URL, userData).then(response => {
             return response;
         }).catch(error => {
-            return error;
+            return error.response;
         });
     }
 }

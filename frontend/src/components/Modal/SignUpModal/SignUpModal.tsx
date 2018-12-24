@@ -1,18 +1,16 @@
 import React from 'react';
 
-// import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import TextField from '@material-ui/core/TextField';
-// import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-
-import { Button } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
 
 import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 
 import ModalEnum from '../Modal.enum';
 
 import UserSignUpAPI, { UserSignUp } from '../../../api/userAPI';
+import SignUpButton from '../../SignUpButton/SignUpButton';
 
 const styles = (theme: any) => createStyles({
     margin: {
@@ -22,6 +20,7 @@ const styles = (theme: any) => createStyles({
     container: {
         display: 'flex',
         flexWrap: 'wrap',
+        marginBottom: 24
     },
     textField: {
         width: '100%',
@@ -110,7 +109,7 @@ class SignUpModal extends React.Component<SignUpProps, SignUpState> {
                         />
                         <TextField
                             id="standard-confirmPassword"
-                            label="Retype Password"
+                            label="Confirm Password"
                             className={classes.textField}
                             value={this.state.confirmPassword}
                             onChange={this.handleChange('confirmPassword')}
@@ -120,14 +119,17 @@ class SignUpModal extends React.Component<SignUpProps, SignUpState> {
                 </div>
 
                 <DialogContent>
-                    <Button onClick={() => this.signUp()} color="primary">
-                        SignUp
-                    </Button>
+                    <SignUpButton onClick={this.signUp} />
                 </DialogContent>
 
                 <DialogContent>
+                    Already have an account? 
                     <Button onClick={() => this.props.setModalContent(ModalEnum.LOGIN_SELECTION)} color="primary">
                         Login
+                    </Button>
+
+                    <Button style={{float: 'right'}} onClick={() => this.props.setModalContent(ModalEnum.HELP)} color="primary">
+                        Need Help?
                     </Button>
                 </DialogContent>
             </>

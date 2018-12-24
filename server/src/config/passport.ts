@@ -2,14 +2,17 @@ import { Request, Response, NextFunction } from 'express';
 
 import _ from 'lodash';
 
+import { UserProfile } from '../entity/UserProfile';
+
 import { Profile, PassportStatic } from 'passport';
-// import passportLocal from 'passport-local';
+
+import passportLocal from 'passport-local';
 import passportGitub from 'passport-github';
 import passportGoogle from 'passport-google-oauth';
 import passportFacebook from 'passport-facebook';
 // import passportLinkedin from 'passport-linkedin-oauth2';
 
-// const LocalStrategy = passportLocal.Strategy;
+const LocalStrategy = passportLocal.Strategy;
 const GitHubStrategy = passportGitub.Strategy;
 const GoogleStrategy = passportGoogle.OAuth2Strategy;
 const FacebookStrategy = passportFacebook.Strategy;
@@ -39,6 +42,23 @@ module.exports = (passport: PassportStatic) => {
     passport.deserializeUser((user, done) => {
         done(undefined, user);
     });
+
+    /**
+     * Sign in with Local
+     */
+    passport.use(new LocalStrategy(
+        (email: string, password: string, done: (error: any, user?: any, options?: passportLocal.IVerifyOptions) => any): void => {
+            UserProfile.createQueryBuilder().where('email = :email', { email }).execute().then((user: any) => {
+                if (!user || !user.verifyPassword(password)) {
+                    return done(undefined, false);
+                }
+
+                return done(undefined, user);
+            }).catch((err: Error) => {
+                return done(err);
+            });
+        }
+    ));
 
     /*
      * Sign in with Github

@@ -9,7 +9,13 @@ import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 
 import ModalEnum from './Modal.enum';
 
-import { LoginSelectionModal, LoginModal, SignUpSelectionModal, SignUpModal } from '../../containers/ModalContainer';;
+import {
+    LoginSelectionModal, 
+    LoginModal, 
+    SignUpSelectionModal, 
+    SignUpModal,
+    HelpModal
+} from '../../containers/ModalContainer';;
 
 const styles = () => createStyles({
     contentStyles: {
@@ -85,6 +91,9 @@ class CustomModal extends React.Component<ModalProps, {}> {
             }
             case ModalEnum.SIGN_UP: {
                 return <SignUpModal />;
+            }
+            case ModalEnum.HELP: {
+                return <HelpModal />;
             }
             default: {
                 return <></>;

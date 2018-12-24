@@ -65,6 +65,9 @@ class SignUpSelectionModal extends React.Component<SignUpSelectionProps> {
                     <Button onClick={() => this.props.setModalContent(ModalEnum.LOGIN_SELECTION)} color="primary">
                         Login
                     </Button>
+                    <Button onClick={() => this.props.setModalContent(ModalEnum.HELP)} color="primary">
+                        Need Help?
+                    </Button>
                 </DialogContent>
             </>
         ); 

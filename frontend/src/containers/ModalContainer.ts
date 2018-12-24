@@ -6,6 +6,7 @@ import SignUpSelectionModalComponent from '../components/Modal/SignUpSelectionMo
 import SignUpModalComponent from '../components/Modal/SignUpModal/SignUpModal';
 import LoginModalComponent from '../components/Modal/LoginModal/LoginModal';
 import LoginSelectionModalComponent from '../components/Modal/LoginSelectionModal/LoginSelectionModal';
+import HelpModalComponent from '../components/Modal/HelpModal/HelpModal';
 
 import { modalActions } from '../store/modal';
 import { ModalState, ModalDispatchProps } from '../store/modal/types';
@@ -39,10 +40,12 @@ const SignUpSelectionModal = connector(SignUpSelectionModalComponent);
 const SignUpModal = connector(SignUpModalComponent);
 const LoginSelectionModal = connector(LoginSelectionModalComponent);
 const LoginModal = connector(LoginModalComponent);
+const HelpModal = connector(HelpModalComponent);
 
 export {
     SignUpSelectionModal,
     SignUpModal,
     LoginSelectionModal,
-    LoginModal
+    LoginModal,
+    HelpModal
 }

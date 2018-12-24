@@ -17,12 +17,12 @@ const styles = () => createStyles({
     }
 });
 
-interface LoginProps extends WithStyles<typeof styles> {
+interface HelpProps extends WithStyles<typeof styles> {
     setModalContent: (content: ModalEnum) => any;
 }
 
-class LoginModal extends React.Component<LoginProps> {
-    constructor(props: LoginProps) {
+class HelpModal extends React.Component<HelpProps> {
+    constructor(props: HelpProps) {
         super(props);
     }
 
@@ -32,7 +32,7 @@ class LoginModal extends React.Component<LoginProps> {
         return (
             <>
                 <div className={classes.margin}>
-                    <DialogTitle style={{ textAlign: 'center' }} id="scroll-dialog-title">Login to your Intern-Zone Account</DialogTitle>
+                    <DialogTitle style={{ textAlign: 'center' }} id="scroll-dialog-title">Having issues?</DialogTitle>
                 </div>
 
                 <DialogContent>
@@ -49,4 +49,4 @@ class LoginModal extends React.Component<LoginProps> {
     }
 }
 
-export default withStyles(styles)(LoginModal);
+export default withStyles(styles)(HelpModal);
