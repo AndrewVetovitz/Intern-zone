@@ -12,8 +12,8 @@ import { RootState } from '../store/root-reducer';
 
 function mapStateToProps(state: RootState): SidebarState {
     return {
-        screenSizeIsOpen: state.sidebar.screenSizeIsOpen,
-        conditionalIsOpen: state.sidebar.conditionalIsOpen
+        conditionalIsOpen: state.sidebar.conditionalIsOpen,
+        screenSizeIsOpen: state.sidebar.screenSizeIsOpen
     };
 }
 
