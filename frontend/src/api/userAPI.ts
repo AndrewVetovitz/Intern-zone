@@ -3,7 +3,8 @@ import axios from 'axios';
 import { SERVER_URL } from './../constants';
 
 export interface UserSignUp {
-    name: string,
+    firstName: string,
+    lastName: string,
     email: string,
     password: string,
     confirmPassword: string

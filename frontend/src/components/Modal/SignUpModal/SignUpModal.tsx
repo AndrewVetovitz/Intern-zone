@@ -16,12 +16,6 @@ import { Formik, Form, Field, FormikActions } from 'formik';
 
 import '../Form.css';
 
-interface Values {
-    firstName: string;
-    lastName: string;
-    email: string;
-}
-
 const styles = (theme: any) => createStyles({
     margin: {
         margin: '0 25px',
@@ -40,12 +34,7 @@ interface SignUpProps extends WithStyles<typeof styles> {
     setModalContent: (content: ModalEnum) => any;
 }
 
-interface SignUpState extends UserSignUp {
-    name: string;
-    email: string;
-    password: string;
-    confirmPassword: string;
-}
+interface SignUpState extends UserSignUp {}
 
 type StateKeys = keyof SignUpState;
 
@@ -54,7 +43,8 @@ class SignUpModal extends React.Component<SignUpProps, SignUpState> {
         super(props);
 
         this.state = {
-            name: '',
+            firstName: '',
+            lastName: '',
             email: '',
             password: '',
             confirmPassword: ''
@@ -91,9 +81,9 @@ class SignUpModal extends React.Component<SignUpProps, SignUpState> {
                             lastName: '',
                             email: '',
                             password: '',
-                            passwordAgain: ''
+                            confirmPassword: ''
                         }}
-                        onSubmit={(values: Values, { setSubmitting }: FormikActions<Values>) => {
+                        onSubmit={(values: UserSignUp, { setSubmitting }: FormikActions<UserSignUp>) => {
                             setTimeout(() => {
                                 alert(JSON.stringify(values, null, 2));
                                 setSubmitting(false);
@@ -111,10 +101,10 @@ class SignUpModal extends React.Component<SignUpProps, SignUpState> {
                                 <Field id="email" name="email" placeholder="reallycoolemail@gmail.com" type="email" />
 
                                 <label htmlFor="password">Password</label>
-                                <Field id="password" name="password" placeholder="password" type="password" />
+                                <Field id="password" name="password" placeholder="Password" type="password" />
 
-                                <label htmlFor="passwordAgain">Password Again</label>
-                                <Field id="passwordAgain" name="passwordAgain" placeholder="password Again" type="passwordAgain" />
+                                <label htmlFor="confirmPassword">Password Again</label>
+                                <Field id="confirmPassword" name="confirmPassword" placeholder="Confirm Again" type="confirmPassword" />
 
                                 <div style={{marginBottom: 24}}>
                                     <SignUpButton onClick={this.signUp} />

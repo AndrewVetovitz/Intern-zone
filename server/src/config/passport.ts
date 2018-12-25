@@ -10,13 +10,13 @@ import passportLocal from 'passport-local';
 import passportGitub from 'passport-github';
 import passportGoogle from 'passport-google-oauth';
 import passportFacebook from 'passport-facebook';
-// import passportLinkedin from 'passport-linkedin-oauth2';
+import passportLinkedin from 'passport-linkedin-oauth2';
 
 const LocalStrategy = passportLocal.Strategy;
 const GitHubStrategy = passportGitub.Strategy;
 const GoogleStrategy = passportGoogle.OAuth2Strategy;
 const FacebookStrategy = passportFacebook.Strategy;
-// const LinkedinStrategy = passportLinkedin.Strategy;
+const LinkedinStrategy = passportLinkedin.Strategy;
 
 interface GithubProfile {
     id: string;
@@ -129,16 +129,16 @@ module.exports = (passport: PassportStatic) => {
     /*
      * Sign in with Linkedin
      */
-    // passport.use(new LinkedinStrategy({
-    //     clientID: process.env.LINKEDIN_CLIENT_ID,
-    //     clientSecret: process.env.LINKEDIN_CLIENT_SECRET,
-    //     callbackURL: 'http://localhost:5000/api/authenticate/linkedin/callback'
-    // }, (accessToken: string, refreshToken: string, profile: any, done: (error: any, user?: any) => void) => {
-    //     console.log(profile);
+    passport.use(new LinkedinStrategy({
+        clientID: process.env.LINKEDIN_CLIENT_ID,
+        clientSecret: process.env.LINKEDIN_CLIENT_SECRET,
+        callbackURL: 'http://localhost:5000/api/authenticate/linkedin/callback'
+    }, (accessToken: string, refreshToken: string, profile: any, done: (error: any, user?: any) => void) => {
+        console.log(profile);
 
-    //     done(undefined, profile);
-    // }
-    // ));
+        done(undefined, profile);
+    }
+    ));
 };
 
 /**

@@ -31,19 +31,39 @@ class HelpModal extends React.Component<HelpProps> {
 
         return (
             <>
-                <div className={classes.margin}>
-                    <DialogTitle style={{ textAlign: 'center' }} id="scroll-dialog-title">Having issues?</DialogTitle>
+                <div className={classes.margin} style={{ textAlign: 'center' }}>
+                    <DialogTitle id="scroll-dialog-title">Having issues?</DialogTitle>
+
+                    <DialogContent>
+                        Forgot my password
+                    </DialogContent>
+
+                    <DialogContent>
+                        Need to re-confirm my email
+                    </DialogContent>
+
+                    <DialogContent>
+                        Need to reset my password
+                    </DialogContent>
+
+                    <DialogContent>
+                        Locked myself out of my account
+                    </DialogContent>
+
+                    <DialogContent>
+                        <Button onClick={() => this.props.setModalContent(ModalEnum.LOGIN_SELECTION)} color="primary">
+                            Login
+                        </Button>
+                    </DialogContent>
+
+                    <DialogContent>
+                        <Button onClick={() => this.props.setModalContent(ModalEnum.SIGN_UP_SELECTION)} color="primary">
+                            SignUp
+                        </Button>
+                    </DialogContent>
                 </div>
 
-                <DialogContent>
-                    <Button onClick={() => this.props.setModalContent(ModalEnum.LOGIN_SELECTION)} color="primary">
-                        Login
-                    </Button>
 
-                    <Button onClick={() => this.props.setModalContent(ModalEnum.SIGN_UP_SELECTION)} color="primary">
-                        SignUp
-                    </Button>
-                </DialogContent>
             </>
         );
     }

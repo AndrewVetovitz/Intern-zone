@@ -17,7 +17,8 @@ const postSignUpUser = (req: Request, res: Response) => {
     if (errors) {
         return res.status(422).json({ errors });
     } else {
-        const { name, email, password, passwordAgain } = req.body;
+        const { firstName, lastName, email, password, passwordAgain } = req.body;
+        const name = firstName + ' ' + lastName;
 
         console.log({ name, email, password, passwordAgain });
 
