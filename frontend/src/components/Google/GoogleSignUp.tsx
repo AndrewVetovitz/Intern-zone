@@ -1,11 +1,13 @@
 import React from 'react';
 
+import io from 'socket.io-client';
+
 import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 
 import OAuth from '../OAuth/OAuth';
+import { SERVER_URL } from '../../constants';
 
-import io from 'socket.io-client';
-const socket = io('http://localhost:5000', { transports: ['websocket'] });
+const socket = io(SERVER_URL, { transports: ['websocket'] });
 
 const googleImageUrl: string = '/images/google/google-button-24x24.png';
 

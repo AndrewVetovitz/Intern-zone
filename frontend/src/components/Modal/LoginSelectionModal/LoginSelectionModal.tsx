@@ -1,6 +1,6 @@
 import React from 'react';
 
-import DialogActions from '@material-ui/core/DialogActions';
+// import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 // import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
@@ -38,7 +38,7 @@ class LoginModal extends React.Component<LoginProps> {
         return (
             <>
                 <div className={classes.margin}>
-                    <DialogTitle style={{ textAlign: 'center' }} id="scroll-dialog-title">Sign In to your personalized profile</DialogTitle>
+                    <DialogTitle style={{ textAlign: 'center' }} id="scroll-dialog-title">Login In to your personalized profile</DialogTitle>
 
                     <DialogContent>
                         <GoogleSignUp />
@@ -55,26 +55,18 @@ class LoginModal extends React.Component<LoginProps> {
                     <DialogContent>
                         <LoginButton onClick={() => this.props.setModalContent(ModalEnum.LOGIN)} />
                     </DialogContent>
-                </div>
-                <DialogActions>
+
                     <DialogContent>
                         <Button onClick={() => this.props.setModalContent(ModalEnum.SIGN_UP_SELECTION)} color="primary">
                             SignUp
                         </Button>
+                        <Button style={{ float: 'right' }} onClick={() => this.props.setModalContent(ModalEnum.HELP)} color="primary">
+                            Need Help?
+                        </Button>
                     </DialogContent>
-                    <Button onClick={this.handleClose} color="primary">
-                        Cancel
-                    </Button>
-                    <Button onClick={this.handleClose} color="primary">
-                        Subscribe
-                    </Button>
-                </DialogActions>
+                </div>
             </>
         );
-    }
-
-    private handleClose = (): void => {
-        console.log('closed clicked');
     }
 }
 

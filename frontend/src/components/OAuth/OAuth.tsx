@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { SERVER_URL } from '../../constants';
+
 interface OAuthProps {
     socket: SocketIOClient.Socket;
     provider: string;
@@ -58,7 +60,7 @@ class OAuth extends React.Component<OAuthProps, State> {
         const width = 600, height = 600;
         const left = (window.innerWidth / 2) - (width / 2);
         const top = (window.innerHeight / 2) - (height / 2);
-        const url = `http://localhost:5000/api/authenticate/${provider}?socketId=${socket.id}`;
+        const url = `${SERVER_URL}/api/authenticate/${provider}?socketId=${socket.id}`;
 
         return window.open(url, '',
             `toolbar=no, location=no, directories=no, status=no, menubar=no, 

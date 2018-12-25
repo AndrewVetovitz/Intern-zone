@@ -19,7 +19,7 @@ import SignUpButton from '../../SignUpButton/SignUpButton';
 
 const styles = () => createStyles({
     margin: {
-        margin: '0 25px',
+        margin: '0 25px'
     }
 });
 
@@ -38,39 +38,40 @@ class SignUpSelectionModal extends React.Component<SignUpSelectionProps> {
         return (
             <>
                 <div className={classes.margin}>
-                    <DialogTitle style={{textAlign: 'center'}} id="scroll-dialog-title">Create your own personalized Intern-Zone profile</DialogTitle>
+                    <DialogTitle style={{ textAlign: 'center' }} id="scroll-dialog-title">Create your own personalized Intern-Zone profile</DialogTitle>
 
                     <DialogContent>
-                        <GoogleSignUp/>
+                        <GoogleSignUp />
                     </DialogContent>
                     <DialogContent>
-                        <FacebookSignUp/>
+                        <FacebookSignUp />
                     </DialogContent>
                     <DialogContent>
-                        <LinkedinSignUp/>
+                        <LinkedinSignUp />
                     </DialogContent>
                     <DialogContent>
-                        <GithubSignUp/>
+                        <GithubSignUp />
                     </DialogContent>
                     <DialogContent>
-                        <div style={{width: '100%', textAlign: 'center'}}>
+                        <div style={{ width: '100%', textAlign: 'center' }}>
                             Or
-                        </div> 
+                        </div>
                     </DialogContent>
                     <DialogContent>
                         <SignUpButton onClick={() => this.props.setModalContent(ModalEnum.SIGN_UP)} />
                     </DialogContent>
+
+                    <DialogContent>
+                        <Button onClick={() => this.props.setModalContent(ModalEnum.LOGIN_SELECTION)} color="primary">
+                            Login
+                        </Button>
+                        <Button style={{ float: 'right' }} onClick={() => this.props.setModalContent(ModalEnum.HELP)} color="primary">
+                            Need Help?
+                        </Button>
+                    </DialogContent>
                 </div>
-                <DialogContent>
-                    <Button onClick={() => this.props.setModalContent(ModalEnum.LOGIN_SELECTION)} color="primary">
-                        Login
-                    </Button>
-                    <Button onClick={() => this.props.setModalContent(ModalEnum.HELP)} color="primary">
-                        Need Help?
-                    </Button>
-                </DialogContent>
             </>
-        ); 
+        );
     }
 }
 

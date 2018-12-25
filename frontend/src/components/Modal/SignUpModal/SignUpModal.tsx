@@ -16,7 +16,6 @@ const styles = (theme: any) => createStyles({
     margin: {
         margin: '0 25px',
     },
-
     container: {
         display: 'flex',
         flexWrap: 'wrap',
@@ -24,12 +23,6 @@ const styles = (theme: any) => createStyles({
     },
     textField: {
         width: '100%',
-    },
-    dense: {
-        marginTop: 19,
-    },
-    menu: {
-        width: 200,
     }
 });
 
@@ -123,14 +116,14 @@ class SignUpModal extends React.Component<SignUpProps, SignUpState> {
                 </DialogContent>
 
                 <DialogContent>
-                    Already have an account? 
-                    <Button onClick={() => this.props.setModalContent(ModalEnum.LOGIN_SELECTION)} color="primary">
+                    Already have an account?
+                        <Button onClick={() => this.props.setModalContent(ModalEnum.LOGIN_SELECTION)} color="primary">
                         Login
-                    </Button>
+                        </Button>
 
-                    <Button style={{float: 'right'}} onClick={() => this.props.setModalContent(ModalEnum.HELP)} color="primary">
+                    <Button style={{ float: 'right' }} onClick={() => this.props.setModalContent(ModalEnum.HELP)} color="primary">
                         Need Help?
-                    </Button>
+                        </Button>
                 </DialogContent>
             </>
         );
