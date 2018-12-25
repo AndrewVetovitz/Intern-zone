@@ -55,7 +55,7 @@ class SignUp extends React.Component<SignUpProps> {
         const { classes } = this.props;
 
         return (
-            <button onClick={this.props.onClick} className={classes.emailButton} style={{ width: '100%', cursor: 'pointer' }}>
+            <button type={'submit'} onClick={this.props.onClick} className={classes.emailButton} style={{ width: '100%', cursor: 'pointer' }}>
                 <img src={emailImageUrl} className={classes.icon} />
                 <span className={classes.buttonText}>Sign Up with Email</span>
             </button>

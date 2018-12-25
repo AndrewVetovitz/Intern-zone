@@ -1,7 +1,7 @@
 import React from 'react';
 
 import DialogContent from '@material-ui/core/DialogContent';
-import TextField from '@material-ui/core/TextField';
+// import TextField from '@material-ui/core/TextField';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Button from '@material-ui/core/Button';
 
@@ -11,6 +11,16 @@ import ModalEnum from '../Modal.enum';
 
 import UserSignUpAPI, { UserSignUp } from '../../../api/userAPI';
 import SignUpButton from '../../SignUpButton/SignUpButton';
+
+import { Formik, Form, Field, FormikActions } from 'formik';
+
+import '../Form.css';
+
+interface Values {
+    firstName: string;
+    lastName: string;
+    email: string;
+}
 
 const styles = (theme: any) => createStyles({
     margin: {
@@ -75,7 +85,45 @@ class SignUpModal extends React.Component<SignUpProps, SignUpState> {
                         Sign up with Email
                     </DialogContent>
 
-                    <form className={classes.container} noValidate autoComplete="off">
+                    <Formik
+                        initialValues={{
+                            firstName: '',
+                            lastName: '',
+                            email: '',
+                            password: '',
+                            passwordAgain: ''
+                        }}
+                        onSubmit={(values: Values, { setSubmitting }: FormikActions<Values>) => {
+                            setTimeout(() => {
+                                alert(JSON.stringify(values, null, 2));
+                                setSubmitting(false);
+                            }, 500);
+                        }}
+                        render={() => (
+                            <Form>
+                                <label htmlFor="firstName">First Name</label>
+                                <Field id="firstName" name="firstName" placeholder="First name" type="text" />
+
+                                <label htmlFor="lastName">Last Name</label>
+                                <Field id="lastName" name="lastName" placeholder="Last name" type="text" />
+
+                                <label htmlFor="email">Email</label>
+                                <Field id="email" name="email" placeholder="reallycoolemail@gmail.com" type="email" />
+
+                                <label htmlFor="password">Password</label>
+                                <Field id="password" name="password" placeholder="password" type="password" />
+
+                                <label htmlFor="passwordAgain">Password Again</label>
+                                <Field id="passwordAgain" name="passwordAgain" placeholder="password Again" type="passwordAgain" />
+
+                                <div style={{marginBottom: 24}}>
+                                    <SignUpButton onClick={this.signUp} />
+                                </div>
+                            </Form>
+                        )}
+                    />
+
+                    {/* <form className={classes.container} noValidate autoComplete="off">
                         <TextField
                             id="standard-name"
                             label="Name"
@@ -108,12 +156,8 @@ class SignUpModal extends React.Component<SignUpProps, SignUpState> {
                             onChange={this.handleChange('confirmPassword')}
                             margin="normal"
                         />
-                    </form>
+                    </form> */}
                 </div>
-
-                <DialogContent>
-                    <SignUpButton onClick={this.signUp} />
-                </DialogContent>
 
                 <DialogContent>
                     Already have an account?
