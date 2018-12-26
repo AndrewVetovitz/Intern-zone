@@ -1,51 +1,74 @@
 import React from 'react';
 
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 
 import Typography from '@material-ui/core/Typography';
-import ListItem from '@material-ui/core/ListItem';
+import MenuItem from '@material-ui/core/MenuItem';
+// import Divider from '@material-ui/core/Divider';
 import ListItemText from '@material-ui/core/ListItemText';
 
 import { ModalEnum } from '../Modal';
+
+import { ACTIVE_COLOR } from '../../constants';
 
 const toHome = '/';
 const toAbout = '/about';
 const toResources = '/resources';
 
-const homeLink: any = ({ innerRef, ...props }: any) => <NavLink {...props} to={toHome} activeStyle={{
-    fontWeight: 'bold',
-    color: 'red'
-}} />;
-const aboutLink: any = ({ innerRef, ...props }: any) => <NavLink {...props} to={toAbout} activeStyle={{
-    fontWeight: 'bold',
-    color: 'red'
-}} />;
+const homeLink: any = ({ innerRef, ...props }: any) => <Link {...props} to={toHome} />;
 
-const resourcesLink: any = ({ innerRef, ...props }: any) => <NavLink {...props} to={toResources} />;
+const aboutLink: any = ({ innerRef, ...props }: any) => <Link {...props} to={toAbout} />;
+
+const resourcesLink: any = ({ innerRef, ...props }: any) => <Link {...props} to={toResources} />;
+
+const textMargin: number = 45;
+const dividerMargin: number = 16;
+const textColor: string = 'white';
 
 const styles = () => createStyles({
     iconColor: {
-        color: 'white',
+        color: textColor,
     },
     textColor: {
-        color: 'white'
+        color: textColor
     },
     textMargin: {
-        marginLeft: 45
+        marginLeft: textMargin
+    },
+    divider: {
+        marginLeft: dividerMargin + textMargin,
+        userSelect: 'none',
+        color: textColor,
+        borderTop: '2px dashed #8c8b8b'
     },
     text: {
-        color: 'white',
-        marginLeft: 45
+        color: textColor,
+        marginLeft: textMargin
     },
     active: {
-        color: 'red'
+        backgroundColor: ACTIVE_COLOR  + ' !important'
     }
 });
 
+const inline: React.CSSProperties = { display: 'inline-block' };
+const textStyle: React.CSSProperties = { ...inline, cursor: 'pointer' };
+const test: React.CSSProperties = {
+    marginLeft: dividerMargin + textMargin,
+    userSelect: 'none',
+    color: textColor,
+    borderTop: '2px dashed #8c8b8b',
+    marginTop: 8,
+    marginBottom: 8
+}
+
 export interface SidebarContentInputProps {
     onClick: () => any;
+}
+
+interface SidebarContentState {
+    selectedIndex: number;
 }
 
 interface SidebarContentProps extends SidebarContentInputProps, WithStyles<typeof styles> {
@@ -53,9 +76,14 @@ interface SidebarContentProps extends SidebarContentInputProps, WithStyles<typeo
     setModalContent: (state: ModalEnum) => any;
 }
 
-class SidebarContent extends React.Component<SidebarContentProps> {
+
+class SidebarContent extends React.Component<SidebarContentProps, SidebarContentState> {
     constructor(props: SidebarContentProps) {
         super(props);
+
+        this.state = {
+            selectedIndex: 1
+        };
     }
 
     render() {
@@ -63,54 +91,93 @@ class SidebarContent extends React.Component<SidebarContentProps> {
 
         return (
             <>
-                <ListItem>
+                <MenuItem>
                     <ListItemText
                         disableTypography={true}
                         primary={
                             <div className={classes.textMargin}>
                                 <Typography
                                     className={classes.textColor}
-                                    style={{ display: 'inline-block', cursor: 'pointer' }}
+                                    style={textStyle}
                                     onClick={this.setModalContent(ModalEnum.SIGN_UP_SELECTION)}
                                 >
                                     Sign up
                                 </Typography>
                                 {' '}
-                                <Typography className={classes.textColor} style={{ display: 'inline-block' }}>
+                                <Typography className={classes.textColor} style={inline}>
                                     or
                                 </Typography>
                                 {' '}
                                 <Typography
                                     className={classes.textColor}
-                                    style={{ display: 'inline-block', cursor: 'pointer' }}
+                                    style={textStyle}
                                     onClick={this.setModalContent(ModalEnum.LOGIN)}
                                 >
                                     Login
                                 </Typography>
                             </div>}
                     />
-                </ListItem>
-                <ListItem onClick={this.props.onClick} button={true} component={homeLink}>
+                </MenuItem>
+
+                <div style={test} />
+
+                <MenuItem
+                    onClick={this.itemClicked(1)}
+                    button={true}
+                    component={homeLink}
+                    selected={this.state.selectedIndex === 1}
+                    classes={{
+                        selected: classes.active
+                    }}
+                >
                     <ListItemText
                         disableTypography={true}
                         primary={<Typography className={classes.text}>Home</Typography>}
                     />
-                </ListItem>
+                </MenuItem>
 
-                <ListItem onClick={this.props.onClick} button={true} component={aboutLink}>
+                <MenuItem
+                    onClick={this.itemClicked(2)}
+                    button={true}
+                    component={aboutLink}
+                    selected={this.state.selectedIndex === 2}
+                    classes={{
+                        selected: classes.active
+                    }}
+                >
                     <ListItemText
                         disableTypography={true}
                         primary={<Typography className={classes.text}>About</Typography>}
                     />
-                </ListItem>
-                <ListItem onClick={this.props.onClick} button={true} component={resourcesLink}>
+                </MenuItem>
+                <MenuItem
+                    onClick={this.itemClicked(3)}
+                    button={true}
+                    component={resourcesLink}
+                    selected={this.state.selectedIndex === 3}
+                    classes={{
+                        selected: classes.active
+                    }}
+                >
                     <ListItemText
                         disableTypography={true}
                         primary={<Typography className={classes.text}>Resources</Typography>}
                     />
-                </ListItem>
+                </MenuItem>
             </>
         );
+    }
+
+    private itemClicked = (index: number): () => void => {
+        return () => this.itemAction(index);
+    }
+
+    private itemAction = (index: number): void => {
+        this.setState({
+            selectedIndex: index
+        });
+
+        this.props.onClick();
     }
 
     private setModalContent = (content: ModalEnum): () => void => {
