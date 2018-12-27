@@ -3,10 +3,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
-
 import Typography from '@material-ui/core/Typography';
 import MenuItem from '@material-ui/core/MenuItem';
-// import Divider from '@material-ui/core/Divider';
 import ListItemText from '@material-ui/core/ListItemText';
 
 import { ModalEnum } from '../Modal';

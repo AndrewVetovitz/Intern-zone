@@ -1,6 +1,6 @@
 import React, { lazy, Suspense } from 'react';
 import MediaQuery from 'react-responsive';
-import { Link } from 'react-router-dom';
+
 import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import Backdrop from '@material-ui/core/Backdrop';
@@ -13,12 +13,12 @@ import Sidebar from '../../containers/SidebarContainer';
 const Modal = lazy(() => import('../../containers/ModalContainerBase'));
 import ContentWrapper from '../../containers/ContentWrapperContainer';
 
-import Home from '../Home/Home';
+const Home = lazy(() => import('../Home/Home'));
 const Company = lazy(() => import('../../containers/CompanyContainer'));
 const About = lazy(() => import('../About/About'));
 const Resources = lazy(() => import('../Resources/Resources'));
 
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 import { TITLE, LOGO_URL, NAVBAR_SIDEBAR_BREAK_WIDTH } from '../../constants';
 
@@ -46,7 +46,12 @@ export interface RouterProps extends WithStyles<typeof styles> {
 
 const routes: JSX.Element = (
     <Switch>
-        <Route exact={true} path="/" component={Home} />
+        <Route exact={true} path="/" render={() => (
+            <Suspense fallback={<></>}>
+                <Home />
+            </Suspense>
+        )}
+        />
         <Route exact={true} path="/company/:name" render={(props) => (
             <Suspense fallback={<></>}>
                 <Company {...props} />
@@ -65,7 +70,12 @@ const routes: JSX.Element = (
             </Suspense>
         )}
         />
-        <Route path="/**" component={Home} />
+        <Route exact={true} path="/**" render={() => (
+            <Suspense fallback={<></>}>
+                <Home />
+            </Suspense>
+        )}
+        />
     </Switch>
 );
 

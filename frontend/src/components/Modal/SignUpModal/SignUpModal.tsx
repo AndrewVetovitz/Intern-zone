@@ -16,7 +16,7 @@ import { Formik, Form, Field, FormikActions } from 'formik';
 
 import '../Form.css';
 
-const styles = (theme: any) => createStyles({
+const styles = () => createStyles({
     margin: {
         margin: '0 25px',
     },
@@ -34,7 +34,7 @@ interface SignUpProps extends WithStyles<typeof styles> {
     setModalContent: (content: ModalEnum) => any;
 }
 
-interface SignUpState extends UserSignUp {}
+interface SignUpState extends UserSignUp { }
 
 type StateKeys = keyof SignUpState;
 
@@ -92,10 +92,10 @@ class SignUpModal extends React.Component<SignUpProps, SignUpState> {
                         render={() => (
                             <Form>
                                 <label htmlFor="firstName">First Name</label>
-                                <Field id="firstName" name="firstName" placeholder="First name" type="text" />
+                                <Field id="firstName" name="firstName" placeholder="First name" type="name" />
 
                                 <label htmlFor="lastName">Last Name</label>
-                                <Field id="lastName" name="lastName" placeholder="Last name" type="text" />
+                                <Field id="lastName" name="lastName" placeholder="Last name" type="name" />
 
                                 <label htmlFor="email">Email</label>
                                 <Field id="email" name="email" placeholder="reallycoolemail@gmail.com" type="email" />
@@ -106,54 +106,20 @@ class SignUpModal extends React.Component<SignUpProps, SignUpState> {
                                 <label htmlFor="confirmPassword">Password Again</label>
                                 <Field id="confirmPassword" name="confirmPassword" placeholder="Confirm Again" type="confirmPassword" />
 
-                                <div style={{marginBottom: 24}}>
+                                <div style={{ marginBottom: 24 }}>
                                     <SignUpButton onClick={this.signUp} />
                                 </div>
                             </Form>
                         )}
                     />
-
-                    {/* <form className={classes.container} noValidate autoComplete="off">
-                        <TextField
-                            id="standard-name"
-                            label="Name"
-                            className={classes.textField}
-                            value={this.state.name}
-                            onChange={this.handleChange('name')}
-                            margin="normal"
-                        />
-                        <TextField
-                            id="standard-email"
-                            label="Email"
-                            className={classes.textField}
-                            value={this.state.email}
-                            onChange={this.handleChange('email')}
-                            margin="normal"
-                        />
-                        <TextField
-                            id="standard-password"
-                            label="Password"
-                            className={classes.textField}
-                            value={this.state.password}
-                            onChange={this.handleChange('password')}
-                            margin="normal"
-                        />
-                        <TextField
-                            id="standard-confirmPassword"
-                            label="Confirm Password"
-                            className={classes.textField}
-                            value={this.state.confirmPassword}
-                            onChange={this.handleChange('confirmPassword')}
-                            margin="normal"
-                        />
-                    </form> */}
                 </div>
 
                 <DialogContent>
                     Already have an account?
-                        <Button onClick={() => this.props.setModalContent(ModalEnum.LOGIN_SELECTION)} color="primary">
+
+                    <Button onClick={() => this.props.setModalContent(ModalEnum.LOGIN_SELECTION)} color="primary">
                         Login
-                        </Button>
+                    </Button>
 
                     <Button style={{ float: 'right' }} onClick={() => this.props.setModalContent(ModalEnum.HELP)} color="primary">
                         Need Help?
