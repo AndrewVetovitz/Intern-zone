@@ -9,16 +9,14 @@ const title: string = TITLE + ' | About';
 const content: string = TITLE + ' FAQ. Learn more about ' + TITLE +
     ' and features coming in the future!';
 
+const blockStyle: React.CSSProperties = { marginBottom: 25 };
+const blockHeaderStyle: React.CSSProperties = { color: '#888' };
+const customText: React.CSSProperties = { fontSize: 20, lineHeight: 1.8 };
+const headerSize: 'h4' = 'h4'
+
 function About(): JSX.Element {
-    const componentStyle: React.CSSProperties = { fontSize: 16, lineHeight: '1.6em' }
-    const blockStyle: React.CSSProperties = { marginBottom: 25 };
-    const blockHeaderStyle: React.CSSProperties = { color: '#888' };
-    const customText: React.CSSProperties = { fontSize: 20, lineHeight: 1.8 };
-    const headerSize: 'h4' = 'h4'
-
     return (
-        <div style={componentStyle}>
-
+        <>
             <Helmet defer={false}>
                 <title>{title}</title>
                 <meta charSet="utf-8" />
@@ -49,40 +47,52 @@ function About(): JSX.Element {
                 </Typography>
             </div>
 
+            <Typography variant={headerSize} style={{ ...customText, ...blockHeaderStyle }}>
+                FAQ
+            </Typography>
+
             <div style={blockStyle}>
-                <Typography variant={headerSize} style={{ ...customText, ...blockHeaderStyle }}>
-                    FAQ
-                </Typography>
-
                 <Typography variant="h6" style={{ ...customText, ...blockHeaderStyle }}>
-                    Question here?
+                    Who is this website for?
                 </Typography>
                 <Typography component="p" style={customText}>
-                    Response to question here.
-                </Typography>
-
-                <Typography variant="h6" style={{ ...customText, ...blockHeaderStyle }}>
-                    Question here?
-                </Typography>
-                <Typography component="p" style={customText}>
-                    Response to question here.
-                </Typography>
-
-                <Typography variant="h6" style={{ ...customText, ...blockHeaderStyle }}>
-                    Question here?
-                </Typography>
-                <Typography component="p" style={customText}>
-                    Response to question here.
-                </Typography>
-
-                <Typography variant="h6" style={{ ...customText, ...blockHeaderStyle }}>
-                    Question here?
-                </Typography>
-                <Typography component="p" style={customText}>
-                    Response to question here.
+                    Anyone and everyone looking for internships.
                 </Typography>
             </div>
-        </div>
+
+            <div style={blockStyle}>
+                <Typography variant="h6" style={{ ...customText, ...blockHeaderStyle }}>
+                    Why should I sign-up?
+                </Typography>
+                <Typography component="p" style={customText}>
+                    Currently signing up does not do very much however later there will be more features
+                    such as company tracking added.
+                </Typography>
+            </div>
+
+            <div style={blockStyle}>
+                <Typography variant="h6" style={{ ...customText, ...blockHeaderStyle }}>
+                    What type of internships are posted?
+                </Typography>
+                <Typography component="p" style={customText}>
+                    Currently technology based internships, but will will later add finance and STEM fields as well.
+                </Typography>
+            </div>
+
+            <div style={blockStyle}>
+                <Typography variant="h6" style={{ ...customText, ...blockHeaderStyle }}>
+                    Can I asked for a company to be added
+                </Typography>
+                <Typography component="p" style={customText}>
+                    Right at this&nbsp;
+                    <a
+                        href="https://goo.gl/forms/YiYI70LSWnYZjRyV2"
+                        target="_top"
+                        rel={'noopener noreferrer nofollow'}
+                    >link</a>.
+                </Typography>
+            </div>
+        </>
     );
 }
 

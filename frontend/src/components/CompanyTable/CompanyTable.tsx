@@ -21,6 +21,8 @@ const styles = (theme: any) => createStyles({
     },
 });
 
+const customText: React.CSSProperties = { fontSize: 20, lineHeight: 1.8 };
+
 interface Row {
     readonly positionName: string;
     readonly location: string;
@@ -39,23 +41,25 @@ function ComapanyTable(props: TableProps) {
             <Table className={classes.table}>
                 <TableHead>
                     <TableRow>
-                        <TableCell>Position</TableCell>
-                        <TableCell>Locations</TableCell>
-                        <TableCell>Link</TableCell>
+                        <TableCell style={customText}>Position</TableCell>
+                        <TableCell style={customText}>Locations</TableCell>
+                        <TableCell style={customText}>Link</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
                     {data.map((value: Row, index: number) => {
-                        const link: any = ({innerRef, ...propsSpread}: any) => <a {...propsSpread} target={'_blank'} rel={'noopener noreferrer nofollow'} href={value.link} />;
+                        const link: any = ({ innerRef, ...propsSpread }: any) => <a {...propsSpread} target={'_blank'} rel={'noopener noreferrer nofollow'} href={value.link} />;
                         const styledLink: JSX.Element = <Typography component={link}>Link</Typography>;
 
                         return (
                             <TableRow key={index}>
-                                <TableCell component="th">
+                                <TableCell style={customText} component="th">
                                     {value.positionName}
                                 </TableCell>
-                                <TableCell>{value.location}</TableCell>
-                                <TableCell>
+                                <TableCell style={customText}>
+                                    {value.location}
+                                </TableCell>
+                                <TableCell style={customText}>
                                     {styledLink}
                                 </TableCell>
                             </TableRow>

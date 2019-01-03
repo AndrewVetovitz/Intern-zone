@@ -12,13 +12,14 @@ import { TITLE } from '../../constants';
 let title: string;
 let content: string;
 
+const customText: React.CSSProperties = { fontSize: 20, lineHeight: 1.8 };
+
 export interface CompanyInputProps {
     readonly match: {
         readonly params: {
             readonly name: string;
         }
     };
-
 }
 
 export interface CompanyProps extends CompanyInputProps {
@@ -58,7 +59,7 @@ class Company extends React.Component<CompanyProps> {
 
     companyDescription(description: string): JSX.Element {
         return (
-            <Typography component="p">
+            <Typography style={customText} component="p">
                 {description}
             </Typography>
         );
