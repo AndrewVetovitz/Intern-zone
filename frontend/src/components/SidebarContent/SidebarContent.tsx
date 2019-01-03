@@ -52,7 +52,7 @@ const styles = () => createStyles({
 
 const inline: React.CSSProperties = { display: 'inline-block' };
 const textStyle: React.CSSProperties = { ...inline, cursor: 'pointer' };
-const test: React.CSSProperties = {
+const divider: React.CSSProperties = {
     marginLeft: dividerMargin + textMargin,
     userSelect: 'none',
     color: textColor,
@@ -117,7 +117,7 @@ class SidebarContent extends React.Component<SidebarContentProps, SidebarContent
                     />
                 </MenuItem>
 
-                <div style={test} />
+                <div style={divider} />
 
                 <MenuItem
                     onClick={this.itemClicked(1)}
