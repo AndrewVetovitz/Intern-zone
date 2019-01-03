@@ -46,7 +46,7 @@ const styles = () => createStyles({
         marginLeft: textMargin
     },
     active: {
-        backgroundColor: ACTIVE_COLOR  + ' !important'
+        backgroundColor: ACTIVE_COLOR + ' !important'
     }
 });
 
@@ -80,7 +80,7 @@ class SidebarContent extends React.Component<SidebarContentProps, SidebarContent
         super(props);
 
         this.state = {
-            selectedIndex: 1
+            selectedIndex: this.selectedPage()
         };
     }
 
@@ -164,6 +164,18 @@ class SidebarContent extends React.Component<SidebarContentProps, SidebarContent
                 </MenuItem>
             </>
         );
+    }
+
+    private selectedPage(): number {
+        const URL: string = window.location.href.toLowerCase();
+
+        if (URL.includes('about')) {
+            return 2;
+        } if (URL.includes('resources')) {
+            return 3;
+        } else {
+            return 1;
+        }
     }
 
     private itemClicked = (index: number): () => void => {
