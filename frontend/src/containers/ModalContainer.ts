@@ -4,7 +4,6 @@ import { Dispatch } from 'redux';
 import { ModalEnum } from '../components/Modal';
 import SignUpSelectionModalComponent from '../components/Modal/SignUpSelectionModal/SignUpSelectionModal';
 import SignUpModalComponent from '../components/Modal/SignUpModal/SignUpModal';
-import LoginModalComponent from '../components/Modal/LoginModal/LoginModal';
 import LoginSelectionModalComponent from '../components/Modal/LoginSelectionModal/LoginSelectionModal';
 import HelpModalComponent from '../components/Modal/HelpModal/HelpModal';
 
@@ -39,13 +38,11 @@ const connector = connect(
 const SignUpSelectionModal = connector(SignUpSelectionModalComponent);
 const SignUpModal = connector(SignUpModalComponent);
 const LoginSelectionModal = connector(LoginSelectionModalComponent);
-const LoginModal = connector(LoginModalComponent);
 const HelpModal = connector(HelpModalComponent);
 
 export {
     SignUpSelectionModal,
     SignUpModal,
     LoginSelectionModal,
-    LoginModal,
     HelpModal
 }

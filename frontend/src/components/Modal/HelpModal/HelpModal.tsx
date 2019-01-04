@@ -35,30 +35,38 @@ class HelpModal extends React.Component<HelpProps> {
                     <DialogTitle id="scroll-dialog-title">Having issues?</DialogTitle>
 
                     <DialogContent>
+                        I want to Sign Up
+                    </DialogContent>
+                    <DialogContent>
+                        <Button onClick={() => this.props.setModalContent(ModalEnum.SIGN_UP_SELECTION)} color="primary">
+                            SignUp
+                        </Button>
+                    </DialogContent>
+
+                    <DialogContent>
                         Forgot my password
+                    </DialogContent>
+                    <DialogContent>
+                        <Button onClick={() => this.props.setModalContent(ModalEnum.SIGN_UP_SELECTION)} color="primary">
+                            Forgot password
+                        </Button>
                     </DialogContent>
 
                     <DialogContent>
                         Need to re-confirm my email
                     </DialogContent>
-
                     <DialogContent>
-                        Need to reset my password
+                        <Button onClick={() => this.props.setModalContent(ModalEnum.SIGN_UP_SELECTION)} color="primary">
+                            Confirm Email
+                        </Button>
                     </DialogContent>
 
                     <DialogContent>
                         Locked myself out of my account
                     </DialogContent>
-
-                    <DialogContent>
-                        <Button onClick={() => this.props.setModalContent(ModalEnum.LOGIN_SELECTION)} color="primary">
-                            Login
-                        </Button>
-                    </DialogContent>
-
                     <DialogContent>
                         <Button onClick={() => this.props.setModalContent(ModalEnum.SIGN_UP_SELECTION)} color="primary">
-                            SignUp
+                            Account is locked
                         </Button>
                     </DialogContent>
                 </div>

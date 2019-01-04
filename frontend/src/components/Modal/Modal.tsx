@@ -11,7 +11,6 @@ import ModalEnum from './Modal.enum';
 
 import {
     LoginSelectionModal, 
-    LoginModal, 
     SignUpSelectionModal, 
     SignUpModal,
     HelpModal
@@ -82,9 +81,6 @@ class CustomModal extends React.Component<ModalProps, {}> {
         switch (content) {
             case ModalEnum.LOGIN_SELECTION: {
                 return <LoginSelectionModal />;
-            }
-            case ModalEnum.LOGIN: {
-                return <LoginModal />;
             }
             case ModalEnum.SIGN_UP_SELECTION: {
                 return <SignUpSelectionModal />;

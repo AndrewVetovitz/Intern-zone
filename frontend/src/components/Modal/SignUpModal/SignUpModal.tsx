@@ -9,7 +9,7 @@ import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 
 import ModalEnum from '../Modal.enum';
 
-import UserSignUpAPI, { UserSignUp } from '../../../api/userAPI';
+import userAPI, { UserSignUp } from '../../../api/userAPI';
 import SignUpButton from '../../SignUpButton/SignUpButton';
 
 import { Formik, Form, Field, FormikActions } from 'formik';
@@ -36,8 +36,6 @@ interface SignUpProps extends WithStyles<typeof styles> {
 
 interface SignUpState extends UserSignUp { }
 
-type StateKeys = keyof SignUpState;
-
 class SignUpModal extends React.Component<SignUpProps, SignUpState> {
     constructor(props: SignUpProps) {
         super(props);
@@ -51,14 +49,8 @@ class SignUpModal extends React.Component<SignUpProps, SignUpState> {
         };
     }
 
-    handleChange = (name: StateKeys) => (event: any): void => {
-        this.setState({
-            [name]: event.target.value,
-        } as Pick<SignUpState, keyof SignUpState>);
-    };
-
     signUp = (): void => {
-        UserSignUpAPI.signUpUser(this.state).then((value: any) => {
+        userAPI.signUpUser(this.state).then((value: any) => {
             console.log(value);
         });
     }

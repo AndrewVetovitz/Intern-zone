@@ -109,7 +109,7 @@ class SidebarContent extends React.Component<SidebarContentProps, SidebarContent
                                 <Typography
                                     className={classes.textColor}
                                     style={textStyle}
-                                    onClick={this.setModalContent(ModalEnum.LOGIN)}
+                                    onClick={this.setModalContent(ModalEnum.LOGIN_SELECTION)}
                                 >
                                     Login
                                 </Typography>

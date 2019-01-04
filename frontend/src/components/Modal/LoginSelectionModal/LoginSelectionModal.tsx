@@ -15,7 +15,13 @@ import GoogleSignUp from '../../Google/GoogleSignUp';
 import FacebookSignUp from '../../Facebook/FacebookSignUp';
 import GithubSignUp from '../../Github/GithubSignUp';
 import LinkedinSignUp from '../../Linkedin/LinkedinSignUp';
-import LoginButton from '../../LoginButton/LoginButton';
+import SignUpButton from '../../SignUpButton/SignUpButton';
+
+import UserAPI, { UserLogin } from '../../../api/userAPI';
+
+import { Formik, Form, Field, FormikActions } from 'formik';
+
+import '../Form.css';
 
 const styles = () => createStyles({
     margin: {
@@ -27,9 +33,22 @@ interface LoginProps extends WithStyles<typeof styles> {
     setModalContent: (state: ModalEnum) => any;
 }
 
-class LoginModal extends React.Component<LoginProps> {
+interface LoginState extends UserLogin { }
+
+class LoginModal extends React.Component<LoginProps, LoginState> {
     constructor(props: LoginProps) {
         super(props);
+
+        this.state = {
+            email: '',
+            password: ''
+        }
+    }
+
+    login = (): void => {
+        UserAPI.loginUser(this.state).then((value: any) => {
+            console.log(value);
+        });
     }
 
     render() {
@@ -52,18 +71,43 @@ class LoginModal extends React.Component<LoginProps> {
                     <DialogContent>
                         <GithubSignUp />
                     </DialogContent>
-                    <DialogContent>
-                        <LoginButton onClick={() => this.props.setModalContent(ModalEnum.LOGIN)} />
-                    </DialogContent>
 
-                    <DialogContent>
-                        <Button onClick={() => this.props.setModalContent(ModalEnum.SIGN_UP_SELECTION)} color="primary">
-                            SignUp
-                        </Button>
-                        <Button style={{ float: 'right' }} onClick={() => this.props.setModalContent(ModalEnum.HELP)} color="primary">
-                            Need Help?
-                        </Button>
-                    </DialogContent>
+                    <div className={classes.margin}>
+                        <Formik
+                            initialValues={{
+                                email: '',
+                                password: ''
+                            }}
+                            onSubmit={(values: UserLogin, { setSubmitting }: FormikActions<UserLogin>) => {
+                                setTimeout(() => {
+                                    alert(JSON.stringify(values, null, 2));
+                                    setSubmitting(false);
+                                }, 500);
+                            }}
+                            render={() => (
+                                <Form>
+                                    <label htmlFor="email">Email</label>
+                                    <Field id="email" name="email" placeholder="Email" type="email" />
+
+                                    <label htmlFor="password">Password</label>
+                                    <Field id="password" name="password" placeholder="Password" type="password" />
+
+                                    <div style={{ marginBottom: 24 }}>
+                                        <SignUpButton onClick={this.login} />
+                                    </div>
+                                </Form>
+                            )}
+                        />
+
+                        <DialogContent>
+                            <Button onClick={() => this.props.setModalContent(ModalEnum.SIGN_UP_SELECTION)} color="primary">
+                                SignUp
+                            </Button>
+                            <Button style={{ float: 'right' }} onClick={() => this.props.setModalContent(ModalEnum.HELP)} color="primary">
+                                Need Help?
+                            </Button>
+                        </DialogContent>
+                    </div>
                 </div>
             </>
         );
