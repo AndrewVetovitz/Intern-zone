@@ -47,7 +47,7 @@ class HelpModal extends React.Component<HelpProps> {
                         Forgot my password
                     </DialogContent>
                     <DialogContent>
-                        <Button onClick={() => this.props.setModalContent(ModalEnum.SIGN_UP_SELECTION)} color="primary">
+                        <Button onClick={() => this.props.setModalContent(ModalEnum.UTILITY_FORGOT_PASSWORD)} color="primary">
                             Forgot password
                         </Button>
                     </DialogContent>
@@ -56,7 +56,7 @@ class HelpModal extends React.Component<HelpProps> {
                         Need to re-confirm my email
                     </DialogContent>
                     <DialogContent>
-                        <Button onClick={() => this.props.setModalContent(ModalEnum.SIGN_UP_SELECTION)} color="primary">
+                        <Button onClick={() => this.props.setModalContent(ModalEnum.UTILITY_CONFIRM_EMAIL)} color="primary">
                             Confirm Email
                         </Button>
                     </DialogContent>
@@ -65,13 +65,11 @@ class HelpModal extends React.Component<HelpProps> {
                         Locked myself out of my account
                     </DialogContent>
                     <DialogContent>
-                        <Button onClick={() => this.props.setModalContent(ModalEnum.SIGN_UP_SELECTION)} color="primary">
+                        <Button onClick={() => this.props.setModalContent(ModalEnum.UTILITY_LOCKED_OUT)} color="primary">
                             Account is locked
                         </Button>
                     </DialogContent>
                 </div>
-
-
             </>
         );
     }

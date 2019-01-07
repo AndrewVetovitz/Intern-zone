@@ -13,8 +13,10 @@ import {
     LoginSelectionModal, 
     SignUpSelectionModal, 
     SignUpModal,
-    HelpModal
-} from '../../containers/ModalContainer';;
+    HelpModal,
+    UtilityModal
+} from '../../containers/ModalContainer';
+;
 
 const styles = () => createStyles({
     contentStyles: {
@@ -90,6 +92,15 @@ class CustomModal extends React.Component<ModalProps, {}> {
             }
             case ModalEnum.HELP: {
                 return <HelpModal />;
+            }
+            case ModalEnum.UTILITY_CONFIRM_EMAIL: {
+                return <UtilityModal contentType={ModalEnum.UTILITY_CONFIRM_EMAIL} />;
+            }
+            case ModalEnum.UTILITY_FORGOT_PASSWORD: {
+                return <UtilityModal contentType={ModalEnum.UTILITY_FORGOT_PASSWORD} />;
+            }
+            case ModalEnum.UTILITY_LOCKED_OUT: {
+                return <UtilityModal contentType={ModalEnum.UTILITY_LOCKED_OUT} />;
             }
             default: {
                 return <></>;

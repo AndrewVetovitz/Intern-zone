@@ -27,7 +27,8 @@ const styles = () => createStyles({
         width: DRAWER_WIDTH,
         backgroundColor: BACKGROUND_COLOR,
         height: '100%',
-        overflow: 'hidden'
+        overflow: 'hidden',
+        borderRight: 0
     }
 });
 
