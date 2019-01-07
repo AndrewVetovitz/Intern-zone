@@ -127,6 +127,9 @@ app.get('/api/authenticate/facebook/callback', facebookAuth, authController.face
  * User routes
  */
 app.post('/api/user/signup', validate('signup'), userController.postSignUpUser);
+app.post('/api/user/reset_password', userController.postResetPassword);
+app.post('/api/user/confirm_email', userController.postConfirmEmail);
+app.post('/api/user/unlock_account', userController.postUnlockAccount);
 
 export { app };
 export default server;

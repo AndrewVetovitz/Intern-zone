@@ -51,4 +51,16 @@ const postSignUpUser = (req: Request, res: Response) => {
     }
 };
 
-export { postSignUpUser };
+const postResetPassword = (req: Request, res: Response) => {
+
+};
+
+const postConfirmEmail = (req: Request, res: Response) => {
+
+};
+
+const postUnlockAccount = (req: Request, res: Response) => {
+
+};
+
+export { postSignUpUser, postResetPassword, postConfirmEmail, postUnlockAccount };

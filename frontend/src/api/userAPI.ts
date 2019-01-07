@@ -45,7 +45,7 @@ class UserApi {
     }
 
     public static unlockUserAccount(userData: UserUtility) {
-        const URL = SERVER_URL + '/api/user/account_unlock';
+        const URL = SERVER_URL + '/api/user/unlock_account';
 
         return UserApi.postResponse(URL, userData);
     }
