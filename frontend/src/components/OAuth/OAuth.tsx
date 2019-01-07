@@ -15,7 +15,7 @@ interface OAuthProps {
     imgUrl: string;
 }
 
-interface State {
+interface OAuthState {
     user: {
         name?: any;
         photo?: any;
@@ -23,16 +23,16 @@ interface State {
     disabled: any;
 }
 
-class OAuth extends React.Component<OAuthProps, State> {
-    state: State = {
-        user: {},
-        disabled: ''
-    };
-
+class OAuth extends React.Component<OAuthProps, OAuthState> {
     private popup: any;
 
     constructor(props: OAuthProps) {
         super(props);
+
+        this.state = {
+            user: {},
+            disabled: ''
+        };
     }
 
     componentDidMount() {
