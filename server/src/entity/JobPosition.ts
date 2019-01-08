@@ -20,6 +20,9 @@ export class JobPosition extends BaseEntity {
     @Column({ default: false })
     status: boolean;
 
+    @Column({ length: 32 })
+    type: string;
+
     @ManyToOne(type => Company, company => company.jobPositions)
     company: Company;
 

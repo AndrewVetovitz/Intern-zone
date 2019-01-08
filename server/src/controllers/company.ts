@@ -93,7 +93,6 @@ const getAllCompanyNames = (req: Request, res: Response) => {
  * GET /api/company/:name
  * Retrieve company by name
  */
-
 const getCompanyByName = (req: Request, res: Response) => {
     const name = req.params.name;
 

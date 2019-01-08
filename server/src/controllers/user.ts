@@ -51,6 +51,10 @@ const postSignUpUser = (req: Request, res: Response) => {
     }
 };
 
+/**
+ * POST /api/user/reset_password
+ * Reset user password
+ */
 const postResetPassword = (req: Request, res: Response) => {
     const errors = req.validationErrors();
 
@@ -63,6 +67,10 @@ const postResetPassword = (req: Request, res: Response) => {
     }
 };
 
+/**
+ * POST /api/user/confirm_email
+ * Confirm user email
+ */
 const postConfirmEmail = (req: Request, res: Response) => {
     const errors = req.validationErrors();
 
@@ -75,6 +83,10 @@ const postConfirmEmail = (req: Request, res: Response) => {
     }
 };
 
+/**
+ * POST /api/user/unlock_account
+ * Unlock user account
+ */
 const postUnlockAccount = (req: Request, res: Response) => {
     const errors = req.validationErrors();
 
