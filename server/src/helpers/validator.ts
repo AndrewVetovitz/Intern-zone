@@ -20,7 +20,7 @@ const validate = (method: string) => {
                     .custom((value) => {
                         return new Promise((resolve, reject) => {
                             UserProfile.createQueryBuilder().where('email = :value', { value }).execute().then((response: any) => {
-                                console.log('Response      ', response);
+                                // User does not exist true
                                 if (response.length === 0) {
                                     resolve(true);
                                 } else {
@@ -37,6 +37,27 @@ const validate = (method: string) => {
                 body('confirmPassword')
                     .exists().withMessage('ConfirmPassword must exist')
                     .custom((value, { req }) => value === req.body.password).withMessage('ConfirmPassword must equal Password'),
+            ];
+        }
+        case 'utility': {
+            return [
+                body('email')
+                    .exists().withMessage('Email must exist')
+                    .isEmail().withMessage('Invalid email')
+                    .custom((value) => {
+                        return new Promise((resolve, reject) => {
+                            UserProfile.createQueryBuilder().where('email = :value', { value }).execute().then((response: any) => {
+                                // User exists true
+                                if (response.length !== 0) {
+                                    resolve(true);
+                                } else {
+                                    reject(new Error('User already exists'));
+                                }
+                            }).catch((err: Error) => {
+                                reject(new Error('Server Error'));
+                            });
+                        });
+                    }).withMessage('Server Error'),
             ];
         }
     }

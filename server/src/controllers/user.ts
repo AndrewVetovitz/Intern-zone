@@ -52,15 +52,39 @@ const postSignUpUser = (req: Request, res: Response) => {
 };
 
 const postResetPassword = (req: Request, res: Response) => {
+    const errors = req.validationErrors();
 
+    if (errors) {
+        return res.status(422).json({ errors });
+    } else {
+        const { email } = req.body;
+
+        console.log(email);
+    }
 };
 
 const postConfirmEmail = (req: Request, res: Response) => {
+    const errors = req.validationErrors();
 
+    if (errors) {
+        return res.status(422).json({ errors });
+    } else {
+        const { email } = req.body;
+
+        console.log(email);
+    }
 };
 
 const postUnlockAccount = (req: Request, res: Response) => {
+    const errors = req.validationErrors();
 
+    if (errors) {
+        return res.status(422).json({ errors });
+    } else {
+        const { email } = req.body;
+
+        console.log(email);
+    }
 };
 
 export { postSignUpUser, postResetPassword, postConfirmEmail, postUnlockAccount };
