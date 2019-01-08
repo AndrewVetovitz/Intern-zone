@@ -12,7 +12,7 @@ import UserAPI, { UserUtility } from '../../../api/userAPI';
 
 import { Formik, Form, Field, FormikActions } from 'formik';
 
-import SignUpButton from '../../SignUpButton/SignUpButton';
+import ModalButton from '../../ModalButton/ModalButton';
 
 const styles = () => createStyles({
     margin: {
@@ -30,6 +30,7 @@ interface UtilityState extends UserUtility { }
 interface UtilityType {
     title: string;
     text: string;
+    buttonText: string;
     func: () => any;
 }
 
@@ -90,7 +91,7 @@ class UtilityModal extends React.Component<UtilityModalProps, UtilityState> {
                                     <Field id="email" name="email" placeholder="Email" type="email" />
 
                                     <div style={{ marginBottom: 24 }}>
-                                        <SignUpButton onClick={content.func} />
+                                        <ModalButton text={content.buttonText} onClick={content.func} />
                                     </div>
                                 </Form>
                             )}
@@ -115,29 +116,33 @@ class UtilityModal extends React.Component<UtilityModalProps, UtilityState> {
             case ModalEnum.UTILITY_FORGOT_PASSWORD: {
                 return { 
                     title: 'Forgot your password?', 
-                    text: 'Enter your email and we will send you a link to reset your password.', 
-                    func: this.resetPassword 
+                    text: 'Enter your email and we will send you a link to reset your password.',
+                    buttonText: 'Send password reset Link',
+                    func: this.resetPassword
                 };
             }
             case ModalEnum.UTILITY_CONFIRM_EMAIL: {
                 return { 
                     title: 'Need to confirm your email?', 
-                    text: 'We will send you another confirmation email.', 
-                    func: this.confirmEmail 
+                    text: 'We will send you another confirmation email.',
+                    buttonText: 'Resend account conformation',
+                    func: this.confirmEmail
                 };
             }
             case ModalEnum.UTILITY_LOCKED_OUT: {
                 return { 
-                    title: 'Locked out of your account?', 
-                    text: 'We will send an email to unlock your account.', 
-                    func: this.unlockAccount 
+                    title: 'Locked out of your account?',
+                    text: 'We will send an email to unlock your account.',
+                    buttonText: 'Send account unlock email',
+                    func: this.unlockAccount
                 };
             }
             default: {
                 return { 
                     title: 'Forgot your password?', 
-                    text: 'Enter your email and we will send you a link to reset your password.', 
-                    func: this.resetPassword 
+                    text: 'Enter your email and we will send you a link to reset your password.',
+                    buttonText: 'Send password reset Link',
+                    func: this.resetPassword
                 };
             }
         }

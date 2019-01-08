@@ -12,7 +12,8 @@ import GoogleSignUp from '../../Google/GoogleSignUp';
 import FacebookSignUp from '../../Facebook/FacebookSignUp';
 import GithubSignUp from '../../Github/GithubSignUp';
 import LinkedinSignUp from '../../Linkedin/LinkedinSignUp';
-import SignUpButton from '../../SignUpButton/SignUpButton';
+
+import ModalButton from '../../ModalButton/ModalButton';
 
 import UserAPI, { UserLogin } from '../../../api/userAPI';
 
@@ -90,7 +91,7 @@ class LoginModal extends React.Component<LoginProps, LoginState> {
                                     <Field id="password" name="password" placeholder="Password" type="password" />
 
                                     <div style={{ marginBottom: 24 }}>
-                                        <SignUpButton onClick={this.login} />
+                                        <ModalButton text={"Login"} onClick={this.login} />
                                     </div>
                                 </Form>
                             )}

@@ -9,7 +9,8 @@ import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 import ModalEnum from '../Modal.enum';
 
 import userAPI, { UserSignUp } from '../../../api/userAPI';
-import SignUpButton from '../../SignUpButton/SignUpButton';
+
+import ModalButton from '../../ModalButton/ModalButton';
 
 import { Formik, Form, Field, FormikActions } from 'formik';
 
@@ -98,7 +99,7 @@ class SignUpModal extends React.Component<SignUpProps, SignUpState> {
                                 <Field id="confirmPassword" name="confirmPassword" placeholder="Confirm Again" type="confirmPassword" />
 
                                 <div style={{ marginBottom: 24 }}>
-                                    <SignUpButton onClick={this.signUp} />
+                                    <ModalButton text={"Sign-up with Email"} onClick={this.signUp} />
                                 </div>
                             </Form>
                         )}
@@ -114,7 +115,7 @@ class SignUpModal extends React.Component<SignUpProps, SignUpState> {
 
                     <Button style={{ float: 'right' }} onClick={() => this.props.setModalContent(ModalEnum.HELP)} color="primary">
                         Need Help?
-                        </Button>
+                    </Button>
                 </DialogContent>
             </>
         );

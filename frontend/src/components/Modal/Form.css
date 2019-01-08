@@ -83,3 +83,7 @@
     font-weight: normal;
   }
   
+  input[type='password'] {
+      font: 'small-caption'
+  }
+  

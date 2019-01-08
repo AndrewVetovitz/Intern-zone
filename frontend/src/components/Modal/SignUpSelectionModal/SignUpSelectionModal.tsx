@@ -12,7 +12,8 @@ import GoogleSignUp from '../../Google/GoogleSignUp';
 import FacebookSignUp from '../../Facebook/FacebookSignUp';
 import GithubSignUp from '../../Github/GithubSignUp';
 import LinkedinSignUp from '../../Linkedin/LinkedinSignUp';
-import SignUpButton from '../../SignUpButton/SignUpButton';
+
+import ModalButton from '../../ModalButton/ModalButton';
 
 const styles = () => createStyles({
     margin: {
@@ -55,7 +56,7 @@ class SignUpSelectionModal extends React.Component<SignUpSelectionProps> {
                         </div>
                     </DialogContent>
                     <DialogContent>
-                        <SignUpButton onClick={() => this.props.setModalContent(ModalEnum.SIGN_UP)} />
+                        <ModalButton text={"Sign-up with Email"} onClick={() => this.props.setModalContent(ModalEnum.SIGN_UP)} />
                     </DialogContent>
 
                     <DialogContent>

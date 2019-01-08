@@ -40,6 +40,7 @@ const styles = () => createStyles({
 
 interface SignUpProps extends WithStyles<typeof styles> {
     onClick: () => any;
+    text: string;
 }
 
 class SignUp extends React.Component<SignUpProps> {
@@ -57,7 +58,7 @@ class SignUp extends React.Component<SignUpProps> {
         return (
             <button type={'submit'} onClick={this.props.onClick} className={classes.emailButton} style={{ width: '100%', cursor: 'pointer' }}>
                 <img src={emailImageUrl} className={classes.icon} />
-                <span className={classes.buttonText}>Sign Up with Email</span>
+                <span className={classes.buttonText}>{this.props.text}</span>
             </button>
         );
     }
