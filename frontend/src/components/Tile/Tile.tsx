@@ -8,12 +8,7 @@ import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
 import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 
-import { MOBILE_SCREEN_WIDTH } from '../../constants';
-
-const ONE = 1, TWO = 2, FIVE = 5;
-const phi = (ONE + Math.sqrt(FIVE)) / TWO;
-const width = 325;
-const height = width / phi;
+import { MOBILE_SCREEN_WIDTH, CARD_HEIGHT, MOBILE_CARD_HEIGHT } from '../../constants';
 
 const styles = createStyles({
     card: {
@@ -28,13 +23,13 @@ const styles = createStyles({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        height: 85
+        height: MOBILE_CARD_HEIGHT
     },
     text: {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        height: height
+        height: CARD_HEIGHT
     }
 });
 

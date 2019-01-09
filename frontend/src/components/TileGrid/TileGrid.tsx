@@ -1,10 +1,13 @@
 import React from 'react';
 
-import Grid from '@material-ui/core/Grid';
+// import Grid from '@material-ui/core/Grid';
+import { List, ListRowProps, WindowScroller } from 'react-virtualized';
 
 import { RouteComponentProps } from 'react-router-dom';
 
-import Tile from '../Tile/Tile';
+// import Tile from '../Tile/Tile';
+
+import { CARD_WIDTH, CARD_HEIGHT } from '../../constants';
 
 export interface TileGridInputProps {
     filter: string;
@@ -31,36 +34,48 @@ class TileGrid extends React.Component<TileGridProps> {
         }
     }
 
-    getTiles(): JSX.Element | JSX.Element[] {
-        const { companies } = this.props;
+    getTile(props: ListRowProps): JSX.Element | JSX.Element[] {
+        // const { companies } = this.props;
 
-        if (companies.companyNames.length > 0) {
-            return companies.companyNames
-                .filter(name => name.toLowerCase().includes(this.props.filter.toLowerCase()))
-                .map((value: string, index: number) => {
-                    return (
-                        <Grid item={true} key={index} xs={12} sm={6} md={4} lg={3} style={{ paddingBottom: 10, paddingTop: 10 }}>
-                            <Tile name={value} />
-                        </Grid>
-                    );
-                });
-        }
+        // if (companies.companyNames.length > 0 &&
+        //     props.index < companies.companyNames.length &&
+        //     companies.companyNames[props.index].toLowerCase().includes(this.props.filter.toLowerCase())) {
+        //     const value: string = companies.companyNames[props.index];
 
-        return <></>;
-    }
+        //     return (
+        //         <div
+        //             key={props.key}
+        //             style={props.style}
+        //         >
+        //             <Tile name={value} />
+        //         </div>
+        //     );
+        // }
 
-    loadFunc = (page: number) => (page: number) => {
-        console.log('loading more');
-        console.log(page);
+        return <div style={{...props.style, backgroundColor: 'red' }}>t</div>;
     }
 
     render(): JSX.Element {
-        const tiles = this.getTiles();
+        // const { companies } = this.props;
+
+        const ITEMS_COUNT = 900
 
         return (
-            <Grid container={true} spacing={40}>
-                {tiles}
-            </Grid>
+            <WindowScroller>
+                {({ height, isScrolling, onChildScroll, scrollTop }) => (
+                    <List
+                        autoHeight
+                        height={height}
+                        isScrolling={isScrolling}
+                        onScroll={onChildScroll}
+                        rowCount={ITEMS_COUNT}
+                        rowHeight={CARD_HEIGHT}
+                        rowRenderer={this.getTile}
+                        scrollTop={scrollTop}
+                        width={CARD_WIDTH}
+                    />
+                )}
+            </WindowScroller>
         );
     }
 }
