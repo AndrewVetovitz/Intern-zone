@@ -3,7 +3,7 @@ import { Dispatch } from 'redux';
 
 import { withRouter } from 'react-router-dom';
 
-import TileGrid from '../components/TileGrid/TileGrid';
+import CardGrid from '../components/CardGrid/CardGrid';
 
 import { companiesActions } from '../store/companies';
 import { CompaniesState, CompanyDispatchProps } from '../store/companies/types';
@@ -36,5 +36,5 @@ function mapDispatchToProps(dispatch: Dispatch): CompanyDispatchProps {
 export default withRouter(connect(
     mapStateToProps,
     mapDispatchToProps
-)(TileGrid));
+)(CardGrid));
 

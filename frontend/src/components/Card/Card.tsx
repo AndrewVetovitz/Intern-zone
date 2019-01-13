@@ -2,16 +2,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import MediaQuery from 'react-responsive';
 
-import Card  from '@material-ui/core/Card';
+import Card from '@material-ui/core/Card';
 import CardContent  from '@material-ui/core/Card';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
 import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 
-import { MOBILE_SCREEN_WIDTH, CARD_HEIGHT, MOBILE_CARD_HEIGHT } from '../../constants';
+import { MOBILE_SCREEN_WIDTH, CARD_HEIGHT, MOBILE_CARD_HEIGHT, CARD_WIDTH } from '../../constants';
 
 const styles = createStyles({
     card: {
+        width: CARD_WIDTH,
         height: '100%',
         display: 'flex',
         flexDirection: 'column',

@@ -4,7 +4,7 @@ import './Home.css';
 
 // import Header from '../Header/Header';
 import SearchBar from 'material-ui-search-bar';
-import TileGrid from '../../containers/TileGridContainer';
+import CardGrid from '../../containers/CardGridContainer';
 
 import { TITLE } from '../../constants';
 
@@ -38,7 +38,7 @@ class Home extends React.Component<{}, HomeState> {
                         aria-label="Search Bar"
                     />
                 </div>
-                <TileGrid filter={this.state.filter} />
+                <CardGrid filter={this.state.filter} />
             </div>
         );
     }

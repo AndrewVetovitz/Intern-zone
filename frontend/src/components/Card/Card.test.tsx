@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import Tile from './Tile';
+import Tile from './Card';
 
 interface Props {
     name: string;
