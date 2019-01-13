@@ -28,9 +28,13 @@ export interface TileGridProps extends TileGridInputProps, RouteComponentProps<v
 const styles = () => createStyles({
     row: {
         display: 'flex',
-        justifyContent: 'space-around',
+        justifyContent: 'center',
         paddingBottom: 10,
         paddingTop: 10
+    },
+    cardMargin: {
+        marginLeft: 20,
+        marginRight: 20
     }
 });
 
@@ -53,7 +57,7 @@ class TileGrid extends React.Component<TileGridProps> {
                 {({ height, isScrolling, onChildScroll, scrollTop }) => (
                     <AutoSizer disableHeight={true}>
                         {({ width }) => {
-                            const itemsPerRow = Math.floor(width / CARD_WIDTH) || 1;
+                            const itemsPerRow = Math.floor(width / (CARD_WIDTH + 40)) || 1;
                             const rowCount = Math.ceil(companies.companyNames.length / itemsPerRow);
 
                             return (
@@ -71,13 +75,15 @@ class TileGrid extends React.Component<TileGridProps> {
                                         const items = [];
                                         const fromIndex = index * itemsPerRow;
                                         const toIndex = Math.min(fromIndex + itemsPerRow, companies.companyNames.length);
-                                
+
                                         for (let i = fromIndex; i < toIndex; i++) {
                                             items.push(
-                                                <Card key={i} name={companies.companyNames[i]} />
+                                                <div className={classes.cardMargin}>
+                                                    <Card key={i} name={companies.companyNames[i]} />
+                                                </div>
                                             );
                                         }
-                                
+
                                         return (
                                             <div className={classes.row} key={key} style={style}>
                                                 {items}
