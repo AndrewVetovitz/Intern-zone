@@ -40,8 +40,6 @@ interface CardProps extends WithStyles<typeof styles> {
 
 function SimpleCard(props: CardProps): JSX.Element {
     const { classes } = props;
-
-    const mobileBreakWidth = MOBILE_SCREEN_WIDTH;
     
     if (classes === undefined) {
         return (<div/>);
@@ -51,7 +49,7 @@ function SimpleCard(props: CardProps): JSX.Element {
     const link: any = ({innerRef, ...propsSpread}: any) => <Link {...propsSpread} to={to} />;
 
     const mobile = (
-        <MediaQuery maxWidth={mobileBreakWidth}>
+        <MediaQuery maxWidth={MOBILE_SCREEN_WIDTH}>
             <div className={classes.sm_text}>
                 {props.name}
             </div>
@@ -59,7 +57,7 @@ function SimpleCard(props: CardProps): JSX.Element {
     );
 
     const other = (
-        <MediaQuery minWidth={mobileBreakWidth}>
+        <MediaQuery minWidth={MOBILE_SCREEN_WIDTH}>
             <div className={classes.text}>
                 {props.name}
             </div>

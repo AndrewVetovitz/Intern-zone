@@ -9,7 +9,9 @@ import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 
 import Card from '../Card/Card';
 
-import { CARD_WIDTH, CARD_HEIGHT } from '../../constants';
+import MediaQuery from 'react-responsive';
+
+import { CARD_WIDTH, CARD_HEIGHT, MOBILE_CARD_HEIGHT, MOBILE_SCREEN_WIDTH } from '../../constants';
 
 export interface TileGridInputProps {
     filter: string;
@@ -25,16 +27,25 @@ export interface TileGridProps extends TileGridInputProps, RouteComponentProps<v
     };
 }
 
+const sidePadding: number = 20;
+const verticalPadding: number = 10;
+
 const styles = () => createStyles({
     row: {
         display: 'flex',
-        justifyContent: 'space-between',
-        paddingBottom: 10,
-        paddingTop: 10
+        justifyContent: 'center',
+        paddingBottom: verticalPadding,
+        paddingTop: verticalPadding
     },
     cardMargin: {
-        paddingLeft: 20,
-        paddingRight: 20
+        paddingLeft: sidePadding,
+        paddingRight: sidePadding
+    },
+    cardLeft: {
+        paddingRight: sidePadding
+    },
+    cardRight: {
+        paddingLeft: sidePadding,
     }
 });
 
@@ -50,51 +61,137 @@ class TileGrid extends React.Component<TileGridProps> {
     }
 
     render(): JSX.Element {
-        const { companies, classes } = this.props;
+        const { companies, classes, filter } = this.props;
+
+        const companyNames = companies.companyNames
+            .filter(name => name.toLowerCase().includes(filter.toLowerCase()));
 
         return (
             <WindowScroller>
                 {({ height, isScrolling, onChildScroll, scrollTop }) => (
                     <AutoSizer disableHeight={true}>
                         {({ width }) => {
-                            const itemsPerRow = Math.floor(width / (CARD_WIDTH + 40)) || 1;
-                            const rowCount = Math.ceil(companies.companyNames.length / itemsPerRow);
+                            let itemsPerRow = 1;
+                            let curr = CARD_WIDTH;
 
-                            return (
-                                <List
-                                    autoHeight={true}
-                                    width={width}
-                                    height={height}
-                                    rowCount={rowCount}
-                                    rowHeight={CARD_HEIGHT + 20}
-                                    scrollTop={scrollTop}
-                                    isScrolling={isScrolling}
-                                    onScroll={onChildScroll}
-                                    overscanRowCount={3}
-                                    rowRenderer={({ index, key, style }) => {
-                                        const items = [];
-                                        const fromIndex = index * itemsPerRow;
-                                        const toIndex = Math.min(fromIndex + itemsPerRow, companies.companyNames.length);
+                            while (curr < width) {
+                                itemsPerRow++;
+                                curr = CARD_WIDTH * itemsPerRow + 40 * (itemsPerRow - 1);
+                            }
 
-                                        for (let i = fromIndex; i < toIndex; i++) {
-                                            items.push(
-                                                <div className={classes.cardMargin} key={i}>
-                                                    <Card name={companies.companyNames[i]} />
+                            itemsPerRow--;
+                            itemsPerRow = itemsPerRow || 1;
+
+                            const rowCount = Math.ceil(companyNames.length / itemsPerRow);
+
+                            const mobile = (
+                                <MediaQuery maxWidth={MOBILE_SCREEN_WIDTH}>
+                                    <List
+                                        autoHeight={true}
+                                        width={width}
+                                        height={height}
+                                        rowCount={rowCount}
+                                        rowHeight={MOBILE_CARD_HEIGHT + 20}
+                                        scrollTop={scrollTop}
+                                        isScrolling={isScrolling}
+                                        onScroll={onChildScroll}
+                                        overscanRowCount={3}
+                                        rowRenderer={({ index, key, style }) => {
+                                            const items = [];
+                                            const fromIndex = index * itemsPerRow;
+                                            const toIndex = Math.min(fromIndex + itemsPerRow, companyNames.length);
+
+                                            for (let i = fromIndex; i < toIndex; i++) {
+                                                if (i == fromIndex && i !== toIndex - 1) {
+                                                    items.push(
+                                                        <div className={classes.cardLeft} key={i}>
+                                                            <Card name={companyNames[i]} />
+                                                        </div>
+                                                    );
+                                                } else if (i == toIndex - 1 && i !== fromIndex) {
+                                                    items.push(
+                                                        <div className={classes.cardRight} key={i}>
+                                                            <Card name={companyNames[i]} />
+                                                        </div>
+                                                    );
+                                                } else {
+                                                    items.push(
+                                                        <div className={classes.cardMargin} key={i}>
+                                                            <Card name={companyNames[i]} />
+                                                        </div>
+                                                    );
+                                                }
+                                            }
+
+                                            return (
+                                                <div className={classes.row} key={key} style={style}>
+                                                    {items}
                                                 </div>
                                             );
-                                        }
+                                        }}
+                                    />
+                                </MediaQuery>
+                            );
 
-                                        return (
-                                            <div className={classes.row} key={key} style={style}>
-                                                {items}
-                                            </div>
-                                        );
-                                    }}
-                                />
+                            const other = (
+                                <MediaQuery minWidth={MOBILE_SCREEN_WIDTH}>
+                                    <List
+                                        autoHeight={true}
+                                        width={width}
+                                        height={height}
+                                        rowCount={rowCount}
+                                        rowHeight={CARD_HEIGHT + 20}
+                                        scrollTop={scrollTop}
+                                        isScrolling={isScrolling}
+                                        onScroll={onChildScroll}
+                                        overscanRowCount={3}
+                                        rowRenderer={({ index, key, style }) => {
+                                            const items = [];
+                                            const fromIndex = index * itemsPerRow;
+                                            const toIndex = Math.min(fromIndex + itemsPerRow, companyNames.length);
+
+                                            for (let i = fromIndex; i < toIndex; i++) {
+                                                if (i == fromIndex && i !== toIndex - 1) {
+                                                    items.push(
+                                                        <div className={classes.cardLeft} key={i}>
+                                                            <Card name={companyNames[i]} />
+                                                        </div>
+                                                    );
+                                                } else if (i == toIndex - 1 && i !== fromIndex) {
+                                                    items.push(
+                                                        <div className={classes.cardRight} key={i}>
+                                                            <Card name={companyNames[i]} />
+                                                        </div>
+                                                    );
+                                                } else {
+                                                    items.push(
+                                                        <div className={classes.cardMargin} key={i}>
+                                                            <Card name={companyNames[i]} />
+                                                        </div>
+                                                    );
+                                                }
+                                            }
+
+                                            return (
+                                                <div className={classes.row} key={key} style={style}>
+                                                    {items}
+                                                </div>
+                                            );
+                                        }}
+                                    />
+                                </MediaQuery>
+                            );
+
+                            return (
+                                <>
+                                    {mobile}
+                                    {other}
+                                </>
                             );
                         }}
                     </AutoSizer>
-                )}
+                )
+                }
             </WindowScroller>
         );
     }
