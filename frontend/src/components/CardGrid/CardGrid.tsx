@@ -28,13 +28,13 @@ export interface TileGridProps extends TileGridInputProps, RouteComponentProps<v
 const styles = () => createStyles({
     row: {
         display: 'flex',
-        justifyContent: 'center',
+        justifyContent: 'space-between',
         paddingBottom: 10,
         paddingTop: 10
     },
     cardMargin: {
-        marginLeft: 20,
-        marginRight: 20
+        paddingLeft: 20,
+        paddingRight: 20
     }
 });
 
@@ -70,7 +70,7 @@ class TileGrid extends React.Component<TileGridProps> {
                                     scrollTop={scrollTop}
                                     isScrolling={isScrolling}
                                     onScroll={onChildScroll}
-                                    overscanRowCount={2}
+                                    overscanRowCount={3}
                                     rowRenderer={({ index, key, style }) => {
                                         const items = [];
                                         const fromIndex = index * itemsPerRow;
@@ -78,8 +78,8 @@ class TileGrid extends React.Component<TileGridProps> {
 
                                         for (let i = fromIndex; i < toIndex; i++) {
                                             items.push(
-                                                <div className={classes.cardMargin}>
-                                                    <Card key={i} name={companies.companyNames[i]} />
+                                                <div className={classes.cardMargin} key={i}>
+                                                    <Card name={companies.companyNames[i]} />
                                                 </div>
                                             );
                                         }
