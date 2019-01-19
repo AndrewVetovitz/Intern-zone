@@ -17,13 +17,21 @@ import ModalButton from '../../ModalButton/ModalButton';
 
 import UserAPI, { UserLogin } from '../../../api/userAPI';
 
-import { Formik, Form, Field, FormikActions } from 'formik';
+import { Formik, Form, Field, FormikActions, FormikErrors, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
 
 import '../Form.css';
 
 const styles = () => createStyles({
     margin: {
-        margin: '0 25px'
+        margin: '0 19px',
+    },
+    inputField: {
+        marginBottom: 19
+    },
+    error: {
+        color: 'red',
+        fontSize: 12
     }
 });
 
@@ -43,11 +51,28 @@ class LoginModal extends React.Component<LoginProps, LoginState> {
         }
     }
 
-    login = (): void => {
+    login = (setErrors: (errors: FormikErrors<LoginState>) => void): void => {
         UserAPI.loginUser(this.state).then((value: any) => {
-            console.log(value);
+            if(value.status === 422){
+                value.data.errors.map((error: any) => {
+                    setErrors({
+                        [error.param]: error.msg
+                    })
+                });
+            } else {
+                console.log(value);
+            }
         });
     }
+
+    LoginSchema = Yup.object().shape({
+        email: Yup.string()
+            .email('Invalid email')
+            .required('Emailed Required'),
+        password: Yup.string()
+            .min(6, 'Minimum length of 6')
+            .required('Password Required')
+    });
 
     render() {
         const { classes } = this.props;
@@ -76,22 +101,26 @@ class LoginModal extends React.Component<LoginProps, LoginState> {
                                 email: '',
                                 password: ''
                             }}
-                            onSubmit={(values: UserLogin, { setSubmitting }: FormikActions<UserLogin>) => {
-                                setTimeout(() => {
-                                    alert(JSON.stringify(values, null, 2));
-                                    setSubmitting(false);
-                                }, 500);
+                            onSubmit={(values: LoginState, { setSubmitting, setErrors }: FormikActions<LoginState>) => {
+                                this.setState({ ...values }, () => this.login(setErrors));
                             }}
+                            validationSchema={this.LoginSchema}
                             render={() => (
                                 <Form>
-                                    <label htmlFor="email">Email</label>
-                                    <Field id="email" name="email" placeholder="Email" type="email" />
+                                    <div className={classes.inputField}>
+                                        <label htmlFor="email">Email</label>
+                                        <Field id="email" name="email" placeholder="Email" type="email" />
+                                        <ErrorMessage name="email">{msg => <div className={classes.error}>{msg}</div>}</ErrorMessage>
+                                    </div>
 
-                                    <label htmlFor="password">Password</label>
-                                    <Field id="password" name="password" placeholder="Password" type="password" />
+                                    <div className={classes.inputField}>
+                                        <label htmlFor="password">Password</label>
+                                        <Field id="password" name="password" placeholder="Password" type="password" />
+                                        <ErrorMessage name="password">{msg => <div className={classes.error}>{msg}</div>}</ErrorMessage>
+                                    </div>
 
                                     <div style={{ marginBottom: 24 }}>
-                                        <ModalButton text={"Login"} onClick={this.login} />
+                                        <ModalButton text={'Login'} />
                                     </div>
                                 </Form>
                             )}
@@ -101,10 +130,10 @@ class LoginModal extends React.Component<LoginProps, LoginState> {
                     <DialogContent>
                         <Button onClick={() => this.props.setModalContent(ModalEnum.SIGN_UP_SELECTION)} color="primary">
                             SignUp
-                            </Button>
+                        </Button>
                         <Button style={{ float: 'right' }} onClick={() => this.props.setModalContent(ModalEnum.HELP)} color="primary">
                             Need Help?
-                            </Button>
+                        </Button>
                     </DialogContent>
                 </div>
             </>

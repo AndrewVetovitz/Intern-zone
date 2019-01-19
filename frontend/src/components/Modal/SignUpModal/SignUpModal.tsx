@@ -12,7 +12,7 @@ import userAPI, { UserSignUp } from '../../../api/userAPI';
 
 import ModalButton from '../../ModalButton/ModalButton';
 
-import { Formik, Form, Field, FormikActions } from 'formik';
+import { Formik, Form, Field, FormikActions, FormikErrors, ErrorMessage } from 'formik';
 
 import '../Form.css';
 
@@ -20,13 +20,12 @@ const styles = () => createStyles({
     margin: {
         margin: '0 25px',
     },
-    container: {
-        display: 'flex',
-        flexWrap: 'wrap',
-        marginBottom: 24
+    inputField: {
+        marginBottom: 19
     },
-    textField: {
-        width: '100%',
+    error: {
+        color: 'red',
+        fontSize: 12
     }
 });
 
@@ -49,9 +48,17 @@ class SignUpModal extends React.Component<SignUpProps, SignUpState> {
         };
     }
 
-    signUp = (): void => {
+    signUp = (setErrors: (errors: FormikErrors<SignUpState>) => void): void => {
         userAPI.signUpUser(this.state).then((value: any) => {
-            console.log(value);
+            if (value.status === 422) {
+                value.data.errors.map((error: any) => {
+                    setErrors({
+                        [error.param]: error.msg
+                    })
+                });
+            } else {
+                console.log(value);
+            }
         });
     }
 
@@ -75,31 +82,43 @@ class SignUpModal extends React.Component<SignUpProps, SignUpState> {
                             password: '',
                             confirmPassword: ''
                         }}
-                        onSubmit={(values: UserSignUp, { setSubmitting }: FormikActions<UserSignUp>) => {
-                            setTimeout(() => {
-                                alert(JSON.stringify(values, null, 2));
-                                setSubmitting(false);
-                            }, 500);
+                        onSubmit={(values: UserSignUp, { setSubmitting, setErrors }: FormikActions<UserSignUp>) => {
+                            this.setState({ ...values }, () => this.signUp(setErrors));
                         }}
                         render={() => (
                             <Form>
-                                <label htmlFor="firstName">First Name</label>
-                                <Field id="firstName" name="firstName" placeholder="First name" type="name" />
+                                <div className={classes.inputField}>
+                                    <label htmlFor="firstName">First Name</label>
+                                    <Field id="firstName" name="firstName" placeholder="First name" type="name" />
+                                    <ErrorMessage name="firstName">{msg => <div className={classes.error}>{msg}</div>}</ErrorMessage>
+                                </div>
 
-                                <label htmlFor="lastName">Last Name</label>
-                                <Field id="lastName" name="lastName" placeholder="Last name" type="name" />
+                                <div className={classes.inputField}>
+                                    <label htmlFor="lastName">Last Name</label>
+                                    <Field id="lastName" name="lastName" placeholder="Last name" type="name" />
+                                    <ErrorMessage name="lastName">{msg => <div className={classes.error}>{msg}</div>}</ErrorMessage>
+                                </div>
 
-                                <label htmlFor="email">Email</label>
-                                <Field id="email" name="email" placeholder="reallycoolemail@gmail.com" type="email" />
+                                <div className={classes.inputField}>
+                                    <label htmlFor="email">Email</label>
+                                    <Field id="email" name="email" placeholder="Email" type="email" />
+                                    <ErrorMessage name="email">{msg => <div className={classes.error}>{msg}</div>}</ErrorMessage>
+                                </div>
 
-                                <label htmlFor="password">Password</label>
-                                <Field id="password" name="password" placeholder="Password" type="password" />
+                                <div className={classes.inputField}>
+                                    <label htmlFor="password">Password</label>
+                                    <Field id="password" name="password" placeholder="Password" type="password" />
+                                    <ErrorMessage name="password">{msg => <div className={classes.error}>{msg}</div>}</ErrorMessage>
+                                </div>
 
-                                <label htmlFor="confirmPassword">Password Again</label>
-                                <Field id="confirmPassword" name="confirmPassword" placeholder="Confirm Again" type="confirmPassword" />
+                                <div className={classes.inputField}>
+                                        <label htmlFor="confirmPassword">Password Again</label>
+                                        <Field id="confirmPassword" name="confirmPassword" placeholder="Confirm Again" type="confirmPassword" />
+                                        <ErrorMessage name="confirmPassword">{msg => <div className={classes.error}>{msg}</div>}</ErrorMessage>
+                                </div>
 
                                 <div style={{ marginBottom: 24 }}>
-                                    <ModalButton text={"Sign-up with Email"} onClick={this.signUp} />
+                                    <ModalButton text={'Sign-up with Email'} img={'email'} />
                                 </div>
                             </Form>
                         )}

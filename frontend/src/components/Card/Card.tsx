@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import MediaQuery from 'react-responsive';
 
 import Card from '@material-ui/core/Card';
-import CardContent  from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/Card';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
 import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
@@ -40,13 +40,9 @@ interface CardProps extends WithStyles<typeof styles> {
 
 function SimpleCard(props: CardProps): JSX.Element {
     const { classes } = props;
-    
-    if (classes === undefined) {
-        return (<div/>);
-    }
 
     const to = '/company/' + props.name;
-    const link: any = ({innerRef, ...propsSpread}: any) => <Link {...propsSpread} to={to} />;
+    const link: any = ({ innerRef, ...propsSpread }: any) => <Link {...propsSpread} to={to} />;
 
     const mobile = (
         <MediaQuery maxWidth={MOBILE_SCREEN_WIDTH}>

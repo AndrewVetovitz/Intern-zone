@@ -36,7 +36,7 @@ class SignUpSelectionModal extends React.Component<SignUpSelectionProps> {
         return (
             <>
                 <div className={classes.margin}>
-                    <DialogTitle style={{ textAlign: 'center' }} id="scroll-dialog-title">Create your own personalized Intern-Zone profile</DialogTitle>
+                    <DialogTitle style={{ textAlign: 'center' }} id='scroll-dialog-title'>Create your own personalized Intern-Zone profile</DialogTitle>
 
                     <DialogContent>
                         <GoogleSignUp />
@@ -56,14 +56,14 @@ class SignUpSelectionModal extends React.Component<SignUpSelectionProps> {
                         </div>
                     </DialogContent>
                     <DialogContent>
-                        <ModalButton text={"Sign-up with Email"} onClick={() => this.props.setModalContent(ModalEnum.SIGN_UP)} />
+                        <ModalButton text={'Sign-up with Email'} onClick={() => this.props.setModalContent(ModalEnum.SIGN_UP)} />
                     </DialogContent>
 
                     <DialogContent>
-                        <Button onClick={() => this.props.setModalContent(ModalEnum.LOGIN_SELECTION)} color="primary">
+                        <Button onClick={() => this.props.setModalContent(ModalEnum.LOGIN_SELECTION)} color='primary'>
                             Login
                         </Button>
-                        <Button style={{ float: 'right' }} onClick={() => this.props.setModalContent(ModalEnum.HELP)} color="primary">
+                        <Button style={{ float: 'right' }} onClick={() => this.props.setModalContent(ModalEnum.HELP)} color='primary'>
                             Need Help?
                         </Button>
                     </DialogContent>

@@ -38,9 +38,24 @@ const styles = () => createStyles({
     }
 });
 
+const returnImg = (img: string | undefined): string | undefined => {
+    switch (img) {
+        case 'email': {
+            return emailImageUrl;
+        }
+        case 'none': {
+            return undefined;
+        }
+        default: {
+            return undefined;
+        }
+    }
+}
+
 interface SignUpProps extends WithStyles<typeof styles> {
-    onClick: () => any;
+    onClick?: () => any;
     text: string;
+    img?: 'email' | 'none';
 }
 
 class SignUp extends React.Component<SignUpProps> {
@@ -49,15 +64,28 @@ class SignUp extends React.Component<SignUpProps> {
     }
 
     componentDidMount() {
-        (new Image()).src = emailImageUrl;
+        const imgURL: string | undefined = returnImg(this.props.img);
+
+        if (typeof imgURL === 'string') {
+            (new Image()).src = imgURL;
+        }
+    }
+
+    renderImg(iconClass: any): JSX.Element {
+        if(this.props.img){
+            return <img src={emailImageUrl} className={iconClass} />;
+        }
+
+        return <></>;
     }
 
     render() {
         const { classes } = this.props;
+        const img: JSX.Element = this.renderImg(classes.icon);
 
         return (
             <button type={'submit'} onClick={this.props.onClick} className={classes.emailButton} style={{ width: '100%', cursor: 'pointer' }}>
-                <img src={emailImageUrl} className={classes.icon} />
+                {img}
                 <span className={classes.buttonText}>{this.props.text}</span>
             </button>
         );

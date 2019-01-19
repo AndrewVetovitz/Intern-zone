@@ -9,8 +9,6 @@ import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 
 import Card from '../Card/Card';
 
-import MediaQuery from 'react-responsive';
-
 import { CARD_WIDTH, CARD_HEIGHT, MOBILE_CARD_HEIGHT, MOBILE_SCREEN_WIDTH } from '../../constants';
 
 export interface TileGridInputProps {
@@ -83,110 +81,54 @@ class TileGrid extends React.Component<TileGridProps> {
                             itemsPerRow = itemsPerRow || 1;
 
                             const rowCount = Math.ceil(companyNames.length / itemsPerRow);
-
-                            const mobile = (
-                                <MediaQuery maxWidth={MOBILE_SCREEN_WIDTH}>
-                                    <List
-                                        autoHeight={true}
-                                        width={width}
-                                        height={height}
-                                        rowCount={rowCount}
-                                        rowHeight={MOBILE_CARD_HEIGHT + 20}
-                                        scrollTop={scrollTop}
-                                        isScrolling={isScrolling}
-                                        onScroll={onChildScroll}
-                                        overscanRowCount={3}
-                                        rowRenderer={({ index, key, style }) => {
-                                            const items = [];
-                                            const fromIndex = index * itemsPerRow;
-                                            const toIndex = Math.min(fromIndex + itemsPerRow, companyNames.length);
-
-                                            for (let i = fromIndex; i < toIndex; i++) {
-                                                if (i == fromIndex && i !== toIndex - 1) {
-                                                    items.push(
-                                                        <div className={classes.cardLeft} key={i}>
-                                                            <Card name={companyNames[i]} />
-                                                        </div>
-                                                    );
-                                                } else if (i == toIndex - 1 && i !== fromIndex) {
-                                                    items.push(
-                                                        <div className={classes.cardRight} key={i}>
-                                                            <Card name={companyNames[i]} />
-                                                        </div>
-                                                    );
-                                                } else {
-                                                    items.push(
-                                                        <div className={classes.cardMargin} key={i}>
-                                                            <Card name={companyNames[i]} />
-                                                        </div>
-                                                    );
-                                                }
-                                            }
-
-                                            return (
-                                                <div className={classes.row} key={key} style={style}>
-                                                    {items}
-                                                </div>
-                                            );
-                                        }}
-                                    />
-                                </MediaQuery>
-                            );
-
-                            const other = (
-                                <MediaQuery minWidth={MOBILE_SCREEN_WIDTH}>
-                                    <List
-                                        autoHeight={true}
-                                        width={width}
-                                        height={height}
-                                        rowCount={rowCount}
-                                        rowHeight={CARD_HEIGHT + 20}
-                                        scrollTop={scrollTop}
-                                        isScrolling={isScrolling}
-                                        onScroll={onChildScroll}
-                                        overscanRowCount={3}
-                                        rowRenderer={({ index, key, style }) => {
-                                            const items = [];
-                                            const fromIndex = index * itemsPerRow;
-                                            const toIndex = Math.min(fromIndex + itemsPerRow, companyNames.length);
-
-                                            for (let i = fromIndex; i < toIndex; i++) {
-                                                if (i == fromIndex && i !== toIndex - 1) {
-                                                    items.push(
-                                                        <div className={classes.cardLeft} key={i}>
-                                                            <Card name={companyNames[i]} />
-                                                        </div>
-                                                    );
-                                                } else if (i == toIndex - 1 && i !== fromIndex) {
-                                                    items.push(
-                                                        <div className={classes.cardRight} key={i}>
-                                                            <Card name={companyNames[i]} />
-                                                        </div>
-                                                    );
-                                                } else {
-                                                    items.push(
-                                                        <div className={classes.cardMargin} key={i}>
-                                                            <Card name={companyNames[i]} />
-                                                        </div>
-                                                    );
-                                                }
-                                            }
-
-                                            return (
-                                                <div className={classes.row} key={key} style={style}>
-                                                    {items}
-                                                </div>
-                                            );
-                                        }}
-                                    />
-                                </MediaQuery>
-                            );
+                            const cardHeight: number = (window.innerWidth <= MOBILE_SCREEN_WIDTH) ? MOBILE_CARD_HEIGHT : CARD_HEIGHT;
 
                             return (
-                                <>
-                                    {mobile}
-                                    {other}
-                                </>
+                                <List
+                                    style={{ outline: 'none' }}
+                                    autoHeight={true}
+                                    width={width}
+                                    height={height}
+                                    rowCount={rowCount}
+                                    rowHeight={cardHeight + 20}
+                                    scrollTop={scrollTop}
+                                    isScrolling={isScrolling}
+                                    onScroll={onChildScroll}
+                                    overscanRowCount={3}
+                                    rowRenderer={({ index, key, style }) => {
+                                        const items = [];
+                                        const fromIndex = index * itemsPerRow;
+                                        const toIndex = Math.min(fromIndex + itemsPerRow, companyNames.length);
+
+                                        for (let i = fromIndex; i < toIndex; i++) {
+                                            if (i == fromIndex && i !== toIndex - 1) {
+                                                items.push(
+                                                    <div className={classes.cardLeft} key={i}>
+                                                        <Card name={companyNames[i]} />
+                                                    </div>
+                                                );
+                                            } else if (i == toIndex - 1 && i !== fromIndex) {
+                                                items.push(
+                                                    <div className={classes.cardRight} key={i}>
+                                                        <Card name={companyNames[i]} />
+                                                    </div>
+                                                );
+                                            } else {
+                                                items.push(
+                                                    <div className={classes.cardMargin} key={i}>
+                                                        <Card name={companyNames[i]} />
+                                                    </div>
+                                                );
+                                            }
+                                        }
+
+                                        return (
+                                            <div className={classes.row} key={key} style={style}>
+                                                {items}
+                                            </div>
+                                        );
+                                    }}
+                                />
                             );
                         }}
                     </AutoSizer>

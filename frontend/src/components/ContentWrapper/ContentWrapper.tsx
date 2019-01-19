@@ -12,7 +12,7 @@ export interface ContentWrapperProps extends RouteComponentProps<void> {
     screenSizeIsOpen: boolean;
 }
 
-class ContentWrapper extends React.Component<ContentWrapperProps> {
+class ContentWrapper extends React.PureComponent<ContentWrapperProps> {
     constructor(props: ContentWrapperProps) {
         super(props);
     }

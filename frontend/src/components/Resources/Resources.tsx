@@ -1,9 +1,9 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
+import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import ListSubheader from '@material-ui/core/ListSubheader';
-import { WithStyles, withStyles, createStyles } from '@material-ui/core/styles';
 
 import resource from './resource.list.json';
 
