@@ -61,8 +61,12 @@ class TileGrid extends React.Component<TileGridProps> {
     render(): JSX.Element {
         const { companies, classes, filter } = this.props;
 
-        const companyNames = companies.companyNames
-            .filter(name => name.toLowerCase().includes(filter.toLowerCase()));
+        let companyNames: string[] = [];
+
+        if (companies.companyNames) {
+            companyNames = companies.companyNames
+                .filter(name => name.toLowerCase().includes(filter.toLowerCase()));
+        }
 
         return (
             <WindowScroller>

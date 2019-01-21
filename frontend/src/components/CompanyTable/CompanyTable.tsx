@@ -49,7 +49,7 @@ function ComapanyTable(props: TableProps) {
                 <TableBody>
                     {data.map((value: Row, index: number) => {
                         const link: any = ({ innerRef, ...propsSpread }: any) => <a {...propsSpread} target={'_blank'} rel={'noopener noreferrer nofollow'} href={value.link} />;
-                        const styledLink: JSX.Element = <Typography component={link}>Link</Typography>;
+                        const styledLink: JSX.Element = <Typography style={customText} component={link}>Link</Typography>;
 
                         return (
                             <TableRow key={index}>
@@ -59,7 +59,7 @@ function ComapanyTable(props: TableProps) {
                                 <TableCell style={customText}>
                                     {value.location}
                                 </TableCell>
-                                <TableCell style={customText}>
+                                <TableCell>
                                     {styledLink}
                                 </TableCell>
                             </TableRow>

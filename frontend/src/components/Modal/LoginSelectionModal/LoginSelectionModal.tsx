@@ -68,7 +68,7 @@ class LoginModal extends React.Component<LoginProps, LoginState> {
     LoginSchema = Yup.object().shape({
         email: Yup.string()
             .email('Invalid email')
-            .required('Emailed Required'),
+            .required('Email Required'),
         password: Yup.string()
             .min(6, 'Minimum length of 6')
             .required('Password Required')

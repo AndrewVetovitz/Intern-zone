@@ -13,6 +13,7 @@ import userAPI, { UserSignUp } from '../../../api/userAPI';
 import ModalButton from '../../ModalButton/ModalButton';
 
 import { Formik, Form, Field, FormikActions, FormikErrors, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
 
 import '../Form.css';
 
@@ -62,6 +63,25 @@ class SignUpModal extends React.Component<SignUpProps, SignUpState> {
         });
     }
 
+    SignUpSchema = Yup.object().shape({
+        firstName: Yup.string()
+            .min(1, 'Minimum length of 1')
+            .required('First Name Required'),
+        lastName: Yup.string()
+            .min(1, 'Minimum length of 1')
+            .required('Last Name Required'),
+        email: Yup.string()
+            .email('Invalid email')
+            .required('Email Required'),
+        password: Yup.string()
+            .min(6, 'Minimum length of 6')
+            .required('Password Required'),
+        passwordAgain: Yup.string()
+            .min(6, 'Minimum length of 6')
+            .oneOf([Yup.ref('password'), 'Passwords must be equal'])
+            .required('Password Required')
+    });
+
     render() {
         const { classes } = this.props;
 
@@ -85,6 +105,7 @@ class SignUpModal extends React.Component<SignUpProps, SignUpState> {
                         onSubmit={(values: UserSignUp, { setSubmitting, setErrors }: FormikActions<UserSignUp>) => {
                             this.setState({ ...values }, () => this.signUp(setErrors));
                         }}
+                        validationSchema={this.SignUpSchema}
                         render={() => (
                             <Form>
                                 <div className={classes.inputField}>
@@ -112,9 +133,9 @@ class SignUpModal extends React.Component<SignUpProps, SignUpState> {
                                 </div>
 
                                 <div className={classes.inputField}>
-                                        <label htmlFor="confirmPassword">Password Again</label>
-                                        <Field id="confirmPassword" name="confirmPassword" placeholder="Confirm Again" type="confirmPassword" />
-                                        <ErrorMessage name="confirmPassword">{msg => <div className={classes.error}>{msg}</div>}</ErrorMessage>
+                                    <label htmlFor="confirmPassword">Password Again</label>
+                                    <Field id="confirmPassword" name="confirmPassword" placeholder="Confirm Again" type="confirmPassword" />
+                                    <ErrorMessage name="confirmPassword">{msg => <div className={classes.error}>{msg}</div>}</ErrorMessage>
                                 </div>
 
                                 <div style={{ marginBottom: 24 }}>
