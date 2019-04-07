@@ -31,7 +31,7 @@ class OAuth extends React.Component<OAuthProps, OAuthState> {
 
         this.state = {
             user: {},
-            disabled: ''
+            disabled: false
         };
     }
 
@@ -50,16 +50,22 @@ class OAuth extends React.Component<OAuthProps, OAuthState> {
             const { popup } = this;
             if (!popup || popup.closed || popup.closed === undefined) {
                 clearInterval(check);
-                this.setState({ disabled: '' });
+                this.setState({ disabled: false });
             }
         }, 1000);
     }
 
     openPopup() {
+        const dualScreenLeft = window.screenLeft !== undefined ? window.screenLeft : screen.availWidth;
+        const dualScreenTop = window.screenTop !== undefined ? window.screenTop : screen.availHeight;
+    
+        const innerWidth = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+        const innerHeight = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+
         const { provider, socket } = this.props;
-        const width = 600, height = 600;
-        const left = (window.innerWidth / 2) - (width / 2);
-        const top = (window.innerHeight / 2) - (height / 2);
+        const width = 775, height = 775;
+        const left = (innerWidth / 2) - (width / 2) + dualScreenLeft;
+        const top = (innerHeight / 2) - (height / 2) + dualScreenTop;
         const url = `${SERVER_URL}/api/authenticate/${provider}?socketId=${socket.id}`;
 
         return window.open(url, '',
@@ -73,7 +79,7 @@ class OAuth extends React.Component<OAuthProps, OAuthState> {
         if (!this.state.disabled) {
             this.popup = this.openPopup();
             this.checkPopup();
-            this.setState({ disabled: 'disabled' });
+            this.setState({ disabled: true });
         }
     }
 

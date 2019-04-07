@@ -60,7 +60,9 @@ class SignUpModal extends React.Component<SignUpProps, SignUpState> {
             } else {
                 console.log(value);
             }
-        });
+        }).catch(error => {
+            console.log(error);
+        });;
     }
 
     SignUpSchema = Yup.object().shape({

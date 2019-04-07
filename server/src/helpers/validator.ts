@@ -30,7 +30,7 @@ const validate = (method: string) => {
                                 reject(new Error('Server Error'));
                             });
                         });
-                    }).withMessage('Server Error'),
+                    }),
                 body('password')
                     .exists().withMessage('Password must exist')
                     .isLength({ min: 6 }).withMessage('Minimum password length of 6'),
@@ -51,13 +51,13 @@ const validate = (method: string) => {
                                 if (response.length !== 0) {
                                     resolve(true);
                                 } else {
-                                    reject(new Error('User already exists'));
+                                    reject(new Error('User does not exist'));
                                 }
                             }).catch((err: Error) => {
-                                reject(new Error('Server Error'));
+                                reject(new Error(err + 'Server Error'));
                             });
                         });
-                    }).withMessage('Server Error'),
+                    })
             ];
         }
     }

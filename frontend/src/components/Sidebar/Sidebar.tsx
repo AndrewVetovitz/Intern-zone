@@ -76,7 +76,7 @@ class Sidebar extends React.Component<SidebarProps> {
                     }}
                 >
                     <Toolbar style={{ width: DRAWER_WIDTH }} />
-                    <div
+                    <div 
                         role="button"
                         onKeyDown={this.setSidebarStateFalse}
                     >

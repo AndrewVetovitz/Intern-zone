@@ -69,19 +69,25 @@ class UtilityModal extends React.Component<UtilityModalProps, UtilityState> {
     resetPassword = (setErrors: (errors: FormikErrors<UserUtility>) => void): void => {
         UserAPI.resetUserPassword(this.state).then((value: any) => {
             this.processResponse(value, setErrors);
-        });
+        }).catch(error => {
+            console.log(error);
+        });;
     }
 
     confirmEmail = (setErrors: (errors: FormikErrors<UserUtility>) => void): void => {
         UserAPI.confirmUserEmail(this.state).then((value: any) => {
             this.processResponse(value, setErrors);
-        });
+        }).catch(error => {
+            console.log(error);
+        });;
     }
 
     unlockAccount = (setErrors: (errors: FormikErrors<UserUtility>) => void): void => {
         UserAPI.unlockUserAccount(this.state).then((value: any) => {
             this.processResponse(value, setErrors);
-        });
+        }).catch(error => {
+            console.log(error);
+        });;
     }
 
     UtilitySchema = Yup.object().shape({

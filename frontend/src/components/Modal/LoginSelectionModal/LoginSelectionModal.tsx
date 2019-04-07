@@ -62,6 +62,8 @@ class LoginModal extends React.Component<LoginProps, LoginState> {
             } else {
                 console.log(value);
             }
+        }).catch(error => {
+            console.log(error);
         });
     }
 

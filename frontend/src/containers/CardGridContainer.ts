@@ -23,8 +23,8 @@ function mapDispatchToProps(dispatch: Dispatch): CompanyDispatchProps {
         getAllCompanyNames: () => {
             dispatch(companiesActions.fetchCompanies());
             CompanyApi.getAllCompanyNames()
-                .then(companyNames => {
-                    dispatch(companiesActions.fetchCompaniesFullfilled(companyNames));
+                .then(response => {
+                    dispatch(companiesActions.fetchCompaniesFullfilled(response.data.companies));
                 })
                 .catch(err => {
                     dispatch(companiesActions.fetchCompaniesRejected(err));

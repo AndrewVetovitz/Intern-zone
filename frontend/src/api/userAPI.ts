@@ -23,39 +23,31 @@ class UserApi {
     public static signUpUser(userData: UserSignUp) {
         const URL = SERVER_URL + '/api/user/signup';
 
-        return UserApi.postResponse(URL, userData);
+        return axios.post(URL, userData);
     }
 
     public static loginUser(userData: UserLogin) {
         const URL = SERVER_URL + '/api/user/login';
 
-        return UserApi.postResponse(URL, userData);
+        return axios.post(URL, userData);
     }
 
     public static resetUserPassword(userData: UserUtility) {
         const URL = SERVER_URL + '/api/user/reset_password';
 
-        return UserApi.postResponse(URL, userData);
+        return axios.post(URL, userData);
     }
 
     public static confirmUserEmail(userData: UserUtility) {
         const URL = SERVER_URL + '/api/user/confirm_email';
 
-        return UserApi.postResponse(URL, userData);
+        return axios.post(URL, userData);
     }
 
     public static unlockUserAccount(userData: UserUtility) {
         const URL = SERVER_URL + '/api/user/unlock_account';
 
-        return UserApi.postResponse(URL, userData);
-    }
-
-    private static postResponse(URL: string, data: UserSignUp | UserLogin | UserUtility) {
-        return axios.post(URL, data).then(response => {
-            return response;
-        }).catch(error => {
-            return error.response;
-        });
+        return axios.post(URL, userData);
     }
 }
 
