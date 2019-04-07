@@ -1,3 +1,5 @@
+import React from 'react';
+
 import './Header.css';
 
 const TEXT: string = 'HEADER';

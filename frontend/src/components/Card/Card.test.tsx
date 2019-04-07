@@ -2,11 +2,13 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import Tile from './Card';
 
+import { BrowserRouter as Router } from 'react-router-dom';
+
 interface Props {
     name: string;
 }
 
-describe('<Tile />', () => {
+describe('<Card />', () => {
     let props: Props;
 
     beforeEach(() => {
@@ -17,7 +19,11 @@ describe('<Tile />', () => {
 
     it('renders without crashing', () => {
         const div = document.createElement('div');
-        ReactDOM.render(<Tile {...props} />, div);
+        ReactDOM.render(
+            <Router>
+                <Tile {...props} />
+            </Router>,
+        div);
         ReactDOM.unmountComponentAtNode(div);
     });
 });

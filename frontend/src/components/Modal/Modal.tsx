@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { RouteComponentProps } from 'react-router-dom';
+// import { RouteComponentProps } from 'react-router-dom';
 
 import Modal from '@material-ui/core/Modal';
 import Button from '@material-ui/core/Button';
@@ -16,7 +16,6 @@ import {
     HelpModal,
     UtilityModal
 } from '../../containers/ModalContainer';
-;
 
 const styles = () => createStyles({
     contentStyles: {
@@ -44,7 +43,7 @@ const styles = () => createStyles({
     }
 });
 
-interface ModalProps extends RouteComponentProps<void>, WithStyles<typeof styles> {
+interface ModalProps extends WithStyles<typeof styles> {
     modalOpen: boolean;
     modalContent: ModalEnum;
     setModalOpen: (state: boolean) => any;

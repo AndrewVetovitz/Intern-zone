@@ -56,23 +56,10 @@ class OAuth extends React.Component<OAuthProps, OAuthState> {
     }
 
     openPopup() {
-        const dualScreenLeft = window.screenLeft !== undefined ? window.screenLeft : screen.availWidth;
-        const dualScreenTop = window.screenTop !== undefined ? window.screenTop : screen.availHeight;
-    
-        const innerWidth = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
-        const innerHeight = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
-
         const { provider, socket } = this.props;
-        const width = 775, height = 775;
-        const left = (innerWidth / 2) - (width / 2) + dualScreenLeft;
-        const top = (innerHeight / 2) - (height / 2) + dualScreenTop;
         const url = `${SERVER_URL}/api/authenticate/${provider}?socketId=${socket.id}`;
 
-        return window.open(url, '',
-            `toolbar=no, location=no, directories=no, status=no, menubar=no, 
-            scrollbars=no, resizable=no, copyhistory=no, width=${width}, 
-            height=${height}, top=${top}, left=${left}`
-        );
+        return window.open(url);
     }
 
     startAuth = () => {
@@ -81,10 +68,6 @@ class OAuth extends React.Component<OAuthProps, OAuthState> {
             this.checkPopup();
             this.setState({ disabled: true });
         }
-    }
-
-    closeCard = () => {
-        this.setState({ user: {} });
     }
 
     render() {

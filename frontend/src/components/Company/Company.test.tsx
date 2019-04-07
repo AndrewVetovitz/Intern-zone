@@ -1,28 +1,29 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import Company, { Props } from './Company';
-
-import { expect }  from 'chai';
-import { shallow } from 'enzyme';
+import Company, { CompanyProps } from './Company';
 
 describe('<Company />', () => {
-    let props: Props;
+    let props: CompanyProps;
+
+    const companyName: string = 'Amazon'
+    const companyDescription: string = 'Amazon description';
 
     beforeEach(() => {
         props = {
             match: {
                 params: {
-                    name: 'Amazon'
+                    name: companyName
                 }
             },
-            postings: [
-                {
-                    positionName: 'test',
-                    location: 'test',
-                    link: 'test'
-                }
-            ],
-            description: 'test'
+            getCompanyByName: (name: string) => {},
+            company: {
+                name: companyName,
+                description: companyDescription,
+                postings: [],
+                fetching: false,
+                fetched: true,
+                error: null
+            }
         };
     });
 
@@ -31,10 +32,5 @@ describe('<Company />', () => {
 
         ReactDOM.render(<Company {...props} />, div);
         ReactDOM.unmountComponentAtNode(div);
-    });
-
-    it('renders props name correctly', () => {
-        const wrapper = shallow(<Company {...props} />);
-        expect(wrapper.contains(<div>{props.match.params.name}</div>)).to.equal(true);
     });
 });

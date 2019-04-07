@@ -1,0 +1,31 @@
+stages:
+  - build
+  - test
+
+build_frontend:
+  stage: build
+  script:
+    - cd frontend
+    - npm install
+    - npm run build
+    
+build_server:
+  state: build
+  script:
+    - cd server
+    - npm install
+    - npm run build
+
+test_frontend:
+  stage: test
+  script:
+    - cd frontend
+    - npm install
+    - npm run test
+
+test_server:
+  state: test
+  script:
+    -cd server
+    - npm install
+    - npm run test

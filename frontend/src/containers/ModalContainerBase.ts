@@ -1,8 +1,6 @@
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
-import { withRouter } from 'react-router-dom';
-
 import Modal, { ModalEnum } from '../components/Modal';
 
 import { modalActions } from '../store/modal';
@@ -28,7 +26,7 @@ function mapDispatchToProps(dispatch: Dispatch): ModalDispatchProps {
     };
 }
 
-export default withRouter(connect(
+export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(Modal));
+)(Modal);

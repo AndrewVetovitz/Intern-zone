@@ -1,5 +1,8 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+import { BrowserRouter as Router } from 'react-router-dom';
+
 import Home from './Home';
 
 import { Provider } from 'react-redux';
@@ -9,14 +12,10 @@ it('renders without crashing', () => {
     const div = document.createElement('div');
     ReactDOM.render(
         <Provider store={store}>
-            <Home />
+            <Router>
+                <Home />
+            </Router>
         </Provider>,
         div);
     ReactDOM.unmountComponentAtNode(div);
 });
-
-
-
-
-
-
