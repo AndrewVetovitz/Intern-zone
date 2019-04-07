@@ -10,7 +10,7 @@ build_frontend:
     - npm run build
     
 build_server:
-  state: build
+  stage: build
   script:
     - cd server
     - npm install
@@ -24,7 +24,7 @@ test_frontend:
     - npm run test
 
 test_server:
-  state: test
+  stage: test
   script:
     - cd server
     - npm install
