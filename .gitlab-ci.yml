@@ -26,6 +26,6 @@ test_frontend:
 test_server:
   state: test
   script:
-    -cd server
+    - cd server
     - npm install
     - npm run test
